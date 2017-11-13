@@ -1,0 +1,82 @@
+<core:View xmlns:core="sap.ui.core"
+		   xmlns="sap.m"
+		   xmlns:tnt="sap.tnt" xmlns:html="http://www.w3.org/1999/xhtml"
+		   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+		   height="100%"
+		   controllerName="view.App">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px"/>
+				<Button text="File" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="View" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<Button text="Refactor" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low"/>
+					</layoutData>
+				</Button>
+				<ToolbarSpacer>
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
+					</layoutData>
+				</ToolbarSpacer>
+				<Button text="Admin" type="Transparent" press="handleUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem text="{title}" icon="{icon}" enabled="{enabled}" expanded="{expanded}" items="{items}" key="{key}">
+						<tnt:NavigationListItem text="{title}" key="{key}" enabled="{enabled}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}">
+						</tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer">
+				<pages>
+					<ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root page"/>
+					<content/>
+					</ScrollContainer>
+					<ScrollContainer id="lok_list" horizontal="false" vertical="true" height="100%">
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.LokList" type="XML" id="__item3"/>
+					</ScrollContainer>
+					<ScrollContainer id="client_list" horizontal="false" vertical="true" height="100%">
+					<content>
+					    <core:Fragment xmlns:core="sap.ui.core" fragmentName="view.ClientList" type="XML" id="__table0"/>
+					</content>
+					</ScrollContainer>
+					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
+						<Text text="This is the root page of the second element"/>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</core:View>

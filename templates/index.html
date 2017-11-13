@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta charset="UTF-8">
+	<title>SAPUI5 Walkthrough</title>
+
+   <script id="sap-ui-bootstrap"
+    type="text/javascript"
+    src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+            namespace = '';
+
+            jQuery.sap.require("sap.ui.model.json.JSONModel");
+
+            var oModel = new sap.ui.model.json.JSONModel();
+            var oModelConfigData = new sap.ui.model.json.JSONModel();
+
+            var oModelMainController = new sap.ui.model.json.JSONModel();
+
+
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            socket.on('connect', function() {
+                socket.emit('i_am_connected', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            socket.on('server_response', function(msg) {
+                model = jQuery.parseJSON(msg.data)
+                oModel.setData(model);
+            });
+
+            socket.on('config_data', function(msg) {
+                model = msg
+                oModelConfigData.setData(model);
+                oModelMainController.setData({ value: 50, lastName: "Pan"});
+            });
+
+            var oPage = new sap.m.Page( {
+                                              title: "{lok_name}",
+                                              showNavButton : true,
+                                              navButtonText : "Use",
+                                              content: new sap.m.Image({
+        					                                src: "{image_url}",
+        					                                decorative: false,
+        					                                width : "200px",
+		                                                    height : "150px"}),
+                                            });
+
+            var oCarousel = new sap.m.Carousel( {
+                                                pageChanged : function(oControlEvent){
+            				                                    socket.emit('Lok_changed', {who: "Carousel", newLok: oControlEvent.getParameters().oldActivePageId });
+            				                                   }
+                                                } );
+
+
+            oCarousel.bindAggregation("pages", "/", oPage );
+            oCarousel.setModel(oModel);
+            oCarousel.setWidth("80%");
+            oCarousel.setHeight("320px");
+
+
+            // create a simple slider with ticks
+                var oSliderMain = new sap.m.Slider({
+                    id : 'Slider5',
+                    tooltip: 'Main Speed Control',
+                    height: '300px',
+                    width : '300px',
+                    min: 0,
+                    max: 1000,
+                    value: "{/value}",
+                    totalUnits: 5,
+                    smallStepWidth: 5,
+                    stepLabels : true,
+                    vertical: true,
+                    liveChange : function(){
+            				            socket.emit('main_controller_value_changed', oModelMainController.getData());
+            				            }
+                    });
+                    oSliderMain.setModel(oModelMainController);
+
+             var oSegmentedButton = new sap.m.SegmentedButton({
+						selectedKey: "{/direction}",
+						width: "200px",
+						select: function(){
+            				            socket.emit('main_controller_value_changed', oModelMainController.getData());
+            				            },
+						items: [new sap.m.SegmentedButtonItem({
+							key: "back",
+							icon: "sap-icon://arrow-left"
+						}), new sap.m.SegmentedButtonItem({
+							text: "",
+							key: "neutral",
+							icon: "sap-icon://circle-task"
+						}), new sap.m.SegmentedButtonItem({
+							key: "forward",
+							icon: "sap-icon://arrow-right",
+						}), ],
+					});
+
+			oSegmentedButton.setModel(oModelMainController);
+
+
+            var oTable = new sap.m.Table({
+    		columns: [
+    			new sap.m.Column({ header: new sap.m.Label({text: "Name"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Image"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Session ID"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Client ID"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Lok ID"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Request Control"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Speed"})}),
+				new sap.m.Column({ header: new sap.m.Label({text: "Controller"})})
+    				],
+			 items: {
+    			path: "/",
+    				template: new sap.m.ColumnListItem({
+        				cells: [
+        					new sap.m.Text({ text: "{lok_name}" }),
+        					new sap.m.Image({   id: "image_not_decorative",
+        					                    src: "{image_url}",
+        					                    decorative: false,
+        					                    width : "60px",
+		                                        height : "45px"}),
+        					new sap.m.Text({ text: "{session_id}" }),
+        					new sap.m.Text({ text: "{client_id}" }),
+        					new sap.m.Text({ text: "{lok_id}" }),
+        					new sap.m.Button({ text: "Request", enabled: "{requestEnabled}"}),
+        					new sap.m.Text({ text: "{lok_speed}" }),
+        					new sap.m.Slider({
+        					            min: 0,
+                                        max: 100,
+            				            value: "{lok_speed}",
+            				            enabled: "{enabled}",
+            				            liveChange : function(){
+            				            socket.emit('value changed', {data: oModel.getData()});
+            				            }
+            		      			})
+        				],
+        				enabled:  "{enabled}"
+    	                })
+                     },
+                });
+
+                oTable.setModel(oModel);
+
+            var oApp = new sap.m.App("myApp", {
+                         initialPage: "page"
+                        });
+            var aBackgrounds = ["List", "Solid", "Transparent", "Standard"];
+            var iCurrentBackground = 0;
+            var oSetBusyButton = new sap.m.Button({
+            id: "setbusy-button", text: "Power",
+            tooltip: "Set Power On/Off", press: function () {
+
+            }
+        });
+        var fnCycleBackgrounds = function () {
+            oPage.setBackgroundDesign(aBackgrounds[iCurrentBackground]);
+            if (iCurrentBackground < aBackgrounds.length) {
+                iCurrentBackground++;
+            } else {
+                iCurrentBackground = 0;
+            }
+        };
+        var oChangeBackground = new sap.m.Button({
+            id: "background-change-button", text: "Cycle background",
+            tooltip: "Cycles the backgrounds", press: fnCycleBackgrounds
+        });
+
+
+        var oPage = new sap.m.Page("page", {
+            landmarkInfo: new sap.m.PageAccessibleLandmarkInfo(),
+            title: "Train Control",
+            showNavButton: true,
+            contentOnlyBusy: true,
+            content: [
+                new sap.m.Button('hide-show-header', {
+                     text: "{/client_id}",
+                     press: function () {
+                         oPage.setShowHeader(!oPage.getShowHeader());
+
+                     }
+                }),
+                new sap.m.Button('hide-show-footer', {
+                     text: "Hide/show footer",
+                     press: function () {
+                         oPage.setShowFooter(!oPage.getShowFooter());
+                     }
+                }),
+                new sap.m.Button('toggle-floating-footer', {
+                    text: "Toggle FloatingFooter",
+                    press: function () {
+                        oPage.setFloatingFooter(!oPage.getFloatingFooter());
+                    }
+                }),
+                oSliderMain, oSegmentedButton, oCarousel, oTable
+                ],
+            footer: new sap.m.Bar({
+                contentLeft: oSetBusyButton,
+                contentRight: oChangeBackground
+            })
+        });
+        oPage.setModel(oModelConfigData);
+        oApp.addPage(oPage).placeAt("content");
+          });
+    </script>
+</head>
+
+<body class="sapUiBody" role="application">
+    <div id="content"></div>
+</body>
+
+</html>
