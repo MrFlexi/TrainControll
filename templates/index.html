@@ -41,7 +41,7 @@
             socket.on('config_data', function(msg) {
                 model = msg
                 oModelConfigData.setData(model);
-                oModelMainController.setData({ value: 50, lastName: "Pan"});
+                oModelMainController.setData({ value: 0, lastName: "Pan", direction:"neutral"});
             });
 
             var oPage = new sap.m.Page( {
@@ -116,7 +116,6 @@
     			new sap.m.Column({ header: new sap.m.Label({text: "Session ID"})}),
     			new sap.m.Column({ header: new sap.m.Label({text: "Client ID"})}),
     			new sap.m.Column({ header: new sap.m.Label({text: "Lok ID"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "Request Control"})}),
     			new sap.m.Column({ header: new sap.m.Label({text: "Speed"})}),
 				new sap.m.Column({ header: new sap.m.Label({text: "Controller"})})
     				],
@@ -133,11 +132,10 @@
         					new sap.m.Text({ text: "{session_id}" }),
         					new sap.m.Text({ text: "{client_id}" }),
         					new sap.m.Text({ text: "{lok_id}" }),
-        					new sap.m.Button({ text: "Request", enabled: "{requestEnabled}"}),
         					new sap.m.Text({ text: "{lok_speed}" }),
         					new sap.m.Slider({
         					            min: 0,
-                                        max: 100,
+                                        max: 1000,
             				            value: "{lok_speed}",
             				            enabled: "{enabled}",
             				            liveChange : function(){

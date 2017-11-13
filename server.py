@@ -41,6 +41,7 @@ class CTRL:
         CTRL.count = + 1
         self.session_id = session_id
         self.user_name = user_name
+        self.client_id = client_id
         self.image_url = Lok.getImage(lok_id)
         self.lok_id = lok_id
         self.lok_name = Lok.getName(lok_id)
@@ -90,11 +91,11 @@ class CTRL:
         hex_data2 = "000000"
 
         if iv_dir == "back":
-            lv_dir_str = chr(01)
+            lv_dir_str = chr(02)
         elif iv_dir == "neutral":
             lv_dir_str = chr(00)
         elif iv_dir == "forward":
-            lv_dir_str = chr(02)
+            lv_dir_str = chr(01)
 
         lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)

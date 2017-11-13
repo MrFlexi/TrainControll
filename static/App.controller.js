@@ -15,7 +15,7 @@ sap.ui.define([
 		data_lok: {
 			"lok": [{
 				"id": "1",
-				"name": "ETA 515",
+				"name": "ETA 5154",
 				"image": "https://img00.deviantart.net/7463/i/2012/092/5/7/eta_515_by_igneo78-d4upbtb.png",
 				"type": "DCC",
 				"addr": "3"

@@ -1,0 +1,164 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>Input - sap.m</title>
+
+		<script id="sap-ui-bootstrap"
+    type="text/javascript"
+    src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m"></script>
+		<style>
+			.inputRight {
+				float: right;
+			}
+		</style>
+		<script>
+		jQuery.sap.require("sap.m.MessageBox");
+		jQuery.sap.require("sap.ui.model.json.JSONModel");
+		//*******************************
+
+		var oSlider1 = new sap.m.Slider({
+				name: "custom-name",
+				value: "{/0/speed}",
+				width: "500px",
+				step: 1,
+				progress : false,
+				visible: true,
+				enabled: true,
+				liveChange: function(oControlEvent) {
+					jQuery.sap.log.info("Event fired: 'liveChange' value property to " + oControlEvent.getParameter("value") + " on " + this);
+				},
+				change : function(oControlEvent) {
+					jQuery.sap.log.info("Event fired: 'change' value property to " + oControlEvent.getParameter("value") + " on " + this);
+				}
+			});
+
+		var oSlider2 = new sap.m.Slider({
+				name: "custom-name",
+				value: "{/0/speed}",
+				width: "500px",
+				step: 1,
+				progress : false,
+				visible: true,
+				enabled: true,
+				liveChange: function(oControlEvent) {
+					jQuery.sap.log.info("Event fired: 'liveChange' value property to " + oControlEvent.getParameter("value") + " on " + this);
+				},
+				change : function(oControlEvent) {
+					jQuery.sap.log.info("Event fired: 'change' value property to " + oControlEvent.getParameter("value") + " on " + this);
+				}
+			});
+
+
+		var aData = [
+					{name: "S-Bahn",  userid: "U01", speed: 50, speed_ist: 30 , enabled: true, binding:"Jochen", requestEnabled: false},
+					{name: "ETA 512",  userid: "U01", speed: 80, enabled: false, binding:"Flo"},
+					{name: "ICE",  userid: "U01", speed: 80, enabled: false, binding:"Harald" },
+				];
+
+		var aData2 = [
+					{name: "ETA 512",  userid: "U01", speed: 80 },
+
+				];
+
+
+		var oTable = new sap.m.Table({
+    		columns: [
+    			new sap.m.Column({ header: new sap.m.Label({text: "Name"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "User"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Request Control"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Speed"})}),
+				new sap.m.Column({ header: new sap.m.Label({text: "Controller"})})
+    				],
+			 items: {
+    			path: "/",
+    				template: new sap.m.ColumnListItem({
+        				cells: [
+        					new sap.m.Text({ text: "{name}" }),
+        					new sap.m.Text({ text: "{binding}" }),
+        					new sap.m.Button({ text: "Request", enabled: "{requestEnabled}"}),
+        					new sap.m.Text({ text: "{speed}" }),
+        					new sap.m.Slider({
+            				value: "{speed}",
+            				enabled: "{enabled}",
+            		      			})
+        				],
+        				enabled:  "{enabled}"
+    	                })
+                     },
+                });
+
+  oTable.setModel(oModel2);
+
+
+		//*******************************
+		var oModel2 = new sap.ui.model.json.JSONModel();
+		oModel2.setData(aData);
+
+			//*******************************
+		var app = new sap.m.App("myApp");
+		function createFooter(){
+			return new sap.m.Bar({
+				contentMiddle: [new sap.m.Button({
+					text: "Input Control",
+					press: function(){
+						app.to("page1");
+					}
+				}), new sap.m.Button({
+					text: "Input Types",
+					press: function(){
+						app.to("page2");
+					}
+				}), new sap.m.Button({
+					text: "Input in List",
+					press: function(){
+						app.to("page3");
+					}
+				}), new sap.m.Button({
+					text: "Input Data Update",
+					press: function(){
+						app.to("page4");
+					}
+				})]
+			});
+		}
+
+		var page4 = new sap.m.Page("page4",{
+			title: "Train Control",
+			footer: createFooter()
+		});
+		var b4i = new sap.m.Button({text: "Submit", press: function() {
+			sap.m.MessageToast.show("" + oModel2.getProperty('/0/name'));
+			oModel2.setData(aData2);
+		}})
+		var p4i1 = new sap.m.Input({
+			change: function(){ b4i.invalidate(); }
+		});
+
+		var oText = new sap.m.Text({ text: "{/0/speed}" });
+
+		page4.setModel(oModel2);
+		page4.addContent(oTable);
+		app.addPage(page4);
+		app.placeAt("body");
+</script>
+	<style>
+	body {
+		margin: 0;
+	}
+	.sapMPageScroll {
+		padding: 1rem;
+	}
+	.sapMILI-CTX .sapMInputValHelp {
+		margin-right: 0rem;
+	}
+	</style>
+
+	</head>
+	<body id="body" class="sapUiBody">
+	</body>
+</html>
