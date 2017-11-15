@@ -47,6 +47,7 @@ class CTRL:
         self.lok_name = Lok.getName(lok_id)
         self.lok_dir = lok_dir
         self.lok_speed = lok_speed
+        self.lok_f1 = False
         CTRL.List[client_id] = self
         CTRL.printListe()
 
@@ -90,6 +91,27 @@ class CTRL:
         sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
 
     @staticmethod
+    def udp_setLokFunction(iv_lok_id, func, value):
+        hex_data1 = "000c1314060000c0"
+        hex_data2 = "0000"
+
+        lv_addr = Lok.getAddr(iv_lok_id)
+        lv_addr_str = chr(lv_addr)
+        print "DCC Address:" + str(lv_addr)
+
+        lv_func = chr(func)
+        lv_val = chr(value)
+
+        message = hex_data1.decode("hex") + lv_addr_str + lv_func + lv_val +  hex_data2.decode("hex")
+
+        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
+
+        sock = socket.socket(socket.AF_INET,  # Internet
+                             socket.SOCK_DGRAM)  # UDP
+        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
+
+
+    @staticmethod
     def udp_setDir(iv_lok_id, iv_dir):
 
         # Message muss immer 13 Byte lang sein.
@@ -126,13 +148,16 @@ class CTRL:
             print "Next Line", item
             speed = item["lok_speed"]
             direction = item["lok_dir"]
+            f1 = item["lok_f1"]
 
 
         # Get class instance
         gr_instance = CTRL.List[client_id]
         gr_instance.printCTRL()
         # Compare old and new values. if different set new speed and direction
-        #print str(item["value"])
+
+
+        #SPEED
         if gr_instance.lok_speed <> speed:
             print "Speed was changed", gr_instance.lok_speed, speed
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
@@ -141,14 +166,29 @@ class CTRL:
             # Update values in instance
             gr_instance.lok_speed = speed
 
+        # DIRECTION
         if gr_instance.lok_dir <> direction:
             print "Direction was changed", gr_instance.lok_dir, direction
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-            CTRL.udp_setDir(gr_instance.lok_id,direction)
+
+            if direction == "neutral":
+                CTRL.udp_setSpeed(gr_instance.lok_id, 0)
+            else:
+                CTRL.udp_setDir(gr_instance.lok_id,direction)
+            # Update values in instance
+            gr_instance.lok_dir = direction
+            gr_instance.lok_speed = 0
+
+            # DIRECTION
+        if gr_instance.lok_f1 <> f1:
+            print "Lok function", gr_instance.lok_f1, f1
+            # Update speed, UDP Paket an Raspbery CS2 Emulation senden
+            if f1: CTRL.udp_setLokFunction(gr_instance.lok_id, 0, 1)
+            else: CTRL.udp_setLokFunction(gr_instance.lok_id, 0, 0)
 
             # Update values in instance
             gr_instance.lok_dir = direction
-
+            gr_instance.lok_f1    = f1
 
     @staticmethod
     def setDataJSON( data_in ):
