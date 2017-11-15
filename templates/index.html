@@ -39,9 +39,9 @@
             });
 
             socket.on('config_data', function(msg) {
-                model = msg
-                oModelConfigData.setData(model);
-                oModelMainController.setData({ value: 0, lastName: "Pan", direction:"neutral"});
+                config_model = jQuery.parseJSON(msg.data)
+                oModelConfigData.setData(config_model);
+                oModelMainController.setData(config_model);
             });
 
             var oPage = new sap.m.Page( {
@@ -51,9 +51,18 @@
                                               content: new sap.m.Image({
         					                                src: "{image_url}",
         					                                decorative: false,
-        					                                width : "200px",
+        					                                width : "300px",
 		                                                    height : "150px"}),
                                             });
+
+
+            var oLokImage = new sap.m.Image({   id: "LokImage",
+        					                    src: "{/0/image_url}",
+        					                    decorative: false,
+        					                    width : "300px",
+		                                        height : "150px"});
+
+		    oLokImage.setModel(oModelMainController);
 
             var oCarousel = new sap.m.Carousel( {
                                                 pageChanged : function(oControlEvent){
@@ -76,22 +85,24 @@
                     width : '300px',
                     min: 0,
                     max: 1000,
-                    value: "{/value}",
+                    value: "{/0/lok_speed}",
                     totalUnits: 5,
                     smallStepWidth: 5,
                     stepLabels : true,
                     vertical: true,
                     liveChange : function(){
-            				            socket.emit('main_controller_value_changed', oModelMainController.getData());
+            				            // socket.emit('main_controller_value_changed', oModelMainController.getData());
+            				            socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+
             				            }
                     });
                     oSliderMain.setModel(oModelMainController);
 
              var oSegmentedButton = new sap.m.SegmentedButton({
-						selectedKey: "{/direction}",
+						selectedKey: "{/0/lok_dir}",                //
 						width: "200px",
 						select: function(){
-            				            socket.emit('main_controller_value_changed', oModelMainController.getData());
+            				            socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
             				            },
 						items: [new sap.m.SegmentedButtonItem({
 							key: "back",
@@ -182,6 +193,7 @@
             contentOnlyBusy: true,
             content: [
                 new sap.m.Button('hide-show-header', {
+                     visible: false,
                      text: "{/client_id}",
                      press: function () {
                          oPage.setShowHeader(!oPage.getShowHeader());
@@ -189,18 +201,20 @@
                      }
                 }),
                 new sap.m.Button('hide-show-footer', {
+                     visible: false,
                      text: "Hide/show footer",
                      press: function () {
                          oPage.setShowFooter(!oPage.getShowFooter());
                      }
                 }),
                 new sap.m.Button('toggle-floating-footer', {
+                    visible: false,
                     text: "Toggle FloatingFooter",
                     press: function () {
                         oPage.setFloatingFooter(!oPage.getFloatingFooter());
                     }
                 }),
-                oSliderMain, oSegmentedButton, oCarousel, oTable
+                oSliderMain, oSegmentedButton, oLokImage, oTable
                 ],
             footer: new sap.m.Bar({
                 contentLeft: oSetBusyButton,

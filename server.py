@@ -59,11 +59,18 @@ class CTRL:
         return (json.dumps(jd))
 
     @staticmethod
+    def getDataJSONforClient(client_id):
+        jd = []
+        x = CTRL.List[client_id]
+        jd.append(x.__dict__)
+        return (json.dumps(jd))
+
+    @staticmethod
     def udp_setSpeed(iv_lok_id, iv_speed):
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"
 
-        lv_addr = Lok.get_addr(iv_lok_id)
+        lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
         print "DCC Address:" + str(lv_addr)
 
@@ -111,10 +118,15 @@ class CTRL:
 
 
     @staticmethod
-    def setClientSpeed(client_id, data_in ):
-        print json.dumps(data_in, indent=1, separators=(',', ': '))
-        speed =  data_in["value"]
-        direction = data_in["direction"]
+    def setClientData(client_id, data_in ):
+        print "SetClientData " + json.dumps(data_in)
+
+        # Data comming from client is a JSON Array. In this case it should be only one element in the array
+        for item in data_in["data"]:
+            print "Next Line", item
+            speed = item["lok_speed"]
+            direction = item["lok_dir"]
+
 
         # Get class instance
         gr_instance = CTRL.List[client_id]
@@ -124,7 +136,7 @@ class CTRL:
         if gr_instance.lok_speed <> speed:
             print "Speed was changed", gr_instance.lok_speed, speed
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-            #CTRL.udp_setSpeed(gr_instance.lok_id,speed)
+            CTRL.udp_setSpeed(gr_instance.lok_id,speed)
 
             # Update values in instance
             gr_instance.lok_speed = speed
@@ -326,10 +338,13 @@ def main_controller_value_changed(message):
     print "Lok" + str( CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
 
     # Write new data into class, handle data changes
-    CTRL.setClientSpeed(client_id, message)
+    CTRL.setClientData(client_id, message)
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+
+    # Push new data to single client
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
 
 
 
@@ -356,13 +371,19 @@ def onConnect():
     client_id = nClient.getClientIDfromSID(request.sid)
     lok_id = CPU.getLokIDfromClientId(client_id)
 
-    emit('config_data', {'client_id': client_id})
-
     # Register new client and assign an default locomotion
     # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
     CTRL(request.sid, client_id, "Fred", lok_id, 0, 0)
+
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON() }, broadcast=True)
+
+    # Push new data to single client
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
+
+    print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
+
+
 
 
 @socketio.on('connect', namespace='ESP')
