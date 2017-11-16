@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # testwx
+from TrainControll import CPU, Lok, Clients
 import json
 import base64
 import socket
@@ -26,7 +27,6 @@ values = {
     'slider2': 0,
 }
 
-
 # Define Class Client
 class CTRL:
     List = {}
@@ -42,9 +42,9 @@ class CTRL:
         self.session_id = session_id
         self.user_name = user_name
         self.client_id = client_id
-        self.image_url = Lok.getImage(lok_id)
+        self.image_url =  Lok.getImage(lok_id)
         self.lok_id = lok_id
-        self.lok_name = Lok.getName(lok_id)
+        self.lok_name =  Lok.getName(lok_id)
         self.lok_dir = lok_dir
         self.lok_speed = lok_speed
         self.lok_f1 = False
@@ -239,94 +239,12 @@ class CTRL:
         print("Speed", self.lok_speed)
 
 
-# Define Class CPU
-class CPU:
-
- Mapping = {}
-
- def __init__(self, client_id, lok_id):
-    self.client_id = client_id
-    self.lok_id = lok_id
-    print "Mapping Constructor"
-    CPU.Mapping[client_id] = lok_id
-
- @staticmethod
- def getLokIDfromClientId(client_id):
-     return(CPU.Mapping[client_id])
-
-# Define Class Client
-class Lok:
-
-
- LokList = {}
- count = 0
- def __init__(self,  id, addr, protocol, name, image_url ):
-       #Create emplty dictionary
-       self.count = 0
-       self.id = id
-       self.name = name
-       self.image_url = image_url
-       self.addr = addr
-       self.protocol = protocol
-       Lok.LokList[id] =  self
-       Lok.count = + 1
-
- @staticmethod
- def printLokList():
-     i = Lok.LokList.values()
-     print("-------------------------")
-     print("Lokliste")
-     for x in i:
-       #print(x)
-       x.printLok()
-     print("-------------------------")
-
- @staticmethod
- def getImage(Lok_Id):
-     return ( Lok.LokList[Lok_Id].image_url )
-
- @staticmethod
- def getName(Lok_Id):
-     return ( Lok.LokList[Lok_Id].name )
-
-
- @staticmethod
- def getAddr(Lok_Id):
-     return ( Lok.LokList[Lok_Id].addr )
-
- def printLok(self):
-        print "Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url
-
-
-# Define Class Client
-class Clients:
- def __init__(self):
-       #Create emplty dictionary
-       self.mt_clients = {"ID":"SID"}
-       self.clientCount = 0
-       print "Class Constructor"
-
- def newClient(self, sid):
-     self.clientCount =+ self.clientCount + 1
-     print "Client Counter"
-     print self.clientCount
-     # Add new entry
-     self.mt_clients[self.clientCount] =  sid
-     print " Class - Clients"
-     print(self.mt_clients)
-     print("Anzahl:",len(self.mt_clients))
-     #emit('my_response', {'data': len(self.mt_clients)})
-
- def getClientIDfromSID(self, sid):
-     # get key from value
-     return( self.mt_clients.keys()[self.mt_clients.values().index(sid)] )
 
 
 
 # ---------------------  Main ------------------------------------
 
 nClient = Clients()
-
 Lok(id=1,name="S-BAHN", image_url="/static/S-Bahn.jpg", addr=5 , protocol="DCC")
 Lok(id=2,name="ETA-515",image_url="/static/ETA515.jpg", addr=1, protocol="DCC" )
 Lok(id=3,name="BR-218",image_url="/static/BR218.jpg", addr=3, protocol="DCC" )
@@ -340,7 +258,6 @@ CPU( 1, 1)
 CPU( 2, 2)
 CPU( 3, 3)
 CPU( 4, 5)
-
 
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -422,8 +339,6 @@ def onConnect():
     emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
-
-
 
 
 @socketio.on('connect', namespace='ESP')

@@ -26,11 +26,9 @@
 
             jQuery.sap.require("sap.ui.model.json.JSONModel");
 
-            var oModel = new sap.ui.model.json.JSONModel();
-            var oModelConfigData = new sap.ui.model.json.JSONModel();
 
             var oModelMainController = new sap.ui.model.json.JSONModel();
-
+            var oModelControllerList = new sap.ui.model.json.JSONModel();
 
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
@@ -41,21 +39,20 @@
             // Event handler for server sent data.
             socket.on('server_response', function(msg) {
                 model = jQuery.parseJSON(msg.data)
-                oModel.setData(model);
+                oModelControllerList.setData(model);
             });
 
             socket.on('config_data', function(msg) {
                 config_model = jQuery.parseJSON(msg.data)
-                oModelConfigData.setData(config_model);
                 oModelMainController.setData(config_model);
             });
 
             var oPage = new sap.m.Page( {
-                                              title: "{lok_name}",
+                                              title: "{oModelMainController>lok_name}",
                                               showNavButton : true,
                                               navButtonText : "Use",
                                               content: new sap.m.Image({
-        					                                src: "{image_url}",
+        					                                src: "{oModelMainController>image_url}",
         					                                decorative: false,
         					                                width : "300px",
 		                                                    height : "150px"}),
@@ -65,32 +62,28 @@
 
 
             var oLokImage = new sap.m.Image({   id: "LokImage",
-        					                    src: "{/0/image_url}",
+        					                    src: "{oModelMainController>/0/image_url}",
         					                    decorative: false,
         					                    width : "300px",
 		                                        height : "150px"});
 
-		    oLokImage.setModel(oModelMainController);
+
 
 
 		    var oSwitchF1 = new sap.m.Switch({
 				id: "switch_f1",
-				state: "{/0/lok_f1}",
+				state: "{oModelMainController>/0/lok_f1}",
 				change: function(oControlEvent) {
 					socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
 				}
 			});
 
-			oSwitchF1.setModel(oModelMainController);
+			// oSwitchF1.setModel(oModelMainController);
 
 			var oLabel = new sap.m.Label({
 				text: "Front Light",
 				labelFor: oSwitchF1
 			}).addStyleClass("customLabel");
-
-
-
-
 
 
             var oCarousel = new sap.m.Carousel( {
@@ -101,7 +94,7 @@
 
 
             oCarousel.bindAggregation("pages", "/", oPage );
-            oCarousel.setModel(oModel);
+            //oCarousel.setModel(oModel);
             oCarousel.setWidth("80%");
             oCarousel.setHeight("320px");
 
@@ -114,7 +107,7 @@
                     width : '300px',
                     min: 0,
                     max: 1000,
-                    value: "{/0/lok_speed}",
+                    value: "{oModelMainController>/0/lok_speed}",
                     totalUnits: 5,
                     smallStepWidth: 5,
                     stepLabels : true,
@@ -125,10 +118,9 @@
 
             				            }
                     });
-                    oSliderMain.setModel(oModelMainController);
 
              var oSegmentedButton = new sap.m.SegmentedButton({
-						selectedKey: "{/0/lok_dir}",                //
+						selectedKey: "{oModelMainController>/0/lok_dir}",                //
 						width: "200px",
 						select: function(){
             				            socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
@@ -145,8 +137,6 @@
 							icon: "sap-icon://arrow-right",
 						}), ],
 					});
-
-			oSegmentedButton.setModel(oModelMainController);
 
 
             var oTable = new sap.m.Table({
@@ -179,7 +169,7 @@
             				            value: "{lok_speed}",
             				            enabled: "{enabled}",
             				            liveChange : function(){
-            				            socket.emit('value changed', {data: oModel.getData()});
+            				            socket.emit('value changed', {data: oModelControllerList.getData()});
             				            }
             		      			})
         				],
@@ -188,7 +178,7 @@
                      },
                 });
 
-                oTable.setModel(oModel);
+             oTable.setModel(oModelControllerList);
 
 
 
@@ -240,9 +230,18 @@
             title: "Train Control",
             showNavButton: true,
             contentOnlyBusy: true,
-            content: [
+            subHeader: new sap.m.Bar({
+					contentLeft: [
+						new sap.m.Button("saShowHideMasterMode", {
+							text: "Controller Liste",
+							press: function() {
+								               }
+								               })
+					]
+				}),
+            toolbar: [
                 new sap.m.Button('hide-show-header', {
-                     visible: false,
+                     visible: true,
                      text: "{/client_id}",
                      press: function () {
                          oPage.setShowHeader(!oPage.getShowHeader());
@@ -265,12 +264,18 @@
                 }),
                 oSimpleForm, oTable
                 ],
+            content: [
+                oSimpleForm, oTable
+                ],
             footer: new sap.m.Bar({
                 contentLeft: oSetBusyButton,
                 contentRight: oChangeBackground
             })
         });
-        oPage.setModel(oModelConfigData);
+
+        oPage.setModel(oModelMainController, "oModelMainController");
+        oPage.setModel(oModelControllerList, "oModelControllerList");
+
         oApp.addPage(oPage).placeAt("content");
           });
     </script>
