@@ -28,6 +28,7 @@
 
 
             var oModelMainController = new sap.ui.model.json.JSONModel();
+            var oModelLokList        = new sap.ui.model.json.JSONModel();
             var oModelControllerList = new sap.ui.model.json.JSONModel();
 
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
@@ -45,18 +46,11 @@
             socket.on('config_data', function(msg) {
                 config_model = jQuery.parseJSON(msg.data)
                 oModelMainController.setData(config_model);
+
+                LokList_model = jQuery.parseJSON(msg.LokList)
+                oModelLokList.setData(LokList_model);
             });
 
-            var oPage = new sap.m.Page( {
-                                              title: "{oModelMainController>lok_name}",
-                                              showNavButton : true,
-                                              navButtonText : "Use",
-                                              content: new sap.m.Image({
-        					                                src: "{oModelMainController>image_url}",
-        					                                decorative: false,
-        					                                width : "300px",
-		                                                    height : "150px"}),
-                                            });
 
 
 
@@ -86,15 +80,30 @@
 			}).addStyleClass("customLabel");
 
 
+            var oPageCarousel = new sap.m.Page( {
+                                              title: "{name}",
+                                              showNavButton : true,
+                                              navButtonText : "Use",
+                                              content: new sap.m.Image({
+        					                                src: "{image_url}",
+        					                                decorative: false,
+        					                                width : "300px",
+		                                                    height : "150px"}),
+                                            });
+
             var oCarousel = new sap.m.Carousel( {
                                                 pageChanged : function(oControlEvent){
-            				                                    socket.emit('Lok_changed', {who: "Carousel", newLok: oControlEvent.getParameters().oldActivePageId });
+            				                                    socket.emit('Lok_changed',
+            				                                     { who: "Carousel",
+            				                                       newLok: oControlEvent.getParameters().newActivePageId,
+            				                                       oldLok: oControlEvent.getParameters().oldActivePageId
+            				                                       });
             				                                   }
                                                 } );
 
 
-            oCarousel.bindAggregation("pages", "/", oPage );
-            //oCarousel.setModel(oModel);
+            oCarousel.bindAggregation("pages", "/", oPageCarousel );
+            oCarousel.setModel(oModelLokList);
             oCarousel.setWidth("80%");
             oCarousel.setHeight("320px");
 
@@ -218,6 +227,7 @@
 		content:[
 			    oLokImage,
 			    oSliderMain,
+			    oCarousel,
 			    oSegmentedButton,
 			    new sap.ui.commons.Label({text:"Licht"}),
 			    oSwitchF1

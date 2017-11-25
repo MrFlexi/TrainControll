@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # testwx
-from TrainControll import CPU, Lok, Clients
+from TrainControll import CPU, Lok, Clients, UDP
 import json
 import base64
 import socket
@@ -51,6 +51,8 @@ class CTRL:
         CTRL.List[client_id] = self
         CTRL.printListe()
 
+
+
     @staticmethod
     def getDataJSON():
         jd = []
@@ -65,79 +67,6 @@ class CTRL:
         x = CTRL.List[client_id]
         jd.append(x.__dict__)
         return (json.dumps(jd))
-
-    @staticmethod
-    def udp_setSpeed(iv_lok_id, iv_speed):
-        hex_data1 = "00081314060000c0"
-        hex_data2 = "0000"
-
-        lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_str = chr(lv_addr)
-        print "DCC Address:" + str(lv_addr)
-
-        low = iv_speed & 0xff
-        high = (iv_speed >> 8) & 0xff
-
-        lv_speed_low = chr(low)
-        lv_speed_high = chr(high)
-
-        message = hex_data1.decode("hex") + lv_addr_str + lv_speed_high + lv_speed_low + hex_data2.decode(
-            "hex")
-
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
-
-        sock = socket.socket(socket.AF_INET,  # Internet
-                             socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
-
-    @staticmethod
-    def udp_setLokFunction(iv_lok_id, func, value):
-        hex_data1 = "000c1314060000c0"
-        hex_data2 = "0000"
-
-        lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_str = chr(lv_addr)
-        print "DCC Address:" + str(lv_addr)
-
-        lv_func = chr(func)
-        lv_val = chr(value)
-
-        message = hex_data1.decode("hex") + lv_addr_str + lv_func + lv_val +  hex_data2.decode("hex")
-
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
-
-        sock = socket.socket(socket.AF_INET,  # Internet
-                             socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
-
-
-    @staticmethod
-    def udp_setDir(iv_lok_id, iv_dir):
-
-        # Message muss immer 13 Byte lang sein.
-        # hex_data1 = "000A4711050000c00301000000"
-        hex_data1 = "000A4711050000c0"
-        hex_data2 = "000000"
-
-        if iv_dir == "back":
-            lv_dir_str = chr(02)
-        elif iv_dir == "neutral":
-            lv_dir_str = chr(00)
-        elif iv_dir == "forward":
-            lv_dir_str = chr(01)
-
-        lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_str = chr(lv_addr)
-        # lv_dir_str = chr(iv_dir)
-        print "Set Direction:"
-
-        message = hex_data1.decode("hex") + lv_addr_str + lv_dir_str + hex_data2.decode("hex")
-
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
-        sock = socket.socket(socket.AF_INET,  # Internet
-                             socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
-
 
     @staticmethod
     def setClientData(client_id, data_in ):
@@ -161,7 +90,7 @@ class CTRL:
         if gr_instance.lok_speed <> speed:
             print "Speed was changed", gr_instance.lok_speed, speed
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-            CTRL.udp_setSpeed(gr_instance.lok_id,speed)
+            UDP.setSpeed(gr_instance.lok_id,speed)
 
             # Update values in instance
             gr_instance.lok_speed = speed
@@ -172,9 +101,9 @@ class CTRL:
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
 
             if direction == "neutral":
-                CTRL.udp_setSpeed(gr_instance.lok_id, 0)
+                UDP.setSpeed(gr_instance.lok_id, 0)
             else:
-                CTRL.udp_setDir(gr_instance.lok_id,direction)
+                UDP.setDir(gr_instance.lok_id,direction)
             # Update values in instance
             gr_instance.lok_dir = direction
             gr_instance.lok_speed = 0
@@ -183,8 +112,8 @@ class CTRL:
         if gr_instance.lok_f1 <> f1:
             print "Lok function", gr_instance.lok_f1, f1
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-            if f1: CTRL.udp_setLokFunction(gr_instance.lok_id, 0, 1)
-            else: CTRL.udp_setLokFunction(gr_instance.lok_id, 0, 0)
+            if f1: UDP.setLokFunction(gr_instance.lok_id, 0, 1)
+            else: UDP.setLokFunction(gr_instance.lok_id, 0, 0)
 
             # Update values in instance
             gr_instance.lok_dir = direction
@@ -336,7 +265,11 @@ def onConnect():
     emit('server_response', {'data': CTRL.getDataJSON() }, broadcast=True)
 
     # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'LokList': Lok.getDataJSON()
+                        }
+
+        )
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
 
@@ -364,6 +297,9 @@ def value_changed(message):
     print "Value change of Client" + str( nClient.getClientIDfromSID(request.sid) )
     print ("Value change of Lok", CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
     print json.dumps(message, indent=1, separators=(',', ': '))
+    lok_old = int( message["oldLok"][-1:]) + 1
+    lok_new = int( message["newLok"][-1:]) + 1
+    print Lok.getName(lok_old) + "--->" + Lok.getName(lok_new)
 
 if __name__ == '__main__':
   socketio.run(app, host='0.0.0.0', port=3000, debug=True)
