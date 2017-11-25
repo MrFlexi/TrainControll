@@ -1,9 +1,13 @@
 
 import json
-
+import socket
 
 # Define Class CPU
 class UDP:
+
+    UDP_IP = "192.168.1.100"
+    UDP_PORT = 15731
+
     @staticmethod
     def setSpeed(iv_lok_id, iv_speed):
         hex_data1 = "00081314060000c0"
@@ -22,11 +26,11 @@ class UDP:
         message = hex_data1.decode("hex") + lv_addr_str + lv_speed_high + lv_speed_low + hex_data2.decode(
             "hex")
 
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
+        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
+        sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
     def setLokFunction(iv_lok_id, func, value):
@@ -42,11 +46,11 @@ class UDP:
 
         message = hex_data1.decode("hex") + lv_addr_str + lv_func + lv_val + hex_data2.decode("hex")
 
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
+        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
+        sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
     def setDir(iv_lok_id, iv_dir):
@@ -70,10 +74,11 @@ class UDP:
 
         message = hex_data1.decode("hex") + lv_addr_str + lv_dir_str + hex_data2.decode("hex")
 
-        print "UDP IP:", CTRL.UDP_IP + " Port:", CTRL.UDP_PORT
+        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (CTRL.UDP_IP, CTRL.UDP_PORT))
+        sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
 
 # Define Class CPU

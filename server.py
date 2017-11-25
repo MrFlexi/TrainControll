@@ -3,7 +3,7 @@
 from TrainControll import CPU, Lok, Clients, UDP
 import json
 import base64
-import socket
+
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
@@ -31,8 +31,7 @@ values = {
 class CTRL:
     List = {}
     count = 0
-    UDP_IP = "192.168.1.100"
-    UDP_PORT = 15731
+
 
     def __init__(self, session_id, client_id, user_name, lok_id,  lok_dir, lok_speed):
 
@@ -50,6 +49,26 @@ class CTRL:
         self.lok_f1 = False
         CTRL.List[client_id] = self
         CTRL.printListe()
+
+    @staticmethod
+    def change_lok(client_id, data_in):
+        print json.dumps(data_in, indent=1, separators=(',', ': '))
+
+        lok_old = int(data_in["oldLok"][-1:]) + 1
+        lok_new = int(data_in["newLok"][-1:]) + 1
+        print "Lok change requested" + Lok.getName(lok_old) + "--->" + Lok.getName(lok_new)
+
+        # Get class instance
+        gr_instance = CTRL.List[client_id]
+        gr_instance.printCTRL()
+
+        # Compare old and new values. if different set new speed and direction
+        if gr_instance.lok_id <> lok_new:
+            print "Lok was changed", gr_instance.lok_id
+            # Update values in instance
+            gr_instance.lok_id = lok_new
+            gr_instance.image_url = Lok.getImage(lok_new)
+            gr_instance.lok_name = Lok.getName(lok_new)
 
 
 
@@ -157,6 +176,7 @@ class CTRL:
 
     def printCTRL(self):
         print("SessionID", self.session_id)
+        print("ClientID", self.client_id)
         print("LokID", self.lok_id)
         print("LokName", self.lok_name)
         print("Speed", self.lok_speed)
@@ -293,13 +313,15 @@ def value_changed2(message):
 @socketio.on('Lok_changed', namespace='')
 def value_changed(message):
 
+    client_id = nClient.getClientIDfromSID(request.sid)
+
     print "Lok change of Session ID" + str(request.sid)
-    print "Value change of Client" + str( nClient.getClientIDfromSID(request.sid) )
-    print ("Value change of Lok", CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
-    print json.dumps(message, indent=1, separators=(',', ': '))
-    lok_old = int( message["oldLok"][-1:]) + 1
-    lok_new = int( message["newLok"][-1:]) + 1
-    print Lok.getName(lok_old) + "--->" + Lok.getName(lok_new)
+    print "Value change of Client" + str( client_id )
+    CTRL.change_lok(client_id=client_id, data_in=message )
+
+    # Push new data to all connected clients
+    emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+
 
 if __name__ == '__main__':
   socketio.run(app, host='0.0.0.0', port=3000, debug=True)

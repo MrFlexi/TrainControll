@@ -72,8 +72,6 @@
 				}
 			});
 
-			// oSwitchF1.setModel(oModelMainController);
-
 			var oLabel = new sap.m.Label({
 				text: "Front Light",
 				labelFor: oSwitchF1
@@ -82,13 +80,13 @@
 
             var oPageCarousel = new sap.m.Page( {
                                               title: "{name}",
-                                              showNavButton : true,
+                                              showNavButton : false,
                                               navButtonText : "Use",
                                               content: new sap.m.Image({
         					                                src: "{image_url}",
         					                                decorative: false,
-        					                                width : "300px",
-		                                                    height : "150px"}),
+        					                                width : "100%",
+		                                                    height : "80%"}),
                                             });
 
             var oCarousel = new sap.m.Carousel( {
@@ -104,7 +102,7 @@
 
             oCarousel.bindAggregation("pages", "/", oPageCarousel );
             oCarousel.setModel(oModelLokList);
-            oCarousel.setWidth("80%");
+            oCarousel.setWidth("100%");
             oCarousel.setHeight("320px");
 
 
@@ -122,7 +120,6 @@
                     stepLabels : true,
                     vertical: true,
                     liveChange : function(){
-            				            // socket.emit('main_controller_value_changed', oModelMainController.getData());
             				            socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
 
             				            }
@@ -225,7 +222,6 @@
 		layout: sap.ui.layout.form.SimpleFormLayout.ResponsiveGridLayout,
 		editable: false,
 		content:[
-			    oLokImage,
 			    oSliderMain,
 			    oCarousel,
 			    oSegmentedButton,
@@ -238,33 +234,18 @@
         var oPage = new sap.m.Page("page", {
             landmarkInfo: new sap.m.PageAccessibleLandmarkInfo(),
             title: "Train Control",
-            showNavButton: true,
-            contentOnlyBusy: true,
-            subHeader: new sap.m.Bar({
-					contentLeft: [
-						new sap.m.Button("saShowHideMasterMode", {
-							text: "Controller Liste",
-							press: function() {
-								               }
-								               })
-					]
-				}),
-            toolbar: [
-                new sap.m.Button('hide-show-header', {
+            showNavButton: false,
+            contentOnlyBusy: false,
+            headerContent: new sap.m.Button('bt_settings', {
                      visible: true,
-                     text: "{/client_id}",
+                     icon: "sap-icon://settings",
                      press: function () {
                          oPage.setShowHeader(!oPage.getShowHeader());
 
                      }
                 }),
-                new sap.m.Button('hide-show-footer', {
-                     visible: false,
-                     text: "Hide/show footer",
-                     press: function () {
-                         oPage.setShowFooter(!oPage.getShowFooter());
-                     }
-                }),
+            toolbar: [
+
                 new sap.m.Button('toggle-floating-footer', {
                     visible: false,
                     text: "Toggle FloatingFooter",
@@ -272,7 +253,6 @@
                         oPage.setFloatingFooter(!oPage.getFloatingFooter());
                     }
                 }),
-                oSimpleForm, oTable
                 ],
             content: [
                 oSimpleForm, oTable
