@@ -94,7 +94,10 @@ class CPU:
 
  @staticmethod
  def getLokIDfromClientId(client_id):
-     return(CPU.Mapping[client_id])
+     if client_id in CPU.Mapping:
+        return(CPU.Mapping[client_id])
+     else:
+        return()
 
  @staticmethod
  def setLokID(client_id,lok_id):
@@ -137,16 +140,19 @@ class Lok:
 
  @staticmethod
  def getImage(Lok_Id):
-     return ( Lok.LokList[Lok_Id].image_url )
+     if Lok_Id in Lok.LokList:
+        return ( Lok.LokList[Lok_Id].image_url )
 
  @staticmethod
  def getName(Lok_Id):
-     return ( Lok.LokList[Lok_Id].name )
+     if Lok_Id in Lok.LokList:
+        return ( Lok.LokList[Lok_Id].name )
 
 
  @staticmethod
  def getAddr(Lok_Id):
-     return ( Lok.LokList[Lok_Id].addr )
+     if Lok_Id in Lok.LokList:
+        return ( Lok.LokList[Lok_Id].addr )
 
  def printLok(self):
         print "Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url

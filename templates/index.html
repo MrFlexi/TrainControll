@@ -236,14 +236,32 @@
             title: "Train Control",
             showNavButton: false,
             contentOnlyBusy: false,
-            headerContent: new sap.m.Button('bt_settings', {
-                     visible: true,
-                     icon: "sap-icon://settings",
-                     press: function () {
-                         oPage.setShowHeader(!oPage.getShowHeader());
+            headerContent: [
+                                new sap.m.Button('bt_clientid', {
+                                    visible: true,
+                                    text: "{oModelMainController>/0/client_id}",
+                                    enabled: false,
+                                    press: function () {
+                                    show_error_messages()
+                                    }
+                                }),
 
-                     }
-                }),
+                                new sap.m.Button('bt_messages', {
+                                    visible: true,
+                                    icon: "sap-icon://error",
+                                    press: function () {
+                                    show_error_messages()
+                                    }
+                                }),
+                                new sap.m.Button('bt_settings', {
+                                    visible: true,
+                                    icon: "sap-icon://settings",
+                                    press: function () {
+                                    oPage.setShowHeader(!oPage.getShowHeader());
+                                    }
+                                })
+
+                ],
             toolbar: [
 
                 new sap.m.Button('toggle-floating-footer', {
