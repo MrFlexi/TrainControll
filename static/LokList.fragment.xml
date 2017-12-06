@@ -1,10 +1,8 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core">
-	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/lok}" id="__list0">
+	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0">
 		<sap.m:items>
 			<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image}">
 				<sap.m:attributes>
-					<sap.m:ObjectAttribute title="Tittel" text="{LokListModel>name}" id="__attribute0">
-					</sap.m:ObjectAttribute>
 					<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute1">
 					</sap.m:ObjectAttribute>
 					<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute2">
@@ -15,9 +13,6 @@
 				<sap.m:firstStatus>
 					<sap.m:ObjectStatus text="first status text" id="__status0"/>
 				</sap.m:firstStatus>
-				<sap.m:secondStatus>
-					<sap.m:ObjectStatus text="second status text" id="__status1"/>
-				</sap.m:secondStatus>
 			</sap.m:ObjectListItem>
 		</sap.m:items>
 	</sap.m:List>
