@@ -70,6 +70,11 @@ class CTRL:
             gr_instance.image_url = Lok.getImage(lok_new)
             gr_instance.lok_name = Lok.getName(lok_new)
 
+            #Update mapping table
+            CPU.printListe()
+            CPU.setLokID(client_id,lok_new)
+            CPU.printListe()
+
 
 
     @staticmethod
@@ -165,7 +170,6 @@ class CTRL:
         i = CTRL.List.values()
         print("Controller Liste")
         for x in i:
-            print(x)
             x.printCTRL()
         #print("Controller Liste JSON Dump")
         #print( CTRL.getDataJSON() )
@@ -188,9 +192,6 @@ class CTRL:
         print("Speed", self.lok_speed)
 
 
-
-
-
 # ---------------------  Main ------------------------------------
 
 nClient = Clients()
@@ -207,6 +208,9 @@ CPU( 1, 1)
 CPU( 2, 2)
 CPU( 3, 3)
 CPU( 4, 5)
+
+print "Initial Client Lok Mapping"
+CPU.printListe()
 
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -287,9 +291,7 @@ def onConnect():
     # Push new data to single client
     emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
                          'LokList': Lok.getDataJSON()
-                        }
-
-        )
+                        })
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
 
@@ -321,6 +323,11 @@ def value_changed(message):
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+
+    # Push new data to single client
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'LokList': Lok.getDataJSON()
+                         }, broadcast=True )
 
 
 if __name__ == '__main__':

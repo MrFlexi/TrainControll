@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core">
 	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0">
 		<sap.m:items>
-			<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image}">
+			<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image_url}">
 				<sap.m:attributes>
 					<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute1">
 					</sap.m:ObjectAttribute>
@@ -11,7 +11,9 @@
 					</sap.m:ObjectAttribute>
 				</sap.m:attributes>
 				<sap.m:firstStatus>
-					<sap.m:ObjectStatus text="first status text" id="__status0"/>
+					<sap.m:ObjectStatus text="{LokListModel>client_id}" id="__status0"
+										state="{	path: 'Status',
+													formatter: 'sap.m.sample.ObjectListItemMarkLocked.Formatter.status'	}" />
 				</sap.m:firstStatus>
 			</sap.m:ObjectListItem>
 		</sap.m:items>

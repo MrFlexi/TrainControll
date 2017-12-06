@@ -91,6 +91,7 @@ class CPU:
     self.lok_id = lok_id
     print "Mapping Constructor"
     CPU.Mapping[client_id] = lok_id
+    # CPU.Mapping[client_id] = self
 
  @staticmethod
  def getLokIDfromClientId(client_id):
@@ -98,6 +99,27 @@ class CPU:
         return(CPU.Mapping[client_id])
      else:
         return()
+
+ @staticmethod
+ def printListe():
+     i = CPU.Mapping.values()
+
+     print("CPU Liste")
+     print CPU.Mapping
+     #for x in i:
+     #    x.printCPU()
+
+
+ def printCPU(self):
+     print str(self.client_id) + "  " + str(self.lok_id)
+
+
+ @staticmethod
+ def getClientIdfromLokId(lok_id):
+     if lok_id in CPU.Mapping:
+         return (CPU.Mapping[lok_id])
+     else:
+         return ()
 
  @staticmethod
  def setLokID(client_id,lok_id):
@@ -110,13 +132,14 @@ class Lok:
  LokList = {}
  count = 0
  def __init__(self,  id, addr, protocol, name, image_url ):
-       #Create emplty dictionary
+       #Create empty dictionary
        self.count = 0
        self.id = id
        self.name = name
        self.image_url = image_url
        self.addr = addr
        self.protocol = protocol
+       self.client_id = ""
        Lok.LokList[id] = self
        Lok.count = + 1
 
@@ -125,6 +148,7 @@ class Lok:
     jd = []
     i = Lok.LokList.values()
     for x in i:
+         x.client_id = CPU.getClientIdfromLokId(x.id)
          jd.append(x.__dict__)
     return (json.dumps(jd))
 
