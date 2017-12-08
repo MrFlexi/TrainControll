@@ -289,9 +289,10 @@ def onConnect():
     emit('server_response', {'data': CTRL.getDataJSON() }, broadcast=True)
 
     # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
-                         'LokList': Lok.getDataJSON()
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)
                         })
+
+    emit('loklist_data', { 'LokList': Lok.getDataJSON()} )
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
 
@@ -324,10 +325,8 @@ def value_changed(message):
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
-    # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
-                         'LokList': Lok.getDataJSON()
-                         }, broadcast=True )
+    # Push new data to all connected clients
+    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)
 
 
 if __name__ == '__main__':

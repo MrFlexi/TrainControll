@@ -46,7 +46,9 @@
             socket.on('config_data', function(msg) {
                 config_model = jQuery.parseJSON(msg.data)
                 oModelMainController.setData(config_model);
+            });
 
+            socket.on('loklist_data', function(msg) {
                 LokList_model = jQuery.parseJSON(msg.LokList)
                 oModelLokList.setData(LokList_model);
             });
