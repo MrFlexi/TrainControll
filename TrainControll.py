@@ -116,10 +116,14 @@ class CPU:
 
  @staticmethod
  def getClientIdfromLokId(lok_id):
-     if lok_id in CPU.Mapping:
-         return (CPU.Mapping[lok_id])
-     else:
-         return ()
+     try:
+         client_id = CPU.Mapping.keys()[CPU.Mapping.values().index(lok_id)]
+         return ( client_id )
+     except ValueError:
+         print "Lok" + str(lok_id) +" not assigned"
+
+
+
 
  @staticmethod
  def setLokID(client_id,lok_id):

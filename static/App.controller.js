@@ -105,15 +105,20 @@ sap.ui.define([
 			var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
             socket.on('connect', function() {
-                socket.emit('i_am_connected', {data: 'I\'m connected!'});
+                // socket.emit('i_am_connected', {data: 'I\'m connected!'});
             });
 
             socket.on('config_data', function(msg) {
                 //config_model = jQuery.parseJSON(msg.data)
                 //oModelMainController.setData(config_model);
 
-                var LokList_data = jQuery.parseJSON(msg.LokList)
-                oModelLokList.setData(LokList_data);
+                //var LokList_data = jQuery.parseJSON(msg.LokList)
+                //oModelLokList.setData(LokList_data);
+            });
+
+             socket.on('loklist_data', function(msg) {
+               var LokList_data = jQuery.parseJSON(msg.LokList)
+               oModelLokList.setData(LokList_data);
             });
 
 
