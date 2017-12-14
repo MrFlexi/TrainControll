@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta charset="UTF-8">
+	<title>SAPUI5 Walkthrough</title>
+
+
+   <script id="sap-ui-bootstrap"
+    type="text/javascript"
+    src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m, sap.ui.layout, sap.ui.commons"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <style type="text/css">
+			.customLabel {
+				margin: 0 0.5rem;
+				vertical-align: middle;
+				vertical-align: -webkit-baseline-middle;
+			}
+	</style>
+
+    <script>
+    $(document).ready(function() {
+            namespace = '';
+
+            jQuery.sap.require("sap.ui.model.json.JSONModel");
+
+
+            var oModelMainController = new sap.ui.model.json.JSONModel();
+            var oModelLokList        = new sap.ui.model.json.JSONModel();
+            var oModelControllerList = new sap.ui.model.json.JSONModel();
+
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            socket.on('connect', function() {
+                socket.emit('i_am_connected', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            socket.on('server_response', function(msg) {
+                model = jQuery.parseJSON(msg.data)
+                oModelControllerList.setData(model);
+            });
+
+            socket.on('config_data', function(msg) {
+                config_model = jQuery.parseJSON(msg.data)
+                oModelMainController.setData(config_model);
+
+                LokList_model = jQuery.parseJSON(msg.LokList)
+                oModelLokList.setData(LokList_model);
+            });
+
+
+        var oApp = new sap.m.App("myApp", {
+                         initialPage: "page"
+                        });
+
+
+        var oPage = new sap.m.Page("page", {
+            landmarkInfo: new sap.m.PageAccessibleLandmarkInfo(),
+            title: "Train Control",
+            showNavButton: false,
+            contentOnlyBusy: false,
+            headerContent: [
+                                new sap.m.Button('bt_clientid', {
+                                    visible: true,
+                                    text: "{oModelMainController>/0/client_id}",
+                                    enabled: false,
+                                    press: function () {
+                                    show_error_messages()
+                                    }
+                                }),
+
+                                new sap.m.Button('bt_messages', {
+                                    visible: true,
+                                    icon: "sap-icon://error",
+                                    press: function () {
+                                    show_error_messages()
+                                    }
+                                }),
+                                new sap.m.Button('bt_settings', {
+                                    visible: true,
+                                    icon: "sap-icon://settings",
+                                    press: function () {
+                                    oPage.setShowHeader(!oPage.getShowHeader());
+                                    }
+                                })
+
+                ],
+            toolbar: [
+
+                new sap.m.Button('toggle-floating-footer', {
+                    visible: false,
+                    text: "Toggle FloatingFooter",
+                    press: function () {
+                        oPage.setFloatingFooter(!oPage.getFloatingFooter());
+                    }
+                }),
+                ],
+            content: [ ],
+            footer: new sap.m.Bar({
+            })
+        });
+
+        oPage.setModel(oModelMainController, "oModelMainController");
+        oPage.setModel(oModelControllerList, "oModelControllerList");
+
+        oApp.addPage(oPage).placeAt("content");
+          });
+    </script>
+</head>
+
+<body class="sapUiBody" role="application">
+    <div id="content"></div>
+    <div id="mapid"></div>
+</body>
+
+</html>

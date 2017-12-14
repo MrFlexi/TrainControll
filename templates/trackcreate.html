@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta charset="UTF-8">
+	<title>SAPUI5 Walkthrough</title>
+
+
+    <link rel="stylesheet" type="text/css" href="static/imageselect/css/imgareaselect-default.css" />
+
+
+   <script id="sap-ui-bootstrap"
+    type="text/javascript"
+    src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script type="text/javascript" src="static/imageselect/scripts/jquery.imgareaselect.pack.js"></script>
+
+    <script>
+    $(document).ready(function() {
+
+
+            $('img#duck').imgAreaSelect({
+                handles: true,
+                maxWidth: 120,
+                maxHeight: 100,
+                onSelectEnd: function (img, selection) {
+                            alert('width: ' + selection.width + '; height: ' + selection.height);
+                            }
+            });
+
+
+            namespace = '/test';
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            socket.on('connect', function() {
+                socket.emit('i_am_connected', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            socket.on('server_response', function(msg) {
+                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
+                $('#assigned_lok').val(msg.Lok);
+            });
+
+            socket.on('update value', function(msg) {
+                oModel.setData(msg.data);
+            });
+
+
+
+            // Send any change on Slider 1 or 2 to server
+            $("#slider1").change(function() {
+                socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
+            });
+
+
+            jQuery.sap.require("sap.ui.model.json.JSONModel");
+
+            var aData = [
+					{name: "S-Bahn",  userid: "U01", speed: 50, speed_ist: 30 , enabled: true, binding:"Jochen", requestEnabled: false},
+					{name: "ETA 512",  userid: "U01", speed: 80, enabled: false, binding:"Flo"},
+					{name: "ICE",  userid: "U01", speed: 80, enabled: false, binding:"Harald" },
+				];
+
+            var oModel = new sap.ui.model.json.JSONModel();
+		    oModel.setData(aData);
+
+            var oTable = new sap.m.Table({
+    		columns: [
+    			new sap.m.Column({ header: new sap.m.Label({text: "Name"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "User"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Request Control"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Speed"})}),
+				new sap.m.Column({ header: new sap.m.Label({text: "Controller"})})
+    				],
+			 items: {
+    			path: "/",
+    				template: new sap.m.ColumnListItem({
+        				cells: [
+        					new sap.m.Text({ text: "{name}" }),
+        					new sap.m.Text({ text: "{binding}" }),
+        					new sap.m.Button({ text: "Request", enabled: "{requestEnabled}"}),
+        					new sap.m.Text({ text: "{speed}" }),
+        					new sap.m.Slider({
+            				            value: "{speed}",
+            				            enabled: "{enabled}",
+            				            change : function(){
+            				            socket.emit('value changed', {who: "Ich", data: oModel.getData()});
+            				            }
+            		      			})
+        				],
+        				enabled:  "{enabled}"
+    	                })
+                     },
+                });
+
+                oTable.setModel(oModel);
+
+            var oApp = new sap.m.App("myApp", {
+                         initialPage: "page"
+                        });
+            var aBackgrounds = ["List", "Solid", "Transparent", "Standard"];
+            var iCurrentBackground = 0;
+            var oSetBusyButton = new sap.m.Button({
+            id: "setbusy-button", text: "Set busy",
+            tooltip: "Set the page to busy", press: function () {
+                oPage.setBusy(true);
+            }
+        });
+        var fnCycleBackgrounds = function () {
+            oPage.setBackgroundDesign(aBackgrounds[iCurrentBackground]);
+            if (iCurrentBackground < aBackgrounds.length) {
+                iCurrentBackground++;
+            } else {
+                iCurrentBackground = 0;
+            }
+        };
+        var oChangeBackground = new sap.m.Button({
+            id: "background-change-button", text: "Cycle background",
+            tooltip: "Cycles the backgrounds", press: fnCycleBackgrounds
+        });
+
+
+        var oPage = new sap.m.Page("page", {
+            landmarkInfo: new sap.m.PageAccessibleLandmarkInfo(),
+            title: "Page Control",
+            showNavButton: true,
+            contentOnlyBusy: true,
+            content: [
+                new sap.m.Button('hide-show-header', {
+                     text: "Hide/show header",
+                     press: function () {
+                         oPage.setShowHeader(!oPage.getShowHeader());
+
+                     }
+                }),
+                new sap.m.Button('hide-show-footer', {
+                     text: "Hide/show footer",
+                     press: function () {
+                         oPage.setShowFooter(!oPage.getShowFooter());
+                     }
+                }),
+                new sap.m.Button('toggle-floating-footer', {
+                    text: "Toggle FloatingFooter",
+                    press: function () {
+                        oPage.setFloatingFooter(!oPage.getFloatingFooter());
+                    }
+                }),
+                oTable
+                ],
+            footer: new sap.m.Bar({
+                contentLeft: oSetBusyButton,
+                contentRight: oChangeBackground
+            })
+        });
+        oApp.addPage(oPage).placeAt("content");
+          });
+    </script>
+</head>
+
+<body class="sapUiBody" role="application">
+    <p style="text-align: center;">
+        <img id="duck" src="static/gleisplan.png" alt="Why did the duck cross the road?"
+                title="Why did the duck cross the road?" />
+    </p>
+
+    <table style="margin-top: 1em;">
+      <thead>
+        <tr>
+          <th colspan="2" style="font-size: 110%; font-weight: bold; text-align: left; padding-left: 0.1em;">
+            Coordinates
+          </th>
+          <th colspan="2" style="font-size: 110%; font-weight: bold; text-align: left; padding-left: 0.1em;">
+            Dimensions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 10%;"><b>X<sub>1</sub>:</b></td>
+ 		      <td style="width: 30%;"><input type="text" id="x1" value="-" /></td>
+ 		      <td style="width: 20%;"><b>Width:</b></td>
+   		    <td><input type="text" value="-" id="w" /></td>
+        </tr>
+        <tr>
+          <td><b>Y<sub>1</sub>:</b></td>
+          <td><input type="text" id="y1" value="-" /></td>
+          <td><b>Height:</b></td>
+          <td><input type="text" id="h" value="-" /></td>
+        </tr>
+        <tr>
+          <td><b>X<sub>2</sub>:</b></td>
+          <td><input type="text" id="x2" value="-" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><b>Y<sub>2</sub>:</b></td>
+          <td><input type="text" id="y2" value="-" /></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div id="content"></div>
+
+</body>
+
+</html>

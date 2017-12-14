@@ -235,7 +235,14 @@ def index():
 def UI5():
     return render_template('index_xml.html', async_mode=socketio.async_mode)
 
+@app.route('/Track')
+def track():
+    return render_template('track.html', async_mode=socketio.async_mode)
 
+
+@app.route('/TrackCreate')
+def track_create():
+    return render_template('trackcreate.html', async_mode=socketio.async_mode)
 
 
 # React on slide change on clients
