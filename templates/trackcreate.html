@@ -27,8 +27,6 @@ function preview(img, selection) {
     var scaleX = 100 / selection.width;
     var scaleY = 100 / selection.height;
 
-
-
     $('#x1').val(selection.x1);
     $('#y1').val(selection.y1);
     $('#x2').val(selection.x2);
@@ -47,8 +45,8 @@ function preview(img, selection) {
 
             $('img#gleisplan').imgAreaSelect({
                 handles: true,
-                maxWidth: 60,
-                maxHeight: 60,
+                maxWidth: 120,
+                maxHeight: 120,
                 onSelectChange: preview,
                 onSelectEnd: function (img, selection) {
                             }
@@ -167,7 +165,6 @@ function preview(img, selection) {
                 new sap.m.Button('hide-show-footer', {
                      text: "Add turnout",
                      press: function () {
-                          alert("Adding new tournout");
                           var x1 = $('#x1').val();
                           var y1 = $('#y1').val();
                           var x2 = $('#x2').val();
@@ -175,7 +172,6 @@ function preview(img, selection) {
 
 
                           var Weiche = oModel.getProperty("/");
-
                           var newWeiche = {
                                             w_id: 15,
                                             x1: x1,
