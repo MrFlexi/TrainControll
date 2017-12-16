@@ -195,11 +195,14 @@ class CTRL:
 # ---------------------  Main ------------------------------------
 
 nClient = Clients()
-Lok(id=1,name="S-BAHN", image_url="/static/S-Bahn.jpg", addr=5 , protocol="DCC")
-Lok(id=2,name="ETA-515",image_url="/static/ETA515.jpg", addr=1, protocol="DCC" )
-Lok(id=3,name="BR-218",image_url="/static/BR218.jpg", addr=3, protocol="DCC" )
-Lok(id=4,name="BR-212",image_url="/static/BR212.jpg", addr=6, protocol="DCC" )
-Lok(id=5,name="Portfeeder",image_url="/static/Portfeeder.jpg", addr=65, protocol="MFX" )
+
+# Read JSON file
+with open('loklist.json') as data_file:
+    loklist_json = json.load(data_file)
+
+#print json.dumps(loklist_json, indent=1, separators=(',', ': '))
+for item in loklist_json:
+    Lok(id=item["id"],name=item["name"], image_url=item["image_url"], addr=item["addr"], protocol=item["protocol"])
 
 Lok.printLokList()
 

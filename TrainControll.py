@@ -1,6 +1,7 @@
 
 import json
 import socket
+import io
 
 # Define Class CPU
 class UDP:
@@ -60,6 +61,7 @@ class UDP:
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
 
+        lv_dir_str = chr(00)
         if iv_dir == "back":
             lv_dir_str = chr(02)
         elif iv_dir == "neutral":
@@ -167,6 +169,13 @@ class Lok:
      print("-------------------------")
 
  @staticmethod
+ def save():
+     jsonData = Lok.getDataJSON()
+     f = open("loklist.json", "w")  # opens file with name of "test.txt"
+     f.write(jsonData)
+     f.close()
+
+ @staticmethod
  def getImage(Lok_Id):
      if Lok_Id in Lok.LokList:
         return ( Lok.LokList[Lok_Id].image_url )
@@ -175,7 +184,6 @@ class Lok:
  def getName(Lok_Id):
      if Lok_Id in Lok.LokList:
         return ( Lok.LokList[Lok_Id].name )
-
 
  @staticmethod
  def getAddr(Lok_Id):
