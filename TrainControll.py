@@ -171,7 +171,7 @@ class Lok:
  @staticmethod
  def save():
      jsonData = Lok.getDataJSON()
-     f = open("loklist.json", "w")  # opens file with name of "test.txt"
+     f = open("./config/loklist.json", "w")  # opens file with name of "test.txt"
      f.write(jsonData)
      f.close()
 

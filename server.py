@@ -197,13 +197,12 @@ class CTRL:
 nClient = Clients()
 
 # Read JSON file
-with open('loklist.json') as data_file:
+with open('./config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
-
 #print json.dumps(loklist_json, indent=1, separators=(',', ': '))
 for item in loklist_json:
+    # Create Instances for each lok
     Lok(id=item["id"],name=item["name"], image_url=item["image_url"], addr=item["addr"], protocol=item["protocol"])
-
 Lok.printLokList()
 
 #Map client to Lok
