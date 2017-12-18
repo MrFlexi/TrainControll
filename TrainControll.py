@@ -82,6 +82,53 @@ class UDP:
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
+class Gleisplan:
+    Liste = {}
+    def __init__(self, id, addr, x1,y1,x2,y2, type ):
+            # Create empty dictionary
+            self.id = id
+            self.addr = addr
+            self.x1 = x1
+            self.x2 = x2
+            self.y1 = y1
+            self.y2 = y2
+            self.type = type
+            Gleisplan.Liste[id] = self         
+
+    @staticmethod
+    def getDataJSON():
+        jd = []
+        i = Gleisplan.Liste.values()
+        for x in i:
+           jd.append(x.__dict__)
+        return (json.dumps(jd))
+
+    @staticmethod
+    def printGleisplan():
+            i = Gleisplan.Liste.values()
+            print("-------------------------")
+            print("Gleisplanliste")
+            for x in i:
+                x.printGP()
+            print("-------------------------")
+
+    @staticmethod
+    def save():
+        jsonData = Gleisplan.getDataJSON()
+        f = open("./config/Gleisplan.json", "w")  # opens file with name of "test.txt"
+        f.write(jsonData)
+        f.close()
+
+
+    @staticmethod
+    def getAddr(Id):
+        if Id in Gleisplan.Liste:
+            return (Gleisplan.Liste[Id].addr)
+
+    def printGP(self):
+        print "Gleisplan:" + str(self.id) +  "Addr:" + str(self.addr)
+
+
 
 # Define Class CPU
 class CPU:
@@ -130,6 +177,10 @@ class CPU:
  @staticmethod
  def setLokID(client_id,lok_id):
       CPU.Mapping[client_id] = lok_id
+
+
+
+
 
 
 # Define Class Client
@@ -211,7 +262,6 @@ class Clients:
      print " Class - Clients"
      print(self.mt_clients)
      print("Anzahl:",len(self.mt_clients))
-     #emit('my_response', {'data': len(self.mt_clients)})
 
  def getClientIDfromSID(self, sid):
      # get key from value

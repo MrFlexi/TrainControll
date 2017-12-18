@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # testwx
-from TrainControll import CPU, Lok, Clients, UDP
+from TrainControll import CPU, Lok, Clients, UDP, Gleisplan
 import json
 import base64
 
@@ -196,7 +196,8 @@ class CTRL:
 
 nClient = Clients()
 
-# Read JSON file
+
+# Load Lok Liste
 with open('./config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
 #print json.dumps(loklist_json, indent=1, separators=(',', ': '))
@@ -204,6 +205,17 @@ for item in loklist_json:
     # Create Instances for each lok
     Lok(id=item["id"],name=item["name"], image_url=item["image_url"], addr=item["addr"], protocol=item["protocol"])
 Lok.printLokList()
+
+# Load Gleisplan
+with open('./config/gleisplan.json') as data_file:
+    gleisplan_json = json.load(data_file)
+#print json.dumps(loklist_json, indent=1, separators=(',', ': '))
+for item in gleisplan_json["Weichen"]:
+    # Create Instances for each lok
+    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"], type="DCC" )
+#Gleisplan.printGleisplan()
+
+
 
 #Map client to Lok
 CPU( 1, 1)
@@ -213,6 +225,9 @@ CPU( 4, 5)
 
 print "Initial Client Lok Mapping"
 CPU.printListe()
+
+
+# ---------------------  ROUTING ------------------------------------
 
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -245,6 +260,10 @@ def track():
 @app.route('/TrackCreate')
 def track_create():
     return render_template('trackcreate.html', async_mode=socketio.async_mode)
+
+
+
+# ---------------------  SocketIO Event Handling ------------------------------------
 
 
 # React on slide change on clients
@@ -336,6 +355,21 @@ def value_changed(message):
 
     # Push new data to all connected clients
     emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)
+
+@socketio.on('gleisplan_save', namespace='')
+def gleisplan_save(message):
+    print "Gleisplan Save"
+    client_id = nClient.getClientIDfromSID(request.sid)
+
+    print "Gleisplan Save "+ str(request.sid)
+    print "Client" + str( client_id )
+
+    jsonData =  json.dumps(message, indent=1, separators=(',', ': '))
+    print( jsonData )
+    f = open("./config/gleisplan.json", "w")  # opens file with name of "test.txt"
+    f.write(jsonData)
+    f.close()
+
 
 
 if __name__ == '__main__':
