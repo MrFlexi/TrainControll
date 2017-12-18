@@ -84,7 +84,7 @@ class UDP:
 
 class Gleisplan:
     Liste = {}
-    def __init__(self, id, addr, x1,y1,x2,y2, type ):
+    def __init__(self, id, addr, x1,y1,x2,y2, dir, type ):
             # Create empty dictionary
             self.id = id
             self.addr = addr
@@ -93,7 +93,47 @@ class Gleisplan:
             self.y1 = y1
             self.y2 = y2
             self.type = type
-            Gleisplan.Liste[id] = self         
+            self.dir = dir
+            Gleisplan.Liste[id] = self
+
+    @staticmethod
+    def new(message):
+        jsonData = json.dumps(message, indent=1, separators=(',', ': '))
+        print(jsonData)
+
+        count = len(Gleisplan.Liste)
+        new_id = count + 1
+
+        Gleisplan(id=new_id, addr=0, x1=message["x1"], x2=message["x2"], y1=message["y1"], y2=message["y2"], dir=0, type="DCC")
+
+        Gleisplan.printGleisplan()
+
+    @staticmethod
+    def save(message):
+        print "Gleisplan Save"
+        #jsonData = json.dumps(message, indent=1, separators=(',', ': '))
+        #print(jsonData)
+
+        for item in message:
+            #print (item)
+            # Get class instance
+            gr_instance = Gleisplan.Liste[item["id"]]
+            gr_instance.printGP()
+
+            #Compare old and new values. if different set new value
+
+            if gr_instance.addr <> item["addr"]:
+                print "Address was changed from " +  str(gr_instance.addr) + " to: " + str(item["addr"])
+                # Update values in instance
+                gr_instance.addr = item["addr"]
+
+
+        jsonData = Gleisplan.getDataJSON()
+        #print(jsonData)
+        f = open("./config/gleisplan.json", "w")  # opens file with name of "test.txt"
+        f.write(jsonData)
+        f.close()
+
 
     @staticmethod
     def getDataJSON():
@@ -101,7 +141,7 @@ class Gleisplan:
         i = Gleisplan.Liste.values()
         for x in i:
            jd.append(x.__dict__)
-        return (json.dumps(jd))
+        return (json.dumps(jd ,indent=1, separators=(',', ': ')))
 
     @staticmethod
     def printGleisplan():
@@ -113,20 +153,12 @@ class Gleisplan:
             print("-------------------------")
 
     @staticmethod
-    def save():
-        jsonData = Gleisplan.getDataJSON()
-        f = open("./config/Gleisplan.json", "w")  # opens file with name of "test.txt"
-        f.write(jsonData)
-        f.close()
-
-
-    @staticmethod
     def getAddr(Id):
         if Id in Gleisplan.Liste:
             return (Gleisplan.Liste[Id].addr)
 
     def printGP(self):
-        print "Gleisplan:" + str(self.id) +  "Addr:" + str(self.addr)
+        print "Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir)
 
 
 

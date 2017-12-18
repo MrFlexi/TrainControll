@@ -200,7 +200,6 @@ nClient = Clients()
 # Load Lok Liste
 with open('./config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
-#print json.dumps(loklist_json, indent=1, separators=(',', ': '))
 for item in loklist_json:
     # Create Instances for each lok
     Lok(id=item["id"],name=item["name"], image_url=item["image_url"], addr=item["addr"], protocol=item["protocol"])
@@ -209,12 +208,9 @@ Lok.printLokList()
 # Load Gleisplan
 with open('./config/gleisplan.json') as data_file:
     gleisplan_json = json.load(data_file)
-#print json.dumps(loklist_json, indent=1, separators=(',', ': '))
-for item in gleisplan_json["Weichen"]:
+for item in gleisplan_json:
     # Create Instances for each lok
-    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"], type="DCC" )
-#Gleisplan.printGleisplan()
-
+    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC" )
 
 
 #Map client to Lok
@@ -290,8 +286,6 @@ def main_controller_value_changed(message):
 # broadcast slider values to all clients
 @socketio.on('value changed', namespace='')
 def value_changed(message):
-
-
     print "Value change of Session ID" + str(request.sid)
     print "Value change of Client" + str( nClient.getClientIDfromSID(request.sid) )
     print ("Value change of Lok", CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
@@ -317,28 +311,12 @@ def onConnect():
     emit('server_response', {'data': CTRL.getDataJSON() }, broadcast=True)
 
     # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)
-                        })
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'Gleisplan': Gleisplan.getDataJSON()})
 
     emit('loklist_data', { 'LokList': Lok.getDataJSON()} )
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
-
-
-@socketio.on('connect', namespace='ESP')
-def onConnect2():
-
-    print "Session ESP8266" + str( request.sid )
-    emit('ESP', {'client_id': "Hallo"})
-    emit('server_response', {'data': "1234"})
-
-@socketio.on('esp_changed', namespace='ESP')
-def value_changed2(message):
-    print "ESP changed" + str(request.sid)
-    print json.dumps(message, indent=1, separators=(',', ': '))
-
-    # Push new data to all connected clients
-    # emit('server_response', {'data': "ATIMR REquested"})
 
 
 @socketio.on('Lok_changed', namespace='')
@@ -356,20 +334,21 @@ def value_changed(message):
     # Push new data to all connected clients
     emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)
 
+
+
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
-    print "Gleisplan Save"
-    client_id = nClient.getClientIDfromSID(request.sid)
 
-    print "Gleisplan Save "+ str(request.sid)
-    print "Client" + str( client_id )
+    Gleisplan.save(message)
+    # Push new data to all connected clients
+    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
 
-    jsonData =  json.dumps(message, indent=1, separators=(',', ': '))
-    print( jsonData )
-    f = open("./config/gleisplan.json", "w")  # opens file with name of "test.txt"
-    f.write(jsonData)
-    f.close()
 
+@socketio.on('Weiche_neu', namespace='')
+def weiche_neu(message):
+    Gleisplan.new(message)
+    # Push new data to all connected clients
+    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
 
 
 if __name__ == '__main__':

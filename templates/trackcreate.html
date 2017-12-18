@@ -39,6 +39,9 @@ function preview(img, selection) {
     <script>
     $(document).ready(function() {
 
+            jQuery.sap.require("sap.ui.model.json.JSONModel");
+            var oModelGleisplan = new sap.ui.model.json.JSONModel();
+
             $('img#gleisplan').imgAreaSelect({
                 handles: true,
                 maxWidth: 120,
@@ -54,15 +57,27 @@ function preview(img, selection) {
             socket.on('connect', function() {
             });
 
-            jQuery.sap.require("sap.ui.model.json.JSONModel");
+            socket.on('config_data', function(msg) {
+                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                oModelGleisplan.setData(gleisplan_model);
+            });
 
+            socket.on('gleisplan_data', function(msg) {
+                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                oModelGleisplan.setData(gleisplan_model);
+            });
+
+
+
+            /*
             var aData = [
 					{id: "1",  x1: 50, y1: 50, x2: 150, y2: 150, addr: 5 },
 					{id: "2",  x1: 300, y1: 100, x2: 350, y2: 150, addr: 2 },
 					];
 
-            var oModelGleisplan = new sap.ui.model.json.JSONModel();
+
 		    oModelGleisplan.setData(aData);
+		    */
 
             var oTable = new sap.m.Table({
     		columns: [
@@ -127,22 +142,26 @@ function preview(img, selection) {
                           var y2 = $('#y2').val();
 
                           var Weiche = oModelGleisplan.getProperty("/");
-                          var newWeiche = {
-                                            id: 15,
+                          var neueWeiche = {
                                             x1: x1,
                                             y1: y1,
                                             x2: x2,
                                             y2: y2,
                                            };
-                          Weiche.push(newWeiche);
+
+                           socket.emit('Weiche_neu', neueWeiche);     /* Neuen Eintrag übers API aufnehmen
+
+                          /* Neuen Eintrag direkt ins Modell schreiben
+                          Weiche.push(neueWeiche);
                           oModelGleisplan.setProperty("/", Weiche);
+                          */
 
                      }
                 }),
                 new sap.m.Button('Save', {
                     text: "Save",
                     press: function () {
-                                         socket.emit('gleisplan_save', {Weichen: oModelGleisplan.getData()});
+                                         socket.emit('gleisplan_save', oModelGleisplan.getData());
                                        }
                 }),
                 oTable
