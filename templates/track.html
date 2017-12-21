@@ -10,103 +10,120 @@
     type="text/javascript"
     src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
     data-sap-ui-theme="sap_belize"
-    data-sap-ui-libs="sap.m, sap.ui.layout, sap.ui.commons"></script>
+    data-sap-ui-libs="sap.m,sap.ui.commons"></script>
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
-    <style type="text/css">
-			.customLabel {
-				margin: 0 0.5rem;
-				vertical-align: middle;
-				vertical-align: -webkit-baseline-middle;
-			}
-	</style>
+    <script type="text/javascript">
+
+</script>
 
     <script>
     $(document).ready(function() {
-            namespace = '';
 
             jQuery.sap.require("sap.ui.model.json.JSONModel");
+            var oModelGleisplan = new sap.ui.model.json.JSONModel();
 
-
-            var oModelMainController = new sap.ui.model.json.JSONModel();
-            var oModelLokList        = new sap.ui.model.json.JSONModel();
-            var oModelControllerList = new sap.ui.model.json.JSONModel();
-
+            namespace = '';
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
             socket.on('connect', function() {
-                socket.emit('i_am_connected', {data: 'I\'m connected!'});
-            });
-
-            // Event handler for server sent data.
-            socket.on('server_response', function(msg) {
-                model = jQuery.parseJSON(msg.data)
-                oModelControllerList.setData(model);
             });
 
             socket.on('config_data', function(msg) {
-                config_model = jQuery.parseJSON(msg.data)
-                oModelMainController.setData(config_model);
+                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                oModelGleisplan.setData(gleisplan_model);
+            });
 
-                LokList_model = jQuery.parseJSON(msg.LokList)
-                oModelLokList.setData(LokList_model);
+            socket.on('gleisplan_data', function(msg) {
+                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                oModelGleisplan.setData(gleisplan_model);
             });
 
 
-        var oApp = new sap.m.App("myApp", {
+            var oImage = new sap.m.Image({
+                            src : "static/gleisplan.png",
+                            useMap : "Map1" });
+
+
+            var oMap = new sap.ui.commons.ImageMap( {
+                                                     name: "Map1",
+                                                     areas: [ new sap.ui.commons.Area ({ shape: "rect", alt: "Bee", href: "http://www.sap.com", coords: "40,20,100,80" })
+                                                            ]
+                                                     } );
+
+
+            var oTable = new sap.m.Table({
+    		columns: [
+    			new sap.m.Column({ header: new sap.m.Label({text: "Weiche"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "X1"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Y1"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "X2"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Y2"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Addr"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Show"})}),
+    				],
+			 items: {
+    			path: "/",
+    				template: new sap.m.ColumnListItem({
+        				cells: [
+        					new sap.m.Text({ text: "{id}" }),
+        					new sap.m.Text({ text: "{x1}" }),
+        					new sap.m.Text({ text: "{y1}" }),
+        					new sap.m.Text({ text: "{x2}" }),
+        					new sap.m.Text({ text: "{y2}" }),
+        					new sap.m.Input({ value: "{addr}" }),
+        				    new sap.m.Button({ text: "Show",
+        				                       enabled: true,
+        				                       press: function( oEvent ) {
+        				                                            var model = this.getModel();
+                                                                    var path = oEvent.getSource().getBindingContext().getPath();
+                                                                    var obj = model.getProperty(path);
+        				                                            $('#gleisplan').imgAreaSelect({ x1: obj.x1, y1: obj.y1, x2: obj.x2, y2: obj.y2 });
+        				                                         }
+
+        				                       }),
+                                ]})
+                    }
+                });
+
+                oTable.setModel(oModelGleisplan);
+                oMap.setModel(oModelGleisplan);
+
+            var oApp = new sap.m.App("myApp", {
                          initialPage: "page"
                         });
 
 
         var oPage = new sap.m.Page("page", {
             landmarkInfo: new sap.m.PageAccessibleLandmarkInfo(),
-            title: "Train Control",
-            showNavButton: false,
-            contentOnlyBusy: false,
-            headerContent: [
-                                new sap.m.Button('bt_clientid', {
-                                    visible: true,
-                                    text: "{oModelMainController>/0/client_id}",
-                                    enabled: false,
-                                    press: function () {
-                                    show_error_messages()
-                                    }
-                                }),
+            title: "Page Control",
+            showNavButton: true,
+            contentOnlyBusy: true,
+            content: [
+                new sap.m.Button('hide-show-header', {
+                     text: "Hide/show header",
+                     press: function () {
+                         oPage.setShowHeader(!oPage.getShowHeader());
 
-                                new sap.m.Button('bt_messages', {
-                                    visible: true,
-                                    icon: "sap-icon://error",
-                                    press: function () {
-                                    show_error_messages()
-                                    }
-                                }),
-                                new sap.m.Button('bt_settings', {
-                                    visible: true,
-                                    icon: "sap-icon://settings",
-                                    press: function () {
-                                    oPage.setShowHeader(!oPage.getShowHeader());
-                                    }
-                                })
-
-                ],
-            toolbar: [
-
-                new sap.m.Button('toggle-floating-footer', {
-                    visible: false,
-                    text: "Toggle FloatingFooter",
-                    press: function () {
-                        oPage.setFloatingFooter(!oPage.getFloatingFooter());
-                    }
+                     }
                 }),
+                new sap.m.Button('hide-show-footer', {
+                     text: "Add turnout",
+                     press: function () {
+
+                     }
+                }),
+                new sap.m.Button('Save', {
+                    text: "Save",
+                    press: function () {
+                                         socket.emit('gleisplan_save', oModelGleisplan.getData());
+                                       }
+                }),
+                oImage, oMap, oTable,
                 ],
-            content: [ ],
             footer: new sap.m.Bar({
             })
         });
-
-        oPage.setModel(oModelMainController, "oModelMainController");
-        oPage.setModel(oModelControllerList, "oModelControllerList");
-
         oApp.addPage(oPage).placeAt("content");
           });
     </script>
@@ -114,7 +131,6 @@
 
 <body class="sapUiBody" role="application">
     <div id="content"></div>
-    <div id="mapid"></div>
 </body>
 
 </html>
