@@ -45,12 +45,43 @@
                             useMap : "Map1" });
 
 
-            var oMap = new sap.ui.commons.ImageMap( {
+            var oMap2 = new sap.ui.commons.ImageMap( {
                                                      name: "Map1",
                                                      areas: [ new sap.ui.commons.Area ({ shape: "rect", alt: "Bee", href: "http://www.sap.com", coords: "40,20,100,80" })
                                                             ]
                                                      } );
 
+
+            var oMap = new sap.ui.commons.ImageMap( {
+                                                     name: "Map1",
+                                                     areas: {
+    			                                                id  : "{id}",
+    			                                                path: "/",
+    				                                            template: new sap.ui.commons.Area({
+                                                                    shape: "rect",
+                                                                    alt: "Bee",
+                                                                    coords: {
+                                                                            parts: [
+                                                                                {path: "x1"},
+                                                                                {path: "y1" },
+                                                                                {path: "x2" },
+                                                                                {path: "y2" }
+                                                                                    ],
+                                                                            formatter: function(x1,y1,x2,y2)
+                                                                                        {
+                                                                                            sc = x1+","+y1+","+x2+","+y2;
+                                                                                            return sc
+                                                                                        }
+                                                                            }
+                                                                    })
+                                                             }
+                                                     });
+
+            oMap.attachPress( function( oEvent ) {
+        				                           var model = this.getModel();
+                                                   var path = oEvent.getSource().getBindingContext().getPath();
+                                                   var obj = model.getProperty(path);
+        				                          });
 
             var oTable = new sap.m.Table({
     		columns: [
