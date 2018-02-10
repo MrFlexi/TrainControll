@@ -253,6 +253,10 @@ def track():
     return render_template('track.html', async_mode=socketio.async_mode)
 
 
+@app.route('/TrackShow')
+def track_show():
+    return render_template('trackshow.html', async_mode=socketio.async_mode)
+
 @app.route('/TrackCreate')
 def track_create():
     return render_template('trackcreate.html', async_mode=socketio.async_mode)
