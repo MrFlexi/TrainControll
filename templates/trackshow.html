@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta charset="UTF-8">
-	<title>Track Yard</title>
+	<title>Switch yard operations</title>
 
     <link rel="stylesheet" type="text/css" href="static/imageselect/css/imgareaselect-default.css" />
 
@@ -13,6 +13,7 @@
     data-sap-ui-theme="sap_belize"
     data-sap-ui-libs="sap.m"></script>
 
+    <script type="text/javascript" src="static/imageselect/scripts/jquery.imgareaselect.pack.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
 
 
@@ -61,24 +62,16 @@
             var oTable = new sap.m.Table({
     		columns: [
     			new sap.m.Column({ header: new sap.m.Label({text: "Weiche"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "X1"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "Y1"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "X2"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "Y2"})}),
     			new sap.m.Column({ header: new sap.m.Label({text: "Addr"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "Show"})}),
+    			new sap.m.Column({ header: new sap.m.Label({text: "Switch"})}),
     				],
 			 items: {
     			path: "/",
     				template: new sap.m.ColumnListItem({
         				cells: [
         					new sap.m.Text({ text: "{id}" }),
-        					new sap.m.Text({ text: "{x1}" }),
-        					new sap.m.Text({ text: "{y1}" }),
-        					new sap.m.Text({ text: "{x2}" }),
-        					new sap.m.Text({ text: "{y2}" }),
         					new sap.m.Input({ value: "{addr}" }),
-        				    new sap.m.Button({ text: "Show",
+        				    new sap.m.Button({ text: " <--> ",
         				                       enabled: true,
         				                       press: function( oEvent ) {
         				                                            var model = this.getModel();
