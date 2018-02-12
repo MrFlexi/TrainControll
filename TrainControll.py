@@ -10,6 +10,28 @@ class UDP:
     UDP_PORT = 15731
 
     @staticmethod
+    def setFunction(iv_id, value):
+        hex_data1 = "000b131406000038"
+        hex_data2 = "010019"
+
+        lv_idstr = chr(iv_id)
+        print "SetFunction"
+        print "DCC Address:" + str(iv_id) + " Value:" + str(value)
+
+        lv_val = chr(value)
+
+        message = hex_data1.decode("hex") + lv_idstr + lv_val + hex_data2.decode("hex")
+
+        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+
+        sock = socket.socket(socket.AF_INET,  # Internet
+                             socket.SOCK_DGRAM)  # UDP
+        sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
+
+
+
+
+    @staticmethod
     def setSpeed(iv_lok_id, iv_speed):
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"

@@ -340,6 +340,12 @@ def value_changed(message):
 
 
 
+@socketio.on('turnout_changed', namespace='')
+def turnout_changed(message):
+    UDP.setFunction(1,1)
+
+
+
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
 

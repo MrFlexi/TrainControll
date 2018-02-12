@@ -23,13 +23,17 @@
             jQuery.sap.require("sap.ui.model.json.JSONModel");
             var oModelGleisplan = new sap.ui.model.json.JSONModel();
 
-        // e.current_target.id
-        function areaClicked(e) {
-                                  }
+
 
         // SOCKET IO
             namespace = '';
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+        // e.current_target.id
+            function areaClicked(e) {
+            socket.emit('turnout_changed', "Hallo");     //Änderung via API aufnehmen und Weiche schalten
+                                  }
+
 
             socket.on('connect', function() {
             });
