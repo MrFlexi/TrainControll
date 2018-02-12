@@ -14,7 +14,7 @@ class UDP:
         hex_data1 = "000b131406000038"
         hex_data2 = "010019"
 
-        lv_idstr = chr(iv_id)
+        lv_idstr = str(iv_id)
         print "SetFunction"
         print "DCC Address:" + str(iv_id) + " Value:" + str(value)
 
@@ -131,6 +131,23 @@ class Gleisplan:
         Gleisplan.printGleisplan()
 
     @staticmethod
+    def toggle_turnout(message):
+        print "Toggle Turnout"
+        print message
+
+        lv_id = int(message)
+
+        gr_instance = Gleisplan.Liste[lv_id]
+        gr_instance.printGP()
+
+        if gr_instance.dir == 0:
+            gr_instance.dir = 1
+        else:
+            gr_instance.dir = 0
+
+        UDP.setFunction( lv_id,  gr_instance.dir )
+
+    @staticmethod
     def save(message):
         print "Gleisplan Save"
         #jsonData = json.dumps(message, indent=1, separators=(',', ': '))
@@ -231,10 +248,6 @@ class CPU:
  @staticmethod
  def setLokID(client_id,lok_id):
       CPU.Mapping[client_id] = lok_id
-
-
-
-
 
 
 # Define Class Client

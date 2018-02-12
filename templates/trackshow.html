@@ -30,10 +30,10 @@
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
         // e.current_target.id
-            function areaClicked(e) {
-            socket.emit('turnout_changed', "Hallo");     //Änderung via API aufnehmen und Weiche schalten
-                                  }
+            function areaClicked(event) {
 
+            socket.emit('toggle_turnout', event.currentTarget.id );     //Änderung via API aufnehmen und Weiche schalten
+                                  }
 
             socket.on('connect', function() {
             });
@@ -66,7 +66,7 @@
             var oTable = new sap.m.Table({
     		columns: [
     			new sap.m.Column({ header: new sap.m.Label({text: "Weiche"})}),
-    			new sap.m.Column({ header: new sap.m.Label({text: "Addr"})}),
+    	    	new sap.m.Column({ header: new sap.m.Label({text: "Addr"})}),
     			new sap.m.Column({ header: new sap.m.Label({text: "Switch"})}),
     				],
 			 items: {
@@ -75,7 +75,7 @@
         				cells: [
         					new sap.m.Text({ text: "{id}" }),
         					new sap.m.Input({ value: "{addr}" }),
-        				    new sap.m.Button({ text: " <--> ",
+        				    new sap.m.Button({ text: "{dir}",
         				                       enabled: true,
         				                       press: function( oEvent ) {
         				                                            var model = this.getModel();

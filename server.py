@@ -340,11 +340,10 @@ def value_changed(message):
 
 
 
-@socketio.on('turnout_changed', namespace='')
-def turnout_changed(message):
-    UDP.setFunction(1,1)
-
-
+@socketio.on('toggle_turnout', namespace='')
+def toggle_turnout(message):
+    Gleisplan.toggle_turnout(message);
+    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
 
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
