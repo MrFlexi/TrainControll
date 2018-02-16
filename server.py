@@ -305,8 +305,8 @@ def main_controller_value_changed(message):
 @socketio.on('value changed', namespace='')
 def value_changed(message):
     print "Value change of Session ID" + str(request.sid)
-    print "Value change of Client" + str( nClient.getClientIDfromSID(request.sid) )
-    print ("Value change of Lok", CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
+    print "Value change of Client" + str( Clients.getClientIDfromSID(request.sid) )
+    print ("Value change of Lok", CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid)))
     # Write new data into class, handle data changes
     CTRL.setDataJSON(message)
     # Push new data to all connected clients
@@ -326,14 +326,13 @@ def onConnect():
     # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
     CTRL(request.sid, client_id, "Fred", lok_id, 0, 0)
 
-    # Push new data to all connected clients
-    emit('server_response', {'data': CTRL.getDataJSON() }, broadcast=True)
-
     # Push new data to single client
+    emit('loklist_data', {'LokList': Lok.getDataJSON()})      # List of available locomotions
     emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
                          'Gleisplan': Gleisplan.getDataJSON()})
 
-    emit('loklist_data', { 'LokList': Lok.getDataJSON()} )
+    # Push data to all connected clients
+    emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
 
@@ -353,10 +352,7 @@ def onDiscconnect():
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
 
-    emit('loklist_data', {'LokList': Lok.getDataJSON()})
-
-
-
+   # React on locomotion chaged in Picture Carousel
 @socketio.on('Lok_changed', namespace='')
 def value_changed(message):
 
@@ -368,10 +364,6 @@ def value_changed(message):
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
-
-    # Push new data to all connected clients
-    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)
-
 
 
 @socketio.on('toggle_turnout', namespace='')

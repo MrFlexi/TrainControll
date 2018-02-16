@@ -37,24 +37,26 @@
                 socket.emit('i_am_connected', {data: 'I\'m connected!'});
             });
 
-            // Event handler for server sent data.
+            // Event handler for server sent data.   e.g. speed change
             socket.on('server_response', function(msg) {
                 model = jQuery.parseJSON(msg.data)
                 oModelControllerList.setData(model);
+
             });
 
             socket.on('config_data', function(msg) {
                 config_model = jQuery.parseJSON(msg.data)
                 oModelMainController.setData(config_model);
+
+                // var showPage = oCarousel.getPages()[3];
+                // oCarousel.setActivePage(showPage);
+
             });
 
             socket.on('loklist_data', function(msg) {
                 LokList_model = jQuery.parseJSON(msg.LokList)
                 oModelLokList.setData(LokList_model);
-            });
-
-
-
+             });
 
 
             var oLokImage = new sap.m.Image({   id: "LokImage",
@@ -106,6 +108,7 @@
             oCarousel.setModel(oModelLokList);
             oCarousel.setWidth("100%");
             oCarousel.setHeight("320px");
+
 
 
             // create a simple slider with ticks
