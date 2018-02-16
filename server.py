@@ -93,6 +93,19 @@ class CTRL:
         return (json.dumps(jd))
 
     @staticmethod
+    def deleteClient(client_id ):
+        print "delete client "
+
+        # Get class instance
+        if client_id in CTRL.List:
+            gr_instance = CTRL.List[client_id]
+            gr_instance.printCTRL()
+            UDP.setSpeed(gr_instance.lok_id, 0)
+
+            del CTRL.List[client_id]
+
+
+    @staticmethod
     def setClientData(client_id, data_in ):
         print "SetClientData " + json.dumps(data_in)
 
@@ -329,8 +342,18 @@ def onConnect():
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
     print "Session ID" + str( request.sid )
-    client_id = nClient.getClientIDfromSID(request.sid)
+    client_id = Clients.getClientIDfromSID(request.sid)
+
+    CTRL.deleteClient(client_id)        # Set Speed 0
+    Clients.deleteClient(client_id)
+
     print "Client disconnected: " + str( client_id )
+
+    # Push new data to all connected clients
+    emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+
+
+    emit('loklist_data', {'LokList': Lok.getDataJSON()})
 
 
 

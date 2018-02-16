@@ -342,7 +342,7 @@ class Clients:
      print "Delete Client from mt_clients"
 
      if client_ID in Clients.mt_clients:
-         del Clients.mt_clients[Clients.mt_clients.index(client_ID):]
+         del Clients.mt_clients[client_ID]
 
      print " Class - Clients"
      print(Clients.mt_clients)
