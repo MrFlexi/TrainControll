@@ -11,10 +11,11 @@ class UDP:
 
     @staticmethod
     def setFunction(iv_id, value):
-        hex_data1 = "000b131406000038"
-        hex_data2 = "010019"
+        hex_data1 = "0016131406000038"
+        hex_data2 = "010000"
 
-        lv_idstr = str(iv_id)
+
+        lv_idstr = chr(iv_id - 1)
         print "SetFunction"
         print "DCC Address:" + str(iv_id) + " Value:" + str(value)
 
@@ -314,22 +315,35 @@ class Lok:
 
 # Define Class Client
 class Clients:
- def __init__(self):
-       #Create emplty dictionary
-       self.mt_clients = {"ID":"SID"}
-       self.clientCount = 0
-       print "Class Constructor"
+    mt_clients = {}
+    Count = 0
 
- def newClient(self, sid):
-     self.clientCount =+ self.clientCount + 1
+    def __init__(self):
+     print "Class Constructor"\
+
+    @staticmethod
+    def newClient(sid):
+     Clients.Count =+ Clients.Count + 1
      print "Client Counter"
-     print self.clientCount
+     print Clients.Count
      # Add new entry
-     self.mt_clients[self.clientCount] =  sid
+     Clients.mt_clients[Clients.Count] =  sid
      print " Class - Clients"
-     print(self.mt_clients)
-     print("Anzahl:",len(self.mt_clients))
+     print(Clients.mt_clients)
+     print("Anzahl:",len(Clients.mt_clients))
 
- def getClientIDfromSID(self, sid):
+    @staticmethod
+    def getClientIDfromSID(sid):
      # get key from value
-     return( self.mt_clients.keys()[self.mt_clients.values().index(sid)] )
+     return( Clients.mt_clients.keys()[Clients.mt_clients.values().index(sid)] )
+
+    @staticmethod
+    def deleteClient(client_ID):
+     print "Delete Client from mt_clients"
+
+     if client_ID in Clients.mt_clients:
+         del Clients.mt_clients[Clients.mt_clients.index(client_ID):]
+
+     print " Class - Clients"
+     print(Clients.mt_clients)
+     print("Anzahl:",len(Clients.mt_clients))

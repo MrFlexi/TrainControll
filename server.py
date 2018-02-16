@@ -194,9 +194,6 @@ class CTRL:
 
 # ---------------------  Main ------------------------------------
 
-nClient = Clients()
-
-
 # Load Lok Liste
 with open('./config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
@@ -221,6 +218,10 @@ CPU( 4, 5)
 
 print "Initial Client Lok Mapping"
 CPU.printListe()
+
+print "Initial Browser Clients"
+Clients()
+
 
 
 # ---------------------  ROUTING ------------------------------------
@@ -270,10 +271,10 @@ def track_create():
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
-    client_id = nClient.getClientIDfromSID(request.sid)
+    client_id = Clients.getClientIDfromSID(request.sid)
     print "Value change of Session ID" + str(request.sid)
     print "Client" + str( client_id )
-    print "Lok" + str( CPU.getLokIDfromClientId(nClient.getClientIDfromSID(request.sid)))
+    print "Lok" + str( CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid)))
 
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
@@ -302,9 +303,10 @@ def value_changed(message):
 def onConnect():
 
     print "Session ID" + str( request.sid )
-    nClient.newClient(request.sid)
+    Clients.newClient(request.sid)
+
     print "New Client connected"
-    client_id = nClient.getClientIDfromSID(request.sid)
+    client_id = Clients.getClientIDfromSID(request.sid)
     lok_id = CPU.getLokIDfromClientId(client_id)
 
     # Register new client and assign an default locomotion
@@ -323,10 +325,19 @@ def onConnect():
     print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
 
 
+
+@socketio.on('disconnect', namespace='')
+def onDiscconnect():
+    print "Session ID" + str( request.sid )
+    client_id = nClient.getClientIDfromSID(request.sid)
+    print "Client disconnected: " + str( client_id )
+
+
+
 @socketio.on('Lok_changed', namespace='')
 def value_changed(message):
 
-    client_id = nClient.getClientIDfromSID(request.sid)
+    client_id = Clients.getClientIDfromSID(request.sid)
 
     print "Lok change of Session ID" + str(request.sid)
     print "Value change of Client" + str( client_id )
