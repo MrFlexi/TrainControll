@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8">
+
+        <title>OData Date Table Filter</title>
+
+        <script id="sap-ui-bootstrap"
+                type="text/javascript"
+                src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
+                data-sap-ui-theme="sap_goldreflection"
+                data-sap-ui-libs="sap.m"
+                data-sap-ui-xx-bindingSyntax="complex"
+        >
+        </script>
+
+
+        <!-- XML-based view definition -->
+        <script id="view1" type="sapui5/xmlview">
+            <mvc:View id="view1"
+                controllerName="local.controller"
+                xmlns:mvc="sap.ui.core.mvc"
+                xmlns="sap.m">
+
+        <UploadCollection   change="onChange"
+                            id="UploadCollection"
+                            items="{/Advertisements}"
+							multiple="true" showSeparators="None" uploadComplete="onUploadComplete"
+							uploadEnabled="true">
+							<UploadCollectionItem contributor="{Fullname}"
+									enableEdit="false"
+									fileName="{Name}"
+									fileSize="{fileSize}"
+									id="UploadCollectionItem"
+									mimeType="{Mimetype}"
+									thumbnailUrl="{thumbnailUrl}"
+									uploadedDate="{ path: 'AirDate',
+									                type: 'sap.ui.model.type.Date',
+									                formatOptions: { style: 'short', pattern: 'dd.MM.yyyy' } }"/>
+								</UploadCollection>
+
+            </mvc:View>
+        </script>
+
+        <script>
+            // Controller definition
+            sap.ui.controller("local.controller", {
+
+                onInit: function(oEvent) {
+
+                }
+            });
+
+            var oView = sap.ui.xmlview({
+                viewContent: jQuery('#view1').html()
+            });
+
+          	var oConfig = {
+              json: true,
+              useBatch: true,
+              maxDataServiceVersion: '3.0'
+		    };
+
+
+            var sURI = "https://cors-anywhere.herokuapp.com/services.odata.org/V3/(S(yuja0cscdoubkcsu4mfealv2))/OData/OData.svc/";
+            var oModel = new sap.ui.model.odata.v2.ODataModel(sURI,oConfig);
+            oView.setModel(oModel);
+
+          	/*oModel.read("/Products(9)/ODataDemo.FeaturedProduct/Advertisement", {
+				success: jQuery.proxy(fSuccess, this),
+                error: jQuery.proxy(fError, this)
+			});
+
+            function fSuccess(oEvent){
+             console.log("oModel: Employees read successfully!");
+            };
+
+            function fError(oEvent){
+             console.log("oModel: An error occured while reading Employees!");
+            };  */
+
+            oView.placeAt('content');
+
+        </script>
+
+    </head>
+
+    <body class="sapUiBody" role="application">
+        <div id="content"></div>
+    </body>
+</html>

@@ -4,6 +4,7 @@ sap.ui.define([
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Popover',
+	'sap/m/UploadCollectionParameter',
 	'sap/m/Button'
 ], function (jQuery, Fragment, Controller, JSONModel, Popover, Button) {
 	"use strict";

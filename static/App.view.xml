@@ -65,11 +65,11 @@
 					<content/>
 					</ScrollContainer>
 					<ScrollContainer id="lok_list" horizontal="false" vertical="true" height="100%">
-						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.LokList" type="XML" id="__item3"/>
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.fragments.LokList" type="XML" id="__item3"/>
 					</ScrollContainer>
 					<ScrollContainer id="client_list" horizontal="false" vertical="true" height="100%">
 					<content>
-					    <core:Fragment xmlns:core="sap.ui.core" fragmentName="view.ClientList" type="XML" id="__table0"/>
+					    <core:Fragment xmlns:core="sap.ui.core" fragmentName="view.fragments.ClientList" type="XML" id="__table0"/>
 					</content>
 					</ScrollContainer>
 					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">

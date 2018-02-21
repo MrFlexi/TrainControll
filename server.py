@@ -258,6 +258,11 @@ def index():
     return render_template('index.html', async_mode=socketio.async_mode, **values )
 
 
+@app.route('/Upload')
+def Upload():
+    return render_template('Upload.html', async_mode=socketio.async_mode)
+
+
 @app.route('/Admin')
 def UI5():
     return render_template('index_xml.html', async_mode=socketio.async_mode)

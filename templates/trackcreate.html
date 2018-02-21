@@ -68,6 +68,7 @@ function preview(img, selection) {
             });
 
 
+
             var oTable = new sap.m.Table({
     		columns: [
     			new sap.m.Column({ header: new sap.m.Label({text: "Weiche"})}),
@@ -153,7 +154,7 @@ function preview(img, selection) {
                                          socket.emit('gleisplan_save', oModelGleisplan.getData());
                                        }
                 }),
-                oTable
+                oTable,
                 ],
             footer: new sap.m.Bar({
             })
