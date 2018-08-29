@@ -9,41 +9,20 @@ sap.ui.define([
 ], function (jQuery, Fragment, Controller, JSONModel, Popover, Button) {
 	"use strict";
 
-	var oModelLokList  = new sap.ui.model.json.JSONModel();
+	var oModelLokList           = new sap.ui.model.json.JSONModel();
+	var oModelMainController    = new sap.ui.model.json.JSONModel();
 
 	var CController = Controller.extend("view.App", {
 		model: new sap.ui.model.json.JSONModel(),
 		model_lok: new sap.ui.model.json.JSONModel(),
 
-		data_lok: {
-			"lok": [{
-				"id": "1",
-				"name": "ETA 5154",
-				"image": "https://img00.deviantart.net/7463/i/2012/092/5/7/eta_515_by_igneo78-d4upbtb.png",
-				"type": "DCC",
-				"addr": "3"
-			}, {
-				"id": "2",
-				"name": "Portfeeder",
-				"image": "sap-icon://employee",
-				"type": "MFX",
-				"addr": "1"
-			}]
-		},
-
 		data: {
+
 			navigation: [{
-				title: 'User',
+				title: 'Home',
 				icon: 'sap-icon://employee',
 				expanded: true,
-				key: 'root1',
-				items: [{
-					title: 'List',
-					key: 'user_p1'
-				}, {
-					title: 'New',
-					key: 'user_p2'
-				}]
+				key: 'Home'
 			}, {
 				title: 'Locomotion',
 				icon: 'sap-icon://card',
@@ -68,6 +47,7 @@ sap.ui.define([
 					title: 'Child Item 3'
 				}]
 			}, ],
+
 			fixedNavigation: [{
 				title: 'Fixed Item 1',
 				icon: 'sap-icon://employee'
@@ -78,6 +58,7 @@ sap.ui.define([
 				title: 'Fixed Item 3',
 				icon: 'sap-icon://card'
 			}],
+
 			headerItems: [{
 				text: "File"
 			}, {
@@ -109,13 +90,10 @@ sap.ui.define([
                 // socket.emit('i_am_connected', {data: 'I\'m connected!'});
             });
 
-            socket.on('config_data', function(msg) {
-                //config_model = jQuery.parseJSON(msg.data)
-                //oModelMainController.setData(config_model);
-
-                //var LokList_data = jQuery.parseJSON(msg.LokList)
-                //oModelLokList.setData(LokList_data);
-            });
+             socket.on('config_data', function(msg) {
+                config_model = jQuery.parseJSON(msg.data)
+                oModelMainController.setData(config_model);
+                });
 
              socket.on('loklist_data', function(msg) {
                var LokList_data = jQuery.parseJSON(msg.LokList)
