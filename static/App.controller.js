@@ -11,6 +11,7 @@ sap.ui.define([
 
 	var oModelLokList           = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
+	var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
 
 	var CController = Controller.extend("view.App", {
 		model: new sap.ui.model.json.JSONModel(),
@@ -26,6 +27,7 @@ sap.ui.define([
 			}, {
 				title: 'Locomotion',
 				icon: 'sap-icon://card',
+				key: 'Drive',
 				expanded: true,
 				items: [{
 					title: 'List',
@@ -75,28 +77,25 @@ sap.ui.define([
 
 		    var namespace = '';
 
-		    //var this.oModelLokList  = new sap.ui.model.json.JSONModel();
+
 
 			// Dynamisches Menü
 			this.model.setData(this.data);
 			this.getView().setModel(this.model);
-
 			this.getView().setModel(oModelLokList, "LokListModel");
-			//this._setToggleButtonTooltip(!sap.ui.Device.system.desktop);
-
-			var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+			this.getView().setModel(oModelMainController, "oModelMainController");
 
             socket.on('connect', function() {
-                // socket.emit('i_am_connected', {data: 'I\'m connected!'});
+                socket.emit('i_am_connected', {data: 'I\'m connected!'});
             });
 
-             socket.on('config_data', function(msg) {
-                config_model = jQuery.parseJSON(msg.data)
+            socket.on('config_data', function(msg) {
+                var config_model = jQuery.parseJSON(msg.data)
                 oModelMainController.setData(config_model);
-                });
+             });
 
              socket.on('loklist_data', function(msg) {
-               var LokList_data = jQuery.parseJSON(msg.LokList)
+               var LokList_data = jQuery.parseJSON(msg.LokList);
                oModelLokList.setData(LokList_data);
             });
 
@@ -108,6 +107,12 @@ sap.ui.define([
 			var viewId = this.getView().getId();
 			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + item.getKey());
 		},
+
+		onSliderliveChange: function(oEvent) {
+		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+		},
+
+
 
 		handleUserNamePress: function(event) {
 			var popover = new Popover({
