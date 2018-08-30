@@ -1,13 +1,14 @@
 sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/Fragment',
+	'sap/m/MessageToast',
 	'./Formatter',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Popover',
 	'sap/m/UploadCollectionParameter',
 	'sap/m/Button'
-], function (jQuery, Fragment, Formatter, Controller, JSONModel, Popover, Button) {
+], function (jQuery, Fragment, MessageToast, Formatter, Controller, JSONModel, Popover, Button) {
 	"use strict";
 
 	var oModelLokList           = new sap.ui.model.json.JSONModel();
@@ -23,19 +24,23 @@ sap.ui.define([
 
 			navigation: [{
 				title: 'Home',
-				icon: 'sap-icon://employee',
+				icon: 'sap-icon://home',
 				expanded: true,
 				key: 'Home'
 			}, {
-				title: 'Locomotion',
-				icon: 'sap-icon://card',
+				title: 'Drive',
+				icon: 'sap-icon://cargo-train',
 				key: 'Drive',
 				expanded: true,
-				items: [{
-					title: 'List',
-					key: 'lok_list'
-				}]
-			}, {
+			},
+			{
+				title: 'LokList',
+				icon: 'sap-icon://list',
+				expanded: true,
+				key: 'lok_list'
+			},
+
+			{
 				title: 'Clients',
 				icon: 'sap-icon://action',
 				expanded: false,
@@ -108,6 +113,38 @@ sap.ui.define([
 
 		onSliderliveChange: function(oEvent) {
 		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+		},
+
+
+
+        handleTableSelectDialogPress: function(oEvent) {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("view.fragments.Dialog", this);
+			}
+
+			// Multi-select if required
+			var bMultiSelect = !!oEvent.getSource().data("multi");
+			this._oDialog.setMultiSelect(bMultiSelect);
+
+			// Remember selections if required
+			var bRemember = !!oEvent.getSource().data("remember");
+			this._oDialog.setRememberSelections(bRemember);
+
+			this.getView().addDependent(this._oDialog);
+			// toggle compact style
+			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
+			this._oDialog.open();
+		},
+
+		handleLocomotionSelectDialogClose: function(oEvent) {
+			var aContexts = oEvent.getParameter("selectedContexts");
+			if (aContexts && aContexts.length) {
+			    var lok_name = aContexts.map(function(oContext) { return oContext.getObject().name; }).join(", ");
+			    var lok_id   = aContexts.map(function(oContext) { return oContext.getObject().id; }).join(", ");
+
+				MessageToast.show("You have chosen " + lok_name + lok_id );
+			}
+			oEvent.getSource().getBinding("items").filter([]);
 		},
 
 

@@ -80,29 +80,7 @@
 
 
 					<ScrollContainer id="Drive" horizontal="false" vertical="true" height="100%">
-						<Text text="Drive"/>
-						<Text text="{oModelMainController>/0/lok_name}"/>
-
-						<ObjectHeader
-							title="{oModelMainController>/0/lok_name}"
-							icon="{oModelMainController>/0/image_url}">
-							<attributes>
-								<ObjectAttribute title = "Speed" text="{oModelMainController>/0/lok_speed}" />
-								<ObjectAttribute title = "Client" text="{oModelMainController>/0/client_id}" />
-							</attributes>
-						</ObjectHeader>
-
-
-
-
-						<l:VerticalLayout class="sapUiContentPadding" width="100%">
-							<Slider min="0" max="100" enableTickmarks="true" class="sapUiSmallMarginBottom" width="50%"
-									liveChange="onSliderliveChange"
-									value = "{oModelMainController>/0/lok_speed}">
-								<ResponsiveScale tickmarksBetweenLabels="10"/>
-							</Slider>
-						</l:VerticalLayout>
-
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.fragments.Drive" type="XML" id="__item_dr_01"/>
 					</ScrollContainer>
 
 
