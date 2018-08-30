@@ -143,6 +143,11 @@ sap.ui.define([
 			    var lok_id   = aContexts.map(function(oContext) { return oContext.getObject().id; }).join(", ");
 
 				MessageToast.show("You have chosen " + lok_name + lok_id );
+
+				socket.emit('Lok_changed',  { who: "Dialog", newLok: lok_id,
+            				                                 oldLok: 1
+            				                                       });
+
 			}
 			oEvent.getSource().getBinding("items").filter([]);
 		},

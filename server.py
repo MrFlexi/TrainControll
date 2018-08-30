@@ -57,17 +57,25 @@ class CTRL:
     def change_lok(client_id, data_in):
         print json.dumps(data_in, indent=1, separators=(',', ': '))
 
-        lok_old = int(data_in["oldLok"][-1:]) + 1
-        lok_new = int(data_in["newLok"][-1:]) + 1
-        print "Lok change requested" + Lok.getName(lok_old) + "--->" + Lok.getName(lok_new)
+        print "Changed by" , data_in["who"]
+
+        if data_in["who"] == "Carousel":
+            lok_new = int(data_in["newLok"][-1:]) + 1
+
+        if data_in["who"] == "Dialog":
+            lok_new = int(data_in["newLok"][-1:])
+
+        print "Lok change requested. New Locomotion: " , Lok.getName(lok_new)
 
         # Get class instance
         gr_instance = CTRL.List[client_id]
         gr_instance.printCTRL()
+        lok_old = gr_instance.lok_id
 
         # Compare old and new values. if different set new speed and direction
-        if gr_instance.lok_id <> lok_new:
-            print "Lok was changed", gr_instance.lok_id
+        if lok_old <> lok_new:
+            lok_old = gr_instance.lok_id
+            print "Lok was changed", lok_old , " to " , lok_new
             # Update values in instance
             gr_instance.lok_id = lok_new
             gr_instance.image_url = Lok.getImage(lok_new)
@@ -77,12 +85,6 @@ class CTRL:
             CPU.printListe()
             CPU.setLokID(client_id,lok_new, lok_old)
             CPU.printListe()
-
-
-
-
-
-
 
     @staticmethod
     def getDataJSON():

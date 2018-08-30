@@ -3,5 +3,5 @@
 {"count": 0, "protocol": "DCC", "addr": 3, "image_url": "/static/images/BR218.jpg", "client_id": null, "id": 3, "name": "BR-218"},
 {"count": 0, "protocol": "DCC", "addr": 6, "image_url": "/static/images/BR212.jpg", "client_id": null, "id": 4, "name": "BR-212"},
 {"count": 0, "protocol": "MFX", "addr": 4, "image_url": "/static/images/BR218_ROT.jpg", "client_id": null, "id": 5, "name": "BR-218 Rot"},
-{"count": 0, "protocol": "DCC", "addr": 5, "image_url": "/static/images/SBB_CARGO.jpg", "client_id": null, "id": 5, "name": "SBB Cargo"},
-{"count": 0, "protocol": "MFX", "addr": 65, "image_url": "/static/images/Portfeeder.jpg", "client_id": null, "id": 6, "name": "Portfeeder"}]
+{"count": 0, "protocol": "DCC", "addr": 5, "image_url": "/static/images/SBB_CARGO.jpg", "client_id": null, "id": 6, "name": "SBB Cargo"},
+{"count": 0, "protocol": "MFX", "addr": 65, "image_url": "/static/images/Portfeeder.jpg", "client_id": null, "id": 7, "name": "Portfeeder"}]
