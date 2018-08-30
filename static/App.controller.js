@@ -1,12 +1,13 @@
 sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/Fragment',
+	'./Formatter',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Popover',
 	'sap/m/UploadCollectionParameter',
 	'sap/m/Button'
-], function (jQuery, Fragment, Controller, JSONModel, Popover, Button) {
+], function (jQuery, Fragment, Formatter, Controller, JSONModel, Popover, Button) {
 	"use strict";
 
 	var oModelLokList           = new sap.ui.model.json.JSONModel();
@@ -14,6 +15,7 @@ sap.ui.define([
 	var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
 
 	var CController = Controller.extend("view.App", {
+	    Formatter: Formatter,
 		model: new sap.ui.model.json.JSONModel(),
 		model_lok: new sap.ui.model.json.JSONModel(),
 
@@ -32,10 +34,6 @@ sap.ui.define([
 				items: [{
 					title: 'List',
 					key: 'lok_list'
-				}, {
-					title: 'New'
-				}, {
-					title: 'Change'
 				}]
 			}, {
 				title: 'Clients',
@@ -146,6 +144,7 @@ sap.ui.define([
 
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		},
+
 
 		_setToggleButtonTooltip: function(bLarge) {
 			var toggleButton = this.byId('sideNavigationToggleButton');

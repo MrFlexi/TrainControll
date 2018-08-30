@@ -1,24 +1,25 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core">
 	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0">
-		<sap.m:items>
-			<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image_url}">
-				<sap.m:attributes>
-					<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute1">
-					</sap.m:ObjectAttribute>
-					<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute2">
-					</sap.m:ObjectAttribute>
-					<sap.m:ObjectAttribute title="Type" text="{LokListModel>type}" id="__attribute3">
-					</sap.m:ObjectAttribute>
-					<sap.m:ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
-					</sap.m:ObjectAttribute>
-				</sap.m:attributes>
-				<sap.m:firstStatus>
-					<sap.m:ObjectStatus
-										text="{LokListModel>status}"
-										state="{	path: 'status',
-													formatter: 'sap.m.sample.ObjectListItemMarkLocked.Formatter.status'	}" />
-				</sap.m:firstStatus>
-			</sap.m:ObjectListItem>
-		</sap.m:items>
+							<sap.m:items>
+								<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image_url}">
+									<sap.m:attributes>
+										<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute1">
+										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute2">
+										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Type" text="{LokListModel>type}" id="__attribute3">
+										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
+										</sap.m:ObjectAttribute>
+									</sap.m:attributes>
+									<sap.m:firstStatus>
+										<sap.m:ObjectStatus
+															text="{LokListModel>status}"
+															state="{	path: 'LokListModel>status',
+																		formatter: 'view.Formatter.status'	}" />
+									</sap.m:firstStatus>
+								</sap.m:ObjectListItem>
+							</sap.m:items>
 	</sap.m:List>
+
 </core:FragmentDefinition>
