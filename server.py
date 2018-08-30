@@ -47,6 +47,9 @@ class CTRL:
         self.lok_dir = lok_dir
         self.lok_speed = lok_speed
         self.lok_f1 = False
+
+        CPU.setLokID(client_id, lok_id, 0)
+
         CTRL.List[client_id] = self
         CTRL.printListe()
 
@@ -72,8 +75,12 @@ class CTRL:
 
             #Update mapping table
             CPU.printListe()
-            CPU.setLokID(client_id,lok_new)
+            CPU.setLokID(client_id,lok_new, lok_old)
             CPU.printListe()
+
+
+
+
 
 
 
@@ -225,9 +232,9 @@ for item in gleisplan_json:
 
 #Map client to Lok
 CPU( 1, 1)
-CPU( 2, 2)
-CPU( 3, 3)
-CPU( 4, 5)
+#CPU( 2, 2)
+#CPU( 3, 3)
+#CPU( 4, 5)
 
 print "Initial Client Lok Mapping"
 CPU.printListe()
@@ -369,6 +376,7 @@ def value_changed(message):
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 
 @socketio.on('toggle_turnout', namespace='')

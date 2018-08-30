@@ -212,7 +212,7 @@ class CPU:
     self.lok_id = lok_id
     print "Mapping Constructor"
     CPU.Mapping[client_id] = lok_id
-    # CPU.Mapping[client_id] = self
+
 
  @staticmethod
  def getLokIDfromClientId(client_id):
@@ -247,8 +247,11 @@ class CPU:
 
 
  @staticmethod
- def setLokID(client_id,lok_id):
-      CPU.Mapping[client_id] = lok_id
+ def setLokID(client_id,lok_new, lok_old):
+      CPU.Mapping[client_id] = lok_new
+
+      # Update LokList table
+      Lok.bindLokID(client_id, lok_new, lok_old)
 
 
 # Define Class Client
@@ -265,6 +268,7 @@ class Lok:
        self.addr = addr
        self.protocol = protocol
        self.client_id = ""
+       self.status = "available"
        Lok.LokList[id] = self
        Lok.count = + 1
 
@@ -276,6 +280,17 @@ class Lok:
          x.client_id = CPU.getClientIdfromLokId(x.id)
          jd.append(x.__dict__)
     return (json.dumps(jd))
+
+ @staticmethod
+ def bindLokID(client_id, lok_new, lok_old):
+
+     if lok_new in Lok.LokList:
+        Lok.LokList[lok_new].client_id = client_id
+        Lok.LokList[lok_new].status = "blocked"
+
+     if lok_old in Lok.LokList:
+        Lok.LokList[lok_old].client_id = ""
+        Lok.LokList[lok_old].status = "available"
 
  @staticmethod
  def printLokList():
@@ -310,7 +325,7 @@ class Lok:
         return ( Lok.LokList[Lok_Id].addr )
 
  def printLok(self):
-        print "Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url
+        print "Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status
 
 
 # Define Class Client
