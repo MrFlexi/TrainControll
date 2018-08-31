@@ -13,6 +13,7 @@ sap.ui.define([
 
 	var oModelLokList           = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
+	var oModelUser              = new sap.ui.model.json.JSONModel();
 	var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
 
 	var CController = Controller.extend("view.App", {
@@ -80,7 +81,24 @@ sap.ui.define([
 
 		    var namespace = '';
 
+            //Storage
+                  jQuery.sap.require("jquery.sap.storage");
+                  var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+                  //Check if there is data into the Storage
+                  if (oStorage.get("myLocalData")) {
+                  console.log("Data is from Storage!");
+                  var oDataUser = oStorage.get("myLocalData");
+                  oModelUser.setData(oDataUser);
+                  }
+                  else
+                  {
 
+                  this.handleLogonDialog();
+                  var UserData = { "UserData" : [ { "Name" : "Jochen" } ] };
+                  oModelUser.setData(UserData);
+                   oStorage.put("myLocalData", UserData);
+
+                  }
 
 			// Dynamisches Menü
 			this.model.setData(this.data);
@@ -115,6 +133,18 @@ sap.ui.define([
 		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
 		},
 
+
+        handleLogonDialog: function() {
+			if (!this._oDialogLogon) {
+				this._oDialogLogon = sap.ui.xmlfragment("view.fragments.Logon", this);
+			}
+
+			this.getView().addDependent(this._oDialogLogon);
+			// toggle compact style
+			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogLogon);
+			this._oDialogLogon.open();
+
+			},
 
 
         handleTableSelectDialogPress: function(oEvent) {

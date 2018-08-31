@@ -1,0 +1,53 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No available locomotins found"
+		title="Select a locomotion"
+		search="handleLocomotionSearch"
+		confirm="handleLocomotionSelectDialogClose"
+		cancel="handleLocomotionSelectDialogClose"
+		items="{
+			path : 'LokListModel>/',
+			sorter : {
+				path : 'name',
+				descending : false
+			}
+		}">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier
+					title="{LokListModel>name}" />
+				<Text text="{LokListModel>status}" />
+                <Image
+					src="{LokListModel>image_url}"
+					densityAware="false"
+					width="50px" >
+					<layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+				</Image>
+			</cells>
+		</ColumnListItem>
+
+        <columns>
+			<Column width="12em">
+				<header>
+					<Text text="Name" />
+				</header>
+			</Column>
+
+            <Column >
+				<header>
+					<Text text="Status" />
+				</header>
+			</Column>
+
+			<Column hAlign="End">
+				<header>
+					<Text text="Icon" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>
