@@ -22,10 +22,6 @@ socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
 
-values = {
-    'slider1': 25,
-    'slider2': 0,
-}
 
 # Define Class Client
 class CTRL:
@@ -262,7 +258,7 @@ def before_request():
     session['key_1'] = 'Hello,'
     session['key_2'] = 'World'
 
-@app.route('/')
+@app.route('/Old')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode, **values )
 
@@ -272,7 +268,7 @@ def Upload():
     return render_template('Upload.html', async_mode=socketio.async_mode)
 
 
-@app.route('/Admin')
+@app.route('/')
 def UI5():
     return render_template('index_xml.html', async_mode=socketio.async_mode)
 
@@ -375,6 +371,10 @@ def value_changed(message):
     print "Lok change of Session ID" + str(request.sid)
     print "Value change of Client" + str( client_id )
     CTRL.change_lok(client_id=client_id, data_in=message )
+
+    # Push new data to single client
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
+
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
