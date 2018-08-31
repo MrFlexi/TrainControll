@@ -22,7 +22,7 @@
     </Slider>
     <Button
             class="sapUiSmallMarginBottom"
-			text="Change Locomotion"
+			text="Select Locomotion"
 			press="handleTableSelectDialogPress">
     </Button>
 
