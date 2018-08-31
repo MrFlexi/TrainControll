@@ -3,24 +3,24 @@
 	xmlns:core="sap.ui.core">
 	<TableSelectDialog
 		noDataText="No available locomotins found"
-		title="Select a locomotion"
+		title="Select a user"
 		search="handleLocomotionSearch"
-		confirm="handleLocomotionSelectDialogClose"
-		cancel="handleLocomotionSelectDialogClose"
+		confirm="handleUserSelectDialogClose"
+		cancel="handleUserSelectDialogClose"
 		items="{
-			path : 'LokListModel>/',
+			path : 'oModelUserList>/',
 			sorter : {
-				path : 'name',
+				path : 'user_name',
 				descending : false
 			}
 		}">
 		<ColumnListItem>
 			<cells>
 				<ObjectIdentifier
-					title="{LokListModel>name}" />
-				<Text text="{LokListModel>status}" />
+					title="{oModelUserList>user_name}" />
+				<Text text="{oModelUserList>status}" />
                 <Image
-					src="{LokListModel>image_url}"
+					src="{oModelUserList>image_url}"
 					densityAware="false"
 					width="50px" >
 					<layoutData>

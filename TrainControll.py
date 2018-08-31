@@ -333,7 +333,7 @@ class Clients:
     mt_clients = {}
     Count = 0
 
-    def __init__(self):
+    def __init__(self, user_name):
      print "Class Constructor"\
 
     @staticmethod
@@ -346,6 +346,17 @@ class Clients:
      print " Class - Clients"
      print(Clients.mt_clients)
      print("Anzahl:",len(Clients.mt_clients))
+
+    @staticmethod
+    def setUserName(client_ID, user_name):
+        print "Link Client to User"
+
+        #if client_ID in Clients.mt_clients:
+        #    Clients.mt_clients[client_ID].user_name = user_name
+
+        print " Class - Clients"
+        print(Clients.mt_clients)
+        print("Anzahl:", len(Clients.mt_clients))
 
     @staticmethod
     def getClientIDfromSID(sid):
@@ -362,3 +373,57 @@ class Clients:
      print " Class - Clients"
      print(Clients.mt_clients)
      print("Anzahl:",len(Clients.mt_clients))
+
+
+# Define Class User
+class User:
+
+ UserList = {}
+ count = 0
+ def __init__(self,  user_id, user_name, image_url, client_id ):
+       #Create empty dictionary
+       self.user_id = user_id
+       self.user_name = user_name
+       self.image_url = image_url
+       self.client_id = client_id
+       self.status = "offline"
+       User.UserList[user_id] = self
+       User.count = + 1
+
+ @staticmethod
+ def getDataJSON():
+    jd = []
+    i = User.UserList.values()
+    for x in i:
+         jd.append(x.__dict__)
+    return (json.dumps(jd))
+
+
+ @staticmethod
+ def printUserList():
+     i = User.UserList.values()
+     print("-------------------------")
+     print("Userliste")
+     for x in i:
+       x.printUser()
+     print("-------------------------")
+
+ @staticmethod
+ def save():
+     jsonData = User.getDataJSON()
+     f = open("./config/userlist.json", "w")  # opens file with name of "test.txt"
+     f.write(jsonData)
+     f.close()
+
+ @staticmethod
+ def getImage(user_id):
+     if user_id in User.UserList:
+        return ( User.UserList[user_id].image_url )
+
+ @staticmethod
+ def getName(user_id):
+     if user_id in User.UserList:
+        return ( User.UserList[user_id].user_name )
+
+ def printUser(self):
+        print "User:" + str(self.user_id) +" " + self.user_name + " " + self.image_url

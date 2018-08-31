@@ -34,7 +34,7 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px"/>
 					</layoutData>
 				</ToolbarSpacer>
-				<Button text="Admin" type="Transparent" press="handleUserNamePress">
+				<Button text="{oModelMainController>/0/user_name}" type="Transparent" press="handleLogonDialog">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow"/>
 					</layoutData>
@@ -86,6 +86,10 @@
 
 					<ScrollContainer id="lok_list" horizontal="false" vertical="true" height="100%">
 						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.fragments.LokList" type="XML" id="__item_ll_01"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="user_list" horizontal="false" vertical="true" height="100%">
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="view.fragments.UserList" type="XML" id="__item_UL_01"/>
 					</ScrollContainer>
 
 					<ScrollContainer id="client_list" horizontal="false" vertical="true" height="100%">

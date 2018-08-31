@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # testwx
-from TrainControll import CPU, Lok, Clients, UDP, Gleisplan
+from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
 import json
 import base64
 
@@ -96,6 +96,15 @@ class CTRL:
         x = CTRL.List[client_id]
         jd.append(x.__dict__)
         return (json.dumps(jd))
+
+    @staticmethod
+    def setUserName(client_id, user_name):
+        print "Set User NAme "
+
+        # Get class instance
+        if client_id in CTRL.List:
+            gr_instance = CTRL.List[client_id]
+            gr_instance.user_name = user_name
 
     @staticmethod
     def deleteClient(client_id ):
@@ -228,6 +237,16 @@ for item in gleisplan_json:
     Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC" )
 
 
+# Load User
+with open('./config/userlist.json') as data_file:
+    userlist_json = json.load(data_file)
+for item in userlist_json:
+    # Create Instances for each lok
+    User( user_id=item["user_id"], user_name=item["user_name"], image_url=item["image_url"], client_id=item["client_id"] )
+
+User.printUserList()
+
+
 #Map client to Lok
 CPU( 1, 1)
 #CPU( 2, 2)
@@ -238,7 +257,7 @@ print "Initial Client Lok Mapping"
 CPU.printListe()
 
 print "Initial Browser Clients"
-Clients()
+#Clients()
 
 
 
@@ -330,15 +349,17 @@ def onConnect():
 
     print "New Client connected"
     client_id = Clients.getClientIDfromSID(request.sid)
+
     lok_id = CPU.getLokIDfromClientId(client_id)
 
     # Register new client and assign an default locomotion
     # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
-    CTRL(request.sid, client_id, "Fred", lok_id, 0, 0)
+    CTRL(request.sid, client_id, "Dr. No", lok_id, 0, 0)
 
     # Push new data to single client
     emit('loklist_data', {'LokList': Lok.getDataJSON()})      # List of available locomotions
     emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'user': User.getDataJSON(),
                          'Gleisplan': Gleisplan.getDataJSON()})
 
     # Push data to all connected clients
@@ -360,6 +381,23 @@ def onDiscconnect():
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
+
+
+
+    # React on User has logged on
+    @socketio.on('User_changed', namespace='')
+    def User_changed(message):
+        client_id = Clients.getClientIDfromSID(request.sid)
+        user_name = message["user_name"]
+
+        print "User Changed on Client" + str(client_id) + user_name
+
+        CTRL.setUserName(client_id, user_name)
+
+        # Push new data to single client
+        emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                             'user': User.getDataJSON()
+                             })
 
 
    # React on locomotion chaged in Picture Carousel

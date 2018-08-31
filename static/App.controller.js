@@ -12,15 +12,16 @@ sap.ui.define([
 	"use strict";
 
 	var oModelLokList           = new sap.ui.model.json.JSONModel();
+	var oModelUserList          = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
 	var oModelUser              = new sap.ui.model.json.JSONModel();
+
+
+
 	var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
 
 	var CController = Controller.extend("view.App", {
-	    Formatter: Formatter,
-		model: new sap.ui.model.json.JSONModel(),
-		model_lok: new sap.ui.model.json.JSONModel(),
-
+        model: new sap.ui.model.json.JSONModel(),
 		data: {
 
 			navigation: [{
@@ -39,6 +40,13 @@ sap.ui.define([
 				icon: 'sap-icon://list',
 				expanded: true,
 				key: 'lok_list'
+			},
+
+			{
+				title: 'User',
+				icon: 'sap-icon://account',
+				expanded: true,
+				key: 'user_list'
 			},
 
 			{
@@ -104,15 +112,20 @@ sap.ui.define([
 			this.model.setData(this.data);
 			this.getView().setModel(this.model);
 			this.getView().setModel(oModelLokList, "LokListModel");
+			this.getView().setModel(oModelUserList, "oModelUserList");
 			this.getView().setModel(oModelMainController, "oModelMainController");
 
             socket.on('connect', function() {
-                socket.emit('i_am_connected', {data: 'I\'m connected!'});
+                socket.emit('client_global_storage', {data: 'I\'m connected!'});
             });
 
             socket.on('config_data', function(msg) {
                 var config_model = jQuery.parseJSON(msg.data)
                 oModelMainController.setData(config_model);
+
+                var UserList_json = jQuery.parseJSON(msg.user);
+                oModelUserList.setData(UserList_json);
+
              });
 
              socket.on('loklist_data', function(msg) {
@@ -182,29 +195,23 @@ sap.ui.define([
 			oEvent.getSource().getBinding("items").filter([]);
 		},
 
+		handleUserSelectDialogClose: function(oEvent) {
+			var aContexts = oEvent.getParameter("selectedContexts");
+			if (aContexts && aContexts.length) {
+			    var user_name = aContexts.map(function(oContext) { return oContext.getObject().user_name; }).join(", ");
+			    var user_id   = aContexts.map(function(oContext) { return oContext.getObject().user_id; }).join(", ");
+
+				MessageToast.show("You are logged in as: " + user_name + "  " + user_id );
+
+				socket.emit('User_changed',  { user_id: user_id, user_name: user_name });
+
+			}
+		},
+
 
 
 		handleUserNamePress: function(event) {
-			var popover = new Popover({
-				showHeader: false,
-				placement: sap.m.PlacementType.Bottom,
-				content: [
-					new Button({
-						text: 'Feedback',
-						type: sap.m.ButtonType.Transparent
-					}),
-					new Button({
-						text: 'Help',
-						type: sap.m.ButtonType.Transparent
-					}),
-					new Button({
-						text: 'Logout',
-						type: sap.m.ButtonType.Transparent
-					})
-				]
-			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
 
-			popover.openBy(event.getSource());
 		},
 
 		onSideNavButtonPress: function() {

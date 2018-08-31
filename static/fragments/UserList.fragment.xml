@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core">
+	<sap.m:List xmlns:sap.m="sap.m" noDataText="No user found" items="{oModelUserList>/}" id="__ULlist0">
+							<sap.m:items>
+								<sap.m:ObjectListItem type="Active" title="{oModelUserList>user_name}" id="__ULitem1" icon="{oModelUserList>image_url}">
+									<sap.m:attributes>
+										<sap.m:ObjectAttribute title="ID" text="{oModelUserList>user_id}" id="__ulattribute1">
+										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Client" text="{oModelUserList>client_id}" id="__ulattribute4">
+										</sap.m:ObjectAttribute>
+									</sap.m:attributes>
+									<sap.m:firstStatus>
+										<sap.m:ObjectStatus
+															text="{oModelUserList>status}"
+															state="{	path: 'oModelUserList>status',
+																		formatter: 'view.Formatter.status'	}" />
+									</sap.m:firstStatus>
+								</sap.m:ObjectListItem>
+							</sap.m:items>
+	</sap.m:List>
+
+</core:FragmentDefinition>

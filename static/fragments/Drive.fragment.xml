@@ -11,6 +11,7 @@
 			<attributes>
 		    	<ObjectAttribute title = "Speed" text="{oModelMainController>/0/lok_speed}" />
                 <ObjectAttribute title = "Client" text="{oModelMainController>/0/client_id}" />
+                <ObjectAttribute title = "User" text="{oModelMainController>/0/user_name}" />
             </attributes>
     </ObjectHeader>
 
