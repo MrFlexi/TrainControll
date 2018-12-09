@@ -222,7 +222,7 @@ class CTRL:
 # ---------------------  Main ------------------------------------
 
 # Load Lok Liste
-with open('./config/loklist.json') as data_file:
+with open('config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
 for item in loklist_json:
     # Create Instances for each lok
@@ -230,7 +230,7 @@ for item in loklist_json:
 Lok.printLokList()
 
 # Load Gleisplan
-with open('./config/gleisplan.json') as data_file:
+with open('config/gleisplan.json') as data_file:
     gleisplan_json = json.load(data_file)
 for item in gleisplan_json:
     # Create Instances for each lok
@@ -238,7 +238,7 @@ for item in gleisplan_json:
 
 
 # Load User
-with open('./config/userlist.json') as data_file:
+with open('config/userlist.json') as data_file:
     userlist_json = json.load(data_file)
 for item in userlist_json:
     # Create Instances for each lok
