@@ -222,7 +222,7 @@ class CTRL:
 # ---------------------  Main ------------------------------------
 
 # Load Lok Liste
-with open('./config/loklist.json') as data_file:
+with open('config/loklist.json') as data_file:
     loklist_json = json.load(data_file)
 for item in loklist_json:
     # Create Instances for each lok
