@@ -16,18 +16,20 @@ class UDP:
 
 
         lv_idstr = chr(iv_id - 1)
-        print "SetFunction"
-        print "DCC Address:" + str(iv_id) + " Value:" + str(value)
+        print ("SetFunction")
+        print ("DCC Address:" + str(iv_id) + " Value:" + str(value))
 
         lv_val = chr(value)
 
         message = hex_data1.decode("hex") + lv_idstr + lv_val + hex_data2.decode("hex")
 
-        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
+
+       
 
 
 
@@ -37,20 +39,18 @@ class UDP:
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"
 
+
         lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_str = chr(lv_addr)
-        print "DCC Address:" + str(lv_addr)
+        lv_addr_int = int(lv_addr)
+        print ("DCC Address:" + str(lv_addr))
 
-        low = iv_speed & 0xff
-        high = (iv_speed >> 8) & 0xff
+        message = bytes.fromhex(hex_data1) + lv_addr_int.to_bytes(1, byteorder='big') + int(iv_speed).to_bytes(2, byteorder='big') + bytes.fromhex(hex_data2)
+        
 
-        lv_speed_low = chr(low)
-        lv_speed_high = chr(high)
+        print("UDP Message", message )
+        #message shold look like this ('UDP Message', '\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00\x14\x00\x00')
 
-        message = hex_data1.decode("hex") + lv_addr_str + lv_speed_high + lv_speed_low + hex_data2.decode(
-            "hex")
-
-        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
@@ -63,14 +63,14 @@ class UDP:
 
         lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
-        print "DCC Address:" + str(lv_addr)
+        print ("DCC Address:" + str(lv_addr))
 
         lv_func = chr(func)
         lv_val = chr(value)
 
         message = hex_data1.decode("hex") + lv_addr_str + lv_func + lv_val + hex_data2.decode("hex")
 
-        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
@@ -84,22 +84,22 @@ class UDP:
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
 
-        lv_dir_str = chr(00)
+        lv_dir_str = chr(0)
         if iv_dir == "back":
-            lv_dir_str = chr(02)
+            lv_dir_str = chr(2)
         elif iv_dir == "neutral":
-            lv_dir_str = chr(00)
+            lv_dir_str = chr(0)
         elif iv_dir == "forward":
-            lv_dir_str = chr(01)
+            lv_dir_str = chr(1)
 
         lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
         # lv_dir_str = chr(iv_dir)
-        print "Set Direction:"
+        print ("Set Direction:")
 
         message = hex_data1.decode("hex") + lv_addr_str + lv_dir_str + hex_data2.decode("hex")
 
-        print "UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT
+        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
@@ -133,8 +133,8 @@ class Gleisplan:
 
     @staticmethod
     def toggle_turnout(message):
-        print "Toggle Turnout"
-        print message
+        print ("Toggle Turnout")
+        print (message)
 
         lv_id = int(message)
 
@@ -150,7 +150,7 @@ class Gleisplan:
 
     @staticmethod
     def save(message):
-        print "Gleisplan Save"
+        print ("Gleisplan Save")
         #jsonData = json.dumps(message, indent=1, separators=(',', ': '))
         #print(jsonData)
 
@@ -162,8 +162,8 @@ class Gleisplan:
 
             #Compare old and new values. if different set new value
 
-            if gr_instance.addr <> item["addr"]:
-                print "Address was changed from " +  str(gr_instance.addr) + " to: " + str(item["addr"])
+            if gr_instance.addr != item["addr"]:
+                print ("Address was changed from " +  str(gr_instance.addr) + " to: " + str(item["addr"]))
                 # Update values in instance
                 gr_instance.addr = item["addr"]
 
@@ -198,7 +198,7 @@ class Gleisplan:
             return (Gleisplan.Liste[Id].addr)
 
     def printGP(self):
-        print "Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir)
+        print ("Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir))
 
 
 
@@ -210,7 +210,7 @@ class CPU:
  def __init__(self, client_id, lok_id):
     self.client_id = client_id
     self.lok_id = lok_id
-    print "Mapping Constructor"
+    print ("Mapping Constructor")
     CPU.Mapping[client_id] = lok_id
 
 
@@ -226,25 +226,27 @@ class CPU:
      i = CPU.Mapping.values()
 
      print("CPU Liste")
-     print CPU.Mapping
+     print (CPU.Mapping)
      #for x in i:
      #    x.printCPU()
 
 
  def printCPU(self):
-     print str(self.client_id) + "  " + str(self.lok_id)
+     print (str(self.client_id) + "  " + str(self.lok_id))
 
 
  @staticmethod
  def getClientIdfromLokId(lok_id):
      try:
-         client_id = CPU.Mapping.keys()[CPU.Mapping.values().index(lok_id)]
-         return ( client_id )
+
+        for key, value in CPU.Mapping.items():    
+            print (key, value)
+            if value == lok_id:
+                client_id = key
+                return ( client_id )
+                break
      except ValueError:
-         print "Lok" + str(lok_id) +" not assigned"
-
-
-
+         print ("Lok" + str(lok_id) +" not assigned")
 
  @staticmethod
  def setLokID(client_id,lok_new, lok_old):
@@ -325,7 +327,7 @@ class Lok:
         return ( Lok.LokList[Lok_Id].addr )
 
  def printLok(self):
-        print "Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status
+        print ("Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status)
 
 
 # Define Class Client
@@ -334,43 +336,51 @@ class Clients:
     Count = 0
 
     def __init__(self, user_name):
-     print "Class Constructor"\
+     print ("Class Constructor")
 
     @staticmethod
     def newClient(sid):
      Clients.Count =+ Clients.Count + 1
-     print "Client Counter"
-     print Clients.Count
+     print ("Client Counter")
+     print (Clients.Count)
      # Add new entry
      Clients.mt_clients[Clients.Count] =  sid
-     print " Class - Clients"
+     print (" Class - Clients")
      print(Clients.mt_clients)
      print("Anzahl:",len(Clients.mt_clients))
 
     @staticmethod
     def setUserName(client_ID, user_name):
-        print "Link Client to User"
+        print ("Link Client to User")
 
         #if client_ID in Clients.mt_clients:
         #    Clients.mt_clients[client_ID].user_name = user_name
 
-        print " Class - Clients"
-        print(Clients.mt_clients)
-        print("Anzahl:", len(Clients.mt_clients))
+        print (" Class - Clients")
+        print (Clients.mt_clients)
+        print ("Anzahl:", len(Clients.mt_clients))
 
     @staticmethod
     def getClientIDfromSID(sid):
-     # get key from value
-     return( Clients.mt_clients.keys()[Clients.mt_clients.values().index(sid)] )
+
+    # Printing dictionary 
+        #print ("Original dictionary is : " + str(Clients.mt_clients)) 
+        #print ("Dict key-value are : ") 
+        for key, value in Clients.mt_clients.items():    
+            print (key, value)
+            if value == sid:
+                return(key)
+                break
+    
 
     @staticmethod
     def deleteClient(client_ID):
-     print "Delete Client from mt_clients"
+     print ("Delete Client from mt_clients")
 
      if client_ID in Clients.mt_clients:
          del Clients.mt_clients[client_ID]
 
-     print " Class - Clients"
+     print (" Class - Clients")
      print(Clients.mt_clients)
      print("Anzahl:",len(Clients.mt_clients))
 
@@ -426,4 +436,4 @@ class User:
         return ( User.UserList[user_id].user_name )
 
  def printUser(self):
-        print "User:" + str(self.user_id) +" " + self.user_name + " " + self.image_url
+        print ("User:" + str(self.user_id) +" " + self.user_name + " " + self.image_url)

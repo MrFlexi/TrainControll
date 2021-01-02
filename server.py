@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # testwx
+
+# build requirements file:          pip freeze > requirements.txt  
+# install dependencies:             pip install -r requirements.txt
 from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
 import json
 import base64
@@ -9,6 +12,9 @@ from threading import Lock
 from flask import Flask, render_template, request, session
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
+
+from pathlib import Path
+import binascii
 
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
@@ -51,9 +57,9 @@ class CTRL:
 
     @staticmethod
     def change_lok(client_id, data_in):
-        print json.dumps(data_in, indent=1, separators=(',', ': '))
+        print (json.dumps(data_in, indent=1, separators=(',', ': ')))
 
-        print "Changed by" , data_in["who"]
+        print ("Changed by" , data_in["who"])
 
         if data_in["who"] == "Carousel":
             lok_new = int(data_in["newLok"][-1:]) + 1
@@ -61,7 +67,7 @@ class CTRL:
         if data_in["who"] == "Dialog":
             lok_new = int(data_in["newLok"][-1:])
 
-        print "Lok change requested. New Locomotion: " , Lok.getName(lok_new)
+        print ("Lok change requested. New Locomotion: " , Lok.getName(lok_new))
 
         # Get class instance
         gr_instance = CTRL.List[client_id]
@@ -69,9 +75,9 @@ class CTRL:
         lok_old = gr_instance.lok_id
 
         # Compare old and new values. if different set new speed and direction
-        if lok_old <> lok_new:
+        if lok_old != lok_new:
             lok_old = gr_instance.lok_id
-            print "Lok was changed", lok_old , " to " , lok_new
+            print ("Lok was changed", lok_old , " to " , lok_new)
             # Update values in instance
             gr_instance.lok_id = lok_new
             gr_instance.image_url = Lok.getImage(lok_new)
@@ -99,7 +105,7 @@ class CTRL:
 
     @staticmethod
     def setUserName(client_id, user_name):
-        print "Set User NAme "
+        print ("Set User Name ")
 
         # Get class instance
         if client_id in CTRL.List:
@@ -108,7 +114,7 @@ class CTRL:
 
     @staticmethod
     def deleteClient(client_id ):
-        print "delete client "
+        print ("delete client ")
 
         # Get class instance
         if client_id in CTRL.List:
@@ -121,11 +127,11 @@ class CTRL:
 
     @staticmethod
     def setClientData(client_id, data_in ):
-        print "SetClientData " + json.dumps(data_in)
+        print ("SetClientData " + json.dumps(data_in))
 
         # Data comming from client is a JSON Array. In this case it should be only one element in the array
         for item in data_in["data"]:
-            print "Next Line", item
+            print ("Next Line", item)
             speed = item["lok_speed"]
             direction = item["lok_dir"]
             f1 = item["lok_f1"]
@@ -138,8 +144,8 @@ class CTRL:
 
 
         #SPEED
-        if gr_instance.lok_speed <> speed:
-            print "Speed was changed", gr_instance.lok_speed, speed
+        if gr_instance.lok_speed != speed:
+            print ("Speed was changed", gr_instance.lok_speed, speed)
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
             UDP.setSpeed(gr_instance.lok_id,speed)
 
@@ -147,8 +153,8 @@ class CTRL:
             gr_instance.lok_speed = speed
 
         # DIRECTION
-        if gr_instance.lok_dir <> direction:
-            print "Direction was changed", gr_instance.lok_dir, direction
+        if gr_instance.lok_dir != direction:
+            print ("Direction was changed", gr_instance.lok_dir, direction)
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
 
             if direction == "neutral":
@@ -160,8 +166,8 @@ class CTRL:
             gr_instance.lok_speed = 0
 
             # DIRECTION
-        if gr_instance.lok_f1 <> f1:
-            print "Lok function", gr_instance.lok_f1, f1
+        if gr_instance.lok_f1 != f1:
+            print ("Lok function", gr_instance.lok_f1, f1)
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
             if f1: UDP.setLokFunction(gr_instance.lok_id, 0, 1)
             else: UDP.setLokFunction(gr_instance.lok_id, 0, 0)
@@ -172,19 +178,19 @@ class CTRL:
 
     @staticmethod
     def setDataJSON( data_in ):
-        print json.dumps(data_in, indent=1, separators=(',', ': '))
+        print (json.dumps(data_in, indent=1, separators=(',', ': ')))
 
         # Loop at data_in into item
         for item in data_in["data"]:
-            print "Next Line", item
+            print ("Next Line", item)
 
             # Get class instance
             gr_instance = CTRL.List[ item["client_id"] ]
             gr_instance.printCTRL()
 
             #Compare old and new values. if different set new speed and direction
-            if gr_instance.lok_speed <> item["lok_speed"]:
-                print "Speed was changed", gr_instance.lok_speed, item["lok_speed"]
+            if gr_instance.lok_speed != item["lok_speed"]:
+                print ("Speed was changed", gr_instance.lok_speed, item["lok_speed"])
                 # Update speed, UDP Paket senden
 
                 # Update values in instance
@@ -222,8 +228,19 @@ class CTRL:
 # ---------------------  Main ------------------------------------
 
 # Load Lok Liste
-with open('config/loklist.json') as data_file:
-    loklist_json = json.load(data_file)
+
+p = Path('.')
+for x in p.iterdir():
+    print(x)
+
+
+filename = Path('config/loklist.json')
+if not filename.exists():
+    print("Oops, file doesn't exist!")
+
+data_file = open(filename)
+loklist_json = json.load(data_file)
+
 for item in loklist_json:
     # Create Instances for each lok
     Lok(id=item["id"],name=item["name"], image_url=item["image_url"], addr=item["addr"], protocol=item["protocol"])
@@ -253,10 +270,10 @@ CPU( 1, 1)
 #CPU( 3, 3)
 #CPU( 4, 5)
 
-print "Initial Client Lok Mapping"
+print ("Initial Client Lok Mapping")
 CPU.printListe()
 
-print "Initial Browser Clients"
+print ("Initial Browser Clients")
 #Clients()
 
 
@@ -314,9 +331,9 @@ def track_create():
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
     client_id = Clients.getClientIDfromSID(request.sid)
-    print "Value change of Session ID" + str(request.sid)
-    print "Client" + str( client_id )
-    print "Lok" + str( CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid)))
+    print ("Value change of Session ID" + str(request.sid))
+    print ("Client" + str( client_id ))
+    print ("Lok" + str( CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid))))
 
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
@@ -333,8 +350,8 @@ def main_controller_value_changed(message):
 # broadcast slider values to all clients
 @socketio.on('value changed', namespace='')
 def value_changed(message):
-    print "Value change of Session ID" + str(request.sid)
-    print "Value change of Client" + str( Clients.getClientIDfromSID(request.sid) )
+    print ("Value change of Session ID" + str(request.sid))
+    print ("Value change of Client" + str( Clients.getClientIDfromSID(request.sid) ))
     print ("Value change of Lok", CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid)))
     # Write new data into class, handle data changes
     CTRL.setDataJSON(message)
@@ -344,10 +361,10 @@ def value_changed(message):
 @socketio.on('connect', namespace='')
 def onConnect():
 
-    print "Session ID" + str( request.sid )
+    print ("Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
-    print "New Client connected"
+    print ("New Client connected")
     client_id = Clients.getClientIDfromSID(request.sid)
 
     lok_id = CPU.getLokIDfromClientId(client_id)
@@ -365,19 +382,19 @@ def onConnect():
     # Push data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
-    print "Client JSON " +  CTRL.getDataJSONforClient(client_id)
+    print ("Client JSON " +  CTRL.getDataJSONforClient(client_id))
 
 
 
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
-    print "Session ID" + str( request.sid )
+    print ("Session ID" + str( request.sid ))
     client_id = Clients.getClientIDfromSID(request.sid)
 
     CTRL.deleteClient(client_id)        # Set Speed 0
     Clients.deleteClient(client_id)
 
-    print "Client disconnected: " + str( client_id )
+    print ("Client disconnected: " + str( client_id ))
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
@@ -390,7 +407,7 @@ def onDiscconnect():
         client_id = Clients.getClientIDfromSID(request.sid)
         user_name = message["user_name"]
 
-        print "User Changed on Client" + str(client_id) + user_name
+        print ("User Changed on Client" + str(client_id) + user_name)
 
         CTRL.setUserName(client_id, user_name)
 
@@ -406,8 +423,8 @@ def value_changed(message):
 
     client_id = Clients.getClientIDfromSID(request.sid)
 
-    print "Lok change of Session ID" + str(request.sid)
-    print "Value change of Client" + str( client_id )
+    print ("Lok change of Session ID" + str(request.sid))
+    print ("Value change of Client" + str( client_id ))
     CTRL.change_lok(client_id=client_id, data_in=message )
 
     # Push new data to single client
@@ -440,4 +457,5 @@ def weiche_neu(message):
 
 
 if __name__ == '__main__':
-  socketio.run(app, host='0.0.0.0', port=3000, debug=True)
+  socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+  #socketio.run(app)
