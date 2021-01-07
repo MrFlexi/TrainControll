@@ -41,10 +41,9 @@ class UDP:
 
 
         lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_int = int(lv_addr)
         print ("DCC Address:" + str(lv_addr))
 
-        message = bytes.fromhex(hex_data1) + lv_addr_int.to_bytes(1, byteorder='big') + int(iv_speed).to_bytes(2, byteorder='big') + bytes.fromhex(hex_data2)
+        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + int(iv_speed * 10 ).to_bytes(2, byteorder='big') + bytes.fromhex(hex_data2)
         
 
         print("UDP Message", message )
@@ -324,7 +323,7 @@ class Lok:
  @staticmethod
  def getAddr(Lok_Id):
      if Lok_Id in Lok.LokList:
-        return ( Lok.LokList[Lok_Id].addr )
+        return ( int(Lok.LokList[Lok_Id].addr) )
 
  def printLok(self):
         print ("Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status)
