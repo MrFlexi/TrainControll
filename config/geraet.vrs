@@ -1,0 +1,6 @@
+[geraet]
+version
+ .minor=1
+geraet
+ .sernum=1
+ .hardvers=DDRPi,3

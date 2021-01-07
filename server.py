@@ -3,6 +3,10 @@
 
 # build requirements file:          pip freeze > requirements.txt  
 # install dependencies:             pip install -r requirements.txt
+
+# activate Virtual Environment:     source ./venv/bin/activate   oder   deactivate
+
+
 from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
 import json
 import base64
@@ -16,6 +20,19 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 from pathlib import Path
 import binascii
 
+#from .lib_oled96 import ssd1306
+from smbus import SMBus
+from lib_oled96.lib_oled96 import ssd1306
+
+#LUMA
+from luma.core.render import canvas
+from luma.core.interface.serial import spi
+from luma.core.render import canvas
+from luma.oled.device import sh1106
+
+
+
+
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -27,6 +44,27 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
+
+
+def init_display():
+    # Display einrichten
+    i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
+    oled = ssd1306(i2cbus)
+
+    # Ein paar Abkrzungen, um den Code zu entschlacken
+    draw = oled.canvas
+
+    # Display zum Start loeschen
+    oled.cls()
+    oled.display()
+
+    # Hallo Welt
+    draw.text((1, 1), "TrainControll", fill=1)
+    draw.text((1, 40), "01-01-2021 ?", fill=1)
+
+    # Ausgaben auf Display schreiben
+    oled.display()
+
 
 
 # Define Class Client
@@ -227,6 +265,8 @@ class CTRL:
 
 # ---------------------  Main ------------------------------------
 
+init_display()
+
 # Load Lok Liste
 
 p = Path('.')
@@ -274,6 +314,7 @@ print ("Initial Client Lok Mapping")
 CPU.printListe()
 
 print ("Initial Browser Clients")
+
 #Clients()
 
 
