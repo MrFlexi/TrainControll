@@ -3,6 +3,7 @@
         xmlns:l="sap.ui.layout"
         xmlns:core="sap.ui.core">
 
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
     <Text text="Drive"/>
     <Text text="{oModelMainController>/0/lok_name}"/>
     <ObjectHeader
@@ -12,22 +13,41 @@
 		    	<ObjectAttribute title = "Speed" text="{oModelMainController>/0/lok_speed}" />
                 <ObjectAttribute title = "Client" text="{oModelMainController>/0/client_id}" />
                 <ObjectAttribute title = "User" text="{oModelMainController>/0/user_name}" />
+                <ObjectAttribute title = "F1 " text="{oModelMainController>/0/lok_f1}" />
             </attributes>
     </ObjectHeader>
+   	</l:VerticalLayout>
+
+    <l:VerticalLayout class="sapUiContentPadding" width="100%">
 
     <Slider min="0" max="100" enableTickmarks="true" class="sapUiSmallMarginBottom" width="50%"
-				liveChange="onSliderliveChange"
+                change="onSliderliveChange"
 				value = "{oModelMainController>/0/lok_speed}">
-            <ResponsiveScale tickmarksBetweenLabels="10"/>
+            <ResponsiveScale tickmarksBetweenLabels="25"/>
     </Slider>
+
     <Button
             class="sapUiSmallMarginBottom"
 			text="Select Locomotion"
+            icon="sap-icon://arrow-down"
 			press="handleTableSelectDialogPress">
     </Button>
 
+   	</l:VerticalLayout>
+    <l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<CheckBox text="Light" selected="{oModelMainController>/0/lok_f1}"/>
+		<CheckBox text="F2" />
+		<CheckBox text="F3" selected="true" />		
 
-
-
-
+			<VBox width="100%">			
+			<SegmentedButton id="SB1" selectedKey="Lok_Forward" class="sapUiSmallMarginBottom" selectionChange="handleLocomotionDirection">
+				<items>
+					<SegmentedButtonItem id = "Backward" icon="sap-icon://arrow-left"  />
+					<SegmentedButtonItem id = "Neutral" icon="sap-icon://stop" />
+					<SegmentedButtonItem id = "Forward" key="Lok_Forward" icon="sap-icon://arrow-right"   />
+				</items>
+			</SegmentedButton>
+			
+		</VBox>      
+	</l:VerticalLayout>
 </core:FragmentDefinition>

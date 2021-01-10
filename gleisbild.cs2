@@ -1,0 +1,38 @@
+[gleisbild]
+version
+ .major=1
+groesse
+zuletztBenutzt
+ .name=Wendel
+seite
+ .name=Tastenmatrix
+seite
+ .id=1
+ .name=SBF S1
+seite
+ .id=2
+ .name=Bogen Bhf
+seite
+ .id=3
+ .name=Eschenhofen
+seite
+ .id=4
+ .name=Goeppingen Bhf
+seite
+ .id=5
+ .name=Wendel
+seite
+ .id=6
+ .name=Linkseite
+seite
+ .id=7
+ .name=S88 Anzeige
+seite
+ .id=8
+ .name=S88 Testanzeige
+seite
+ .id=9
+ .name=Drehscheibe Goeppingen
+seite
+ .id=10
+ .name=Strecke

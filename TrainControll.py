@@ -14,14 +14,11 @@ class UDP:
         hex_data1 = "0016131406000038"
         hex_data2 = "010000"
 
-
-        lv_idstr = chr(iv_id - 1)
+        iv_id = iv_id - 1        
         print ("SetFunction")
-        print ("DCC Address:" + str(iv_id) + " Value:" + str(value))
+        print ("DCC Address:" + str(iv_id) + " Value:" + str(value))       
 
-        lv_val = chr(value)
-
-        message = hex_data1.decode("hex") + lv_idstr + lv_val + hex_data2.decode("hex")
+        message = bytes.fromhex(hex_data1)  + iv_id.to_bytes(1, byteorder='big')  + value.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
 
         print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
@@ -39,21 +36,17 @@ class UDP:
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"
 
-
         lv_addr = Lok.getAddr(iv_lok_id)
-        print ("DCC Address:" + str(lv_addr))
 
-        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + int(iv_speed * 10 ).to_bytes(2, byteorder='big') + bytes.fromhex(hex_data2)
-        
-
-        print("UDP Message", message )
-        #message shold look like this ('UDP Message', '\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00\x14\x00\x00')
-
-        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
-
-        sock = socket.socket(socket.AF_INET,  # Internet
-                             socket.SOCK_DGRAM)  # UDP
-        sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
+        if lv_addr > 0:
+            print ("DCC Address:" + str(lv_addr))
+            message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + int(iv_speed * 10 ).to_bytes(2, byteorder='big') + bytes.fromhex(hex_data2)
+            print("UDP Message", message )
+            #message shold look like this ('UDP Message', '\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00\x14\x00\x00')
+            print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
+            sock = socket.socket(socket.AF_INET,  # Internet
+                                socket.SOCK_DGRAM)  # UDP
+            sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
     def setLokFunction(iv_lok_id, func, value):
@@ -67,7 +60,7 @@ class UDP:
         lv_func = chr(func)
         lv_val = chr(value)
 
-        message = hex_data1.decode("hex") + lv_addr_str + lv_func + lv_val + hex_data2.decode("hex")
+        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + func.to_bytes(1, byteorder='big') + value.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
 
         print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
@@ -84,19 +77,23 @@ class UDP:
         hex_data2 = "000000"
 
         lv_dir_str = chr(0)
+        lv_dir = 0
         if iv_dir == "back":
             lv_dir_str = chr(2)
+            lv_dir = 2
         elif iv_dir == "neutral":
             lv_dir_str = chr(0)
+            lv_dir = 0
         elif iv_dir == "forward":
             lv_dir_str = chr(1)
+            lv_dir = 1
 
         lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
         # lv_dir_str = chr(iv_dir)
         print ("Set Direction:")
 
-        message = hex_data1.decode("hex") + lv_addr_str + lv_dir_str + hex_data2.decode("hex")
+        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + lv_dirto_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
 
         print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
@@ -312,18 +309,24 @@ class Lok:
 
  @staticmethod
  def getImage(Lok_Id):
-     if Lok_Id in Lok.LokList:
+    if Lok_Id in Lok.LokList:
         return ( Lok.LokList[Lok_Id].image_url )
+    else:
+        return (0)
 
  @staticmethod
  def getName(Lok_Id):
-     if Lok_Id in Lok.LokList:
+    if Lok_Id in Lok.LokList:
         return ( Lok.LokList[Lok_Id].name )
+    else:
+        return (0)
 
  @staticmethod
  def getAddr(Lok_Id):
-     if Lok_Id in Lok.LokList:
+    if Lok_Id in Lok.LokList:
         return ( int(Lok.LokList[Lok_Id].addr) )
+    else:
+        return (0)
 
  def printLok(self):
         print ("Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status)

@@ -2,7 +2,17 @@
 # testwx
 
 # build requirements file:          pip freeze > requirements.txt  
-# install dependencies:             pip install -r requirements.txt
+# install dependencies:             pip install -r requirements.txt 
+
+# Linux
+# activate Virtual Environment:     source ./venv/bin/activate   oder   deactivate
+
+#  windows install                   py -m pip install --user virtualenv
+#          create new                py -m venv env 
+#           activate                 .\env\Scripts\activate
+
+import sys
+
 from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
 import json
 import base64
@@ -10,11 +20,52 @@ import base64
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
-from flask_socketio import SocketIO, emit, join_room, leave_room, \
-    close_room, rooms, disconnect
+from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 
 from pathlib import Path
 import binascii
+
+if sys.platform.startswith('linux'):
+    # Linux-specific code here...
+
+    #from .lib_oled96 import ssd1306
+    from smbus import SMBus
+    from lib_oled96.lib_oled96 import ssd1306
+
+    #LUMA
+    from luma.core.render import canvas
+    from luma.core.interface.serial import spi
+    from luma.core.render import canvas
+    from luma.oled.device import sh1106
+
+
+    def init_spi_display():
+        serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=24)
+        device = sh1106(serial, rotate=0)
+
+        with canvas(device) as draw:
+            draw.rectangle(device.bounding_box, outline="white", fill="black")
+            draw.text((30, 40), "Hello World", fill="white")
+    
+    def init_display():
+        # Display einrichten
+        i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
+        oled = ssd1306(i2cbus)
+
+        # Ein paar Abkrzungen, um den Code zu entschlacken
+        draw = oled.canvas
+
+        # Display zum Start loeschen
+        oled.cls()
+        oled.display()
+
+        # Hallo Welt
+        draw.text((1, 1), "TrainControll", fill=1)
+        draw.text((1, 40), "01-01-2021 ?", fill=1)
+
+        # Ausgaben auf Display schreiben
+        oled.display()
+
 
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
@@ -27,6 +78,10 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
+
+
+
+
 
 
 # Define Class Client
@@ -48,7 +103,7 @@ class CTRL:
         self.lok_name =  Lok.getName(lok_id)
         self.lok_dir = lok_dir
         self.lok_speed = lok_speed
-        self.lok_f1 = False
+        self.lok_f1 = "True"
 
         CPU.setLokID(client_id, lok_id, 0)
 
@@ -165,7 +220,7 @@ class CTRL:
             gr_instance.lok_dir = direction
             gr_instance.lok_speed = 0
 
-            # DIRECTION
+            # function F1..F10
         if gr_instance.lok_f1 != f1:
             print ("Lok function", gr_instance.lok_f1, f1)
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
@@ -227,6 +282,10 @@ class CTRL:
 
 # ---------------------  Main ------------------------------------
 
+if sys.platform.startswith('linux'):
+    init_display()
+    init_spi_display()
+
 # Load Lok Liste
 
 p = Path('.')
@@ -274,6 +333,7 @@ print ("Initial Client Lok Mapping")
 CPU.printListe()
 
 print ("Initial Browser Clients")
+
 #Clients()
 
 
