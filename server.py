@@ -12,6 +12,13 @@
 #           activate                 .\env\Scripts\activate
 
 import sys
+import math
+import time
+import datetime
+import ntplib
+import logging
+import socket
+
 
 from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
 import json
@@ -20,10 +27,12 @@ import base64
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
+from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
-
 from pathlib import Path
 import binascii
+from time import ctime
+
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -38,14 +47,15 @@ if sys.platform.startswith('linux'):
     from luma.core.render import canvas
     from luma.oled.device import sh1106
 
+    serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=26,  gpio_CS=18)
+    device = sh1106(serial, rotate=0)
+    today_last_time = "unknown"
+
 
     def init_spi_display():
-        serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=24)
-        device = sh1106(serial, rotate=0)
-
         with canvas(device) as draw:
             draw.rectangle(device.bounding_box, outline="white", fill="black")
-            draw.text((30, 40), "Hello World", fill="white")
+            
     
     def init_display():
         # Display einrichten
@@ -66,7 +76,44 @@ if sys.platform.startswith('linux'):
         # Ausgaben auf Display schreiben
         oled.display()
 
+    def posn(angle, arm_length):
+        dx = int(math.cos(math.radians(angle)) * arm_length)
+        dy = int(math.sin(math.radians(angle)) * arm_length)
+        return (dx, dy)
 
+
+    def show_clock():
+        logging.info('Show clock....')
+        now = datetime.datetime.now()
+        today_date = now.strftime("%d %b %y")
+        today_time = now.strftime("%H:%M:%S")
+        with canvas(device) as draw:
+            now = datetime.datetime.now()
+            today_date = now.strftime("%d %b %y")
+            margin = 4
+            cx = 30
+            cy = min(device.height, 64) / 2
+            left = cx - cy
+            right = cx + cy
+            hrs_angle = 270 + (30 * (now.hour + (now.minute / 60.0)))
+            hrs = posn(hrs_angle, cy - margin - 7)
+            min_angle = 270 + (6 * now.minute)
+            mins = posn(min_angle, cy - margin - 2)
+            sec_angle = 270 + (6 * now.second)
+            secs = posn(sec_angle, cy - margin - 2)
+            draw.ellipse((left + margin, margin, right - margin, min(device.height, 64) - margin), outline="white")
+            draw.line((cx, cy, cx + hrs[0], cy + hrs[1]), fill="white")
+            draw.line((cx, cy, cx + mins[0], cy + mins[1]), fill="white")
+            draw.line((cx, cy, cx + secs[0], cy + secs[1]), fill="red")
+            draw.ellipse((cx - 2, cy - 2, cx + 2, cy + 2), fill="white", outline="white")
+            draw.text((2 * (cx + margin), cy - 8), today_date, fill="yellow")
+            draw.text((2 * (cx + margin), cy), today_time, fill="yellow")  
+            draw.text((64, 10), "TrainControll", fill="white")    
+                
+                
+
+def scheduleTask():
+    show_clock()
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -74,25 +121,21 @@ if sys.platform.startswith('linux'):
 async_mode = None
 
 app = Flask(__name__)
+#Tasks
+logging.info('scheduling tasks....')
+scheduler = APScheduler()
+
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
 
-
-
-
-
-
 # Define Class Client
 class CTRL:
     List = {}
     count = 0
-
-
+    
     def __init__(self, session_id, client_id, user_name, lok_id,  lok_dir, lok_speed):
-
-        print
         "Controller Constructor Start"
         CTRL.count = + 1
         self.session_id = session_id
@@ -176,8 +219,7 @@ class CTRL:
             gr_instance = CTRL.List[client_id]
             gr_instance.printCTRL()
             UDP.setSpeed(gr_instance.lok_id, 0)
-
-            del CTRL.List[client_id]
+        del CTRL.List[client_id]
 
 
     @staticmethod
@@ -280,17 +322,21 @@ class CTRL:
         print("Speed", self.lok_speed)
 
 
-# ---------------------  Main ------------------------------------
+
+# ---------------------  SETUP  ------------------------------------
+logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s %(message)s')
+logging.info('Starting Main....')
 
 if sys.platform.startswith('linux'):
-    init_display()
+    #init_display()
     init_spi_display()
+    show_clock()
 
 # Load Lok Liste
 
-p = Path('.')
-for x in p.iterdir():
-    print(x)
+#p = Path('.')
+#for x in p.iterdir():
+#    print(x)
 
 
 filename = Path('config/loklist.json')
@@ -322,7 +368,6 @@ for item in userlist_json:
 
 User.printUserList()
 
-
 #Map client to Lok
 CPU( 1, 1)
 #CPU( 2, 2)
@@ -334,7 +379,7 @@ CPU.printListe()
 
 print ("Initial Browser Clients")
 
-#Clients()
+
 
 
 
@@ -363,7 +408,6 @@ def index():
 def Upload():
     return render_template('Upload.html', async_mode=socketio.async_mode)
 
-
 @app.route('/')
 def UI5():
     return render_template('index_xml.html', async_mode=socketio.async_mode)
@@ -384,8 +428,6 @@ def track_create():
 
 
 # ---------------------  SocketIO Event Handling ------------------------------------
-
-
 # React on slide change on clients
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
@@ -517,5 +559,14 @@ def weiche_neu(message):
 
 
 if __name__ == '__main__':
-  socketio.run(app, host='0.0.0.0', port=3033, debug=True)
-  #socketio.run(app)
+    logging.info('__main__....')
+    ## getting the hostname by socket.gethostname() method
+    hostname = socket.gethostname()
+    ## getting the IP address using socket.gethostbyname() method
+    ip_address = socket.gethostbyname(hostname)
+    ## printing the hostname and ip_address
+    print(f"Hostname: {hostname}")
+    scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=10)
+    scheduler.start()
+    socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+    #socketio.run(app)
