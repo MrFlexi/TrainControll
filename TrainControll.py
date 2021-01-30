@@ -6,7 +6,7 @@ import io
 # Define Class CPU
 class UDP:
 
-    UDP_IP = "192.168.1.100"
+    UDP_IP = "192.168.178.100"
     UDP_PORT = 15731
 
     @staticmethod
@@ -385,6 +385,12 @@ class Clients:
      print (" Class - Clients")
      print(Clients.mt_clients)
      print("Anzahl:",len(Clients.mt_clients))
+
+
+    @staticmethod
+    def getClientsCount():
+     print("Number connected clients:",len(Clients.mt_clients))
+     return len(Clients.mt_clients)
 
 
 # Define Class User

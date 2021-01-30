@@ -18,6 +18,8 @@ import datetime
 import ntplib
 import logging
 import socket
+import fcntl
+import struct
 
 
 from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
@@ -32,6 +34,21 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, ro
 from pathlib import Path
 import binascii
 from time import ctime
+
+def get_interface_ipaddress(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+      s.fileno(),
+      0x8915,  # SIOCGIFADDR
+      struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+
+
+
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
+    return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
 
 
 if sys.platform.startswith('linux'):
@@ -71,7 +88,7 @@ if sys.platform.startswith('linux'):
 
         # Hallo Welt
         draw.text((1, 1), "TrainControll", fill=1)
-        draw.text((1, 40), "01-01-2021 ?", fill=1)
+        draw.text((1, 10), "01-01-2021 ?", fill=1)
 
         # Ausgaben auf Display schreiben
         oled.display()
@@ -80,6 +97,18 @@ if sys.platform.startswith('linux'):
         dx = int(math.cos(math.radians(angle)) * arm_length)
         dy = int(math.sin(math.radians(angle)) * arm_length)
         return (dx, dy)
+
+    def page_0():
+        ip_s = get_interface_ipaddress('wlan0')
+        logging.info('IP:%s',ip_s)
+        with canvas(device) as draw:
+            draw.text((1, 1), "TrainControll 2021", fill=1)
+            n = Clients.getClientsCount()
+            s = f"Clients:  {n}"
+            draw.text((1,40), s, fill = 1)
+            ip_s = ip_s +":3033"
+            draw.text((1, 50), ip_s, fill=1)
+
 
 
     def show_clock():
@@ -113,7 +142,7 @@ if sys.platform.startswith('linux'):
                 
 
 def scheduleTask():
-    show_clock()
+    page_0()
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -328,9 +357,9 @@ logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)
 logging.info('Starting Main....')
 
 if sys.platform.startswith('linux'):
-    #init_display()
-    init_spi_display()
-    show_clock()
+    #init_display()     #I2C
+    #init_spi_display()  #SPI
+    page_0()
 
 # Load Lok Liste
 
@@ -560,12 +589,6 @@ def weiche_neu(message):
 
 if __name__ == '__main__':
     logging.info('__main__....')
-    ## getting the hostname by socket.gethostname() method
-    hostname = socket.gethostname()
-    ## getting the IP address using socket.gethostbyname() method
-    ip_address = socket.gethostbyname(hostname)
-    ## printing the hostname and ip_address
-    print(f"Hostname: {hostname}")
     scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=10)
     scheduler.start()
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
