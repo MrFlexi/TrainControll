@@ -89,25 +89,6 @@ sap.ui.define([
 
 		    var namespace = '';
 
-            //Storage
-                  jQuery.sap.require("jquery.sap.storage");
-                  var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
-                  //Check if there is data into the Storage
-                  if (oStorage.get("myLocalData")) {
-                  console.log("Data is from Storage!");
-                  var oDataUser = oStorage.get("myLocalData");
-                  oModelUser.setData(oDataUser);
-                  }
-                  else
-                  {
-
-                  this.handleLogonDialog();
-                  var UserData = { "UserData" : [ { "Name" : "Jochen" } ] };
-                  oModelUser.setData(UserData);
-                   oStorage.put("myLocalData", UserData);
-
-                  }
-
 			// Dynamisches Menü
 			this.model.setData(this.data);
 			this.getView().setModel(this.model);
@@ -116,8 +97,50 @@ sap.ui.define([
 			this.getView().setModel(oModelMainController, "oModelMainController");
 
             socket.on('connect', function() {
-                socket.emit('client_global_storage', {data: 'I\'m connected!'});
-            });
+				console.log(socket.id);
+				//socket.emit('client_global_storage', {data: 'I\'m connected!'});
+				
+				//socket.emit('User_changed',  { user_id: "55", user_name: "TestUser" });
+			});
+			
+
+			socket.on('initialisation', function(msg) {
+				var config_model = jQuery.parseJSON(msg.data)
+
+
+				var newArray = config_model.filter(function (el) {
+					return el.session_id === socket.id
+				  });
+				
+				console.log(newArray);
+				oModelMainController.setData(config_model);
+
+
+                var UserList_json = jQuery.parseJSON(msg.user);
+				oModelUserList.setData(UserList_json);
+				
+				var LokList_data = jQuery.parseJSON(msg.LokList);
+				oModelLokList.setData(LokList_data);
+
+				//Storage
+				jQuery.sap.require("jquery.sap.storage");
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+				//Check if there is data into the Storage
+				if (oStorage.get("myLocalData")) {
+				console.log("Data is from Storage!");
+				var oDataUser = oStorage.get("myLocalData");
+				oModelUser.setData(oDataUser);
+				}
+				else
+				{
+				console.log("Local storage is empty");
+				//handleLogonDialog();
+				var UserData = { "UserData" : [ { "Name" : "Jochen" } ] };
+				oModelUser.setData(UserData);
+				oStorage.put("myLocalData", UserData);
+				}
+
+             });
 
             socket.on('config_data', function(msg) {
                 var config_model = jQuery.parseJSON(msg.data)

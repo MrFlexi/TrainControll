@@ -1,13 +1,13 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core">
-	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0">
+	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0123">
 							<sap.m:items>
-								<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item1" icon="{LokListModel>image_url}">
+								<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item123" icon="{LokListModel>image_url}">
 									<sap.m:attributes>
-										<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute1">
+										<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute123">
 										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute2">
+										<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute223">
 										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Type" text="{LokListModel>type}" id="__attribute3">
+										<sap.m:ObjectAttribute title="Type" text="{LokListModel>type}" id="__attribute323">
 										</sap.m:ObjectAttribute>
 										<sap.m:ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
 										</sap.m:ObjectAttribute>

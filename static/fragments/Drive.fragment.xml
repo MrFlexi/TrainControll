@@ -35,7 +35,7 @@
 
    	</l:VerticalLayout>
     <l:VerticalLayout class="sapUiContentPadding" width="100%">
-		<CheckBox text="Light" selected="{oModelMainController>/0/lok_f1}"/>
+		<CheckBox text="Light" selected="true"/>
 		<CheckBox text="F2" />
 		<CheckBox text="F3" selected="true" />		
 

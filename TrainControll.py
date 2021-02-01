@@ -312,7 +312,7 @@ class Lok:
     if Lok_Id in Lok.LokList:
         return ( Lok.LokList[Lok_Id].image_url )
     else:
-        return (0)
+        return ("./static/images/Lok.png")
 
  @staticmethod
  def getName(Lok_Id):
@@ -343,20 +343,21 @@ class Clients:
     @staticmethod
     def newClient(sid):
      Clients.Count =+ Clients.Count + 1
-     print ("Client Counter")
-     print (Clients.Count)
+     print ("New client connected: " + sid)
+     
      # Add new entry
-     Clients.mt_clients[Clients.Count] =  sid
-     print (" Class - Clients")
+     #Clients.mt_clients[Clients.Count] =  sid
+     Clients.mt_clients[sid] =  sid
+     print("ClientsNew: ",len(Clients.mt_clients))
      print(Clients.mt_clients)
-     print("Anzahl:",len(Clients.mt_clients))
+    
 
     @staticmethod
     def setUserName(client_ID, user_name):
         print ("Link Client to User")
 
-        #if client_ID in Clients.mt_clients:
-        #    Clients.mt_clients[client_ID].user_name = user_name
+        if client_ID in Clients.mt_clients:
+            Clients.mt_clients[client_ID].user_name = user_name
 
         print (" Class - Clients")
         print (Clients.mt_clients)
@@ -368,29 +369,31 @@ class Clients:
     # Printing dictionary 
         #print ("Original dictionary is : " + str(Clients.mt_clients)) 
         #print ("Dict key-value are : ") 
-        for key, value in Clients.mt_clients.items():    
-            print (key, value)
-            if value == sid:
-                return(key)
-                break
+        #for key, value in Clients.mt_clients.items():    
+        #    print (key, value)
+        #    if value == sid:
+        #        return(key)
+        #        break
+        return sid
     
 
     @staticmethod
     def deleteClient(client_ID):
-     print ("Delete Client from mt_clients")
+     print ("Delete Client")
 
      if client_ID in Clients.mt_clients:
          del Clients.mt_clients[client_ID]
 
-     print (" Class - Clients")
+     print ("Clients: ",len(Clients.mt_clients))
      print(Clients.mt_clients)
-     print("Anzahl:",len(Clients.mt_clients))
-
+    
 
     @staticmethod
     def getClientsCount():
-     print("Number connected clients:",len(Clients.mt_clients))
-     return len(Clients.mt_clients)
+        n = len(Clients.mt_clients)
+        print("Clients:", n)
+        #print(Clients.mt_clients)
+        return n
 
 
 # Define Class User

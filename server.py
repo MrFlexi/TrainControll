@@ -54,6 +54,8 @@ def get_ip():
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
 
+    from PIL import Image
+
     #from .lib_oled96 import ssd1306
     from smbus import SMBus
     from lib_oled96.lib_oled96 import ssd1306
@@ -98,12 +100,24 @@ if sys.platform.startswith('linux'):
         dy = int(math.sin(math.radians(angle)) * arm_length)
         return (dx, dy)
 
+
+    def page_logo():
+        img_path = str(Path(__file__).resolve().parent.joinpath('images', 'pi_logo.png'))
+        logo = Image.open(img_path).convert("RGBA")
+        posn = ((device.width - logo.width) // 2, 0)
+        background.paste(logo, posn)
+        device.display(background.convert(device.mode))
+     
+
+    background = Image.new("RGBA", device.size, "white")
     def page_0():
         ip_s = get_interface_ipaddress('wlan0')
         logging.info('IP:%s',ip_s)
+        n = Clients.getClientsCount()
+
         with canvas(device) as draw:
-            draw.text((1, 1), "TrainControll 2021", fill=1)
-            n = Clients.getClientsCount()
+            draw.text((1, 1), "  TrainControll 2021  ", fill=1)
+            
             s = f"Clients:  {n}"
             draw.text((1,40), s, fill = 1)
             ip_s = ip_s +":3033"
@@ -358,14 +372,8 @@ logging.info('Starting Main....')
 
 if sys.platform.startswith('linux'):
     #init_display()     #I2C
-    #init_spi_display()  #SPI
-    page_0()
-
-# Load Lok Liste
-
-#p = Path('.')
-#for x in p.iterdir():
-#    print(x)
+    init_spi_display()  #SPI
+    page_logo()
 
 
 filename = Path('config/loklist.json')
@@ -405,11 +413,6 @@ CPU( 1, 1)
 
 print ("Initial Client Lok Mapping")
 CPU.printListe()
-
-print ("Initial Browser Clients")
-
-
-
 
 
 # ---------------------  ROUTING ------------------------------------
@@ -473,7 +476,9 @@ def main_controller_value_changed(message):
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
     # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'user': User.getDataJSON()
+                             })
 
 
 
@@ -491,11 +496,9 @@ def value_changed(message):
 
 @socketio.on('connect', namespace='')
 def onConnect():
-
-    print ("Session ID: " + str( request.sid ))
+    print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
-    print ("New Client connected")
     client_id = Clients.getClientIDfromSID(request.sid)
 
     lok_id = CPU.getLokIDfromClientId(client_id)
@@ -504,47 +507,43 @@ def onConnect():
     # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
     CTRL(request.sid, client_id, "Dr. No", lok_id, 0, 0)
 
-    # Push new data to single client
-    emit('loklist_data', {'LokList': Lok.getDataJSON()})      # List of available locomotions
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+    # Push data to all connected clients
+    emit('initialisation', {'data': CTRL.getDataJSON(),
                          'user': User.getDataJSON(),
-                         'Gleisplan': Gleisplan.getDataJSON()})
+                         'LokList': Lok.getDataJSON(),
+                         'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
 
     # Push data to all connected clients
-    emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
-
-    print ("Client JSON " +  CTRL.getDataJSONforClient(client_id))
+    # emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
 
 
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
-    print ("Session ID" + str( request.sid ))
+    print ("Client disconnected: " + str( request.sid ))
     client_id = Clients.getClientIDfromSID(request.sid)
 
     CTRL.deleteClient(client_id)        # Set Speed 0
     Clients.deleteClient(client_id)
-
-    print ("Client disconnected: " + str( client_id ))
 
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
 
 
-    # React on User has logged on
-    @socketio.on('User_changed', namespace='')
-    def User_changed(message):
-        client_id = Clients.getClientIDfromSID(request.sid)
-        user_name = message["user_name"]
+# React on User has logged on
+@socketio.on('User_changed', namespace='')
+def User_changed(message):
+    client_id = Clients.getClientIDfromSID(request.sid)
+    user_name = message["user_name"]
 
-        print ("User Changed on Client" + str(client_id) + user_name)
+    print ("User Changed on Client " + str(client_id) + " to " + user_name)
 
-        CTRL.setUserName(client_id, user_name)
+    CTRL.setUserName(client_id, user_name)
 
-        # Push new data to single client
-        emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
-                             'user': User.getDataJSON()
+    # Push new data to single client
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'user': User.getDataJSON()
                              })
 
 
@@ -559,7 +558,9 @@ def value_changed(message):
     CTRL.change_lok(client_id=client_id, data_in=message )
 
     # Push new data to single client
-    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id)})
+    emit('config_data', {'data': CTRL.getDataJSONforClient(client_id),
+                         'user': User.getDataJSON()
+                             })
 
 
     # Push new data to all connected clients
@@ -588,8 +589,8 @@ def weiche_neu(message):
 
 
 if __name__ == '__main__':
-    logging.info('__main__....')
-    scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=10)
+    logging.info('__main__')
+    scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=5)
     scheduler.start()
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
     #socketio.run(app)
