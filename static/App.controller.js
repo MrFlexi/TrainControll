@@ -96,6 +96,8 @@ sap.ui.define([
 			this.getView().setModel(oModelUserList, "oModelUserList");
 			this.getView().setModel(oModelMainController, "oModelMainController");
 
+			document._oController = this;
+
             socket.on('connect', function() {
 				console.log(socket.id);
 				//socket.emit('client_global_storage', {data: 'I\'m connected!'});
@@ -113,8 +115,7 @@ sap.ui.define([
 				  });
 				
 				console.log(newArray);
-				oModelMainController.setData(config_model);
-
+				oModelMainController.setData(newArray);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
 				oModelUserList.setData(UserList_json);
@@ -122,24 +123,7 @@ sap.ui.define([
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 
-				//Storage
-				jQuery.sap.require("jquery.sap.storage");
-				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
-				//Check if there is data into the Storage
-				if (oStorage.get("myLocalData")) {
-				console.log("Data is from Storage!");
-				var oDataUser = oStorage.get("myLocalData");
-				oModelUser.setData(oDataUser);
-				}
-				else
-				{
-				console.log("Local storage is empty");
-				//handleLogonDialog();
-				var UserData = { "UserData" : [ { "Name" : "Jochen" } ] };
-				oModelUser.setData(UserData);
-				oStorage.put("myLocalData", UserData);
-				}
-
+				
              });
 
             socket.on('config_data', function(msg) {
@@ -157,6 +141,32 @@ sap.ui.define([
             });
 
 
+		},
+
+		onAfterRendering: function ( oEvent)
+		{
+			
+			
+			//Storage
+			jQuery.sap.require("jquery.sap.storage");
+			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+			//Check if there is data in the Storage
+			if (oStorage.get("myLocalData")) {
+			console.log("Data is from Storage!");
+			var oDataUser = oStorage.get("myLocalData");
+			oModelUser.setData(oDataUser);
+			}
+			else
+			{
+			console.log("Local storage is empty");
+			//this.handleLogonDialog();
+			//MessageToast.show("Please login !" );
+			var UserData = { "UserData" : [ { "Name" : "Jochen" } ] };
+			oModelUser.setData(UserData);
+			oStorage.put("myLocalData", UserData);
+			}
+
+			
 		},
 
 		onItemSelect: function(oEvent) {
@@ -282,7 +292,12 @@ sap.ui.define([
 			    var user_id   = aContexts.map(function(oContext) { return oContext.getObject().user_id; }).join(", ");
 
 				MessageToast.show("You are logged in as: " + user_name + "  " + user_id );
+			
+				var UserData = { "UserData" : [ { "Name" : user_name } ] };
 
+				jQuery.sap.require("jquery.sap.storage");
+    			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+				oStorage.put("myLocalData", UserData);
 				socket.emit('User_changed',  { user_id: user_id, user_name: user_name });
 
 			}

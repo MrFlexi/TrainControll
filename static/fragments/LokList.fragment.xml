@@ -11,6 +11,8 @@
 										</sap.m:ObjectAttribute>
 										<sap.m:ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
 										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="User" text="{LokListModel>user_name}" id="__attribute5">
+										</sap.m:ObjectAttribute>
 									</sap.m:attributes>
 									<sap.m:firstStatus>
 										<sap.m:ObjectStatus

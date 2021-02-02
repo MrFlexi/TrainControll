@@ -191,10 +191,10 @@ class CTRL:
         self.lok_speed = lok_speed
         self.lok_f1 = "True"
 
-        CPU.setLokID(client_id, lok_id, 0)
+        CPU.setLokID(client_id, lok_id, 0,  user_name)
 
         CTRL.List[client_id] = self
-        CTRL.printListe()
+        #CTRL.printListe()
 
     @staticmethod
     def change_lok(client_id, data_in):
@@ -225,9 +225,9 @@ class CTRL:
             gr_instance.lok_name = Lok.getName(lok_new)
 
             #Update mapping table
-            CPU.printListe()
-            CPU.setLokID(client_id,lok_new, lok_old)
-            CPU.printListe()
+            #CPU.printListe()
+            CPU.setLokID(client_id,lok_new, lok_old, CTRL.getUserName(client_id))
+            #CPU.printListe()
 
     @staticmethod
     def getDataJSON():
@@ -254,13 +254,20 @@ class CTRL:
             gr_instance.user_name = user_name
 
     @staticmethod
+    def getUserName(client_id):
+        # Get class instance
+        if client_id in CTRL.List:
+            gr_instance = CTRL.List[client_id]
+            return ( gr_instance.user_name )
+
+    @staticmethod
     def deleteClient(client_id ):
-        print ("delete client ")
+        #print ("delete client ")
 
         # Get class instance
         if client_id in CTRL.List:
             gr_instance = CTRL.List[client_id]
-            gr_instance.printCTRL()
+            #gr_instance.printCTRL()
             UDP.setSpeed(gr_instance.lok_id, 0)
         del CTRL.List[client_id]
 
@@ -279,7 +286,7 @@ class CTRL:
 
         # Get class instance
         gr_instance = CTRL.List[client_id]
-        gr_instance.printCTRL()
+        #gr_instance.printCTRL()
         # Compare old and new values. if different set new speed and direction
 
 
@@ -326,7 +333,7 @@ class CTRL:
 
             # Get class instance
             gr_instance = CTRL.List[ item["client_id"] ]
-            gr_instance.printCTRL()
+            #gr_instance.printCTRL()
 
             #Compare old and new values. if different set new speed and direction
             if gr_instance.lok_speed != item["lok_speed"]:
@@ -412,7 +419,7 @@ CPU( 1, 1)
 #CPU( 4, 5)
 
 print ("Initial Client Lok Mapping")
-CPU.printListe()
+#CPU.printListe()
 
 
 # ---------------------  ROUTING ------------------------------------
@@ -505,13 +512,13 @@ def onConnect():
 
     # Register new client and assign an default locomotion
     # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
-    CTRL(request.sid, client_id, "Dr. No", lok_id, 0, 0)
+    CTRL(request.sid, client_id, "Dr.No", lok_id, 0, 0)
 
     # Push data to all connected clients
     emit('initialisation', {'data': CTRL.getDataJSON(),
                          'user': User.getDataJSON(),
                          'LokList': Lok.getDataJSON(),
-                         'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
+                         'Gleisplan': Gleisplan.getDataJSON()})
 
     # Push data to all connected clients
     # emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)

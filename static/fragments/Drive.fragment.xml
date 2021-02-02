@@ -4,8 +4,6 @@
         xmlns:core="sap.ui.core">
 
 	<l:VerticalLayout class="sapUiContentPadding" width="100%">
-    <Text text="Drive"/>
-    <Text text="{oModelMainController>/0/lok_name}"/>
     <ObjectHeader
 		title="{oModelMainController>/0/lok_name}"
 	    icon="{oModelMainController>/0/image_url}">

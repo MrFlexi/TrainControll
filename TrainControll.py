@@ -234,7 +234,7 @@ class CPU:
  @staticmethod
  def getClientIdfromLokId(lok_id):
      try:
-
+        print ("CPU Mapping")
         for key, value in CPU.Mapping.items():    
             print (key, value)
             if value == lok_id:
@@ -245,11 +245,11 @@ class CPU:
          print ("Lok" + str(lok_id) +" not assigned")
 
  @staticmethod
- def setLokID(client_id,lok_new, lok_old):
+ def setLokID(client_id,lok_new, lok_old,user_name):
       CPU.Mapping[client_id] = lok_new
 
       # Update LokList table
-      Lok.bindLokID(client_id, lok_new, lok_old)
+      Lok.bindLokID(client_id, lok_new, lok_old, user_name)
 
 
 # Define Class Client
@@ -267,6 +267,7 @@ class Lok:
        self.protocol = protocol
        self.client_id = ""
        self.status = "available"
+       self.user_name = ""
        Lok.LokList[id] = self
        Lok.count = + 1
 
@@ -280,11 +281,12 @@ class Lok:
     return (json.dumps(jd))
 
  @staticmethod
- def bindLokID(client_id, lok_new, lok_old):
+ def bindLokID(client_id, lok_new, lok_old, user_name):
 
      if lok_new in Lok.LokList:
         Lok.LokList[lok_new].client_id = client_id
         Lok.LokList[lok_new].status = "blocked"
+        Lok.LokList[lok_new].user_name = user_name
 
      if lok_old in Lok.LokList:
         Lok.LokList[lok_old].client_id = ""
@@ -343,12 +345,12 @@ class Clients:
     @staticmethod
     def newClient(sid):
      Clients.Count =+ Clients.Count + 1
-     print ("New client connected: " + sid)
+     #print ("New client connected: " + sid)
      
      # Add new entry
      #Clients.mt_clients[Clients.Count] =  sid
      Clients.mt_clients[sid] =  sid
-     print("ClientsNew: ",len(Clients.mt_clients))
+     print("Clients: ",len(Clients.mt_clients))
      print(Clients.mt_clients)
     
 
@@ -379,13 +381,13 @@ class Clients:
 
     @staticmethod
     def deleteClient(client_ID):
-     print ("Delete Client")
+     #print ("Delete Client")
 
      if client_ID in Clients.mt_clients:
          del Clients.mt_clients[client_ID]
 
-     print ("Clients: ",len(Clients.mt_clients))
-     print(Clients.mt_clients)
+     #print ("Clients: ",len(Clients.mt_clients))
+     #print(Clients.mt_clients)
     
 
     @staticmethod

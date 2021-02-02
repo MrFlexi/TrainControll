@@ -2,7 +2,7 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<TableSelectDialog
-		noDataText="No available locomotins found"
+		noDataText="loading user ..."
 		title="Select a user"
 		search="handleLocomotionSearch"
 		confirm="handleUserSelectDialogClose"
