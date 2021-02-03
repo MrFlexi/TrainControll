@@ -18,7 +18,8 @@ sap.ui.define([
 
 
 
-	var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
+	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
+	var socket = io.connect('ws://' + document.domain + ':' + location.port + '');
 
 	var CController = Controller.extend("view.App", {
         model: new sap.ui.model.json.JSONModel(),
@@ -100,15 +101,20 @@ sap.ui.define([
 
             socket.on('connect', function() {
 				console.log(socket.id);
+				MessageToast.show("Connected to server... ");
 				//socket.emit('client_global_storage', {data: 'I\'m connected!'});
 				
 				//socket.emit('User_changed',  { user_id: "55", user_name: "TestUser" });
+			});
+
+			socket.on('disconnect', function() {
+				MessageToast.show("Connection lost... ");
+				
 			});
 			
 
 			socket.on('initialisation', function(msg) {
 				var config_model = jQuery.parseJSON(msg.data)
-
 
 				var newArray = config_model.filter(function (el) {
 					return el.session_id === socket.id

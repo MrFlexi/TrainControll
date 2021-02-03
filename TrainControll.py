@@ -76,24 +76,12 @@ class UDP:
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
 
-        lv_dir_str = chr(0)
-        lv_dir = 0
-        if iv_dir == "back":
-            lv_dir_str = chr(2)
-            lv_dir = 2
-        elif iv_dir == "neutral":
-            lv_dir_str = chr(0)
-            lv_dir = 0
-        elif iv_dir == "forward":
-            lv_dir_str = chr(1)
-            lv_dir = 1
+    
 
         lv_addr = Lok.getAddr(iv_lok_id)
-        lv_addr_str = chr(lv_addr)
-        # lv_dir_str = chr(iv_dir)
-        print ("Set Direction:")
+        #print ("Set Direction:")
 
-        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + lv_dirto_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
+        message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + iv_dir.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
 
         print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
 
@@ -234,9 +222,9 @@ class CPU:
  @staticmethod
  def getClientIdfromLokId(lok_id):
      try:
-        print ("CPU Mapping")
+        #print ("CPU Mapping")
         for key, value in CPU.Mapping.items():    
-            print (key, value)
+            #print (key, value)
             if value == lok_id:
                 client_id = key
                 return ( client_id )
@@ -393,7 +381,7 @@ class Clients:
     @staticmethod
     def getClientsCount():
         n = len(Clients.mt_clients)
-        print("Clients:", n)
+        #print("Clients:", n)
         #print(Clients.mt_clients)
         return n
 

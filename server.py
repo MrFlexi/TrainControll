@@ -43,8 +43,6 @@ def get_interface_ipaddress(ifname):
       struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
 
 
-
-
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
@@ -278,7 +276,7 @@ class CTRL:
 
         # Data comming from client is a JSON Array. In this case it should be only one element in the array
         for item in data_in["data"]:
-            print ("Next Line", item)
+            #print ("Next Line", item)
             speed = item["lok_speed"]
             direction = item["lok_dir"]
             f1 = item["lok_f1"]
@@ -304,7 +302,7 @@ class CTRL:
             print ("Direction was changed", gr_instance.lok_dir, direction)
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
 
-            if direction == "neutral":
+            if direction == "0":
                 UDP.setSpeed(gr_instance.lok_id, 0)
             else:
                 UDP.setDir(gr_instance.lok_id,direction)
@@ -329,7 +327,7 @@ class CTRL:
 
         # Loop at data_in into item
         for item in data_in["data"]:
-            print ("Next Line", item)
+            #print ("Next Line", item)
 
             # Get class instance
             gr_instance = CTRL.List[ item["client_id"] ]
@@ -342,6 +340,13 @@ class CTRL:
 
                 # Update values in instance
                 gr_instance.lok_speed = item["lok_speed"]
+            
+            if gr_instance.lok_dir != item["lok_dir"]:
+                print ("Directio was changed", gr_instance.lok_dir, item["lok_dir"])
+                # Update speed, UDP Paket senden
+
+                # Update values in instance
+                gr_instance.lok_dir = item["lok_dir"]
 
 
     @staticmethod
