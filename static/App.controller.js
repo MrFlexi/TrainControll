@@ -19,7 +19,7 @@ sap.ui.define([
 
 
 	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
-	var socket = io.connect('ws://' + document.domain + ':' + location.port + '');
+	var socket = io.connect('ws://' + document.domain + ':' + location.port + '',{transports: ['websocket']});
 
 	var CController = Controller.extend("view.App", {
         model: new sap.ui.model.json.JSONModel(),
