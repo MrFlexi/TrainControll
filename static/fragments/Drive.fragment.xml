@@ -38,11 +38,11 @@
 		<CheckBox text="F3" selected="true" />		
 
 			<VBox width="100%">			
-			<SegmentedButton id="SB1" selectedKey="Lok_Forward" class="sapUiSmallMarginBottom" selectionChange="handleLocomotionDirection">
+			<SegmentedButton id="b_direction" selectedKey="Lok_Forward" class="sapUiSmallMarginBottom" selectionChange="handleLocomotionDirection">
 				<items>
-					<SegmentedButtonItem id = "Backward" icon="sap-icon://arrow-left"  />
-					<SegmentedButtonItem id = "Neutral" icon="sap-icon://stop" />
-					<SegmentedButtonItem id = "Forward" key="Lok_Forward" icon="sap-icon://arrow-right"   />
+					<SegmentedButtonItem text = "Back" id = "backward" icon="sap-icon://arrow-left"  />
+					<SegmentedButtonItem text = "Stop" id = "neutral" icon="sap-icon://stop" />
+					<SegmentedButtonItem text = "Forward" id = "forward" key="Lok_Forward" icon="sap-icon://arrow-right"   />
 				</items>
 			</SegmentedButton>
 			

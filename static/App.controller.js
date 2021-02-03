@@ -251,38 +251,25 @@ sap.ui.define([
 			}		
 		},
 
-		handleLocomotionDirection: function(oEvent) {				
-			//MessageToast.show(oEvent.getSource().getId() + " Pressed");
-
-			var oSelectedText = oEvent.getParameter("button").getText();
+		handleLocomotionDirection: function(oEvent) {	
 			
-			MessageToast.show( oEvent.getParameter("button").getText() + "' selected");
-				
+			var lv_action = oEvent.getParameter("item").getText();
+			MessageToast.show(lv_action);
 
-			//the selected item could be found via the "item" parameter of "selectionChange" event
-			MessageToast.show("oEvent.getParameter('item').getText(): '" + oEvent.getParameter("item").getText() + "' selected");
+			var lv_data_old = oModelMainController.getData();
+			var lv_data_new = lv_data_old;
 
-			//the selected item could also be found via the "selectItem" association not only when "selectionChange" but when needed
-			oTextControl.setText("getSelectedItem(): " + oSelectedItem.getText());
+			if ( lv_action == "Stop" ) { 
+				lv_data_new[0].lok_dir = 0; 
+			};
+			if ( lv_action == "Back" ) { 
+				lv_data_new[0].lok_dir = 1; 
+			};
+			if ( lv_action == "Forward" ) { 
+				lv_data_new[0].lok_dir = 2; 
+			};
 
-			if (oEvent.getSource().getPressed()) {
-				MessageToast.show(oEvent.getSource().getId() + " Pressed");
-			} else {
-				MessageToast.show(oEvent.getSource().getId() + " Unpressed");
-			}
-
-			var aContexts = oEvent.getParameter("selectedContexts");
-			if (aContexts && aContexts.length) {
-			    var lok_name = aContexts.map(function(oContext) { return oContext.getObject().name; }).join(", ");
-			    var lok_id   = aContexts.map(function(oContext) { return oContext.getObject().id; }).join(", ");
-
-				MessageToast.show("Function " + lok_name + lok_id );
-
-				socket.emit('Lok_changed',  { who: "Dialog", newLok: lok_id,
-            				                                 oldLok: 1
-            				                                       });
-
-			}		
+			socket.emit('main_controller_value_changed', {data: lv_data_new });
 		},
 
 		handleUserSelectDialogClose: function(oEvent) {
