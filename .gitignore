@@ -6,3 +6,5 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+lib_oled96
+lib_oled96
