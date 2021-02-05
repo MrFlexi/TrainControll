@@ -270,8 +270,7 @@ def main_controller_value_changed(message):
     client_id = request.sid
     print ("Value change of Session ID" + str(request.sid))
     print ("Client" + str( client_id ))
-
-
+    
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
 

@@ -17,7 +17,10 @@ class Lok:
         self.client_id = ""
         self.status = "available"
         self.user_name = ""
-        self.f1 = ""
+        self.f1 = 1
+        self.f2 = 0
+        self.f3 = 0
+
         Lok.LokList.append(self)
 
 
@@ -35,6 +38,7 @@ class Lok:
     def setNewData(data):
         id  = data["id"]
         speed = data["speed"]
+        dir   = data["dir"]
 
         x = Lok.find_ById(id)
         if (x):
@@ -42,6 +46,10 @@ class Lok:
             if ( x.speed != speed ):
                 Lok.setSpeed(id, speed)
                 print ("Speed was changed", id, speed)
+
+            if ( x.dir != dir ):
+                Lok.setDir(id, dir)
+                print ("Direction changed", id, dir)
                 
     
     @staticmethod
@@ -134,6 +142,14 @@ class Lok:
             x.speed = speed
             # Update speed, UDP Paket an Raspbery CS2 Emulation senden
             UDP.setSpeed(x.addr,x.speed)
+
+    @staticmethod
+    def setDir(id, dir):
+        x = Lok.find_ById(id)
+        if (x):
+            x.dir = dir
+            # Update UDP Paket an Raspbery CS2 Emulation senden
+            UDP.setDir(x.addr,x.dir)
        
 
     @staticmethod

@@ -13,7 +13,18 @@ sap.ui.define(function() {
 				} else {
 					return "Error";
 				}
-		}
+		},
+
+		onoff :  function (sStatus) {
+			if (sStatus === "0") {
+				return false;
+			} 
+			else if (sStatus === "1") {
+				return true;
+			}
+	}
+
+
 	};
 
 	return Formatter;

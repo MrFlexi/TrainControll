@@ -182,7 +182,7 @@ sap.ui.define([
 		},
 
 		onSliderliveChange: function(oEvent) {
-		    socket.emit('main_controller_value_changed', {MyLok: oModelMainController.getData()});
+		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
 		},
 
 
@@ -266,13 +266,13 @@ sap.ui.define([
 			var lv_data_new = lv_data_old;
 
 			if ( lv_action == "Stop" ) { 
-				lv_data_new[0].lok_dir = 0; 
+				lv_data_new.dir = 0; 
 			};
 			if ( lv_action == "Back" ) { 
-				lv_data_new[0].lok_dir = 1; 
+				lv_data_new.dir = 1; 
 			};
 			if ( lv_action == "Forward" ) { 
-				lv_data_new[0].lok_dir = 2; 
+				lv_data_new.dir = 2; 
 			};
 
 			socket.emit('main_controller_value_changed', {data: lv_data_new });

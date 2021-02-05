@@ -33,9 +33,15 @@
 
    	</l:VerticalLayout>
     <l:VerticalLayout class="sapUiContentPadding" width="100%">
-		<CheckBox text="Light" selected="true"/>
+		<CheckBox text="Light" selected="{	path: 'oModelMainController>/f1',
+											formatter: 'view.Formatter.onoff'	}"/>
 		<CheckBox text="F2" />
-		<CheckBox text="F3" selected="true" />		
+		<CheckBox text="F3" selected="{	path: 'oModelMainController>/f3',
+											formatter: 'view.Formatter.onoff'	}"/>
+		<ToggleButton  icon="sap-icon://lightbulb" 
+					   pressed="{	path: 'oModelMainController>/f1',
+									formatter: 'view.Formatter.onoff'	}"
+					 	press="F1onPress" />		
 
 			<VBox width="100%">			
 			<SegmentedButton id="b_direction" selectedKey="Lok_Forward" class="sapUiSmallMarginBottom" selectionChange="handleLocomotionDirection">

@@ -27,19 +27,7 @@ class CTRL:
     @staticmethod
     def setClientData(client_id, data_in ):
         print ("SetClientData " + json.dumps(data_in))
-
-        Lok.setNewData(data_in["MyLok"])
-
-            # function F1..F10
-        #if gr_instance.lok_f1 != f1:
-        #    print ("Lok function", gr_instance.lok_f1, f1)
-        #    # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-        #    if f1: UDP.setLokFunction(gr_instance.lok_id, 0, 1)
-        #    else: UDP.setLokFunction(gr_instance.lok_id, 0, 0)
-
-            # Update values in instance
-        #    gr_instance.lok_dir = direction
-        #    gr_instance.lok_f1    = f1
+        Lok.setNewData(data_in["data"])
 
     @staticmethod
     def printListe():
