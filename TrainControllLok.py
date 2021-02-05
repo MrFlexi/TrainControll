@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+from TrainControll import UDP
 
 class Lok:
     
@@ -29,12 +30,26 @@ class Lok:
         for obj in Lok.LokList:
             if obj.client_id == search_key:
                 return obj
+    
+    @staticmethod
+    def setNewData(data):
+        id  = data["id"]
+        speed = data["speed"]
+
+        x = Lok.find_ById(id)
+        if (x):
+            print("found")
+            if ( x.speed != speed ):
+                Lok.setSpeed(id, speed)
+                print ("Speed was changed", id, speed)
+                
+    
     @staticmethod
     def setDataById(id,client_id):
         x = Lok.find_ById(id)
         if (x):
             x.client_id = client_id
-
+    @staticmethod
     def setDataByClient(client_id, name):
         for x in Lok.LokList:
             if ( x.client_id == client_id):
@@ -117,6 +132,8 @@ class Lok:
         x = Lok.find_ById(id)
         if (x):
             x.speed = speed
+            # Update speed, UDP Paket an Raspbery CS2 Emulation senden
+            UDP.setSpeed(x.addr,x.speed)
        
 
     @staticmethod

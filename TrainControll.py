@@ -3,7 +3,6 @@ import json
 import socket
 import io
 
-from TrainControllLok import Lok
 
 # Define Class CPU
 class UDP:
@@ -29,11 +28,9 @@ class UDP:
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
-    def setSpeed(iv_lok_id, iv_speed):
+    def setSpeed(lv_addr, iv_speed):
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"
-
-        lv_addr = Lok.getAddr(iv_lok_id)
 
         if lv_addr > 0:
             print ("DCC Address:" + str(lv_addr))
@@ -46,11 +43,10 @@ class UDP:
             sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
-    def setLokFunction(iv_lok_id, func, value):
+    def setLokFunction(lv_addr, func, value):
         hex_data1 = "000c1314060000c0"
         hex_data2 = "0000"
 
-        lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
         print ("DCC Address:" + str(lv_addr))
 
@@ -66,13 +62,13 @@ class UDP:
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
-    def setDir(iv_lok_id, iv_dir):
+    def setDir(lv_addr, iv_dir):
 
         # Message muss immer 13 Byte lang sein.
         # hex_data1 = "000A4711050000c00301000000"
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
-        lv_addr = Lok.getAddr(iv_lok_id)
+    
         #print ("Set Direction:")
 
         message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + iv_dir.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)

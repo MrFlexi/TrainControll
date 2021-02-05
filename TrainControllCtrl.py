@@ -1,7 +1,7 @@
 import json
 
 from TrainControllLok import Lok
-from TrainControll import UDP
+
 
 # Controller
 class CTRL:
@@ -28,31 +28,7 @@ class CTRL:
     def setClientData(client_id, data_in ):
         print ("SetClientData " + json.dumps(data_in))
 
-        # Data comming from client is a JSON Array. In this case it should be only one element in the array
-        MyLok = data_in["MyLok"]
-
-        speed = MyLok["speed"]
-        lok_id = MyLok["id"]
-
-        #SPEED
-        if Lok.getSpeed(lok_id) != speed:
-            Lok.setSpeed(lok_id, speed)
-            print ("Speed was changed", lok_id, speed)
-            # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-            UDP.setSpeed(lok_id,speed)
-
-        # DIRECTION
-        #if gr_instance.lok_dir != direction:
-        #    print ("Direction was changed", gr_instance.lok_dir, direction)
-            # Update speed, UDP Paket an Raspbery CS2 Emulation senden
-
-        #    if direction == "0":
-        #        UDP.setSpeed(gr_instance.lok_id, 0)
-        #    else:
-        #        UDP.setDir(gr_instance.lok_id,direction)
-        #    # Update values in instance
-        #    gr_instance.lok_dir = direction
-        #    gr_instance.lok_speed = 0
+        Lok.setNewData(data_in["MyLok"])
 
             # function F1..F10
         #if gr_instance.lok_f1 != f1:
