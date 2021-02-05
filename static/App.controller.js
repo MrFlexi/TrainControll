@@ -133,8 +133,8 @@ sap.ui.define([
              });
 
             socket.on('config_data', function(msg) {
-                var config_model = jQuery.parseJSON(msg.data)
-                oModelMainController.setData(config_model);
+                var MyLok = jQuery.parseJSON(msg.MyLok)
+                oModelMainController.setData(MyLok);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
                 oModelUserList.setData(UserList_json);
@@ -182,7 +182,7 @@ sap.ui.define([
 		},
 
 		onSliderliveChange: function(oEvent) {
-		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+		    socket.emit('main_controller_value_changed', {MyLok: oModelMainController.getData()});
 		},
 
 

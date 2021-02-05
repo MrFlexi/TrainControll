@@ -3,6 +3,8 @@ import json
 import socket
 import io
 
+from TrainControllLok import Lok
+
 # Define Class CPU
 class UDP:
 
@@ -177,84 +179,6 @@ class Gleisplan:
         print ("Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir))
 
 
-
-# Define Class Client
-class Lok:
-
- LokList = {}
- count = 0
- def __init__(self,  id, addr, protocol, name, image_url ):
-       #Create empty dictionary
-       self.id = id
-       self.name = name
-       self.image_url = image_url
-       self.addr = addr
-       self.protocol = protocol
-       self.client_id = ""
-       self.status = "available"
-       self.user_name = ""
-       Lok.LokList[id] = self
-
- @staticmethod
- def getDataJSON():
-    jd = []
-    i = Lok.LokList.values()
-    for x in i:
-         jd.append(x.__dict__)
-    return (json.dumps(jd))
-
- @staticmethod
- def bindLokID(client_id, lok_new, lok_old, user_name):
-
-     if lok_new in Lok.LokList:
-        Lok.LokList[lok_new].client_id = client_id
-        Lok.LokList[lok_new].status = "blocked"
-        Lok.LokList[lok_new].user_name = user_name
-
-     if lok_old in Lok.LokList:
-        Lok.LokList[lok_old].client_id = ""
-        Lok.LokList[lok_old].status = "available"
-
- @staticmethod
- def printLokList():
-     i = Lok.LokList.values()
-     print("-------------------------")
-     print("Lokliste")
-     for x in i:
-       #print(x)
-       x.printLok()
-     print("-------------------------")
-
- @staticmethod
- def save():
-     jsonData = Lok.getDataJSON()
-     f = open("./config/loklist.json", "w")  # opens file with name of "test.txt"
-     f.write(jsonData)
-     f.close()
-
- @staticmethod
- def getImage(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( Lok.LokList[Lok_Id].image_url )
-    else:
-        return ("./static/images/Lok.png")
-
- @staticmethod
- def getName(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( Lok.LokList[Lok_Id].name )
-    else:
-        return (0)
-
- @staticmethod
- def getAddr(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( int(Lok.LokList[Lok_Id].addr) )
-    else:
-        return (0)
-
- def printLok(self):
-        print ("Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status)
 
 
 # Define Class Client
