@@ -26,11 +26,6 @@ class UDP:
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
-       
-
-
-
-
     @staticmethod
     def setSpeed(iv_lok_id, iv_speed):
         hex_data1 = "00081314060000c0"
@@ -75,9 +70,6 @@ class UDP:
         # hex_data1 = "000A4711050000c00301000000"
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
-
-    
-
         lv_addr = Lok.getAddr(iv_lok_id)
         #print ("Set Direction:")
 
@@ -186,60 +178,6 @@ class Gleisplan:
 
 
 
-# Define Class CPU
-class CPU:
-
- Mapping = {}
-
- def __init__(self, client_id, lok_id):
-    self.client_id = client_id
-    self.lok_id = lok_id
-    print ("Mapping Constructor")
-    CPU.Mapping[client_id] = lok_id
-
-
- @staticmethod
- def getLokIDfromClientId(client_id):
-     if client_id in CPU.Mapping:
-        return(CPU.Mapping[client_id])
-     else:
-        return()
-
- @staticmethod
- def printListe():
-     i = CPU.Mapping.values()
-
-     print("CPU Liste")
-     print (CPU.Mapping)
-     #for x in i:
-     #    x.printCPU()
-
-
- def printCPU(self):
-     print (str(self.client_id) + "  " + str(self.lok_id))
-
-
- @staticmethod
- def getClientIdfromLokId(lok_id):
-     try:
-        #print ("CPU Mapping")
-        for key, value in CPU.Mapping.items():    
-            #print (key, value)
-            if value == lok_id:
-                client_id = key
-                return ( client_id )
-                break
-     except ValueError:
-         print ("Lok" + str(lok_id) +" not assigned")
-
- @staticmethod
- def setLokID(client_id,lok_new, lok_old,user_name):
-      CPU.Mapping[client_id] = lok_new
-
-      # Update LokList table
-      Lok.bindLokID(client_id, lok_new, lok_old, user_name)
-
-
 # Define Class Client
 class Lok:
 
@@ -247,7 +185,6 @@ class Lok:
  count = 0
  def __init__(self,  id, addr, protocol, name, image_url ):
        #Create empty dictionary
-       self.count = 0
        self.id = id
        self.name = name
        self.image_url = image_url
@@ -257,14 +194,12 @@ class Lok:
        self.status = "available"
        self.user_name = ""
        Lok.LokList[id] = self
-       Lok.count = + 1
 
  @staticmethod
  def getDataJSON():
     jd = []
     i = Lok.LokList.values()
     for x in i:
-         x.client_id = CPU.getClientIdfromLokId(x.id)
          jd.append(x.__dict__)
     return (json.dumps(jd))
 

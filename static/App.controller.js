@@ -114,14 +114,14 @@ sap.ui.define([
 			
 
 			socket.on('initialisation', function(msg) {
-				var config_model = jQuery.parseJSON(msg.data)
+				//var config_model = jQuery.parseJSON(msg.data)
 
-				var newArray = config_model.filter(function (el) {
-					return el.session_id === socket.id
-				  });
+				//var newArray = config_model.filter(function (el) {
+				//	return el.session_id === socket.id
+				//  });
 				
-				console.log(newArray);
-				oModelMainController.setData(newArray);
+				//console.log(newArray);
+				//oModelMainController.setData(newArray);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
 				oModelUserList.setData(UserList_json);

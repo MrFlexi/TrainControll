@@ -8,8 +8,8 @@
 # activate Virtual Environment:     source ./venv/bin/activate   oder   deactivate
 
 #  windows install                   py -m pip install --user virtualenv
-#          create new                py -m venv env 
-#           activate                 .\env\Scripts\activate
+#          create new                py -m venv venv 
+#           activate                 ./venv/Scripts/activate
 
 import sys
 import math
@@ -18,11 +18,11 @@ import datetime
 import ntplib
 import logging
 import socket
-import fcntl
+#import fcntl
 import struct
 
 
-from TrainControll import CPU, Lok, Clients, UDP, Gleisplan, User
+from TrainControll import Lok, Clients, UDP, Gleisplan, User
 import json
 import base64
 
@@ -35,18 +35,18 @@ from pathlib import Path
 import binascii
 from time import ctime
 
-def get_interface_ipaddress(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-      s.fileno(),
-      0x8915,  # SIOCGIFADDR
-      struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+#def get_interface_ipaddress(ifname):
+#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#    return socket.inet_ntoa(fcntl.ioctl(
+#      s.fileno(),
+#      0x8915,  # SIOCGIFADDR
+#      struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
 
 
-def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
-    return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
+#def get_ip():
+#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#    info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
+#    return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
 
 
 if sys.platform.startswith('linux'):
@@ -109,17 +109,17 @@ if sys.platform.startswith('linux'):
 
     background = Image.new("RGBA", device.size, "white")
     def page_0():
-        ip_s = get_interface_ipaddress('wlan0')
-        logging.info('IP:%s',ip_s)
-        n = Clients.getClientsCount()
+        #ip_s = get_interface_ipaddress('wlan0')
+        #logging.info('IP:%s',ip_s)
+        #n = Clients.getClientsCount()
 
         with canvas(device) as draw:
             draw.text((1, 1), "  TrainControll 2021  ", fill=1)
             
             s = f"Clients:  {n}"
             draw.text((1,40), s, fill = 1)
-            ip_s = ip_s +":3033"
-            draw.text((1, 50), ip_s, fill=1)
+            #ip_s = ip_s +":3033"
+            #draw.text((1, 50), ip_s, fill=1)
 
 
 
@@ -154,7 +154,8 @@ if sys.platform.startswith('linux'):
                 
 
 def scheduleTask():
-    page_0()
+    print("")
+    #page_0()
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
@@ -173,26 +174,6 @@ thread_lock = Lock()
 
 # Define Class Client
 class CTRL:
-    List = {}
-    count = 0
-    
-    def __init__(self, session_id, client_id, user_name, lok_id,  lok_dir, lok_speed):
-        "Controller Constructor Start"
-        CTRL.count = + 1
-        self.session_id = session_id
-        self.user_name = user_name
-        self.client_id = client_id
-        self.image_url =  Lok.getImage(lok_id)
-        self.lok_id = lok_id
-        self.lok_name =  Lok.getName(lok_id)
-        self.lok_dir = lok_dir
-        self.lok_speed = lok_speed
-        self.lok_f1 = "True"
-
-        CPU.setLokID(client_id, lok_id, 0,  user_name)
-
-        CTRL.List[client_id] = self
-        #CTRL.printListe()
 
     @staticmethod
     def change_lok(client_id, data_in):
@@ -208,10 +189,7 @@ class CTRL:
 
         print ("Lok change requested. New Locomotion: " , Lok.getName(lok_new))
 
-        # Get class instance
-        gr_instance = CTRL.List[client_id]
-        gr_instance.printCTRL()
-        lok_old = gr_instance.lok_id
+    
 
         # Compare old and new values. if different set new speed and direction
         if lok_old != lok_new:
@@ -224,7 +202,7 @@ class CTRL:
 
             #Update mapping table
             #CPU.printListe()
-            CPU.setLokID(client_id,lok_new, lok_old, CTRL.getUserName(client_id))
+            #CPU.setLokID(client_id,lok_new, lok_old, CTRL.getUserName(client_id))
             #CPU.printListe()
 
     @staticmethod
@@ -242,32 +220,6 @@ class CTRL:
         jd.append(x.__dict__)
         return (json.dumps(jd))
 
-    @staticmethod
-    def setUserName(client_id, user_name):
-        print ("Set User Name ")
-
-        # Get class instance
-        if client_id in CTRL.List:
-            gr_instance = CTRL.List[client_id]
-            gr_instance.user_name = user_name
-
-    @staticmethod
-    def getUserName(client_id):
-        # Get class instance
-        if client_id in CTRL.List:
-            gr_instance = CTRL.List[client_id]
-            return ( gr_instance.user_name )
-
-    @staticmethod
-    def deleteClient(client_id ):
-        #print ("delete client ")
-
-        # Get class instance
-        if client_id in CTRL.List:
-            gr_instance = CTRL.List[client_id]
-            #gr_instance.printCTRL()
-            UDP.setSpeed(gr_instance.lok_id, 0)
-        del CTRL.List[client_id]
 
 
     @staticmethod
@@ -418,7 +370,7 @@ for item in userlist_json:
 User.printUserList()
 
 #Map client to Lok
-CPU( 1, 1)
+#CPU( 1, 1)
 #CPU( 2, 2)
 #CPU( 3, 3)
 #CPU( 4, 5)
@@ -476,10 +428,10 @@ def track_create():
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
-    client_id = Clients.getClientIDfromSID(request.sid)
+    client_id = request.sid
     print ("Value change of Session ID" + str(request.sid))
     print ("Client" + str( client_id ))
-    print ("Lok" + str( CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid))))
+
 
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
@@ -500,7 +452,7 @@ def main_controller_value_changed(message):
 def value_changed(message):
     print ("Value change of Session ID" + str(request.sid))
     print ("Value change of Client" + str( Clients.getClientIDfromSID(request.sid) ))
-    print ("Value change of Lok", CPU.getLokIDfromClientId(Clients.getClientIDfromSID(request.sid)))
+  
     # Write new data into class, handle data changes
     CTRL.setDataJSON(message)
     # Push new data to all connected clients
@@ -511,16 +463,8 @@ def onConnect():
     print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
-    client_id = Clients.getClientIDfromSID(request.sid)
-
-    lok_id = CPU.getLokIDfromClientId(client_id)
-
-    # Register new client and assign an default locomotion
-    # session_id, client_id, user_name, lok_id, lok_name, lok_dir, lok_speed):
-    CTRL(request.sid, client_id, "Dr.No", lok_id, 0, 0)
-
     # Push data to all connected clients
-    emit('initialisation', {'data': CTRL.getDataJSON(),
+    emit('initialisation', {'data': "",
                          'user': User.getDataJSON(),
                          'LokList': Lok.getDataJSON(),
                          'Gleisplan': Gleisplan.getDataJSON()})
@@ -533,11 +477,7 @@ def onConnect():
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
     print ("Client disconnected: " + str( request.sid ))
-    client_id = Clients.getClientIDfromSID(request.sid)
-
-    CTRL.deleteClient(client_id)        # Set Speed 0
-    Clients.deleteClient(client_id)
-
+    
     # Push new data to all connected clients
     emit('server_response', {'data': CTRL.getDataJSON()}, broadcast=True)
 
@@ -563,10 +503,9 @@ def User_changed(message):
 @socketio.on('Lok_changed', namespace='')
 def value_changed(message):
 
-    client_id = Clients.getClientIDfromSID(request.sid)
+    client_id = request.sid
 
     print ("Lok change of Session ID" + str(request.sid))
-    print ("Value change of Client" + str( client_id ))
     CTRL.change_lok(client_id=client_id, data_in=message )
 
     # Push new data to single client
