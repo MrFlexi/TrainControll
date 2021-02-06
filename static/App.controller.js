@@ -37,6 +37,12 @@ sap.ui.define([
 				expanded: true,
 			},
 			{
+				title: 'Track',
+				icon: 'sap-icon://cargo-train',
+				key: 'Track',
+				expanded: true,
+			},
+			{
 				title: 'LokList',
 				icon: 'sap-icon://list',
 				expanded: true,

@@ -29,7 +29,7 @@
             socket.on('connect', function() {
             });
 
-            socket.on('config_data', function(msg) {
+            socket.on('initialisation', function(msg) {
                 gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
                 oModelGleisplan.setData(gleisplan_model);
             });

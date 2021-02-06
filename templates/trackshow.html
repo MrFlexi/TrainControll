@@ -38,10 +38,11 @@
             socket.on('connect', function() {
             });
 
-            socket.on('config_data', function(msg) {
+            socket.on('initialisation', function(msg) {
 
                 gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
                 oModelGleisplan.setData(gleisplan_model);
+                MessageToast.show("Connected to server... ");
 
                 // Create a clickable map area for each tunout provided in the gleisplan
                  $.each(gleisplan_model, function(i, item) {
