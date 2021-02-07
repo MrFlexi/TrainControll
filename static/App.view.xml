@@ -63,19 +63,25 @@
 			<NavContainer id="pageContainer">
 				<pages>
 					<ScrollContainer id="Home" horizontal="false" vertical="true" height="100%">
-							<GenericTile 	class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Track Yard"
-											subheader="display/create" press="press">
-								<TileContent footer="Manage">
-									<ImageContent src="/static/images/trackyard.png" />
-								</TileContent>
-							</GenericTile>
-
-							<GenericTile 	class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Lok Liste"
-											subheader="create" press="press">
-								<TileContent footer="My Locomotions">
-									<ImageContent src="sap-icon://home-share" />
-								</TileContent>
-							</GenericTile>
+						<Panel>
+                        <content>
+                            <l:HorizontalLayout
+                                id="TileContainerExpanded"
+                                allowWrapping="true"
+                                content="{path: '/tiles'}">
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+                                        header="{header}" press="onTileSelect">
+                                        <tileContent>
+                                            <TileContent>
+                                                <content>
+                                                    <ImageContent description="{id}" src="{icon}"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+                            </l:HorizontalLayout>
+                        </content>
+                    </Panel>
 					</ScrollContainer>
 
 

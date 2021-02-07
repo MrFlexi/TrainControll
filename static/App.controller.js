@@ -22,82 +22,17 @@ sap.ui.define([
 	var socket = io.connect('ws://' + document.domain + ':' + location.port + '',{transports: ['websocket']});
 
 	var CController = Controller.extend("view.App", {
-        model: new sap.ui.model.json.JSONModel(),
-		data: {
+		model: new sap.ui.model.json.JSONModel(),
 
-			navigation: [{
-				title: 'Home',
-				icon: 'sap-icon://home',
-				expanded: true,
-				key: 'Home'
-			}, {
-				title: 'Drive',
-				icon: 'sap-icon://cargo-train',
-				key: 'Drive',
-				expanded: true,
-			},
-			{
-				title: 'Track',
-				icon: 'sap-icon://cargo-train',
-				key: 'Track',
-				expanded: true,
-			},
-			{
-				title: 'LokList',
-				icon: 'sap-icon://list',
-				expanded: true,
-				key: 'lok_list'
-			},
-
-			{
-				title: 'User',
-				icon: 'sap-icon://account',
-				expanded: true,
-				key: 'user_list'
-			},
-
-			{
-				title: 'Clients',
-				icon: 'sap-icon://action',
-				expanded: false,
-				items: [{
-					title: 'Show connected'
-				}, {
-					title: 'Child Item 2'
-				}, {
-					title: 'Child Item 3'
-				}]
-			}, ],
-
-			fixedNavigation: [{
-				title: 'Fixed Item 1',
-				icon: 'sap-icon://employee'
-			}, {
-				title: 'Fixed Item 2',
-				icon: 'sap-icon://building'
-			}, {
-				title: 'Fixed Item 3',
-				icon: 'sap-icon://card'
-			}],
-
-			headerItems: [{
-				text: "File"
-			}, {
-				text: "Edit"
-			}, {
-				text: "View"
-			}, {
-				text: "Settings"
-			}, {
-				text: "Help"
-			}]
-		},
+		
 		onInit: function() {
 
 		    var namespace = '';
 
 			// Dynamisches Menü
-			this.model.setData(this.data);
+			//this.model.setData(this.data);
+			
+			this.model.loadData("/static/config/menu.json");
 			this.getView().setModel(this.model);
 			this.getView().setModel(oModelLokList, "LokListModel");
 			this.getView().setModel(oModelUserList, "oModelUserList");
@@ -179,6 +114,17 @@ sap.ui.define([
 			}
 
 			
+		},
+
+		onTileSelect: function(oEvent) { 
+			var sPath = oEvent.getSource().getBindingContext().getPath();
+            var oModel = this.getView().getModel();
+			var oContext = oModel.getProperty(sPath);
+			var viewId = this.getView().getId();
+
+			var navTo = oContext.navigation;
+			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
+		
 		},
 
 		onItemSelect: function(oEvent) {
