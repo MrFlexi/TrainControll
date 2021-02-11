@@ -50,6 +50,8 @@ class Lok:
             if ( x.dir != dir ):
                 Lok.setDir(id, dir)
                 print ("Direction changed", id, dir)
+
+        Lok.printLokList()
                 
     
     @staticmethod
@@ -70,7 +72,7 @@ class Lok:
         print("Lokliste")
         
         for x in Lok.LokList:
-            print( x.id, x.client_id, x.name, x.user_name)
+            print( x.id, x.client_id, x.name, x.user_name, x.speed)
         print("-------------------------")
 
     def getDataJSON():

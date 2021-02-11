@@ -3,6 +3,8 @@ import json
 import socket
 import io
 
+from time import sleep
+
 
 # Define Class CPU
 class UDP:
@@ -15,14 +17,11 @@ class UDP:
         hex_data1 = "0016131406000038"
         hex_data2 = "010000"
 
-        iv_id = iv_id - 1        
-        print ("SetFunction")
-        print ("DCC Address:" + str(iv_id) + " Value:" + str(value))       
+        iv_id = iv_id - 1
+
+        print ("UDPSetFunction:" + str(iv_id) + " Value:" + str(value) + " UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)       
 
         message = bytes.fromhex(hex_data1)  + iv_id.to_bytes(1, byteorder='big')  + value.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
-
-        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
-
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
@@ -80,18 +79,28 @@ class UDP:
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
 class Gleisplan:
-    Liste = {}
-    def __init__(self, id, addr, x1,y1,x2,y2, dir, type ):
-            # Create empty dictionary
-            self.id = id
-            self.addr = addr
-            self.x1 = x1
-            self.x2 = x2
-            self.y1 = y1
-            self.y2 = y2
-            self.type = type
-            self.dir = dir
-            Gleisplan.Liste[id] = self
+    Liste = []
+    def __init__(self, id, addr, x1,y1,x2,y2, dir, type, aus ):
+        # Create empty dictionary
+        self.id = id
+        self.addr = addr
+        self.x1 = x1
+        self.x2 = x2
+        self.y1 = y1
+        self.y2 = y2
+        self.type = type
+        self.aus = aus
+        self.dir = dir
+        self.position = "left"
+        self.pos = 0
+
+        Gleisplan.Liste.append(self)
+    
+    @staticmethod
+    def find_ById(search_key):
+        for obj in Gleisplan.Liste:
+            if obj.id == search_key:
+                return obj
 
     @staticmethod
     def new(message):
@@ -121,6 +130,33 @@ class Gleisplan:
             gr_instance.dir = 0
 
         UDP.setFunction( lv_id,  gr_instance.dir )
+
+
+    @staticmethod
+    def set_all_turnout(dir):
+        for x in Gleisplan.Liste:
+            x.setDir(dir)
+            sleep(0.2)          #Man muss ein bischen auf die Weichen warten
+         
+
+    def setDir(self,dir):
+            self.dir = dir
+            UDP.setFunction( self.addr,  self.dir )
+
+    @staticmethod
+    def set_turnout(id,dir):
+        if id != 999:
+            if( dir == "straight"): new_dir = 0
+            if( dir == "right"): new_dir = 1
+            if( dir == "left"): new_dir = 1
+
+            x = Gleisplan.find_ById(id)
+            if (x):
+                x.setDir(new_dir)
+            else: 
+                print( "ID not found"), id
+        else: 
+            Gleisplan.set_all_turnout(int(dir))
 
     @staticmethod
     def save(message):
@@ -152,19 +188,15 @@ class Gleisplan:
     @staticmethod
     def getDataJSON():
         jd = []
-        i = Gleisplan.Liste.values()
+        i = Gleisplan.Liste
         for x in i:
            jd.append(x.__dict__)
         return (json.dumps(jd ,indent=1, separators=(',', ': ')))
 
     @staticmethod
     def printGleisplan():
-            i = Gleisplan.Liste.values()
-            print("-------------------------")
-            print("Gleisplanliste")
-            for x in i:
-                x.printGP()
-            print("-------------------------")
+        for x in Gleisplan.Liste:
+            print(x.id, x.addr, x.type, x.aus, x.pos, x.dir)
 
     @staticmethod
     def getAddr(Id):
@@ -173,8 +205,6 @@ class Gleisplan:
 
     def printGP(self):
         print ("Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir))
-
-
 
 
 # Define Class Client

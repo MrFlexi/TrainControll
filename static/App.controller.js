@@ -15,7 +15,7 @@ sap.ui.define([
 	var oModelUserList          = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
 	var oModelUser              = new sap.ui.model.json.JSONModel();
-
+	var oModelTrack          = new sap.ui.model.json.JSONModel();
 
 
 	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
@@ -37,6 +37,7 @@ sap.ui.define([
 			this.getView().setModel(oModelLokList, "LokListModel");
 			this.getView().setModel(oModelUserList, "oModelUserList");
 			this.getView().setModel(oModelMainController, "oModelMainController");
+			this.getView().setModel(oModelTrack, "oModelTrackList");
 
 			document._oController = this;
 
@@ -70,6 +71,9 @@ sap.ui.define([
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 
+				var TrackList_data = jQuery.parseJSON(msg.Track);
+				oModelTrack.setData(TrackList_data);
+
 				
              });
 
@@ -78,7 +82,16 @@ sap.ui.define([
                 oModelMainController.setData(MyLok);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
-                oModelUserList.setData(UserList_json);
+				oModelUserList.setData(UserList_json);
+				
+				var LokList_data = jQuery.parseJSON(msg.LokList);
+               oModelLokList.setData(LokList_data);
+
+			 });
+			 
+			 socket.on('gleisplan_data', function(msg) {
+                var TrackList_data = jQuery.parseJSON(msg.Track);
+				oModelTrack.setData(TrackList_data);
 
              });
 
@@ -126,7 +139,7 @@ sap.ui.define([
 			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
 		
 		},
-
+	
 		onItemSelect: function(oEvent) {
 			var item = oEvent.getParameter('item');
 			var viewId = this.getView().getId();
@@ -135,6 +148,49 @@ sap.ui.define([
 
 		onSliderliveChange: function(oEvent) {
 		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+		},
+
+		onTrackPress: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oCtx = oItem.getBindingContext("oModelTrackList");
+			var sPath = oCtx.getPath();
+			var oModel = oCtx.getModel();
+			var oContext = oModel.getProperty(sPath);
+
+		},
+
+
+		onTrackDirectionChanged: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oCtx = oItem.getBindingContext("oModelTrackList");
+			var sPath = oCtx.getPath();
+			var oModel = oCtx.getModel();
+			var oContext = oModel.getProperty(sPath);
+			var id = oContext.id;
+
+			var oPara = oEvent.getParameters();
+		
+			var item = oEvent.getParameter('item');
+			var dir = item.getProperty('key');
+
+			socket.emit('track_changed',  { id: id , dir:dir });
+		},		
+
+		onTrackButton: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oPara = oEvent.getParameters();
+		
+			var item = oEvent.getParameter('item');
+			var dir = item.getProperty('key');
+
+			var id = 999;
+			socket.emit('track_changed',  { id: id , dir:dir });
 		},
 
 

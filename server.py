@@ -157,7 +157,7 @@ if sys.platform.startswith('linux'):
                 
 
 def scheduleTask():
-    print("")
+    logging.info('scheduling tasks....')
     #page_0()
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
@@ -174,8 +174,6 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
-
-
 
 
 # ---------------------  SETUP  ------------------------------------
@@ -205,8 +203,9 @@ with open('config/gleisplan.json') as data_file:
     gleisplan_json = json.load(data_file)
 for item in gleisplan_json:
     # Create Instances for each lok
-    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC" )
+    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC",aus=item["aus"]  )
 
+Gleisplan.printGleisplan()
 
 # Load User
 with open('config/userlist.json') as data_file:
@@ -276,8 +275,9 @@ def main_controller_value_changed(message):
 
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
-                         'user': User.getDataJSON()
-                             })
+                         'user': User.getDataJSON()})
+
+    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 
 @socketio.on('connect', namespace='')
@@ -289,7 +289,8 @@ def onConnect():
     emit('initialisation', {'data': "",
                          'user': User.getDataJSON(),
                          'LokList': Lok.getDataJSON(),
-                         'Gleisplan': Gleisplan.getDataJSON()})
+                         'Track': Gleisplan.getDataJSON(),
+                         })
 
 
 
@@ -310,8 +311,9 @@ def User_changed(message):
 
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
+                        'LokList': Lok.getDataJSON(),
                          'user': User.getDataJSON()
-                             })
+                             }, broadcast=True )
 
 
    # React on locomotion chaged in Picture Carousel
@@ -336,21 +338,30 @@ def value_changed(message):
 @socketio.on('toggle_turnout', namespace='')
 def toggle_turnout(message):
     Gleisplan.toggle_turnout(message);
-    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
+    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
+
+
+@socketio.on('track_changed', namespace='')
+def track_changed(message):
+    print("")
+    print(message)
+    Gleisplan.set_turnout(message["id"], message["dir"]);
+    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
+    
 
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
 
     Gleisplan.save(message)
     # Push new data to all connected clients
-    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
+    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
 
 @socketio.on('Weiche_neu', namespace='')
 def weiche_neu(message):
     Gleisplan.new(message)
     # Push new data to all connected clients
-    emit('gleisplan_data', {'Gleisplan': Gleisplan.getDataJSON()}, broadcast=True)
+    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
 
 if __name__ == '__main__':
