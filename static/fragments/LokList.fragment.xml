@@ -13,6 +13,10 @@
 										</sap.m:ObjectAttribute>
 										<sap.m:ObjectAttribute title="User" text="{LokListModel>user_name}" id="__attribute5">
 										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Speed" text="{LokListModel>speed}" id="__attribute6">
+										</sap.m:ObjectAttribute>
+										<sap.m:ObjectAttribute title="Direction" text="{LokListModel>dir}" id="__attribute7">
+										</sap.m:ObjectAttribute>
 									</sap.m:attributes>
 									<sap.m:firstStatus>
 										<sap.m:ObjectStatus

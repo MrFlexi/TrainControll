@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core">
+
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+  		<Image	src="./static/Gleisplan.png" useMap="Map" densityAware="false" width = "100%" >
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</Image>  
+
+		<Panel>
+			<html:map name="Map" id="Map">
+				<html:area alt="W1" title="" href="www.google.de" shape="rect" coords="1,1,100,100"/>
+				<html:area alt="" title="" href="www.google.de" shape="poly" coords="426,582,494,583,494,636,426,632"/>
+			</html:map>
+
+	</Panel>
+	</l:VerticalLayout>
+
+	 
+</core:FragmentDefinition>

@@ -3,6 +3,9 @@ import json
 import socket
 import io
 
+from time import sleep
+
+
 # Define Class CPU
 class UDP:
 
@@ -14,29 +17,19 @@ class UDP:
         hex_data1 = "0016131406000038"
         hex_data2 = "010000"
 
-        iv_id = iv_id - 1        
-        print ("SetFunction")
-        print ("DCC Address:" + str(iv_id) + " Value:" + str(value))       
+        iv_id = iv_id - 1
+
+        print ("UDPSetFunction:" + str(iv_id) + " Value:" + str(value) + " UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)       
 
         message = bytes.fromhex(hex_data1)  + iv_id.to_bytes(1, byteorder='big')  + value.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
-
-        print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
-
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
-       
-
-
-
-
     @staticmethod
-    def setSpeed(iv_lok_id, iv_speed):
+    def setSpeed(lv_addr, iv_speed):
         hex_data1 = "00081314060000c0"
         hex_data2 = "0000"
-
-        lv_addr = Lok.getAddr(iv_lok_id)
 
         if lv_addr > 0:
             print ("DCC Address:" + str(lv_addr))
@@ -49,11 +42,10 @@ class UDP:
             sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
-    def setLokFunction(iv_lok_id, func, value):
+    def setLokFunction(lv_addr, func, value):
         hex_data1 = "000c1314060000c0"
         hex_data2 = "0000"
 
-        lv_addr = Lok.getAddr(iv_lok_id)
         lv_addr_str = chr(lv_addr)
         print ("DCC Address:" + str(lv_addr))
 
@@ -69,16 +61,13 @@ class UDP:
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
     @staticmethod
-    def setDir(iv_lok_id, iv_dir):
+    def setDir(lv_addr, iv_dir):
 
         # Message muss immer 13 Byte lang sein.
         # hex_data1 = "000A4711050000c00301000000"
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
-
     
-
-        lv_addr = Lok.getAddr(iv_lok_id)
         #print ("Set Direction:")
 
         message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + iv_dir.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
@@ -90,18 +79,28 @@ class UDP:
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
 
 class Gleisplan:
-    Liste = {}
-    def __init__(self, id, addr, x1,y1,x2,y2, dir, type ):
-            # Create empty dictionary
-            self.id = id
-            self.addr = addr
-            self.x1 = x1
-            self.x2 = x2
-            self.y1 = y1
-            self.y2 = y2
-            self.type = type
-            self.dir = dir
-            Gleisplan.Liste[id] = self
+    Liste = []
+    def __init__(self, id, addr, x1,y1,x2,y2, dir, type, aus ):
+        # Create empty dictionary
+        self.id = id
+        self.addr = addr
+        self.x1 = x1
+        self.x2 = x2
+        self.y1 = y1
+        self.y2 = y2
+        self.type = type
+        self.aus = aus
+        self.dir = dir
+        self.position = "left"
+        self.pos = 0
+
+        Gleisplan.Liste.append(self)
+    
+    @staticmethod
+    def find_ById(search_key):
+        for obj in Gleisplan.Liste:
+            if obj.id == search_key:
+                return obj
 
     @staticmethod
     def new(message):
@@ -131,6 +130,33 @@ class Gleisplan:
             gr_instance.dir = 0
 
         UDP.setFunction( lv_id,  gr_instance.dir )
+
+
+    @staticmethod
+    def set_all_turnout(dir):
+        for x in Gleisplan.Liste:
+            x.setDir(dir)
+            sleep(0.2)          #Man muss ein bischen auf die Weichen warten
+         
+
+    def setDir(self,dir):
+            self.dir = dir
+            UDP.setFunction( self.addr,  self.dir )
+
+    @staticmethod
+    def set_turnout(id,dir):
+        if id != 999:
+            if( dir == "straight"): new_dir = 0
+            if( dir == "right"): new_dir = 1
+            if( dir == "left"): new_dir = 1
+
+            x = Gleisplan.find_ById(id)
+            if (x):
+                x.setDir(new_dir)
+            else: 
+                print( "ID not found"), id
+        else: 
+            Gleisplan.set_all_turnout(int(dir))
 
     @staticmethod
     def save(message):
@@ -162,19 +188,15 @@ class Gleisplan:
     @staticmethod
     def getDataJSON():
         jd = []
-        i = Gleisplan.Liste.values()
+        i = Gleisplan.Liste
         for x in i:
            jd.append(x.__dict__)
         return (json.dumps(jd ,indent=1, separators=(',', ': ')))
 
     @staticmethod
     def printGleisplan():
-            i = Gleisplan.Liste.values()
-            print("-------------------------")
-            print("Gleisplanliste")
-            for x in i:
-                x.printGP()
-            print("-------------------------")
+        for x in Gleisplan.Liste:
+            print(x.id, x.addr, x.type, x.aus, x.pos, x.dir)
 
     @staticmethod
     def getAddr(Id):
@@ -183,143 +205,6 @@ class Gleisplan:
 
     def printGP(self):
         print ("Weiche: " + str(self.id) +  " Addr: " + str(self.addr) + " Dir: " + str(self.dir))
-
-
-
-# Define Class CPU
-class CPU:
-
- Mapping = {}
-
- def __init__(self, client_id, lok_id):
-    self.client_id = client_id
-    self.lok_id = lok_id
-    print ("Mapping Constructor")
-    CPU.Mapping[client_id] = lok_id
-
-
- @staticmethod
- def getLokIDfromClientId(client_id):
-     if client_id in CPU.Mapping:
-        return(CPU.Mapping[client_id])
-     else:
-        return()
-
- @staticmethod
- def printListe():
-     i = CPU.Mapping.values()
-
-     print("CPU Liste")
-     print (CPU.Mapping)
-     #for x in i:
-     #    x.printCPU()
-
-
- def printCPU(self):
-     print (str(self.client_id) + "  " + str(self.lok_id))
-
-
- @staticmethod
- def getClientIdfromLokId(lok_id):
-     try:
-        #print ("CPU Mapping")
-        for key, value in CPU.Mapping.items():    
-            #print (key, value)
-            if value == lok_id:
-                client_id = key
-                return ( client_id )
-                break
-     except ValueError:
-         print ("Lok" + str(lok_id) +" not assigned")
-
- @staticmethod
- def setLokID(client_id,lok_new, lok_old,user_name):
-      CPU.Mapping[client_id] = lok_new
-
-      # Update LokList table
-      Lok.bindLokID(client_id, lok_new, lok_old, user_name)
-
-
-# Define Class Client
-class Lok:
-
- LokList = {}
- count = 0
- def __init__(self,  id, addr, protocol, name, image_url ):
-       #Create empty dictionary
-       self.count = 0
-       self.id = id
-       self.name = name
-       self.image_url = image_url
-       self.addr = addr
-       self.protocol = protocol
-       self.client_id = ""
-       self.status = "available"
-       self.user_name = ""
-       Lok.LokList[id] = self
-       Lok.count = + 1
-
- @staticmethod
- def getDataJSON():
-    jd = []
-    i = Lok.LokList.values()
-    for x in i:
-         x.client_id = CPU.getClientIdfromLokId(x.id)
-         jd.append(x.__dict__)
-    return (json.dumps(jd))
-
- @staticmethod
- def bindLokID(client_id, lok_new, lok_old, user_name):
-
-     if lok_new in Lok.LokList:
-        Lok.LokList[lok_new].client_id = client_id
-        Lok.LokList[lok_new].status = "blocked"
-        Lok.LokList[lok_new].user_name = user_name
-
-     if lok_old in Lok.LokList:
-        Lok.LokList[lok_old].client_id = ""
-        Lok.LokList[lok_old].status = "available"
-
- @staticmethod
- def printLokList():
-     i = Lok.LokList.values()
-     print("-------------------------")
-     print("Lokliste")
-     for x in i:
-       #print(x)
-       x.printLok()
-     print("-------------------------")
-
- @staticmethod
- def save():
-     jsonData = Lok.getDataJSON()
-     f = open("./config/loklist.json", "w")  # opens file with name of "test.txt"
-     f.write(jsonData)
-     f.close()
-
- @staticmethod
- def getImage(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( Lok.LokList[Lok_Id].image_url )
-    else:
-        return ("./static/images/Lok.png")
-
- @staticmethod
- def getName(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( Lok.LokList[Lok_Id].name )
-    else:
-        return (0)
-
- @staticmethod
- def getAddr(Lok_Id):
-    if Lok_Id in Lok.LokList:
-        return ( int(Lok.LokList[Lok_Id].addr) )
-    else:
-        return (0)
-
- def printLok(self):
-        print ("Lok:" + str(self.id) +" " + self.name + " Addr:" + str(self.addr) + " " + self.image_url + " " + self.status)
 
 
 # Define Class Client
