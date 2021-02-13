@@ -9,8 +9,8 @@
 
 #  windows install                   py -m pip install --user virtualenv
 #          create new                py -m venv venv 
-#           activate                 ./venv/Scripts/activate
-
+#           activate                 
+#                                   ./env/Scripts/activate
 import sys
 import math
 import time
