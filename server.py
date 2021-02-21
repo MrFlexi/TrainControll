@@ -10,7 +10,7 @@
 #  windows install                   py -m pip install --user virtualenv
 #          create new                py -m venv venv 
 #           activate                 
-#                                   ./env/Scripts/activate
+#                                   ./venv/Scripts/activate
 import sys
 import math
 import time
@@ -25,6 +25,7 @@ import struct
 from TrainControll import Clients, UDP, Gleisplan, User
 from TrainControllLok import Lok
 from TrainControllCtrl import CTRL
+
 
 import json
 import base64
@@ -261,6 +262,8 @@ def track_create():
 
 
 
+
+
 # ---------------------  SocketIO Event Handling ------------------------------------
 # React on slide change on clients
 # broadcast slider values to all clients
@@ -362,6 +365,7 @@ def weiche_neu(message):
     Gleisplan.new(message)
     # Push new data to all connected clients
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
+
 
 
 if __name__ == '__main__':
