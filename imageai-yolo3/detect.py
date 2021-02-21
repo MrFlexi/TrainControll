@@ -3,7 +3,7 @@
 #           activate                 ./env/Scripts/activate
 
 
-modelpath = "./yolo4/model/yolo.h5"
+modelpath = "./yolo3/model/yolov3.h5"
 
 from imageai import Detection
 import cv2
