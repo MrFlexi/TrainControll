@@ -8,3 +8,4 @@ env.bak/
 venv.bak/
 lib_oled96
 lib_oled96
+*.h5

@@ -15,87 +15,29 @@ sap.ui.define([
 	var oModelUserList          = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
 	var oModelUser              = new sap.ui.model.json.JSONModel();
-
+	var oModelTrack          = new sap.ui.model.json.JSONModel();
 
 
 	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
 	var socket = io.connect('ws://' + document.domain + ':' + location.port + '',{transports: ['websocket']});
 
 	var CController = Controller.extend("view.App", {
-        model: new sap.ui.model.json.JSONModel(),
-		data: {
+		model: new sap.ui.model.json.JSONModel(),
 
-			navigation: [{
-				title: 'Home',
-				icon: 'sap-icon://home',
-				expanded: true,
-				key: 'Home'
-			}, {
-				title: 'Drive',
-				icon: 'sap-icon://cargo-train',
-				key: 'Drive',
-				expanded: true,
-			},
-			{
-				title: 'LokList',
-				icon: 'sap-icon://list',
-				expanded: true,
-				key: 'lok_list'
-			},
-
-			{
-				title: 'User',
-				icon: 'sap-icon://account',
-				expanded: true,
-				key: 'user_list'
-			},
-
-			{
-				title: 'Clients',
-				icon: 'sap-icon://action',
-				expanded: false,
-				items: [{
-					title: 'Show connected'
-				}, {
-					title: 'Child Item 2'
-				}, {
-					title: 'Child Item 3'
-				}]
-			}, ],
-
-			fixedNavigation: [{
-				title: 'Fixed Item 1',
-				icon: 'sap-icon://employee'
-			}, {
-				title: 'Fixed Item 2',
-				icon: 'sap-icon://building'
-			}, {
-				title: 'Fixed Item 3',
-				icon: 'sap-icon://card'
-			}],
-
-			headerItems: [{
-				text: "File"
-			}, {
-				text: "Edit"
-			}, {
-				text: "View"
-			}, {
-				text: "Settings"
-			}, {
-				text: "Help"
-			}]
-		},
+		
 		onInit: function() {
 
 		    var namespace = '';
 
 			// Dynamisches Menü
-			this.model.setData(this.data);
+			//this.model.setData(this.data);
+			
+			this.model.loadData("/static/config/menu.json");
 			this.getView().setModel(this.model);
 			this.getView().setModel(oModelLokList, "LokListModel");
 			this.getView().setModel(oModelUserList, "oModelUserList");
 			this.getView().setModel(oModelMainController, "oModelMainController");
+			this.getView().setModel(oModelTrack, "oModelTrackList");
 
 			document._oController = this;
 
@@ -114,14 +56,14 @@ sap.ui.define([
 			
 
 			socket.on('initialisation', function(msg) {
-				var config_model = jQuery.parseJSON(msg.data)
+				//var config_model = jQuery.parseJSON(msg.data)
 
-				var newArray = config_model.filter(function (el) {
-					return el.session_id === socket.id
-				  });
+				//var newArray = config_model.filter(function (el) {
+				//	return el.session_id === socket.id
+				//  });
 				
-				console.log(newArray);
-				oModelMainController.setData(newArray);
+				//console.log(newArray);
+				//oModelMainController.setData(newArray);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
 				oModelUserList.setData(UserList_json);
@@ -129,15 +71,27 @@ sap.ui.define([
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 
+				var TrackList_data = jQuery.parseJSON(msg.Track);
+				oModelTrack.setData(TrackList_data);
+
 				
              });
 
             socket.on('config_data', function(msg) {
-                var config_model = jQuery.parseJSON(msg.data)
-                oModelMainController.setData(config_model);
+                var MyLok = jQuery.parseJSON(msg.MyLok)
+                oModelMainController.setData(MyLok);
 
                 var UserList_json = jQuery.parseJSON(msg.user);
-                oModelUserList.setData(UserList_json);
+				oModelUserList.setData(UserList_json);
+				
+				var LokList_data = jQuery.parseJSON(msg.LokList);
+               oModelLokList.setData(LokList_data);
+
+			 });
+			 
+			 socket.on('gleisplan_data', function(msg) {
+                var TrackList_data = jQuery.parseJSON(msg.Track);
+				oModelTrack.setData(TrackList_data);
 
              });
 
@@ -175,6 +129,17 @@ sap.ui.define([
 			
 		},
 
+		onTileSelect: function(oEvent) { 
+			var sPath = oEvent.getSource().getBindingContext().getPath();
+            var oModel = this.getView().getModel();
+			var oContext = oModel.getProperty(sPath);
+			var viewId = this.getView().getId();
+
+			var navTo = oContext.navigation;
+			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
+		
+		},
+	
 		onItemSelect: function(oEvent) {
 			var item = oEvent.getParameter('item');
 			var viewId = this.getView().getId();
@@ -183,6 +148,49 @@ sap.ui.define([
 
 		onSliderliveChange: function(oEvent) {
 		    socket.emit('main_controller_value_changed', {data: oModelMainController.getData()});
+		},
+
+		onTrackPress: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oCtx = oItem.getBindingContext("oModelTrackList");
+			var sPath = oCtx.getPath();
+			var oModel = oCtx.getModel();
+			var oContext = oModel.getProperty(sPath);
+
+		},
+
+
+		onTrackDirectionChanged: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oCtx = oItem.getBindingContext("oModelTrackList");
+			var sPath = oCtx.getPath();
+			var oModel = oCtx.getModel();
+			var oContext = oModel.getProperty(sPath);
+			var id = oContext.id;
+
+			var oPara = oEvent.getParameters();
+		
+			var item = oEvent.getParameter('item');
+			var dir = item.getProperty('key');
+
+			socket.emit('track_changed',  { id: id , dir:dir });
+		},		
+
+		onTrackButton: function (oEvent) {
+			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+			var oItem = oEvent.getSource();
+			var oPara = oEvent.getParameters();
+		
+			var item = oEvent.getParameter('item');
+			var dir = item.getProperty('key');
+
+			var id = 999;
+			socket.emit('track_changed',  { id: id , dir:dir });
 		},
 
 
@@ -266,13 +274,13 @@ sap.ui.define([
 			var lv_data_new = lv_data_old;
 
 			if ( lv_action == "Stop" ) { 
-				lv_data_new[0].lok_dir = 0; 
+				lv_data_new.dir = 0; 
 			};
 			if ( lv_action == "Back" ) { 
-				lv_data_new[0].lok_dir = 1; 
+				lv_data_new.dir = 1; 
 			};
 			if ( lv_action == "Forward" ) { 
-				lv_data_new[0].lok_dir = 2; 
+				lv_data_new.dir = 2; 
 			};
 
 			socket.emit('main_controller_value_changed', {data: lv_data_new });

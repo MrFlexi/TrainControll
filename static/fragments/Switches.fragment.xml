@@ -1,0 +1,95 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:grid="sap.ui.layout.cssgrid">
+
+
+<HBox justifyContent="End">
+		<SegmentedButton 
+			class="sapUiSmallMarginTop sapUiSmallMarginEnd"
+			selectionChange = "onTrackButton">
+			<items>
+				<SegmentedButtonItem id="BT_TR_STRAIGHT" width="auto" icon = "sap-icon://arrow-top" key="0" />
+				<SegmentedButtonItem id="BT_TR_RIGHT" width="auto" icon = "sap-icon://forward" key="1" />				
+			</items>
+		</SegmentedButton>
+	</HBox>
+
+
+	<List noDataText="No user found" items="{oModelTrackList>/}" id="__Trllist0">
+		<items>
+
+		<CustomListItem>
+			<HBox>
+				<core:Icon size="1rem" src="sap-icon://attachment-photo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Text text="{oModelTrackList>id}" />
+					<Label text="{oModelTrackList>dir}"/>
+					<OverflowToolbar design="Solid">				
+							<SegmentedButton selectedKey="{	path: 'oModelTrackList>',
+																	formatter: 'view.Formatter.TrackActualDir'	}"
+											 selectionChange = "onTrackDirectionChanged">
+								<items>									
+									<SegmentedButtonItem  icon="sap-icon://arrow-top" key="straight"/>
+
+									<SegmentedButtonItem visible="true"  
+														 icon="sap-icon://forward" key="right"/>
+								</items>
+							</SegmentedButton>						
+					</OverflowToolbar>		
+				</VBox>
+			</HBox>
+		</CustomListItem>
+		</items>
+	</List>
+
+
+	
+
+	<f:GridList
+		id="gridList"
+		headerText="Switches"
+		mode="MultiSelect"
+		items="{ path : 'oModelTrackList>/' }"
+		selectionChange="onSelectionChange"
+		delete="onDelete"
+		class="sapUiResponsiveContentPadding">
+		<f:customLayout>
+			<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
+		</f:customLayout>
+
+		<f:GridListItem
+			detailPress="onDetailPress"
+			press="onTrackPress"
+			counter="{oModelTrackList>id}"			
+			type= "DetailAndActive"
+			highlight="{Status}">
+			<VBox height="100%">
+			
+				<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">	
+				<OverflowToolbar design="Solid">				
+							<SegmentedButton selectedKey="{	path: 'oModelTrackList>',
+																	formatter: 'view.Formatter.TrackActualDir'	}"
+											 selectionChange = "onTrackDirectionChanged">
+								<items>									
+									<SegmentedButtonItem visible="{	path: 'oModelTrackList>aus',
+																	formatter: 'view.Formatter.TrackIconVisibleLeft'	}"																	
+														icon="sap-icon://response" key="left"/>
+									
+									<SegmentedButtonItem icon="sap-icon://arrow-top" key="straight"/>
+
+									<SegmentedButtonItem visible="{	path: 'oModelTrackList>aus',
+																		formatter: 'view.Formatter.TrackIconVisibleRight'	}"  
+														 icon="sap-icon://forward" key="right"/>
+								</items>
+							</SegmentedButton>						
+					</OverflowToolbar>								
+					<VBox>
+						<Title text="Dir" wrapping="true" />
+						<Label text="{oModelTrackList>aus}" wrapping="true" />
+					</VBox>
+				</HBox>
+			</VBox>
+		</f:GridListItem>
+	</f:GridList>
+</core:FragmentDefinition>

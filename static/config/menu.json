@@ -1,0 +1,94 @@
+{
+    "tiles": [
+      {
+        "header": "Track",
+        "id": "id1",
+        "navigation": "Track",
+        "icon": "/static/images/trackyard.png"
+      },
+      {
+        "header": "Drive",
+        "id": "id2",
+        "icon": "sap-icon://cargo-train"
+      }
+    ],
+    "navigation": [
+      {
+        "title": "Home",
+        "icon": "sap-icon://home",
+        "expanded": true,
+        "key": "Home"
+      },
+      {
+        "title": "Drive",
+        "icon": "sap-icon://cargo-train",
+        "key": "Drive",
+        "expanded": true
+        },
+      {
+        "title": "Track",
+        "icon": "sap-icon://cargo-train",
+        "key": "Track",
+        "expanded": true
+        
+      },
+      {
+        "title": "LokList",
+        "icon": "sap-icon://list",
+        "expanded": true,
+        "key": "lok_list"
+      },
+      {
+        "title": "User",
+        "icon": "sap-icon://account",
+        "expanded": true,
+        "key": "user_list"
+      },
+      {
+        "icon": "sap-icon://action",
+        "expanded": false,
+        "items": [
+          {
+            "title": "Show connected"
+          },
+          {
+            "title": "Child Item 2"
+          },
+          {
+            "title": "Child Item 3"
+          }
+        ]
+      }
+    ],
+    "fixedNavigation": [
+      {
+        "title": "Fixed Item 1",
+        "icon": "sap-icon://employee"
+      },
+      {
+        "title": "Fixed Item 2",
+        "icon": "sap-icon://building"
+      },
+      {
+        "title": "Fixed Item 3",
+        "icon": "sap-icon://card"
+      }
+    ],
+    "headerItems": [
+      {
+        "text": "File"
+      },
+      {
+        "text": "Edit"
+      },
+      {
+        "text": "View"
+      },
+      {
+        "text": "Settings"
+      },
+      {
+        "text": "Help"
+      }
+    ]
+  }
