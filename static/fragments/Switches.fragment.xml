@@ -15,35 +15,6 @@
 		</SegmentedButton>
 	</HBox>
 
-
-	<List noDataText="No user found" items="{oModelTrackList>/}" id="__Trllist0">
-		<items>
-
-		<CustomListItem>
-			<HBox>
-				<core:Icon size="1rem" src="sap-icon://attachment-photo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
-				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-					<Text text="{oModelTrackList>id}" />
-					<Label text="{oModelTrackList>dir}"/>
-					<OverflowToolbar design="Solid">				
-							<SegmentedButton selectedKey="{	path: 'oModelTrackList>',
-																	formatter: 'view.Formatter.TrackActualDir'	}"
-											 selectionChange = "onTrackDirectionChanged">
-								<items>									
-									<SegmentedButtonItem  icon="sap-icon://arrow-top" key="straight"/>
-
-									<SegmentedButtonItem visible="true"  
-														 icon="sap-icon://forward" key="right"/>
-								</items>
-							</SegmentedButton>						
-					</OverflowToolbar>		
-				</VBox>
-			</HBox>
-		</CustomListItem>
-		</items>
-	</List>
-
-
 	
 
 	<f:GridList
@@ -71,16 +42,10 @@
 							<SegmentedButton selectedKey="{	path: 'oModelTrackList>',
 																	formatter: 'view.Formatter.TrackActualDir'	}"
 											 selectionChange = "onTrackDirectionChanged">
-								<items>									
-									<SegmentedButtonItem visible="{	path: 'oModelTrackList>aus',
-																	formatter: 'view.Formatter.TrackIconVisibleLeft'	}"																	
-														icon="sap-icon://response" key="left"/>
-									
+								<items>																	
 									<SegmentedButtonItem icon="sap-icon://arrow-top" key="straight"/>
 
-									<SegmentedButtonItem visible="{	path: 'oModelTrackList>aus',
-																		formatter: 'view.Formatter.TrackIconVisibleRight'	}"  
-														 icon="sap-icon://forward" key="right"/>
+									<SegmentedButtonItem icon="sap-icon://forward" key="right"/>
 								</items>
 							</SegmentedButton>						
 					</OverflowToolbar>								

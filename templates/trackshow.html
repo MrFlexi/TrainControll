@@ -40,7 +40,7 @@
 
             socket.on('initialisation', function(msg) {
 
-                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                gleisplan_model = jQuery.parseJSON(msg.Track)
                 oModelGleisplan.setData(gleisplan_model);
                 MessageToast.show("Connected to server... ");
 

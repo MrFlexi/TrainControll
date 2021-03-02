@@ -9,6 +9,7 @@
       {
         "header": "Drive",
         "id": "id2",
+        "navigation": "Drive",
         "icon": "sap-icon://cargo-train"
       }
     ],

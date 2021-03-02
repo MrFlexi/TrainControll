@@ -15,6 +15,9 @@
 		</SegmentedButton>
 	</HBox>
 
+
+
+
 	<f:GridList
 		id="gridList"
 		headerText="Switches"

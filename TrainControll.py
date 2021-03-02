@@ -110,7 +110,7 @@ class Gleisplan:
         count = len(Gleisplan.Liste)
         new_id = count + 1
 
-        Gleisplan(id=new_id, addr=0, x1=message["x1"], x2=message["x2"], y1=message["y1"], y2=message["y2"], dir=0, type="DCC")
+        Gleisplan(id=new_id, addr=0, x1=message["x1"], x2=message["x2"], y1=message["y1"], y2=message["y2"], dir=0, type="DCC", aus="right")
 
         Gleisplan.printGleisplan()
 
