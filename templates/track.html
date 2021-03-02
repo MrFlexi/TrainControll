@@ -41,7 +41,7 @@
 
 
             var oImage = new sap.m.Image({
-                            src : "static/gleisplan.png",
+                            src : "static/Gleisplan.png",
                             useMap : "Map1" });
 
 
@@ -79,8 +79,10 @@
 
             oMap.attachPress( function( oEvent ) {
         				                           var model = this.getModel();
-                                                   var context = oEvent.getSource().getBindingContext();
-                                                   var path = context.getPath();
+                                                   var source = oEvent.getSource();
+                                                   var oPara = oEvent.getParameters();
+                                                   var oCtx = source.getBindingContext();
+                                                   var path = oCtxt.getPath();
                                                    var obj = model.getProperty(path);
         				                          });
 
