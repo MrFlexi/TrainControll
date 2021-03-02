@@ -18,44 +18,26 @@ import datetime
 import ntplib
 import logging
 import socket
-#import fcntl
 import struct
+import json
+import base64
+import binascii
 
 
 from TrainControll import Clients, UDP, Gleisplan, User
 from TrainControllLok import Lok
 from TrainControllCtrl import CTRL
-
-
-import json
-import base64
-
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
 from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from pathlib import Path
-import binascii
 from time import ctime
-
-#def get_interface_ipaddress(ifname):
-#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#    return socket.inet_ntoa(fcntl.ioctl(
-#      s.fileno(),
-#      0x8915,  # SIOCGIFADDR
-#      struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
-
-
-#def get_ip():
-#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#    info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
-#    return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
-
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
-
+    import fcntl
     from PIL import Image
 
     #from .lib_oled96 import ssd1306
@@ -72,12 +54,23 @@ if sys.platform.startswith('linux'):
     device = sh1106(serial, rotate=0)
     today_last_time = "unknown"
 
+    def get_interface_ipaddress(ifname):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+
+
+    def get_ip():
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
+        return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
 
     def init_spi_display():
         with canvas(device) as draw:
             draw.rectangle(device.bounding_box, outline="white", fill="black")
             
-    
     def init_display():
         # Display einrichten
         i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
@@ -111,19 +104,19 @@ if sys.platform.startswith('linux'):
         device.display(background.convert(device.mode))
      
 
-    background = Image.new("RGBA", device.size, "white")
+    
     def page_0():
-        #ip_s = get_interface_ipaddress('wlan0')
-        #logging.info('IP:%s',ip_s)
-        #n = Clients.getClientsCount()
+        ip_s = get_interface_ipaddress('wlan0')
+        logging.info('IP:%s',ip_s)
+        n = Clients.getClientsCount()
 
         with canvas(device) as draw:
             draw.text((1, 1), "  TrainControll 2021  ", fill=1)
             
             s = f"Clients:  {n}"
             draw.text((1,40), s, fill = 1)
-            #ip_s = ip_s +":3033"
-            #draw.text((1, 50), ip_s, fill=1)
+            ip_s = ip_s +":3033"
+            draw.text((1, 50), ip_s, fill=1)
 
 
 
@@ -153,13 +146,16 @@ if sys.platform.startswith('linux'):
             draw.ellipse((cx - 2, cy - 2, cx + 2, cy + 2), fill="white", outline="white")
             draw.text((2 * (cx + margin), cy - 8), today_date, fill="yellow")
             draw.text((2 * (cx + margin), cy), today_time, fill="yellow")  
-            draw.text((64, 10), "TrainControll", fill="white")    
+            draw.text((64, 10), "TrainControll", fill="white")   
+    
+    background = Image.new("RGBA", device.size, "white") 
                 
                 
 
 def scheduleTask():
     logging.info('scheduling tasks....')
-    #page_0()
+    if sys.platform.startswith('linux'):
+        page_0()
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
 # different async modes, or leave it set to None for the application to choose
