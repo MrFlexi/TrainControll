@@ -76,8 +76,7 @@
   "dir": 0,
   "position": "left",
   "pos": 0
- }
- ,
+ },
  {
   "id": 7,
   "addr": 7,
@@ -85,6 +84,19 @@
   "x2": "611",
   "y1": "208",
   "y2": "328",
+  "type": "DCC",
+  "aus": "right",
+  "dir": 0,
+  "position": "left",
+  "pos": 0
+ },
+ {
+  "id": 8,
+  "addr": 0,
+  "x1": "158",
+  "x2": "278",
+  "y1": "47",
+  "y2": "167",
   "type": "DCC",
   "aus": "right",
   "dir": 0,

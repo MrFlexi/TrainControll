@@ -30,12 +30,12 @@
             });
 
             socket.on('initialisation', function(msg) {
-                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                gleisplan_model = jQuery.parseJSON(msg.Track)
                 oModelGleisplan.setData(gleisplan_model);
             });
 
             socket.on('gleisplan_data', function(msg) {
-                gleisplan_model = jQuery.parseJSON(msg.Gleisplan)
+                gleisplan_model = jQuery.parseJSON(msg.Track)
                 oModelGleisplan.setData(gleisplan_model);
             });
 
@@ -79,7 +79,8 @@
 
             oMap.attachPress( function( oEvent ) {
         				                           var model = this.getModel();
-                                                   var path = oEvent.getSource().getBindingContext().getPath();
+                                                   var context = oEvent.getSource().getBindingContext();
+                                                   var path = context.getPath();
                                                    var obj = model.getProperty(path);
         				                          });
 
