@@ -23,26 +23,21 @@
             jQuery.sap.require("sap.ui.model.json.JSONModel");
             var oModelGleisplan = new sap.ui.model.json.JSONModel();
 
-
-
-        // SOCKET IO
+    // SOCKET IO
             namespace = '';
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
         // e.current_target.id
             function areaClicked(event) {
+                                            socket.emit('toggle_turnout', event.currentTarget.id );     //Änderung via API aufnehmen und Weiche schalten
+                                        }
 
-            socket.emit('toggle_turnout', event.currentTarget.id );     //Änderung via API aufnehmen und Weiche schalten
-                                  }
-
-            socket.on('connect', function() {
-            });
+            socket.on('connect', function() { });
 
             socket.on('initialisation', function(msg) {
 
                 gleisplan_model = jQuery.parseJSON(msg.Track)
                 oModelGleisplan.setData(gleisplan_model);
-                MessageToast.show("Connected to server... ");
 
                 // Create a clickable map area for each tunout provided in the gleisplan
                  $.each(gleisplan_model, function(i, item) {
@@ -122,14 +117,10 @@
 
 <body class="sapUiBody" role="application">
 
-    <img id="gleisplan" usemap="#primary" src="static/gleisplan.png" alt="Image not found">
+    <img id="gleisplan" usemap="#primary" src="static/Gleisplan.png" alt="Image not found">
     <map id="gleisplan_map" name="primary">
- 
-    </map>
-
+    </map>
     <div class='popup hidden'></div>
-
-
     <div id="content"></div>
 
 </body>

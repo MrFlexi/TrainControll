@@ -310,6 +310,10 @@ sap.ui.define([
 
 		},
 
+		ImageAreaPressed: function(event) {
+
+		},
+
 		onSideNavButtonPress: function() {
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");

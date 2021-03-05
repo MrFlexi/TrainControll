@@ -2,6 +2,7 @@
         xmlns="sap.m"
 		xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns:l="sap.ui.layout"
+		xmlns:c="sap.ui.commons"
         xmlns:core="sap.ui.core">
 
 	<l:VerticalLayout class="sapUiContentPadding" width="100%">
@@ -11,8 +12,14 @@
 			</layoutData>
 		</Image>  
 
+		<c:ImageMap name ="Map" press="ImageAreaPressed">
+			<c:areas shape="rect" alt="Bee" href="http://www.sap.com" coords="1,1,10,10"/>
+			<c:areas shape="rect" alt="Be2e" href="http://hallo" coords="20,20,100,100"/>
+		
+		</c:ImageMap>
+
 		<Panel>
-			<html:map name="Map" id="Map">
+			<html:map name="Map2" id="Map2">
 				<html:area alt="W1" title="" href="www.google.de" shape="rect" coords="1,1,100,100"/>
 				<html:area alt="" title="" href="www.google.de" shape="poly" coords="426,582,494,583,494,636,426,632"/>
 			</html:map>
