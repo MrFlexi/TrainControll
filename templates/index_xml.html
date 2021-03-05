@@ -10,6 +10,7 @@
 
 	<title>Train Controller 2020-12</title>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.0/socket.io.js"  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.1/fabric.js"  crossorigin="anonymous"></script>
 	<script
 		id="sap-ui-bootstrap"
 		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
@@ -30,5 +31,19 @@
 	</script>
 </head>
 <body class="sapUiBody" id="content">
+	<canvas id="canvas22" width="300" height="300"></canvas>
+    <script>
+        var canvas = new fabric.Canvas('canvas2');
+
+        var rect = new fabric.Rect({
+            top : 100,
+            left : 100,
+            width : 60,
+            height : 70,
+            fill : 'green'
+        });
+
+        canvas.add(rect);
+    </script>
 </body>
 </html>
