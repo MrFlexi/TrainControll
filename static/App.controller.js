@@ -108,7 +108,7 @@ sap.ui.define([
 		{
 			
 			var viewId = this.getView().getId();
-			var cv = viewId + "--canvas";
+			var cv = viewId + "--__item_Ti_01--canvas";    //
 
 			var canvas = new fabric.Canvas(cv);
 			fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
@@ -116,6 +116,7 @@ sap.ui.define([
 
 			function makeCircle(left, top, line1, line2, line3, line4) {
 				var c = new fabric.Circle({
+				  tid : "FLO",
 				  left: left,
 				  top: top,
 				  strokeWidth: 5,
@@ -161,6 +162,9 @@ sap.ui.define([
 				makeCircle(line5.get('x2'), line5.get('y2'), line5),
 				makeCircle(line6.get('x2'), line6.get('y2'), line6)
 			  );
+
+			  var json = canvas.toJSON(['tid']);
+			  console.log(JSON.stringify(json));
 			
 			  canvas.on('object:moving', function(e) {
 				var p = e.target;
@@ -169,6 +173,7 @@ sap.ui.define([
 				p.line3 && p.line3.set({ 'x1': p.left, 'y1': p.top });
 				p.line4 && p.line4.set({ 'x1': p.left, 'y1': p.top });
 				canvas.renderAll();
+				
 			  });
 
 			
