@@ -108,8 +108,8 @@ sap.ui.define([
 		{
 			
 			var viewId = this.getView().getId();
-			var cv = viewId + "--__item_Ti_01--canvas";    //
-
+			var cv = viewId + "--__fabric--canvas";    //
+		
 			var canvas = new fabric.Canvas(cv);
 			fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 

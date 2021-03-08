@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core">
+
+	<Panel>
+		<html:p id="test1">Fabric.js</html:p>
+        <html:canvas id="canvas" width="800" height="500"></html:canvas>
+    </Panel>
+</core:FragmentDefinition>
