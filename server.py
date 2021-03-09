@@ -363,6 +363,16 @@ def weiche_neu(message):
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
 
+@socketio.on('onFabricSave', namespace='')
+def fabric_save(message):    
+    Gleisplan.fabric_save(message["data"])   
+
+
+@socketio.on('onFabricLoad', namespace='')
+def fabric_load():    
+    json = Gleisplan.fabric_load()
+    emit('fabric_data', json, broadcast=True)
+
 
 if __name__ == '__main__':
     logging.info('__main__')

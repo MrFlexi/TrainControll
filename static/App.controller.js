@@ -15,7 +15,9 @@ sap.ui.define([
 	var oModelUserList          = new sap.ui.model.json.JSONModel();
 	var oModelMainController    = new sap.ui.model.json.JSONModel();
 	var oModelUser              = new sap.ui.model.json.JSONModel();
-	var oModelTrack          = new sap.ui.model.json.JSONModel();
+	var oModelTrack             = new sap.ui.model.json.JSONModel();
+
+	var gl_canvas;
 
 
 	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
@@ -98,9 +100,7 @@ sap.ui.define([
              socket.on('loklist_data', function(msg) {
                var LokList_data = jQuery.parseJSON(msg.LokList);
                oModelLokList.setData(LokList_data);
-            });
-
-			
+			});			
 
 		},
 
@@ -111,6 +111,7 @@ sap.ui.define([
 			var cv = viewId + "--__fabric--canvas";    //
 		
 			var canvas = new fabric.Canvas(cv);
+			gl_canvas = canvas;
 			fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
 
@@ -163,11 +164,19 @@ sap.ui.define([
 				makeCircle(line6.get('x2'), line6.get('y2'), line6)
 			  );
 
-			  var json = canvas.toJSON(['tid']);
-			  console.log(JSON.stringify(json));
-			
+
+			  function round(num,pre) {
+				if( !pre) pre = 0;
+				var pow = Math.pow(10,pre);
+				return Math.round(num*pow)/pow;
+				};
+
+			  
 			  canvas.on('object:moving', function(e) {
 				var p = e.target;
+
+				//p_left = round(p.left,0);
+				//p_top = round(p.top,0);
 				p.line1 && p.line1.set({ 'x2': p.left, 'y2': p.top });
 				p.line2 && p.line2.set({ 'x1': p.left, 'y1': p.top });
 				p.line3 && p.line3.set({ 'x1': p.left, 'y1': p.top });
@@ -175,11 +184,6 @@ sap.ui.define([
 				canvas.renderAll();
 				
 			  });
-
-			
-
-			// HTML Code
-			//jQuery("#"+this.createId("myhtml")).setContent("<div id='visualization'>Hallo</div>");
 	
 		
 			//Storage
@@ -201,6 +205,9 @@ sap.ui.define([
 			oStorage.put("myLocalData", UserData);
 			}
 
+			socket.on('fabric_data', function(msg) {
+				canvas.loadFromJSON(msg);
+			 });
 			
 		},
 
@@ -379,10 +386,20 @@ sap.ui.define([
 			}
 		},
 
+		onFabricLoad: function(event) {
+			socket.emit('onFabricLoad');
+		},
 
+		onFabricSave: function(event) {
+			var json = gl_canvas.toJSON(['tid']);			  
+			  socket.emit('onFabricSave', {data: json});
+
+		},
+
+		
+			
 
 		handleUserNamePress: function(event) {
-
 		},
 
 		ImageAreaPressed: function(event) {

@@ -4,8 +4,20 @@
         xmlns:l="sap.ui.layout"
         xmlns:core="sap.ui.core">
 
-	<Panel>
-		<html:p id="test1">Fabric.js</html:p>
+
+
+			<Toolbar>				
+				<ToolbarSpacer/>
+				<Title text="Fabric JS" level="H2"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://save" type="Transparent" press="onFabricSave" ariaLabelledBy="editButtonLabel"/>
+                <Button icon="sap-icon://upload" type="Transparent" press="onFabricLoad" ariaLabelledBy="editButtonLabel"/>
+			</Toolbar>
+
+
+
+
+	<Panel>    		
         <html:canvas id="canvas" width="800" height="500"></html:canvas>
     </Panel>
 </core:FragmentDefinition>

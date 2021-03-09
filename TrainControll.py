@@ -184,6 +184,22 @@ class Gleisplan:
         f.write(jsonData)
         f.close()
 
+    @staticmethod
+    def fabric_save(message):
+        print ("Fabric Save")
+        jsonData = json.dumps(message, indent=1, separators=(',', ': '))
+        print(jsonData)        
+               
+        f = open("./config/fabric.json", "w")  # opens file with name of "test.txt"
+        f.write(jsonData)
+        f.close()
+
+    @staticmethod
+    def fabric_load():
+        print ("Fabric Load")      
+        with open('./config/fabric.json') as data_file:
+            fabric_json = json.load(data_file)
+        return (fabric_json)
 
     @staticmethod
     def getDataJSON():
