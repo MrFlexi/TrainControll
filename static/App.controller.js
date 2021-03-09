@@ -109,6 +109,7 @@ sap.ui.define([
 			
 			var viewId = this.getView().getId();
 			var cv = viewId + "--__fabric--canvas";    //
+			var gv_tid = 1;
 		
 			var canvas = new fabric.Canvas(cv);
 			gl_canvas = canvas;
@@ -117,7 +118,7 @@ sap.ui.define([
 
 			function makeCircle(left, top, line1, line2, line3, line4) {
 				var c = new fabric.Circle({
-				  tid : "FLO",
+				  tid : gv_tid,
 				  left: left,
 				  top: top,
 				  strokeWidth: 5,
@@ -132,6 +133,10 @@ sap.ui.define([
 				c.line3 = line3;
 				c.line4 = line4;
 			
+				var text = new fabric.Text(String(gv_tid), { fontSize: 10, left: left+15, top: top-15 });		
+				c.text = text;		
+				canvas.add(c.text);
+				gv_tid++;
 				return c;
 			  }
 
@@ -163,26 +168,27 @@ sap.ui.define([
 				makeCircle(line5.get('x2'), line5.get('y2'), line5),
 				makeCircle(line6.get('x2'), line6.get('y2'), line6)
 			  );
-
-
-			  function round(num,pre) {
-				if( !pre) pre = 0;
-				var pow = Math.pow(10,pre);
-				return Math.round(num*pow)/pow;
-				};
-
-			  
+	  
 			  canvas.on('object:moving', function(e) {
 				var p = e.target;
 
-				//p_left = round(p.left,0);
-				//p_top = round(p.top,0);
 				p.line1 && p.line1.set({ 'x2': p.left, 'y2': p.top });
 				p.line2 && p.line2.set({ 'x1': p.left, 'y1': p.top });
 				p.line3 && p.line3.set({ 'x1': p.left, 'y1': p.top });
 				p.line4 && p.line4.set({ 'x1': p.left, 'y1': p.top });
+
+				p.text && p.text.set({ 'left': p.left+15, 'top': p.top-15 });
 				canvas.renderAll();
 				
+			  });
+
+
+			  canvas.on('mouse:down', function(options) {
+				if (options.target) {
+				  console.log('an object was clicked! ', options.target.type, options.target.tid);
+				  
+				  socket.emit('toggle_turnout', options.target.tid );
+				}
 			  });
 	
 		

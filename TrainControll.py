@@ -188,7 +188,7 @@ class Gleisplan:
     def fabric_save(message):
         print ("Fabric Save")
         jsonData = json.dumps(message, indent=1, separators=(',', ': '))
-        print(jsonData)        
+        #print(jsonData)        
                
         f = open("./config/fabric.json", "w")  # opens file with name of "test.txt"
         f.write(jsonData)
