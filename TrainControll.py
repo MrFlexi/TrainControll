@@ -121,7 +121,7 @@ class Gleisplan:
 
         lv_id = int(message)
 
-        gr_instance = Gleisplan.Liste[lv_id]
+        gr_instance = Gleisplan.find_ById(lv_id)
         gr_instance.printGP()
 
         if gr_instance.dir == 0:
@@ -129,14 +129,14 @@ class Gleisplan:
         else:
             gr_instance.dir = 0
 
-        UDP.setFunction( lv_id,  gr_instance.dir )
+        UDP.setFunction( gr_instance.addr,  gr_instance.dir )
 
 
     @staticmethod
     def set_all_turnout(dir):
         for x in Gleisplan.Liste:
             x.setDir(dir)
-            sleep(0.2)          #Man muss ein bischen auf die Weichen warten
+            sleep(0.2)          #Man muss ein bisschen auf die Weichen warten
          
 
     def setDir(self,dir):

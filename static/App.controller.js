@@ -186,7 +186,8 @@ sap.ui.define([
 			  canvas.on('mouse:down', function(options) {
 				if (options.target) {
 				  console.log('an object was clicked! ', options.target.type, options.target.tid);
-				  
+				  options.target.line2 && options.target.line2.set({ 'stroke': 'green'});
+				  canvas.renderAll();
 				  socket.emit('toggle_turnout', options.target.tid );
 				}
 			  });
