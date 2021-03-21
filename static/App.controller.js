@@ -31,10 +31,7 @@ sap.ui.define([
 		onInit: function () {
 
 			var namespace = '';
-
-			// Dynamisches Menü
-			//this.model.setData(this.data);
-
+	
 			this.model.loadData("/static/config/menu.json");
 			this.getView().setModel(this.model);
 			this.getView().setModel(oModelLokList, "LokListModel");
@@ -107,6 +104,8 @@ sap.ui.define([
 
 		onAfterRendering: function (oEvent) {
 
+			
+
 			var viewId = this.getView().getId();
 			var cv = viewId + "--__fabric--canvas";    //
 			var gv_tid = 1;
@@ -116,43 +115,9 @@ sap.ui.define([
 			gl_canvas = canvas;
 			fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
-
-			function makeCircleW(left, top, line1, line2) {
-				var c = new fabric.Circle({
-					id: gv_tid,
-					left: left,
-					top: top,
-					strokeWidth: 5,
-					radius: 12,
-					fill: '#fff',
-					stroke: '#666'
-				});
-				c.hasControls = c.hasBorders = false;
-
-				c.line1 = line1;
-				c.line2 = line2;
-
-
-				gv_tid++;
-				return c;
-			}
-
-			function makeLineW(coords) {
-				return new fabric.Line(coords, {
-					fill: 'green',
-					stroke: '#666',
-					strokeWidth: 4,
-					selectable: false,
-					evented: false,
-				});
-			}
-
-
 			function displayGrid() {
-				
-
 				// create grid
-
+			
 				for (var i = 0; i < (600 / grid); i++) {
 					canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
 						stroke: '#ccc',
@@ -164,96 +129,49 @@ sap.ui.define([
 					}))
 				}
 			}
+		
 
-			function makeCircle(left, top, line1, line2, line3, line4) {
-				var c = new fabric.Circle({
-					tid: gv_tid,
-					left: left,
-					top: top,
-					strokeWidth: 5,
-					radius: 12,
-					fill: '#fff',
-					stroke: '#666'
-				});
-				c.hasControls = c.hasBorders = false;
-
-				c.line1 = line1;
-				c.line2 = line2;
-				c.line3 = line3;
-				c.line4 = line4;
-
-				var text = new fabric.Text(String(gv_tid), { fontSize: 10, left: left + 15, top: top - 15 });
-				c.text = text;
-				canvas.add(c.text);
-				gv_tid++;
-				return c;
-			}
-
-			function makeLine(coords) {
-				return new fabric.Line(coords, {
-					fill: 'red',
-					stroke: 'red',
-					strokeWidth: 5,
-					selectable: false,
-					evented: false,
-				});
-			}
-
-			var line = makeLine([250, 125, 250, 175]),
-				line2 = makeLine([250, 175, 250, 250]),
-				line3 = makeLine([250, 250, 300, 350]),
-				line4 = makeLine([250, 250, 200, 350]),
-				line5 = makeLine([250, 175, 175, 225]),
-				line6 = makeLine([250, 175, 325, 225]);
-
-			canvas.add(line, line2, line3, line4, line5, line6);
-
-			canvas.add(
-				makeCircle(line.get('x1'), line.get('y1'), null, line),
-				makeCircle(line.get('x2'), line.get('y2'), line, line2, line5, line6),
-				makeCircle(line2.get('x2'), line2.get('y2'), line2, line3, line4),
-				makeCircle(line3.get('x2'), line3.get('y2'), line3),
-				makeCircle(line4.get('x2'), line4.get('y2'), line4),
-				makeCircle(line5.get('x2'), line5.get('y2'), line5),
-				makeCircle(line6.get('x2'), line6.get('y2'), line6)
-			);
-
-			function createW(id) {
-				var text = new fabric.Text(String(gv_tid), { fontSize: 10, left: 100, top: 100 });
-
-
-				var linew1 = makeLineW([100, 100, 150, 100]);
-				var linew2 = makeLineW([100, 100, 150, 150]);
+			function createW(id,x,y) {
+				x = x * 50;
+				y = y * 50; 
+				var text = new fabric.Text(String(id), { fontSize: 10, left: x, top: y });
+			
+				var linew1 = makeLineW([x, y, x+50, y]);
+				var linew2 = makeLineW([x, y, x+50, y+50]);
 				var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
-
+			
 				var group = new fabric.Group([linew1, linew2, c1, text], {
 					id: id,
 					dir: 0,
-					left: 150,
-					top: 100,
+					left: x+50,
+					top: y,
 					angle: 0
 				});
-				canvas.add(group);
+				return group;
 			}
 
 
 			displayGrid();
-			createW(gv_tid);
+			var w1 = createW(gv_tid,1,1);
+			canvas.add(w1);
 			gv_tid++;
 
-			createW(gv_tid);
+			var w1 = createW(gv_tid,2,1);
+			canvas.add(w1);
+			gv_tid++;
+
+			var w1 = createW(gv_tid,4,2);
+			canvas.add(w1);
 			gv_tid++;
 
 			canvas.on('object:moving', function (e) {
-
-
-			if (Math.round(e.target.left / grid * 1) % 1 == 0 &&
-				Math.round(e.target.top / grid * 1) % 1 == 0) {
-				e.target.set({
-				  left: Math.round(e.target.left / grid) * grid,
-				  top: Math.round(e.target.top / grid) * grid
-				}).setCoords();
-			}			
+				if (Math.round(e.target.left / grid * 1) % 1 == 0 &&
+					Math.round(e.target.top / grid * 1) % 1 == 0) {
+					e.target.set({
+						left: Math.round(e.target.left / grid) * grid,
+						top: Math.round(e.target.top / grid) * grid
+					}).setCoords();
+				}
 
 			});
 
