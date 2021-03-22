@@ -5,8 +5,8 @@ function makeCircleW(left, top, line1, line2) {
     var c = new fabric.Circle({
         left: left,
         top: top,
-        strokeWidth: 5,
-        radius: 12,
+        strokeWidth: 3,
+        radius: 6,
         fill: '#fff',
         stroke: '#666'
     });

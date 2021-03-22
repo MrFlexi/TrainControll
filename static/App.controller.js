@@ -31,7 +31,7 @@ sap.ui.define([
 		onInit: function () {
 
 			var namespace = '';
-	
+
 			this.model.loadData("/static/config/menu.json");
 			this.getView().setModel(this.model);
 			this.getView().setModel(oModelLokList, "LokListModel");
@@ -104,7 +104,7 @@ sap.ui.define([
 
 		onAfterRendering: function (oEvent) {
 
-			
+
 
 			var viewId = this.getView().getId();
 			var cv = viewId + "--__fabric--canvas";    //
@@ -113,11 +113,12 @@ sap.ui.define([
 
 			var canvas = new fabric.Canvas(cv);
 			gl_canvas = canvas;
-			fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+			fabric.Object.prototype.originX = 'left';
+			fabric.Object.prototype.originY = 'top';
 
 			function displayGrid() {
 				// create grid
-			
+
 				for (var i = 0; i < (600 / grid); i++) {
 					canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
 						stroke: '#ccc',
@@ -129,40 +130,106 @@ sap.ui.define([
 					}))
 				}
 			}
-		
 
-			function createW(id,x,y) {
+
+			function createW(id, x, y, aus) {
 				x = x * 50;
-				y = y * 50; 
+				y = y * 50;
+				var offset = grid / 2;
 				var text = new fabric.Text(String(id), { fontSize: 10, left: x, top: y });
-			
-				var linew1 = makeLineW([x, y, x+50, y]);
-				var linew2 = makeLineW([x, y, x+50, y+50]);
-				var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
-			
-				var group = new fabric.Group([linew1, linew2, c1, text], {
+
+				var linew1 = makeLineW([x, y + offset, x + grid, y + offset]);
+				if (aus == 'left') {
+					var linew2 = makeLineW([x, y + offset, x + offset, y]);
+				}
+
+				if (aus == 'right') {
+					var linew2 = makeLineW([x, y + offset, x + offset, y+grid]);
+				}
+
+				//var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
+
+				var group = new fabric.Group([linew1, linew2, text], {
 					id: id,
 					dir: 0,
-					left: x+50,
-					top: y,
-					angle: 0
+					angle: 0,
+					left: x,
+					top: y
 				});
 				return group;
 			}
 
 
+			function ausWl(id, x, y) {
+				x = x * 50;
+				y = y * 50;
+				var offset = grid / 2;
+
+				var linew1 = makeLineW([x+offset, y, x + grid, y+offset ]);
+				
+				var linew2 = makeLineW([x, y, x + grid, y+grid]);
+				var group = new fabric.Group([linew1,linew2], {
+					id: id,
+					dir: 0,
+					angle: 0,
+					left: x,
+					top: y
+				});
+				return group;
+			}
+
+			function track_g(id, x, y) {
+				x = x * 50;
+				y = y * 50;
+				var offset = grid / 2;
+
+				var linew1 = makeLineW([x, y+offset, x + grid, y+offset ]);
+				var linew2 = makeLineW([x, y, x + grid, y+grid]);
+			
+				var group = new fabric.Group([linew1], {
+					id: id,
+					dir: 0,
+					angle: 0,
+					left: x,
+					top: y
+				});
+
+				group.add(new fabric.Rect({
+					left: grid,
+					top: grid,
+					originX: 'left',
+					originY: 'top'
+				  }));
+				
+				return group;
+			}
+
 			displayGrid();
-			var w1 = createW(gv_tid,1,1);
+			var w1 = createW(gv_tid, 1, 1,"left");
 			canvas.add(w1);
 			gv_tid++;
 
-			var w1 = createW(gv_tid,2,1);
+			var w1 = createW(gv_tid, 2, 1,"right");
 			canvas.add(w1);
 			gv_tid++;
 
-			var w1 = createW(gv_tid,4,2);
+			var w1 = ausWl(gv_tid, 2, 2);
 			canvas.add(w1);
 			gv_tid++;
+
+			var w1 = track_g(gv_tid, 3, 1);
+			canvas.add(w1);
+			gv_tid++;
+
+			var w1 = track_g(gv_tid, 3, 2);
+			canvas.add(w1);
+			gv_tid++;
+
+
+
+			
+
+			
 
 			canvas.on('object:moving', function (e) {
 				if (Math.round(e.target.left / grid * 1) % 1 == 0 &&
@@ -181,13 +248,13 @@ sap.ui.define([
 				var c = a[2];
 				var dir = o.target.dir;
 				if (dir == 0) {
-					c.line1 && c.line1.set({ 'stroke': 'gray', 'strokeWidth': 1 });
-					c.line2 && c.line2.set({ 'stroke': 'red', 'strokeWidth': 4 });
+					c.line1 && c.line1.set({ 'stroke': 'black', 'strokeWidth': 3 });
+					c.line2 && c.line2.set({ 'stroke': 'red', 'strokeWidth': 3 });
 					dir = 1;
 				}
 				else {
-					c.line1 && c.line1.set({ 'stroke': 'red', 'strokeWidth': 4 });
-					c.line2 && c.line2.set({ 'stroke': 'gray', 'strokeWidth': 1 })
+					c.line1 && c.line1.set({ 'stroke': 'red', 'strokeWidth': 3 });
+					c.line2 && c.line2.set({ 'stroke': 'black', 'strokeWidth': 3 })
 					dir = 0;
 				}
 				o.target && o.target.set({ 'dir': dir })
