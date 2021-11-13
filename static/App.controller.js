@@ -104,14 +104,18 @@ sap.ui.define([
 
 		onAfterRendering: function (oEvent) {
 
-
-
 			var viewId = this.getView().getId();
 			var cv = viewId + "--__fabric--canvas";    //
 			var gv_tid = 1;
 			var grid = 50;
 
-			var canvas = new fabric.Canvas(cv);
+			var canvas = new fabric.Canvas(cv,{
+										fireRightClick: true,
+										stopContextMenu: true,
+			});
+
+
+			
 			gl_canvas = canvas;
 			fabric.Object.prototype.originX = 'left';
 			fabric.Object.prototype.originY = 'top';
@@ -131,6 +135,30 @@ sap.ui.define([
 				}
 			}
 
+			function makeTile(x,y){
+				var rect = new fabric.Rect({
+					left: x,
+					top: y,
+					originX: 'left',
+					originY: 'top',
+					fill: '#FAFAFA',
+					width: 50,
+					height: 50,
+					strokeWidth: 1,
+					stroke: "black",
+					rx: 10,
+					ry: 10,
+					angle: 0,
+					scaleX: 1,
+					scaleY: 1,
+					opacity: 0.7,
+					hasControls: false,
+					centeredRotation: true
+				})
+				return rect;
+			}
+
+			
 
 			function createW(id, x, y, aus) {
 				x = x * 50;
@@ -144,17 +172,20 @@ sap.ui.define([
 				}
 
 				if (aus == 'right') {
-					var linew2 = makeLineW([x, y + offset, x + offset, y+grid]);
+					var linew2 = makeLineW([x, y + offset, x + offset, y + grid]);
 				}
 
 				//var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
 
-				var group = new fabric.Group([linew1, linew2, text], {
+				var group = new fabric.Group([makeTile(x,y), linew1, linew2, text], {
 					id: id,
 					dir: 0,
 					angle: 0,
 					left: x,
-					top: y
+					top: y,
+					line1 : linew1,
+					line2 : linew2,
+					centeredRotation: true
 				});
 				return group;
 			}
@@ -165,10 +196,8 @@ sap.ui.define([
 				y = y * 50;
 				var offset = grid / 2;
 
-				var linew1 = makeLineW([x+offset, y, x + grid, y+offset ]);
-				
-				var linew2 = makeLineW([x, y, x + grid, y+grid]);
-				var group = new fabric.Group([linew1,linew2], {
+				var linew1 = makeLineW([x + offset, y, x + grid, y + offset]);
+				var group = new fabric.Group([makeTile(x,y),linew1], {
 					id: id,
 					dir: 0,
 					angle: 0,
@@ -183,10 +212,8 @@ sap.ui.define([
 				y = y * 50;
 				var offset = grid / 2;
 
-				var linew1 = makeLineW([x, y+offset, x + grid, y+offset ]);
-				var linew2 = makeLineW([x, y, x + grid, y+grid]);
-			
-				var group = new fabric.Group([linew1], {
+				var linew1 = makeLineW([x, y + offset, x + grid, y + offset]);
+				var group = new fabric.Group([makeTile(x,y),linew1], {
 					id: id,
 					dir: 0,
 					angle: 0,
@@ -194,22 +221,21 @@ sap.ui.define([
 					top: y
 				});
 
-				group.add(new fabric.Rect({
-					left: grid,
-					top: grid,
-					originX: 'left',
-					originY: 'top'
-				  }));
-				
+			
+
 				return group;
 			}
 
 			displayGrid();
-			var w1 = createW(gv_tid, 1, 1,"left");
+			var w1 = createW(gv_tid, 1, 1, "left");
 			canvas.add(w1);
 			gv_tid++;
 
-			var w1 = createW(gv_tid, 2, 1,"right");
+			var w1 = createW(gv_tid, 2, 1, "right");
+			canvas.add(w1);
+			gv_tid++;
+
+			var w1 = createW(gv_tid, 4, 4, "left");
 			canvas.add(w1);
 			gv_tid++;
 
@@ -227,7 +253,14 @@ sap.ui.define([
 
 
 
-			
+			canvas.on('object:rotated', function (e) {
+
+				var a = Math.round(e.target.angle / 90) * 90;
+				e.target.animate('angle', a, { onChange: canvas.renderAll.bind(canvas),
+												duration:100,
+												centeredRotation: true })
+
+			});
 
 			
 
@@ -245,7 +278,7 @@ sap.ui.define([
 			function toggle(o) {
 
 				var a = o.target.getObjects();
-				var c = a[2];
+				var c = o.target;
 				var dir = o.target.dir;
 				if (dir == 0) {
 					c.line1 && c.line1.set({ 'stroke': 'black', 'strokeWidth': 3 });
@@ -262,6 +295,20 @@ sap.ui.define([
 
 
 			canvas.on('mouse:down', function (o) {
+
+				if(o.button === 3) {
+					console.log("right click");
+
+					//var ctxTarget = canvas.findTarget(o.originalEvent);
+
+					//var viewId = document._oController.getView().getId();
+					//var cv = viewId + "--__fabric--actionSheet";  		
+					//var actionsSheet = document._oController.getView().byId(cv);
+
+					// actionsSheet.openBy(o);
+
+				}
+
 				if (o.target) {
 					if (o.target.type == 'group') {
 						toggle(o);
@@ -332,6 +379,16 @@ sap.ui.define([
 			var oModel = oCtx.getModel();
 			var oContext = oModel.getProperty(sPath);
 
+		},
+
+
+		onCTXPress: function(oEvent) {
+
+			var viewId = this.getView().getId();
+			var cv = viewId + "--__fabric--actionSheet";  
+
+			var oButton = oEvent.getSource();
+			this.byId(cv).openBy(oButton);
 		},
 
 

@@ -14,7 +14,16 @@
                 <Button icon="sap-icon://upload" type="Transparent" press="onFabricLoad" ariaLabelledBy="editButtonLabel"/>
 			</Toolbar>
 
-
+			<Button
+				text="Open Action Sheet"				
+				press="onCTXPress"
+				ariaHasPopup="Menu" >
+			<dependents>
+			<core:Fragment
+				fragmentName="view.fragments.ActionSheet"
+				type="XML" />
+			</dependents>
+	</Button>
 
 
 	<Panel>    		
