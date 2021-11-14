@@ -513,6 +513,21 @@ sap.ui.define([
 				oEvent.getSource().getBinding("items").filter([]);
 			},
 
+			onButtonEdit: function (oEvent) {
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
+					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
+
+					MessageToast.show("You have chosen " + lok_name + lok_id);
+
+					
+
+				}
+				//oEvent.getSource().getBinding("items").filter([]);
+			},
+
+
 
 			handleLocomotionFunction: function (oEvent) {
 
@@ -584,6 +599,28 @@ sap.ui.define([
 				var json = gl_canvas.toJSON(['id']);
 				socket.emit('onFabricSave', { data: json });
 
+			},
+
+			onFabricPlay: function (oEvent) {
+				var state = oEvent.getParameter('state');
+				if ( state )
+				{
+					gl_canvas.forEachObject(function(o){ 
+						o.hasControls = true;
+						o.lockMovementX = false;
+						o.lockMovementY = false;
+						o.hasBorders = true;
+					});
+				}
+				else
+				{
+					gl_canvas.forEachObject(function(o){ 
+						o.hasControls = false;
+						o.lockMovementX = true;
+						o.lockMovementY = true;
+						o.hasBorders = false;
+					});
+				}
 			},
 
 

@@ -7,14 +7,23 @@
 
 
 			<Toolbar>				
-				<ToolbarSpacer/>
-				<Title text="Fabric JS" level="H2"/>
-				<ToolbarSpacer/>
 				<Button icon="sap-icon://save" type="Transparent" press="onFabricSave" ariaLabelledBy="editButtonLabel"/>
                 <Button icon="sap-icon://upload" type="Transparent" press="onFabricLoad" ariaLabelledBy="editButtonLabel"/>
+				<Switch state="true" customTextOn="Edit" customTextOff="Play" change="onFabricPlay">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Switch>
 			</Toolbar>
 
-			<Button
+			
+
+
+	<Panel>    		
+        <html:canvas id="canvas" width="800" height="500"></html:canvas>
+    </Panel>
+	
+	<Button
 				text="Open Action Sheet"				
 				press="onCTXPress"
 				ariaHasPopup="Menu" >
@@ -23,10 +32,6 @@
 				fragmentName="view.fragments.ActionSheet"
 				type="XML" />
 			</dependents>
-	</Button>
+			</Button>
 
-
-	<Panel>    		
-        <html:canvas id="canvas" width="800" height="500"></html:canvas>
-    </Panel>
 </core:FragmentDefinition>
