@@ -17,6 +17,7 @@ sap.ui.define([
 	var oModelUser = new sap.ui.model.json.JSONModel();
 	var oModelTrack = new sap.ui.model.json.JSONModel();
 
+
 	var gl_canvas;
 	var gv_dir = 0;
 
@@ -26,6 +27,7 @@ sap.ui.define([
 
 	var CController = Controller.extend("view.App", {
 		model: new sap.ui.model.json.JSONModel(),
+		oModelSwitches: new sap.ui.model.json.JSONModel(),
 
 
 		onInit: function () {
@@ -38,6 +40,9 @@ sap.ui.define([
 			this.getView().setModel(oModelUserList, "oModelUserList");
 			this.getView().setModel(oModelMainController, "oModelMainController");
 			this.getView().setModel(oModelTrack, "oModelTrackList");
+			
+			this.oModelSwitches.loadData("/static/config/gleisplan.json");
+			this.getView().setModel(this.oModelSwitches, "oModelSwitches");
 
 			document._oController = this;
 
@@ -74,7 +79,6 @@ sap.ui.define([
 				var TrackList_data = jQuery.parseJSON(msg.Track);
 				oModelTrack.setData(TrackList_data);
 
-
 			});
 
 			socket.on('config_data', function (msg) {
@@ -109,13 +113,11 @@ sap.ui.define([
 			var gv_tid = 1;
 			var grid = 50;
 
-			var canvas = new fabric.Canvas(cv,{
-										fireRightClick: true,
-										stopContextMenu: true,
+			var canvas = new fabric.Canvas(cv, {
+				fireRightClick: true,
+				stopContextMenu: true,
 			});
 
-
-			
 			gl_canvas = canvas;
 			fabric.Object.prototype.originX = 'left';
 			fabric.Object.prototype.originY = 'top';
@@ -135,7 +137,7 @@ sap.ui.define([
 				}
 			}
 
-			function makeTile(x,y){
+			function makeTile(x, y) {
 				var rect = new fabric.Rect({
 					left: x,
 					top: y,
@@ -158,13 +160,23 @@ sap.ui.define([
 				return rect;
 			}
 
-			
+			function makeImage(x, y) {
+
+				return fabric.loadSVGFromURL('/static/images/switch.svg', function (objects, options) {
+					var obj2 = fabric.util.groupSVGElements(objects, options);
+					return obj2
+				});
+
+
+			}
+
+
 
 			function createW(id, x, y, aus) {
 				x = x * 50;
 				y = y * 50;
 				var offset = grid / 2;
-				var text = new fabric.Text(String(id), { fontSize: 10, left: x, top: y });
+				var text = new fabric.Text(String(id), { fontSize: 12, left: x + 5, top: y + 5 });
 
 				var linew1 = makeLineW([x, y + offset, x + grid, y + offset]);
 				if (aus == 'left') {
@@ -177,14 +189,14 @@ sap.ui.define([
 
 				//var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
 
-				var group = new fabric.Group([makeTile(x,y), linew1, linew2, text], {
+				var group = new fabric.Group([makeTile(x, y), linew1, linew2, text], {
 					id: id,
 					dir: 0,
 					angle: 0,
 					left: x,
 					top: y,
-					line1 : linew1,
-					line2 : linew2,
+					line1: linew1,
+					line2: linew2,
 					centeredRotation: true
 				});
 				return group;
@@ -197,7 +209,7 @@ sap.ui.define([
 				var offset = grid / 2;
 
 				var linew1 = makeLineW([x + offset, y, x + grid, y + offset]);
-				var group = new fabric.Group([makeTile(x,y),linew1], {
+				var group = new fabric.Group([makeTile(x, y), linew1], {
 					id: id,
 					dir: 0,
 					angle: 0,
@@ -213,370 +225,398 @@ sap.ui.define([
 				var offset = grid / 2;
 
 				var linew1 = makeLineW([x, y + offset, x + grid, y + offset]);
-				var group = new fabric.Group([makeTile(x,y),linew1], {
+				var group = new fabric.Group([makeTile(x, y), linew1], {
 					id: id,
 					dir: 0,
 					angle: 0,
 					left: x,
 					top: y
-				});
-
-			
+				})
 
 				return group;
 			}
 
-			displayGrid();
-			var w1 = createW(gv_tid, 1, 1, "left");
-			canvas.add(w1);
-			gv_tid++;
-
-			var w1 = createW(gv_tid, 2, 1, "right");
-			canvas.add(w1);
-			gv_tid++;
-
-			var w1 = createW(gv_tid, 4, 4, "left");
-			canvas.add(w1);
-			gv_tid++;
-
-			var w1 = ausWl(gv_tid, 2, 2);
-			canvas.add(w1);
-			gv_tid++;
-
-			var w1 = track_g(gv_tid, 3, 1);
-			canvas.add(w1);
-			gv_tid++;
-
-			var w1 = track_g(gv_tid, 3, 2);
-			canvas.add(w1);
-			gv_tid++;
-
-
-
-			canvas.on('object:rotated', function (e) {
-
-				var a = Math.round(e.target.angle / 90) * 90;
-				e.target.animate('angle', a, { onChange: canvas.renderAll.bind(canvas),
-												duration:100,
-												centeredRotation: true })
-
-			});
-
 			
+			var oData = this.getView().getModel("oModelSwitches");
+			// fire the read request
+			var b = this.oModelSwitches.getData();
+			console.log(b[1]);
+			
+			
+				displayGrid();
+				var w1 = createW(1, 0, 1, "right");
+				canvas.add(w1);
+				
 
-			canvas.on('object:moving', function (e) {
-				if (Math.round(e.target.left / grid * 1) % 1 == 0 &&
-					Math.round(e.target.top / grid * 1) % 1 == 0) {
-					e.target.set({
-						left: Math.round(e.target.left / grid) * grid,
-						top: Math.round(e.target.top / grid) * grid
-					}).setCoords();
-				}
+				var w1 = createW(2, 0, 2, "right");
+				canvas.add(w1);
+				
 
-			});
-
-			function toggle(o) {
-
-				var a = o.target.getObjects();
-				var c = o.target;
-				var dir = o.target.dir;
-				if (dir == 0) {
-					c.line1 && c.line1.set({ 'stroke': 'black', 'strokeWidth': 3 });
-					c.line2 && c.line2.set({ 'stroke': 'red', 'strokeWidth': 3 });
-					dir = 1;
-				}
-				else {
-					c.line1 && c.line1.set({ 'stroke': 'red', 'strokeWidth': 3 });
-					c.line2 && c.line2.set({ 'stroke': 'black', 'strokeWidth': 3 })
-					dir = 0;
-				}
-				o.target && o.target.set({ 'dir': dir })
-			}
+				var w1 = createW(3, 0, 3, "left");
+				canvas.add(w1);
+				
 
 
-			canvas.on('mouse:down', function (o) {
+				var w1 = createW(4, 0, 4, "left");
+				canvas.add(w1);
 
-				if(o.button === 3) {
-					console.log("right click");
+				var w1 = createW(5, 0, 5, "right");
+				canvas.add(w1);
 
-					//var ctxTarget = canvas.findTarget(o.originalEvent);
+				var w1 = createW(6, 0, 6, "right");
+				canvas.add(w1);
 
-					//var viewId = document._oController.getView().getId();
-					//var cv = viewId + "--__fabric--actionSheet";  		
-					//var actionsSheet = document._oController.getView().byId(cv);
+				var w1 = createW(7, 0, 7, "right");
+				canvas.add(w1);
 
-					// actionsSheet.openBy(o);
+				var w1 = createW(8, 0, 8, "left");
+				canvas.add(w1);
 
-				}
-
-				if (o.target) {
-					if (o.target.type == 'group') {
-						toggle(o);
-					}
-
-					if (o.target.type == 'circle') {
-						o.target.line2 && o.target.line2.set({ 'stroke': 'green' });
-						socket.emit('toggle_turnout', o.target.id);
-
-					}
-					console.log('an object was clicked! ', o.target.type, o.target.wid);
-					canvas.renderAll();
-				}
-			});
+				var w1 = createW(9, 0, 9, "right");
+				canvas.add(w1);
 
 
-			//Storage
-			jQuery.sap.require("jquery.sap.storage");
-			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
-			//Check if there is data in the Storage
-			if (oStorage.get("myLocalData")) {
-				console.log("Data is from Storage!");
-				var oDataUser = oStorage.get("myLocalData");
-				oModelUser.setData(oDataUser);
-			}
-			else {
-				console.log("Local storage is empty");
-				//this.handleLogonDialog();
-				//MessageToast.show("Please login !" );
-				var UserData = { "UserData": [{ "Name": "Jochen" }] };
-				oModelUser.setData(UserData);
-				oStorage.put("myLocalData", UserData);
-			}
+				gv_tid = 20;
 
-			socket.on('fabric_data', function (msg) {
-				canvas.loadFromJSON(msg);
-			});
+				var w1 = ausWl(gv_tid, 2, 2);
+				canvas.add(w1);
+				gv_tid++;
 
-		},
+				var w1 = track_g(gv_tid, 3, 2);
+				canvas.add(w1);
+				gv_tid++;
 
-		onTileSelect: function (oEvent) {
-			var sPath = oEvent.getSource().getBindingContext().getPath();
-			var oModel = this.getView().getModel();
-			var oContext = oModel.getProperty(sPath);
-			var viewId = this.getView().getId();
-
-			var navTo = oContext.navigation;
-			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
-
-		},
-
-		onItemSelect: function (oEvent) {
-			var item = oEvent.getParameter('item');
-			var viewId = this.getView().getId();
-			sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + item.getKey());
-		},
-
-		onSliderliveChange: function (oEvent) {
-			socket.emit('main_controller_value_changed', { data: oModelMainController.getData() });
-		},
-
-		onTrackPress: function (oEvent) {
-			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-
-			var oItem = oEvent.getSource();
-			var oCtx = oItem.getBindingContext("oModelTrackList");
-			var sPath = oCtx.getPath();
-			var oModel = oCtx.getModel();
-			var oContext = oModel.getProperty(sPath);
-
-		},
+				var w1 = track_g(gv_tid, 3, 3);
+				canvas.add(w1);
+				gv_tid++;
 
 
-		onCTXPress: function(oEvent) {
+				canvas.on('object:rotated', function (e) {
 
-			var viewId = this.getView().getId();
-			var cv = viewId + "--__fabric--actionSheet";  
+					var a = Math.round(e.target.angle / 90) * 90;
+					e.target.animate('angle', a, {
+						onChange: canvas.renderAll.bind(canvas),
+						duration: 100,
+						centeredRotation: true
+					})
 
-			var oButton = oEvent.getSource();
-			this.byId(cv).openBy(oButton);
-		},
-
-
-		onTrackDirectionChanged: function (oEvent) {
-			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-
-			var oItem = oEvent.getSource();
-			var oCtx = oItem.getBindingContext("oModelTrackList");
-			var sPath = oCtx.getPath();
-			var oModel = oCtx.getModel();
-			var oContext = oModel.getProperty(sPath);
-			var id = oContext.id;
-
-			var oPara = oEvent.getParameters();
-
-			var item = oEvent.getParameter('item');
-			var dir = item.getProperty('key');
-
-			socket.emit('track_changed', { id: id, dir: dir });
-		},
-
-		onTrackButton: function (oEvent) {
-			MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-
-			var oItem = oEvent.getSource();
-			var oPara = oEvent.getParameters();
-
-			var item = oEvent.getParameter('item');
-			var dir = item.getProperty('key');
-
-			var id = 999;
-			socket.emit('track_changed', { id: id, dir: dir });
-		},
-
-
-		handleLogonDialog: function () {
-			if (!this._oDialogLogon) {
-				this._oDialogLogon = sap.ui.xmlfragment("view.fragments.Logon", this);
-			}
-
-			this.getView().addDependent(this._oDialogLogon);
-			// toggle compact style
-			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogLogon);
-			this._oDialogLogon.open();
-
-		},
-
-
-		handleTableSelectDialogPress: function (oEvent) {
-			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("view.fragments.Dialog", this);
-			}
-
-			// Multi-select if required
-			var bMultiSelect = !!oEvent.getSource().data("multi");
-			this._oDialog.setMultiSelect(bMultiSelect);
-
-			// Remember selections if required
-			var bRemember = !!oEvent.getSource().data("remember");
-			this._oDialog.setRememberSelections(bRemember);
-
-			this.getView().addDependent(this._oDialog);
-			// toggle compact style
-			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
-			this._oDialog.open();
-		},
-
-		handleLocomotionSelectDialogClose: function (oEvent) {
-			var aContexts = oEvent.getParameter("selectedContexts");
-			if (aContexts && aContexts.length) {
-				var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
-				var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
-
-				MessageToast.show("You have chosen " + lok_name + lok_id);
-
-				socket.emit('Lok_changed', {
-					who: "Dialog", newLok: lok_id,
-					oldLok: 1
 				});
 
-			}
-			oEvent.getSource().getBinding("items").filter([]);
-		},
 
 
-		handleLocomotionFunction: function (oEvent) {
+				canvas.on('object:moving', function (e) {
+					if (Math.round(e.target.left / grid * 1) % 1 == 0 &&
+						Math.round(e.target.top / grid * 1) % 1 == 0) {
+						e.target.set({
+							left: Math.round(e.target.left / grid) * grid,
+							top: Math.round(e.target.top / grid) * grid
+						}).setCoords();
+					}
 
-			if (oEvent.getSource().getPressed()) {
-				MessageToast.show(oEvent.getSource().getId() + " Pressed");
-			} else {
-				MessageToast.show(oEvent.getSource().getId() + " Unpressed");
-			}
-
-			var aContexts = oEvent.getParameter("selectedContexts");
-			if (aContexts && aContexts.length) {
-				var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
-				var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
-
-				MessageToast.show("Function " + lok_name + lok_id);
-
-				socket.emit('Lok_changed', {
-					who: "Dialog", newLok: lok_id,
-					oldLok: 1
 				});
 
-			}
-		},
+				function toggle(o) {
 
-		handleLocomotionDirection: function (oEvent) {
+					var a = o.target.getObjects();
+					var c = o.target;
+					var dir = o.target.dir;
+					if (dir == 0) {
+						c.line1 && c.line1.set({ 'stroke': 'gray', 'strokeWidth': 4 });
+						c.line2 && c.line2.set({ 'stroke': 'blue', 'strokeWidth': 4 });
+						dir = 1;
+					}
+					else {
+						c.line1 && c.line1.set({ 'stroke': 'blue', 'strokeWidth': 4 });
+						c.line2 && c.line2.set({ 'stroke': 'gray', 'strokeWidth': 4 })
+						dir = 0;
+					}
+					o.target && o.target.set({ 'dir': dir })
+				}
 
-			var lv_action = oEvent.getParameter("item").getText();
-			MessageToast.show(lv_action);
 
-			var lv_data_old = oModelMainController.getData();
-			var lv_data_new = lv_data_old;
+				canvas.on('mouse:down', function (o) {
 
-			if (lv_action == "Stop") {
-				lv_data_new.dir = 0;
-			};
-			if (lv_action == "Back") {
-				lv_data_new.dir = 1;
-			};
-			if (lv_action == "Forward") {
-				lv_data_new.dir = 2;
-			};
+					if (o.button === 3) {
+						console.log("right click");
 
-			socket.emit('main_controller_value_changed', { data: lv_data_new });
-		},
+						//var ctxTarget = canvas.findTarget(o.originalEvent);
 
-		handleUserSelectDialogClose: function (oEvent) {
-			var aContexts = oEvent.getParameter("selectedContexts");
-			if (aContexts && aContexts.length) {
-				var user_name = aContexts.map(function (oContext) { return oContext.getObject().user_name; }).join(", ");
-				var user_id = aContexts.map(function (oContext) { return oContext.getObject().user_id; }).join(", ");
+						//var viewId = document._oController.getView().getId();
+						//var cv = viewId + "--__fabric--actionSheet";  		
+						//var actionsSheet = document._oController.getView().byId(cv);
 
-				MessageToast.show("You are logged in as: " + user_name + "  " + user_id);
+						// actionsSheet.openBy(o);
 
-				var UserData = { "UserData": [{ "Name": user_name }] };
+					}
 
+					if (o.target) {
+						if (o.target.type == 'group') {
+							toggle(o);
+						}
+
+						if (o.target.type == 'circle') {
+							o.target.line2 && o.target.line2.set({ 'stroke': 'green' });
+							socket.emit('toggle_turnout', o.target.id);
+
+						}
+						console.log('an object was clicked! ', o.target.type, o.target.wid);
+						canvas.renderAll();
+					}
+				});
+
+
+				//Storage
 				jQuery.sap.require("jquery.sap.storage");
 				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
-				oStorage.put("myLocalData", UserData);
-				socket.emit('User_changed', { user_id: user_id, user_name: user_name });
+				//Check if there is data in the Storage
+				if (oStorage.get("myLocalData")) {
+					console.log("Data is from Storage!");
+					var oDataUser = oStorage.get("myLocalData");
+					oModelUser.setData(oDataUser);
+				}
+				else {
+					console.log("Local storage is empty");
+					//this.handleLogonDialog();
+					//MessageToast.show("Please login !" );
+					var UserData = { "UserData": [{ "Name": "Jochen" }] };
+					oModelUser.setData(UserData);
+					oStorage.put("myLocalData", UserData);
+				}
 
+				socket.on('fabric_data', function (msg) {
+					canvas.loadFromJSON(msg);
+				});
+
+			},
+
+			onTileSelect: function (oEvent) {
+				var sPath = oEvent.getSource().getBindingContext().getPath();
+				var oModel = this.getView().getModel();
+				var oContext = oModel.getProperty(sPath);
+				var viewId = this.getView().getId();
+
+				var navTo = oContext.navigation;
+				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
+
+			},
+
+			onItemSelect: function (oEvent) {
+				var item = oEvent.getParameter('item');
+				var viewId = this.getView().getId();
+				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + item.getKey());
+			},
+
+			onSliderliveChange: function (oEvent) {
+				socket.emit('main_controller_value_changed', { data: oModelMainController.getData() });
+			},
+
+			onTrackPress: function (oEvent) {
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+				var oItem = oEvent.getSource();
+				var oCtx = oItem.getBindingContext("oModelTrackList");
+				var sPath = oCtx.getPath();
+				var oModel = oCtx.getModel();
+				var oContext = oModel.getProperty(sPath);
+
+			},
+
+
+			onCTXPress: function(oEvent) {
+
+				var viewId = this.getView().getId();
+				var cv = viewId + "--__fabric--actionSheet";
+
+				var oButton = oEvent.getSource();
+				this.byId(cv).openBy(oButton);
+			},
+
+
+			onTrackDirectionChanged: function (oEvent) {
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+				var oItem = oEvent.getSource();
+				var oCtx = oItem.getBindingContext("oModelTrackList");
+				var sPath = oCtx.getPath();
+				var oModel = oCtx.getModel();
+				var oContext = oModel.getProperty(sPath);
+				var id = oContext.id;
+
+				var oPara = oEvent.getParameters();
+
+				var item = oEvent.getParameter('item');
+				var dir = item.getProperty('key');
+
+				socket.emit('track_changed', { id: id, dir: dir });
+			},
+
+			onTrackButton: function (oEvent) {
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+
+				var oItem = oEvent.getSource();
+				var oPara = oEvent.getParameters();
+
+				var item = oEvent.getParameter('item');
+				var dir = item.getProperty('key');
+
+				var id = 999;
+				socket.emit('track_changed', { id: id, dir: dir });
+			},
+
+
+			handleLogonDialog: function () {
+				if (!this._oDialogLogon) {
+					this._oDialogLogon = sap.ui.xmlfragment("view.fragments.Logon", this);
+				}
+
+				this.getView().addDependent(this._oDialogLogon);
+				// toggle compact style
+				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogLogon);
+				this._oDialogLogon.open();
+
+			},
+
+
+			handleTableSelectDialogPress: function (oEvent) {
+				if (!this._oDialog) {
+					this._oDialog = sap.ui.xmlfragment("view.fragments.Dialog", this);
+				}
+
+				// Multi-select if required
+				var bMultiSelect = !!oEvent.getSource().data("multi");
+				this._oDialog.setMultiSelect(bMultiSelect);
+
+				// Remember selections if required
+				var bRemember = !!oEvent.getSource().data("remember");
+				this._oDialog.setRememberSelections(bRemember);
+
+				this.getView().addDependent(this._oDialog);
+				// toggle compact style
+				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
+				this._oDialog.open();
+			},
+
+			handleLocomotionSelectDialogClose: function (oEvent) {
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
+					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
+
+					MessageToast.show("You have chosen " + lok_name + lok_id);
+
+					socket.emit('Lok_changed', {
+						who: "Dialog", newLok: lok_id,
+						oldLok: 1
+					});
+
+				}
+				oEvent.getSource().getBinding("items").filter([]);
+			},
+
+
+			handleLocomotionFunction: function (oEvent) {
+
+				if (oEvent.getSource().getPressed()) {
+					MessageToast.show(oEvent.getSource().getId() + " Pressed");
+				} else {
+					MessageToast.show(oEvent.getSource().getId() + " Unpressed");
+				}
+
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
+					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
+
+					MessageToast.show("Function " + lok_name + lok_id);
+
+					socket.emit('Lok_changed', {
+						who: "Dialog", newLok: lok_id,
+						oldLok: 1
+					});
+
+				}
+			},
+
+			handleLocomotionDirection: function (oEvent) {
+
+				var lv_action = oEvent.getParameter("item").getText();
+				MessageToast.show(lv_action);
+
+				var lv_data_old = oModelMainController.getData();
+				var lv_data_new = lv_data_old;
+
+				if (lv_action == "Stop") {
+					lv_data_new.dir = 0;
+				};
+				if (lv_action == "Back") {
+					lv_data_new.dir = 1;
+				};
+				if (lv_action == "Forward") {
+					lv_data_new.dir = 2;
+				};
+
+				socket.emit('main_controller_value_changed', { data: lv_data_new });
+			},
+
+			handleUserSelectDialogClose: function (oEvent) {
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var user_name = aContexts.map(function (oContext) { return oContext.getObject().user_name; }).join(", ");
+					var user_id = aContexts.map(function (oContext) { return oContext.getObject().user_id; }).join(", ");
+
+					MessageToast.show("You are logged in as: " + user_name + "  " + user_id);
+
+					var UserData = { "UserData": [{ "Name": user_name }] };
+
+					jQuery.sap.require("jquery.sap.storage");
+					var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+					oStorage.put("myLocalData", UserData);
+					socket.emit('User_changed', { user_id: user_id, user_name: user_name });
+
+				}
+			},
+
+			onFabricLoad: function (event) {
+				socket.emit('onFabricLoad');
+			},
+
+			onFabricSave: function (event) {
+				var json = gl_canvas.toJSON(['id']);
+				socket.emit('onFabricSave', { data: json });
+
+			},
+
+
+
+
+			handleUserNamePress: function (event) {
+			},
+
+			ImageAreaPressed: function (event) {
+
+			},
+
+			onSideNavButtonPress: function () {
+				var viewId = this.getView().getId();
+				var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
+				var sideExpanded = toolPage.getSideExpanded();
+
+				this._setToggleButtonTooltip(sideExpanded);
+
+				toolPage.setSideExpanded(!toolPage.getSideExpanded());
+			},
+
+
+			_setToggleButtonTooltip: function (bLarge) {
+				var toggleButton = this.byId('sideNavigationToggleButton');
+				if (bLarge) {
+					toggleButton.setTooltip('Large Size Navigation');
+				} else {
+					toggleButton.setTooltip('Small Size Navigation');
+				}
 			}
-		},
 
-		onFabricLoad: function (event) {
-			socket.emit('onFabricLoad');
-		},
-
-		onFabricSave: function (event) {
-			var json = gl_canvas.toJSON(['id']);
-			socket.emit('onFabricSave', { data: json });
-
-		},
-
-
-
-
-		handleUserNamePress: function (event) {
-		},
-
-		ImageAreaPressed: function (event) {
-
-		},
-
-		onSideNavButtonPress: function () {
-			var viewId = this.getView().getId();
-			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
-			var sideExpanded = toolPage.getSideExpanded();
-
-			this._setToggleButtonTooltip(sideExpanded);
-
-			toolPage.setSideExpanded(!toolPage.getSideExpanded());
-		},
-
-
-		_setToggleButtonTooltip: function (bLarge) {
-			var toggleButton = this.byId('sideNavigationToggleButton');
-			if (bLarge) {
-				toggleButton.setTooltip('Large Size Navigation');
-			} else {
-				toggleButton.setTooltip('Small Size Navigation');
-			}
-		}
-
-	});
+		});
 
 	return CController;
 

@@ -7,6 +7,12 @@
         "icon": "/static/images/trackyard.png"
       },
       {
+        "header": "Teppich",
+        "id": "id3",
+        "navigation": "Teppich",
+        "icon": "/static/images/trackyard.png"
+      },
+      {
         "header": "Drive",
         "id": "id2",
         "navigation": "Drive",
