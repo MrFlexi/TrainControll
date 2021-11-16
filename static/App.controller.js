@@ -137,6 +137,10 @@ sap.ui.define([
 
 			},
 
+
+			//----------------------------------------------------------------------------------------------
+			//    Navigation Events
+			//----------------------------------------------------------------------------------------------
 			onTileSelect: function (oEvent) {
 				var sPath = oEvent.getSource().getBindingContext().getPath();
 				var oModel = this.getView().getModel();
@@ -146,14 +150,32 @@ sap.ui.define([
 				var navTo = oContext.navigation;
 				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
 
+				if ( navTo = 'Gleisplan' )				{
+						//Gleisplan
+						var viewId = this.getView().getId();
+						renderGleisplan(viewId);
+				}
+					
 			},
 
 			onItemSelect: function (oEvent) {
 				var item = oEvent.getParameter('item');
 				var viewId = this.getView().getId();
-				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + item.getKey());
+				var key = item.getKey();
+				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + key);
+
+				if ( key = 'Gleisplan' )				{
+					//Gleisplan
+					var viewId = this.getView().getId();
+					renderGleisplan(viewId);
+			}
+
 			},
 
+
+			//----------------------------------------------------------------------------------------------
+			//    Events on screen
+			//----------------------------------------------------------------------------------------------	
 			onSliderliveChange: function (oEvent) {
 				socket.emit('main_controller_value_changed', { data: oModelMainController.getData() });
 			},
@@ -327,6 +349,11 @@ sap.ui.define([
 				}
 			},
 
+
+			//----------------------------------------------------------------------------------------------
+			//    Events on fabric.js canvas  aka Gleisplan
+			//----------------------------------------------------------------------------------------------	
+
 			onFabricLoad: function (event) {
 				socket.emit('onFabricLoad');
 			},
@@ -334,7 +361,6 @@ sap.ui.define([
 			onFabricSave: function (event) {
 				var json = gl_canvas.toJSON(['id']);
 				socket.emit('onFabricSave', { data: json });
-
 			},
 
 			onFabricPlay: function (oEvent) {

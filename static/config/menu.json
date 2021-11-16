@@ -7,10 +7,10 @@
         "icon": "/static/images/trackyard.png"
       },
       {
-        "header": "Teppich",
+        "header": "Block",
         "id": "id3",
-        "navigation": "Teppich",
-        "icon": "/static/images/trackyard.png"
+        "navigation": "Gleisplan",
+        "icon": "/static/images/blockbild.jpg"
       },
       {
         "header": "Drive",
@@ -31,6 +31,13 @@
         "icon": "sap-icon://cargo-train",
         "key": "Drive",
         "expanded": true
+        },
+        {
+          "title": "Block",
+          "icon": "sap-icon://cargo-train",
+          "key": "Gleisplan",
+          "expanded": true
+          
         },
       {
         "title": "Track",

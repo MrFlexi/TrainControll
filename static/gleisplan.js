@@ -195,7 +195,6 @@ function toggle(o) {
     o.target && o.target.set({ 'dir': dir })
 }
 
-
  function setFabricMode(state) {    
     if ( state )
     {
