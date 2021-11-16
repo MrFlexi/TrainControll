@@ -56,17 +56,14 @@ sap.ui.define([
 
 			socket.on('disconnect', function () {
 				MessageToast.show("Connection lost... ");
-
 			});
 
 
 			socket.on('initialisation', function (msg) {
 				//var config_model = jQuery.parseJSON(msg.data)
-
 				//var newArray = config_model.filter(function (el) {
 				//	return el.session_id === socket.id
 				//  });
-
 				//console.log(newArray);
 				//oModelMainController.setData(newArray);
 
@@ -90,13 +87,11 @@ sap.ui.define([
 
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
-
 			});
 
 			socket.on('gleisplan_data', function (msg) {
 				var TrackList_data = jQuery.parseJSON(msg.Track);
 				oModelTrack.setData(TrackList_data);
-
 			});
 
 			socket.on('loklist_data', function (msg) {
@@ -109,9 +104,8 @@ sap.ui.define([
 		onAfterRendering: function (oEvent) {		
 
 				//Gleisplan
-				var viewId = this.getView().getId();
-				renderGleisplan(viewId);			
-
+				//var viewId = this.getView().getId();
+				//renderGleisplan(viewId);
 
 				//Storage
 				jQuery.sap.require("jquery.sap.storage");
@@ -146,30 +140,47 @@ sap.ui.define([
 				var oModel = this.getView().getModel();
 				var oContext = oModel.getProperty(sPath);
 				var viewId = this.getView().getId();
-
 				var navTo = oContext.navigation;
-				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
 
+				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + navTo);
 				if ( navTo = 'Gleisplan' )				{
 						//Gleisplan
 						var viewId = this.getView().getId();
 						renderGleisplan(viewId);
-				}
-					
+				}					
 			},
 
 			onItemSelect: function (oEvent) {
 				var item = oEvent.getParameter('item');
 				var viewId = this.getView().getId();
 				var key = item.getKey();
-				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + key);
 
+				sap.ui.getCore().byId(viewId + "--pageContainer").to(viewId + "--" + key);
 				if ( key = 'Gleisplan' )				{
 					//Gleisplan
 					var viewId = this.getView().getId();
 					renderGleisplan(viewId);
 			}
+			},
 
+			onSideNavButtonPress: function () {
+				var viewId = this.getView().getId();
+				var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
+				var sideExpanded = toolPage.getSideExpanded();
+
+				this._setToggleButtonTooltip(sideExpanded);
+				toolPage.setSideExpanded(!toolPage.getSideExpanded());
+			},
+
+
+			_setToggleButtonTooltip: function (bLarge) {
+				var toggleButton = this.byId('sideNavigationToggleButton');
+
+				if (bLarge) {
+					toggleButton.setTooltip('Large Size Navigation');
+				} else {
+					toggleButton.setTooltip('Small Size Navigation');
+				}
 			},
 
 
@@ -181,26 +192,24 @@ sap.ui.define([
 			},
 
 			onTrackPress: function (oEvent) {
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-
 				var oItem = oEvent.getSource();
 				var oCtx = oItem.getBindingContext("oModelTrackList");
 				var sPath = oCtx.getPath();
 				var oModel = oCtx.getModel();
 				var oContext = oModel.getProperty(sPath);
+
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());			
 			},
 
 			onCTXPress: function(oEvent) {
-
 				var viewId = this.getView().getId();
 				var cv = viewId + "--__fabric--actionSheet";
-
 				var oButton = oEvent.getSource();
+
 				this.byId(cv).openBy(oButton);
 			},
 
-			onTrackDirectionChanged: function (oEvent) {
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+			onTrackDirectionChanged: function (oEvent) {				
 
 				var oItem = oEvent.getSource();
 				var oCtx = oItem.getBindingContext("oModelTrackList");
@@ -212,17 +221,18 @@ sap.ui.define([
 				var item = oEvent.getParameter('item');
 				var dir = item.getProperty('key');
 
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
 				socket.emit('track_changed', { id: id, dir: dir });
 			},
 
-			onTrackButton: function (oEvent) {
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+			onTrackButton: function (oEvent) {				
 				var oItem = oEvent.getSource();
 				var oPara = oEvent.getParameters();
 				var item = oEvent.getParameter('item');
 				var dir = item.getProperty('key');
 				var id = 999;
 
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
 				socket.emit('track_changed', { id: id, dir: dir });
 			},
 
@@ -266,12 +276,10 @@ sap.ui.define([
 					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
 
 					MessageToast.show("You have chosen " + lok_name + lok_id);
-
 					socket.emit('Lok_changed', {
 						who: "Dialog", newLok: lok_id,
 						oldLok: 1
 					});
-
 				}
 				oEvent.getSource().getBinding("items").filter([]);
 			},
@@ -285,8 +293,6 @@ sap.ui.define([
 					MessageToast.show("You have chosen " + lok_name + lok_id);
 				}				
 			},
-
-
 
 			handleLocomotionFunction: function (oEvent) {
 
@@ -302,12 +308,10 @@ sap.ui.define([
 					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
 
 					MessageToast.show("Function " + lok_name + lok_id);
-
 					socket.emit('Lok_changed', {
 						who: "Dialog", newLok: lok_id,
 						oldLok: 1
 					});
-
 				}
 			},
 
@@ -327,25 +331,22 @@ sap.ui.define([
 				if (lv_action == "Forward") {
 					lv_data_new.dir = 2;
 				};
-
 				socket.emit('main_controller_value_changed', { data: lv_data_new });
 			},
 
 			handleUserSelectDialogClose: function (oEvent) {
 				var aContexts = oEvent.getParameter("selectedContexts");
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+
 				if (aContexts && aContexts.length) {
 					var user_name = aContexts.map(function (oContext) { return oContext.getObject().user_name; }).join(", ");
 					var user_id = aContexts.map(function (oContext) { return oContext.getObject().user_id; }).join(", ");
 
 					MessageToast.show("You are logged in as: " + user_name + "  " + user_id);
-
 					var UserData = { "UserData": [{ "Name": user_name }] };
-
-					jQuery.sap.require("jquery.sap.storage");
-					var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
+					jQuery.sap.require("jquery.sap.storage");					
 					oStorage.put("myLocalData", UserData);
 					socket.emit('User_changed', { user_id: user_id, user_name: user_name });
-
 				}
 			},
 
@@ -366,36 +367,7 @@ sap.ui.define([
 			onFabricPlay: function (oEvent) {
 				var state = oEvent.getParameter('state');
 				setFabricMode(state);
-			},
-
-
-			handleUserNamePress: function (event) {
-			},
-
-			ImageAreaPressed: function (event) {
-
-			},
-
-			onSideNavButtonPress: function () {
-				var viewId = this.getView().getId();
-				var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
-				var sideExpanded = toolPage.getSideExpanded();
-
-				this._setToggleButtonTooltip(sideExpanded);
-
-				toolPage.setSideExpanded(!toolPage.getSideExpanded());
-			},
-
-
-			_setToggleButtonTooltip: function (bLarge) {
-				var toggleButton = this.byId('sideNavigationToggleButton');
-				if (bLarge) {
-					toggleButton.setTooltip('Large Size Navigation');
-				} else {
-					toggleButton.setTooltip('Small Size Navigation');
-				}
-			}
-
+			}		
 		});
 
 	return CController;
