@@ -119,23 +119,55 @@ sap.ui.define([
 			});
 
 			gl_canvas = canvas;
+			var grid_width = 1000;
+			var grid_hight = 500;
+
 			fabric.Object.prototype.originX = 'left';
 			fabric.Object.prototype.originY = 'top';
 
 			function displayGrid() {
 				// create grid
-
-				for (var i = 0; i < (600 / grid); i++) {
-					canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+				// left to right lines	
+				for (var i = 0; i < (grid_width / grid); i++) {
+					canvas.add(new fabric.Line([i * grid, 0, i * grid, grid_hight], {
 						stroke: '#ccc',
 						selectable: false
 					}));
-					canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+				}	
+
+				canvas.add(new fabric.Line([grid_width-1 , 0, grid_width-1 , grid_hight], {
+					stroke: '#cccc',
+					selectable: false
+				}));
+
+				// top to bottom lines
+				for (var i = 0; i < (grid_hight / grid); i++) {
+					canvas.add(new fabric.Line([0, i * grid, grid_width, i * grid], {
 						stroke: '#ccc',
 						selectable: false
 					}))
-				}
+				}		
+
+				canvas.add(new fabric.Line([0, grid_hight-1, grid_width-1, grid_hight-1], {
+					stroke: '#ccc',
+					selectable: false
+				}));
+
+
+				// big separator line
+
+				 i = 3;
+				canvas.add(new fabric.Line([i * grid, 0, i * grid, grid_hight], {
+					stroke: '#346187',
+					selectable: false
+				}));
+
+
+
 			}
+
+
+			// SAP Icon Background dark blue '#346187'
 
 			function makeTile(x, y) {
 				var rect = new fabric.Rect({
@@ -143,11 +175,11 @@ sap.ui.define([
 					top: y,
 					originX: 'left',
 					originY: 'top',
-					fill: '#FAFAFA',
+					fill: '#346187',
 					width: 50,
 					height: 50,
 					strokeWidth: 1,
-					stroke: "black",
+					stroke: "#346187",
 					rx: 10,
 					ry: 10,
 					angle: 0,
@@ -170,26 +202,36 @@ sap.ui.define([
 
 			}
 
+			function makeLineW(coords) {
+				return new fabric.Line(coords, {
+					fill: 'white',
+					stroke: 'white',
+					strokeWidth: 4,
+					selectable: false,
+					evented: false,
+				});
+			};
 
 
 			function createW(id, x, y, aus) {
 				x = x * 50;
 				y = y * 50;
 				var offset = grid / 2;
+				var m = 2;   // Margin
 				var text = new fabric.Text(String(id), { fontSize: 12, left: x + 5, top: y + 5 });
 
-				var linew1 = makeLineW([x, y + offset, x + grid, y + offset]);
+				var linew1 = makeLineW([x+m, y + offset, x + grid -m , y + offset]);
 				if (aus == 'left') {
-					var linew2 = makeLineW([x, y + offset, x + offset, y]);
+					var linew2 = makeLineW([x+m, y + offset, x + offset, y+m]);
 				}
 
 				if (aus == 'right') {
-					var linew2 = makeLineW([x, y + offset, x + offset, y + grid]);
+					var linew2 = makeLineW([x+m, y + offset, x + offset, y + grid -m ]);
 				}
 
 				//var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
 
-				var group = new fabric.Group([makeTile(x, y), linew1, linew2, text], {
+				var group = new fabric.Group([makeTile(x, y), linew2, linew1, text], {
 					id: id,
 					dir: 0,
 					angle: 0,
@@ -278,15 +320,23 @@ sap.ui.define([
 
 				gv_tid = 20;
 
-				var w1 = ausWl(gv_tid, 2, 2);
+				var w1 = ausWl(gv_tid, 1, 1);
 				canvas.add(w1);
 				gv_tid++;
 
-				var w1 = track_g(gv_tid, 3, 2);
+				var w1 = ausWl(gv_tid, 1, 2);
 				canvas.add(w1);
 				gv_tid++;
 
-				var w1 = track_g(gv_tid, 3, 3);
+				var w1 = ausWl(gv_tid, 1, 3);
+				canvas.add(w1);
+				gv_tid++;
+
+				var w1 = track_g(gv_tid, 1, 4);
+				canvas.add(w1);
+				gv_tid++;
+
+				var w1 = track_g(gv_tid, 1, 5);
 				canvas.add(w1);
 				gv_tid++;
 
@@ -322,12 +372,13 @@ sap.ui.define([
 					var dir = o.target.dir;
 					if (dir == 0) {
 						c.line1 && c.line1.set({ 'stroke': 'gray', 'strokeWidth': 4 });
-						c.line2 && c.line2.set({ 'stroke': 'blue', 'strokeWidth': 4 });
+						c.line2 && c.line2.set({ 'stroke': 'white', 'strokeWidth': 4 });
 						dir = 1;
 					}
 					else {
-						c.line1 && c.line1.set({ 'stroke': 'blue', 'strokeWidth': 4 });
 						c.line2 && c.line2.set({ 'stroke': 'gray', 'strokeWidth': 4 })
+						c.line1 && c.line1.set({ 'stroke': 'white', 'strokeWidth': 4 });
+						
 						dir = 0;
 					}
 					o.target && o.target.set({ 'dir': dir })

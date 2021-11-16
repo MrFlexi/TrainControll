@@ -17,15 +17,7 @@ function makeCircleW(left, top, line1, line2) {
     return c;
 };
 
-function makeLineW(coords) {
-    return new fabric.Line(coords, {
-        fill: 'green',
-        stroke: '#666',
-        strokeWidth: 4,
-        selectable: false,
-        evented: false,
-    });
-};
+
 
 
 

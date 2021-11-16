@@ -20,7 +20,7 @@
 
 
 	<Panel>    		
-        <html:canvas id="canvas" width="800" height="500"></html:canvas>
+        <html:canvas id="canvas" width="1000" height="500"></html:canvas>
     </Panel>
 	
 	<Button
