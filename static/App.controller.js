@@ -47,7 +47,7 @@ sap.ui.define([
 			document._oController = this;
 
 			socket.on('connect', function () {
-				console.log(socket.id);
+				console.log("webservice connected... " + socket.id);
 				MessageToast.show("Connected to server... ");
 				//socket.emit('client_global_storage', {data: 'I\'m connected!'});
 
@@ -367,7 +367,10 @@ sap.ui.define([
 			onFabricPlay: function (oEvent) {
 				var state = oEvent.getParameter('state');
 				setFabricMode(state);
-			}		
+			}
+
+			
+
 		});
 
 	return CController;

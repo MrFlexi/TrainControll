@@ -25,6 +25,9 @@
 
 	</script>
 	<script>
+	
+	    //var socket = io.connect('ws://' + document.domain + ':' + location.port + '', { transports: ['websocket'] });
+
 		sap.ui.getCore().attachInit(function () {
 			sap.ui.xmlview({
 				viewName: "view.App"
@@ -34,19 +37,5 @@
 	</script>
 </head>
 <body class="sapUiBody" id="content">
-	<canvas id="canvas22" width="300" height="300"></canvas>
-    <script>
-        var canvas = new fabric.Canvas('canvas2');
-
-        var rect = new fabric.Rect({
-            top : 100,
-            left : 100,
-            width : 60,
-            height : 70,
-            fill : 'green'
-        });
-
-        canvas.add(rect);
-    </script>
 </body>
 </html>
