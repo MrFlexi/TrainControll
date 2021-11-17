@@ -235,11 +235,9 @@ class Clients:
 
     @staticmethod
     def newClient(sid):
-     Clients.Count =+ Clients.Count + 1
-     #print ("New client connected: " + sid)
+     Clients.Count =+ Clients.Count + 1     
      
-     # Add new entry
-     #Clients.mt_clients[Clients.Count] =  sid
+     # Add new entry     
      Clients.mt_clients[sid] =  sid
      print("Clients: ",len(Clients.mt_clients))
      print(Clients.mt_clients)
@@ -258,28 +256,15 @@ class Clients:
 
     @staticmethod
     def getClientIDfromSID(sid):
-
-    # Printing dictionary 
-        #print ("Original dictionary is : " + str(Clients.mt_clients)) 
-        #print ("Dict key-value are : ") 
-        #for key, value in Clients.mt_clients.items():    
-        #    print (key, value)
-        #    if value == sid:
-        #        return(key)
-        #        break
         return sid
     
 
     @staticmethod
     def deleteClient(client_ID):
-     #print ("Delete Client")
+     print ("Delete Client", client_ID)
 
      if client_ID in Clients.mt_clients:
-         del Clients.mt_clients[client_ID]
-
-     #print ("Clients: ",len(Clients.mt_clients))
-     #print(Clients.mt_clients)
-    
+         del Clients.mt_clients[client_ID]    
 
     @staticmethod
     def getClientsCount():

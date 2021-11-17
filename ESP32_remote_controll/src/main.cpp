@@ -1,9 +1,12 @@
 #include <Arduino.h>
 
-#include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
+#include <Arduino.h>
+#include "WiFi.h"
+#include "esp_system.h"
+#include <Wire.h>
+#include <U8g2lib.h>
+#include <ArduinoJson.h>
 #include <SocketIoClient.h>
-
 #include <ArduinoJson.h>
 
 

@@ -1,7 +1,7 @@
 sap.ui.define([
 	'jquery.sap.global',
 	'sap/ui/core/Fragment',
-	'sap/m/MessageToast',
+	'sap/m/MessageToast',	
 	'./Formatter',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
@@ -101,6 +101,10 @@ sap.ui.define([
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 			});
+
+			socket.on("disconnect", (reason) => {
+				console.log("SocketIo diconnected" + reason);
+			  });
 
 		},
 

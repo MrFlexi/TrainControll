@@ -296,6 +296,7 @@ def onConnect():
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
     print ("Client disconnected: " + str( request.sid ))
+    Clients.deleteClient(request.sid)
     
 
 # React on User has logged on

@@ -25,7 +25,7 @@
 
 	</script>
 	<script>
-
+		$('input[type="range"]').val(10).change();
 		window.socket = io();
 
 		sap.ui.getCore().attachInit(function () {
