@@ -149,6 +149,8 @@ class Gleisplan:
             if( dir == "straight"): new_dir = 0
             if( dir == "right"): new_dir = 1
             if( dir == "left"): new_dir = 1
+            if( dir == 0 ): new_dir = 0
+            if( dir == 1 ): new_dir = 1
 
             x = Gleisplan.find_ById(id)
             if (x):

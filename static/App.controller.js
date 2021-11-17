@@ -22,8 +22,10 @@ sap.ui.define([
 	var gv_dir = 0;
 
 
+	// Socker ist jetzt in Index_xml.html global definiert
 	//var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + '');
-	var socket = io.connect('ws://' + document.domain + ':' + location.port + '', { transports: ['websocket'] });
+	//var socket = io.connect('ws://' + document.domain + ':' + location.port + '', { transports: ['websocket'] });
+	//var socket = io();
 
 	var CController = Controller.extend("view.App", {
 		model: new sap.ui.model.json.JSONModel(),
@@ -85,8 +87,9 @@ sap.ui.define([
 				var UserList_json = jQuery.parseJSON(msg.user);
 				oModelUserList.setData(UserList_json);
 
-				var LokList_data = jQuery.parseJSON(msg.LokList);
-				oModelLokList.setData(LokList_data);
+				//console.log(msg);
+				//var LokList_data = jQuery.parseJSON(msg.LokList);
+				//oModelLokList.setData(LokList_data);
 			});
 
 			socket.on('gleisplan_data', function (msg) {
@@ -102,11 +105,6 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function (oEvent) {		
-
-				//Gleisplan
-				//var viewId = this.getView().getId();
-				//renderGleisplan(viewId);
-
 				//Storage
 				jQuery.sap.require("jquery.sap.storage");
 				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
@@ -128,9 +126,32 @@ sap.ui.define([
 				socket.on('fabric_data', function (msg) {
 					canvas.loadFromJSON(msg);
 				});
-
 			},
 
+			//----------------------------------------------------------------------------------------------
+			//  Main events
+			//----------------------------------------------------------------------------------------------	
+			handleLogonDialog: function () {
+				if (!this._oDialogLogon) {
+					this._oDialogLogon = sap.ui.xmlfragment("view.fragments.Logon", this);
+				}
+
+				this.getView().addDependent(this._oDialogLogon);
+				// toggle compact style
+				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogLogon);
+				this._oDialogLogon.open();
+			},
+
+			// nicht benutzt
+			onTrackPress: function (oEvent) {
+				var oItem = oEvent.getSource();
+				var oCtx = oItem.getBindingContext("oModelTrackList");
+				var sPath = oCtx.getPath();
+				var oModel = oCtx.getModel();
+				var oContext = oModel.getProperty(sPath);
+
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());			
+			},
 
 			//----------------------------------------------------------------------------------------------
 			//    Navigation Events
@@ -172,7 +193,6 @@ sap.ui.define([
 				toolPage.setSideExpanded(!toolPage.getSideExpanded());
 			},
 
-
 			_setToggleButtonTooltip: function (bLarge) {
 				var toggleButton = this.byId('sideNavigationToggleButton');
 
@@ -185,70 +205,11 @@ sap.ui.define([
 
 
 			//----------------------------------------------------------------------------------------------
-			//    Events on screen
+			//    Events on fragment Drive
 			//----------------------------------------------------------------------------------------------	
 			onSliderliveChange: function (oEvent) {
 				socket.emit('main_controller_value_changed', { data: oModelMainController.getData() });
 			},
-
-			onTrackPress: function (oEvent) {
-				var oItem = oEvent.getSource();
-				var oCtx = oItem.getBindingContext("oModelTrackList");
-				var sPath = oCtx.getPath();
-				var oModel = oCtx.getModel();
-				var oContext = oModel.getProperty(sPath);
-
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());			
-			},
-
-			onCTXPress: function(oEvent) {
-				var viewId = this.getView().getId();
-				var cv = viewId + "--__fabric--actionSheet";
-				var oButton = oEvent.getSource();
-
-				this.byId(cv).openBy(oButton);
-			},
-
-			onTrackDirectionChanged: function (oEvent) {				
-
-				var oItem = oEvent.getSource();
-				var oCtx = oItem.getBindingContext("oModelTrackList");
-				var sPath = oCtx.getPath();
-				var oModel = oCtx.getModel();
-				var oContext = oModel.getProperty(sPath);
-				var id = oContext.id;
-				var oPara = oEvent.getParameters();
-				var item = oEvent.getParameter('item');
-				var dir = item.getProperty('key');
-
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-				socket.emit('track_changed', { id: id, dir: dir });
-			},
-
-			onTrackButton: function (oEvent) {				
-				var oItem = oEvent.getSource();
-				var oPara = oEvent.getParameters();
-				var item = oEvent.getParameter('item');
-				var dir = item.getProperty('key');
-				var id = 999;
-
-				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
-				socket.emit('track_changed', { id: id, dir: dir });
-			},
-
-
-			handleLogonDialog: function () {
-				if (!this._oDialogLogon) {
-					this._oDialogLogon = sap.ui.xmlfragment("view.fragments.Logon", this);
-				}
-
-				this.getView().addDependent(this._oDialogLogon);
-				// toggle compact style
-				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogLogon);
-				this._oDialogLogon.open();
-
-			},
-
 
 			handleTableSelectDialogPress: function (oEvent) {
 				if (!this._oDialog) {
@@ -267,52 +228,6 @@ sap.ui.define([
 				// toggle compact style
 				jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
 				this._oDialog.open();
-			},
-
-			handleLocomotionSelectDialogClose: function (oEvent) {
-				var aContexts = oEvent.getParameter("selectedContexts");
-				if (aContexts && aContexts.length) {
-					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
-					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
-
-					MessageToast.show("You have chosen " + lok_name + lok_id);
-					socket.emit('Lok_changed', {
-						who: "Dialog", newLok: lok_id,
-						oldLok: 1
-					});
-				}
-				oEvent.getSource().getBinding("items").filter([]);
-			},
-
-			onButtonEdit: function (oEvent) {
-				var aContexts = oEvent.getParameter("selectedContexts");
-				if (aContexts && aContexts.length) {
-					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
-					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
-
-					MessageToast.show("You have chosen " + lok_name + lok_id);
-				}				
-			},
-
-			handleLocomotionFunction: function (oEvent) {
-
-				if (oEvent.getSource().getPressed()) {
-					MessageToast.show(oEvent.getSource().getId() + " Pressed");
-				} else {
-					MessageToast.show(oEvent.getSource().getId() + " Unpressed");
-				}
-
-				var aContexts = oEvent.getParameter("selectedContexts");
-				if (aContexts && aContexts.length) {
-					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
-					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
-
-					MessageToast.show("Function " + lok_name + lok_id);
-					socket.emit('Lok_changed', {
-						who: "Dialog", newLok: lok_id,
-						oldLok: 1
-					});
-				}
 			},
 
 			handleLocomotionDirection: function (oEvent) {
@@ -334,6 +249,21 @@ sap.ui.define([
 				socket.emit('main_controller_value_changed', { data: lv_data_new });
 			},
 
+			handleLocomotionSelectDialogClose: function (oEvent) {
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
+					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
+
+					MessageToast.show("You have chosen " + lok_name + lok_id);
+					socket.emit('Lok_changed', {
+						who: "Dialog", newLok: lok_id,
+						oldLok: 1
+					});
+				}
+				oEvent.getSource().getBinding("items").filter([]);
+			},
+
 			handleUserSelectDialogClose: function (oEvent) {
 				var aContexts = oEvent.getParameter("selectedContexts");
 				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.global);
@@ -349,11 +279,68 @@ sap.ui.define([
 					socket.emit('User_changed', { user_id: user_id, user_name: user_name });
 				}
 			},
+			
+			//----------------------------------------------------------------------------------------------
+			//    Events on fragment Switches
+			//----------------------------------------------------------------------------------------------	
+			onTrackDirectionChanged: function (oEvent) {		
+				var oItem = oEvent.getSource();
+				var oCtx = oItem.getBindingContext("oModelTrackList");
+				var sPath = oCtx.getPath();
+				var oModel = oCtx.getModel();
+				var oContext = oModel.getProperty(sPath);
+				var id = oContext.id;
+				var oPara = oEvent.getParameters();
+				var item = oEvent.getParameter('item');
+				var dir = item.getProperty('key');
 
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+				socket.emit('track_changed', { id: id, dir: dir });
+			},
 
+			// Weiche schalten
+			onTrackButton: function (oEvent) {				
+				var oItem = oEvent.getSource();
+				var oPara = oEvent.getParameters();
+				var item = oEvent.getParameter('item');
+				var dir = item.getProperty('key');
+				var id = 999;
+
+				MessageToast.show("Pressed item with ID " + oEvent.getSource().getId());
+				socket.emit('track_changed', { id: id, dir: dir });
+			},
+			
+			handleLocomotionFunction: function (oEvent) {
+				if (oEvent.getSource().getPressed()) {
+					MessageToast.show(oEvent.getSource().getId() + " Pressed");
+				} else {
+					MessageToast.show(oEvent.getSource().getId() + " Unpressed");
+				}
+
+				var aContexts = oEvent.getParameter("selectedContexts");
+				if (aContexts && aContexts.length) {
+					var lok_name = aContexts.map(function (oContext) { return oContext.getObject().name; }).join(", ");
+					var lok_id = aContexts.map(function (oContext) { return oContext.getObject().id; }).join(", ");
+
+					MessageToast.show("Function " + lok_name + lok_id);
+					socket.emit('Lok_changed', {
+						who: "Dialog", newLok: lok_id,
+						oldLok: 1
+					});
+				}
+			},
+
+			
 			//----------------------------------------------------------------------------------------------
 			//    Events on fabric.js canvas  aka Gleisplan
 			//----------------------------------------------------------------------------------------------	
+			onCTXPress: function(oEvent) {
+				var viewId = this.getView().getId();
+				var cv = viewId + "--__fabric--actionSheet";
+				var oButton = oEvent.getSource();
+
+				this.byId(cv).openBy(oButton);
+			},
 
 			onFabricLoad: function (event) {
 				socket.emit('onFabricLoad');

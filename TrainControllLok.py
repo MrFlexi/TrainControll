@@ -36,9 +36,9 @@ class Lok:
     
     @staticmethod
     def setNewData(data):
-        id  = data["id"]
+        id = data["id"]
         speed = data["speed"]
-        dir   = data["dir"]
+        dir = data["dir"]
 
         x = Lok.find_ById(id)
         if (x):
@@ -52,8 +52,7 @@ class Lok:
                 print ("Direction changed", id, dir)
 
         Lok.printLokList()
-                
-    
+
     @staticmethod
     def setDataById(id,client_id):
         x = Lok.find_ById(id)

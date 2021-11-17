@@ -1,31 +1,59 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core">
-	<sap.m:List xmlns:sap.m="sap.m" noDataText="Drop list items here" items="{LokListModel>/}" id="__list0123">
-							<sap.m:items>
-								<sap.m:ObjectListItem type="Active" title="{LokListModel>name}" id="__item123" icon="{LokListModel>image_url}">
-									<sap.m:attributes>
-										<sap.m:ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute123">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute223">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Type" text="{LokListModel>type}" id="__attribute323">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="User" text="{LokListModel>user_name}" id="__attribute5">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Speed" text="{LokListModel>speed}" id="__attribute6">
-										</sap.m:ObjectAttribute>
-										<sap.m:ObjectAttribute title="Direction" text="{LokListModel>dir}" id="__attribute7">
-										</sap.m:ObjectAttribute>
-									</sap.m:attributes>
-									<sap.m:firstStatus>
-										<sap.m:ObjectStatus
+<core:FragmentDefinition 
+    xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+
+
+					<Panel>
+                        <content>
+                            <l:HorizontalLayout
+                                id="LokTiles"
+                                allowWrapping="true"
+                                content="{path: 'LokListModel>/'}">
+                                    <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+                                        header="{LokListModel>name}" press="onTileSelect">  										                                
+                                            <TileContent>
+                                                <content>                                                    
+														<NumericContent value="{LokListModel>speed}"																		
+																		icon="{LokListModel>image_url}" class="sapUiSmallMargin"
+																		press="press" />																	
+                                                </content>											
+                                            </TileContent>
+									</GenericTile>
+                            </l:HorizontalLayout>
+                        </content>
+                    </Panel>
+
+
+
+	<List noDataText="Drop list items here" 
+				items="{LokListModel>/}" 
+				id="__list0123">
+							<items>							
+								<ObjectListItem type="Active" title="{LokListModel>name}" id="__item123" icon="{LokListModel>image_url}">								
+									<attributes>
+										<ObjectAttribute title="ID" text="{LokListModel>id}" id="__attribute123">
+										</ObjectAttribute>
+										<ObjectAttribute title="Address" text="{LokListModel>addr}" id="__attribute223">
+										</ObjectAttribute>										
+										<ObjectAttribute title="Bound to client" text="{LokListModel>client_id}" id="__attribute4">
+										</ObjectAttribute>										
+										<ObjectAttribute title="Speed" text="{LokListModel>speed}" id="__attribute6">
+										</ObjectAttribute>
+										<ObjectAttribute title="Direction" text="{LokListModel>dir}" id="__attribute7">
+										</ObjectAttribute>
+									</attributes>
+									<firstStatus>
+										<ObjectStatus
 															text="{LokListModel>status}"
 															state="{	path: 'LokListModel>status',
 																		formatter: 'view.Formatter.status'	}" />
-									</sap.m:firstStatus>
-								</sap.m:ObjectListItem>
-							</sap.m:items>
-	</sap.m:List>
+									</firstStatus>
+								</ObjectListItem>
+							</items>							
+	</List>
+
+					
+
 
 </core:FragmentDefinition>

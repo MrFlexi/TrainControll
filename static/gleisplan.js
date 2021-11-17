@@ -241,7 +241,6 @@ function renderGleisplan( viewId) {
             duration: 100,
             centeredRotation: true
         })
-
     });
 
     canvas.on('object:moving', function (e) {
@@ -264,6 +263,7 @@ function renderGleisplan( viewId) {
         if (o.target) {
             if (o.target.type == 'group') {
                 toggle(o);
+                socket.emit('track_changed', { id: o.target.id, dir: o.target.dir});               
             }
 
             if (o.target.type == 'circle') {
