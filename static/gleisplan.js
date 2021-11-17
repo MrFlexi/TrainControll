@@ -193,6 +193,7 @@ function toggle(o) {
         dir = 0;
     }
     o.target && o.target.set({ 'dir': dir })
+    socket.emit('track_changed', { id: 1, dir: dir });
 }
 
  function setFabricMode(state) {    
@@ -274,7 +275,8 @@ function renderGleisplan( viewId) {
             console.log('an object was clicked! ', o.target.type, o.target.wid);
             canvas.renderAll();
         }
-    });
+    })
+    
 
 
     
