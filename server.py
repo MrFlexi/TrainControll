@@ -22,6 +22,7 @@ import struct
 import json
 import base64
 import binascii
+import paho.mqtt.client as mqtt
 
 
 from TrainControll import Clients, UDP, Gleisplan, User
@@ -374,10 +375,57 @@ def fabric_load():
     json = Gleisplan.fabric_load()
     emit('fabric_data', json, broadcast=True)
 
+#-----------------------------------------------------------------------------------------------
+#   MQTT
+#-----------------------------------------------------------------------------------------------
+
+# The callback for when the client receives a CONNACK response from the server.
+def mqtt_on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+    # Subscribing in on_connect() means that if we lose the connection and
+    # reconnect then subscriptions will be renewed.
+    client.subscribe(mqtt_topic)
+
+# The callback for when a PUBLISH message is received from the server.
+def mqtt_on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))
+    m_decode=str(msg.payload.decode("utf-8","ignore"))
+    message=json.loads(m_decode) #decode json data
+    print("command:",message["command"])
+
+    if message["command"] == "Lok":
+        Lok.setNewData(message)
+
+    if message["command"] == "Switch":
+        Gleisplan.set_turnout(message["id"], message["dir"]);
+        emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
+
+
+#-----------------------------------------------------------------------------------------------
+#   MAIN
+#-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
     logging.info('__main__')
-    scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=5)
+    print("Starting MQTT")
+    mqtt_topic = "TrainControll/#"
+
+    client = mqtt.Client()
+    client.on_connect = mqtt_on_connect
+    client.on_message = mqtt_on_message
+    client.connect("85.209.49.65", 1883, 60)
+    client.loop_forever()
+    
+    print("Scheduling Jobs")
+    scheduler.add_job(id = 'Scheduled Task', 
+                        func=scheduleTask, 
+                        trigger="interval", seconds=5
+                        )
     scheduler.start()
+
+    print("Start SocketIO")
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+
+    print("MQTT Loop")
+    
     #socketio.run(app)
