@@ -189,11 +189,9 @@ function toggle(o) {
         c.line2 && c.line2.set({ 'stroke': 'gray', 'strokeWidth': 4 })
         c.line1 && c.line1.set({ 'stroke': 'white', 'strokeWidth': 4 });
         c.line1 && c.line1.bringToFront();
-
         dir = 0;
     }
     o.target && o.target.set({ 'dir': dir })
-    socket.emit('track_changed', { id: 1, dir: dir });
 }
 
 function setFabricMode(state) {
@@ -280,8 +278,6 @@ function renderGleisplan(viewId) {
 
             if (o.target.type == 'circle') {
                 o.target.line2 && o.target.line2.set({ 'stroke': 'green' });
-                socket.emit('toggle_turnout', o.target.id);
-
             }
             console.log('an object was clicked! ', o.target.type, o.target.wid);
             canvas.renderAll();
@@ -292,7 +288,7 @@ function renderGleisplan(viewId) {
     fabric.Object.prototype.originY = 'top';
 
     displayGrid();
-    var w1 = createW(1, 0, 0, "right");
+    var w1 = createW(1, 0, 0, "left");
     canvas.add(w1);
 
     var w1 = createW(2, 1, 0, "right");
@@ -301,7 +297,7 @@ function renderGleisplan(viewId) {
     var w1 = createW(3, 2, 0, "left");
     canvas.add(w1);
 
-    var w1 = createW(4, 0, 1, "left");
+    var w1 = createW(4, 0, 1, "right");
     canvas.add(w1);
 
     var w1 = createW(5, 1, 1, "right");
@@ -310,7 +306,7 @@ function renderGleisplan(viewId) {
     var w1 = createW(6, 2, 1, "right");
     canvas.add(w1);
 
-    var w1 = createW(7, 0, 2, "right");
+    var w1 = createW(7, 0, 2, "left");
     canvas.add(w1);
 
     var w1 = createW(8, 1, 2, "left");
