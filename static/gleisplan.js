@@ -109,6 +109,8 @@ function makeLineW(coords) {
 
 
 function createW(id, x, y, aus) {
+    pos_x = x;
+    pos_y = y;
     x = x * grid;
     y = y * grid;
     var offset = grid / 2;
@@ -134,7 +136,10 @@ function createW(id, x, y, aus) {
         top: y,
         line1: linew1,
         line2: linew2,
-        centeredRotation: true
+        centeredRotation: true,
+        pos_x: pos_x,
+        pos_y: pos_y,
+        element: 'switch'
     });
     return group;
 }
@@ -213,16 +218,36 @@ function setFabricMode(state) {
     }
 }
 
+function FabricGleisplantoJson() {
+    var gleisplan = { switches: [] };
+
+    gl_canvas.forEachObject(function (o) {
+        if (o.isType('group') ) {
+            if (o.element == 'switch') {
+                gleisplan.switches.push({
+                    "id": o.id,
+                    "x": o.pos_x,
+                    "y": o.pos_y,
+                    "element": o.element
+                });
+            }
+        }
+    });
+
+    console.log(gleisplan);
+    return gleisplan;
+}
+
 
 function resizeCanvas() {
     const outerCanvasContainer = $('.fabric-canvas-wrapper')[0];
     const ratio = gl_canvas.getWidth() / gl_canvas.getHeight();
-    const containerWidth   = outerCanvasContainer.clientWidth;
-    const containerHeight  = outerCanvasContainer.clientHeight;
+    const containerWidth = outerCanvasContainer.clientWidth;
+    const containerHeight = outerCanvasContainer.clientHeight;
     const scale = containerWidth / gl_canvas.getWidth();
-    const zoom  = gl_canvas.getZoom() * scale;
-    
-    gl_canvas.setDimensions({width: containerWidth, height: containerWidth / ratio});
+    const zoom = gl_canvas.getZoom() * scale;
+
+    gl_canvas.setDimensions({ width: containerWidth, height: containerWidth / ratio });
     gl_canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
 }
 

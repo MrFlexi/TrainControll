@@ -351,7 +351,7 @@ sap.ui.define([
 			},
 
 			onFabricSave: function (event) {
-				var json = gl_canvas.toJSON(['id']);
+				var json = FabricGleisplantoJson();
 				socket.emit('onFabricSave', { data: json });
 			},
 

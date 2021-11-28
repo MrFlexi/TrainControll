@@ -205,9 +205,9 @@ Lok.printLokList()
 # Load Gleisplan
 with open('config/gleisplan.json') as data_file:
     gleisplan_json = json.load(data_file)
-for item in gleisplan_json:
-    # Create Instances for each lok
-    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC",aus=item["aus"]  )
+    for item in gleisplan_json['switches']:
+        # Create Instances for each switch
+        Gleisplan( id=item["id"], addr=item["addr"],x=item["x"],y=item["y"],dir=item["dir"], type="DCC",aus=item["aus"], element='switch' )
 
 Gleisplan.printGleisplan()
 
@@ -373,7 +373,7 @@ def weiche_neu(message):
 
 @socketio.on('onFabricSave', namespace='')
 def fabric_save(message):    
-    Gleisplan.fabric_save(message["data"])   
+    Gleisplan.fabric_save(message)   
 
 
 @socketio.on('onFabricLoad', namespace='')
@@ -402,7 +402,7 @@ def mqtt_on_message(client, userdata, msg):
     m_decode=str(msg.payload.decode("utf-8","ignore"))
     message=json.loads(m_decode) #decode json data
     command=message["command"]
-    print("command:",command)
+    print("Mqtt command:",command)
     if sys.platform.startswith('linux'):
         page_mqtt(command)
 

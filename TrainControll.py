@@ -80,19 +80,18 @@ class UDP:
 
 class Gleisplan:
     Liste = []
-    def __init__(self, id, addr, x1,y1,x2,y2, dir, type, aus ):
+    def __init__(self, id, addr, x, y, dir, type, aus, element):
         # Create empty dictionary
         self.id = id
         self.addr = addr
-        self.x1 = x1
-        self.x2 = x2
-        self.y1 = y1
-        self.y2 = y2
+        self.x = x
+        self.y = y
         self.type = type
         self.aus = aus
         self.dir = dir
         self.position = "left"
         self.pos = 0
+        self.element = element
 
         Gleisplan.Liste.append(self)
     
@@ -190,7 +189,7 @@ class Gleisplan:
     def fabric_save(message):
         print ("Fabric Save")
         jsonData = json.dumps(message, indent=1, separators=(',', ': '))
-        #print(jsonData)        
+        print(jsonData)        
                
         f = open("./config/fabric.json", "w")  # opens file with name of "test.txt"
         f.write(jsonData)
