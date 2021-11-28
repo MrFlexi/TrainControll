@@ -109,6 +109,8 @@ function makeLineW(coords) {
 
 
 function createW(id, x, y, aus) {
+    position_x = x;
+    position_y = y;
     x = x * grid;
     y = y * grid;
     var offset = grid / 2;
@@ -124,8 +126,6 @@ function createW(id, x, y, aus) {
         var linew2 = makeLineW([x + m, y + offset, x + offset, y + grid - m]);
     }
 
-    //var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
-
     var group = new fabric.Group([makeTile(x, y), linew2, linew1, text], {
         id: id,
         dir: 0,
@@ -134,13 +134,18 @@ function createW(id, x, y, aus) {
         top: y,
         line1: linew1,
         line2: linew2,
-        centeredRotation: true
+        centeredRotation: true,
+        position_x: position_x,
+        position_y: position_y,
+        type: 'switch'
     });
     return group;
 }
 
 
 function ausWl(id, x, y) {
+    position_x = x;
+    position_y = y;
     x = x * grid;
     y = y * grid;
     var offset = grid / 2;
@@ -151,7 +156,10 @@ function ausWl(id, x, y) {
         dir: 0,
         angle: 0,
         left: x,
-        top: y
+        top: y,
+        position_x: position_x,
+        position_y: position_y,
+        type: 'ausW1'
     });
     return group;
 }
@@ -167,7 +175,10 @@ function track_g(id, x, y) {
         dir: 0,
         angle: 0,
         left: x,
-        top: y
+        top: y,
+        position_x: position_x,
+        position_y: position_y,
+        type: 'track_g'
     })
 
     return group;
@@ -213,16 +224,22 @@ function setFabricMode(state) {
     }
 }
 
+function FabricGetAllElements() {
+    gl_canvas.forEachObject(function (o) {
+        console.log(o.position_x + " " + o.position_y + " " + o.type + " " + o.wid)
+    });
+}
+
 
 function resizeCanvas() {
     const outerCanvasContainer = $('.fabric-canvas-wrapper')[0];
     const ratio = gl_canvas.getWidth() / gl_canvas.getHeight();
-    const containerWidth   = outerCanvasContainer.clientWidth;
-    const containerHeight  = outerCanvasContainer.clientHeight;
+    const containerWidth = outerCanvasContainer.clientWidth;
+    const containerHeight = outerCanvasContainer.clientHeight;
     const scale = containerWidth / gl_canvas.getWidth();
-    const zoom  = gl_canvas.getZoom() * scale;
-    
-    gl_canvas.setDimensions({width: containerWidth, height: containerWidth / ratio});
+    const zoom = gl_canvas.getZoom() * scale;
+
+    gl_canvas.setDimensions({ width: containerWidth, height: containerWidth / ratio });
     gl_canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
 }
 

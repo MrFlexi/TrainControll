@@ -351,8 +351,8 @@ sap.ui.define([
 			},
 
 			onFabricSave: function (event) {
-				var json = gl_canvas.toJSON(['id']);
-				socket.emit('onFabricSave', { data: json });
+				FabricGetAllElements();
+				//socket.emit('onFabricSave', { data: json });
 			},
 
 			onFabricPlay: function (oEvent) {
