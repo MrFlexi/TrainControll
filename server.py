@@ -22,6 +22,7 @@ import struct
 import json
 import base64
 import binascii
+import paho.mqtt.client as mqtt
 
 
 from TrainControll import Clients, UDP, Gleisplan, User
@@ -118,6 +119,13 @@ if sys.platform.startswith('linux'):
             ip_s = ip_s +":3033"
             draw.text((1, 50), ip_s, fill=1)
 
+    def page_mqtt(s1):
+        with canvas(device) as draw:
+            draw.text((1, 1), "  TrainControll 2021  ", fill=1)
+            s = "MQTT Command"
+            draw.text((1, 40), s, fill=1)
+            draw.text((1, 50), s1, fill=1)
+
 
 
     def show_clock():
@@ -181,7 +189,6 @@ if sys.platform.startswith('linux'):
     #init_display()     #I2C
     init_spi_display()  #SPI
     page_logo()
-
 
 filename = Path('config/loklist.json')
 if not filename.exists():
@@ -374,10 +381,63 @@ def fabric_load():
     json = Gleisplan.fabric_load()
     emit('fabric_data', json, broadcast=True)
 
+#-----------------------------------------------------------------------------------------------
+#   MQTT
+#-----------------------------------------------------------------------------------------------
+
+# The callback for when the client receives a CONNACK response from the server.
+def mqtt_on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+    # Subscribing in on_connect() means that if we lose the connection and
+    # reconnect then subscriptions will be renewed.
+    client.subscribe(mqtt_topic)
+
+def mqtt_on_disconnect(client, userdata,rc=0):
+    logging.debug("DisConnected result code "+str(rc))
+    client.loop_stop
+
+# The callback for when a PUBLISH message is received from the server.
+def mqtt_on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))
+    m_decode=str(msg.payload.decode("utf-8","ignore"))
+    message=json.loads(m_decode) #decode json data
+    command=message["command"]
+    print("command:",command)
+    if sys.platform.startswith('linux'):
+        page_mqtt(command)
+
+    if command== "Lok":
+        Lok.setNewData(message)
+        socketio.emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+
+    if command== "Switch":
+        Gleisplan.set_turnout(message["id"], message["dir"]);
+        socketio.emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
+
+#-----------------------------------------------------------------------------------------------
+#   MAIN
+#-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
     logging.info('__main__')
-    scheduler.add_job(id = 'Scheduled Task', func=scheduleTask, trigger="interval", seconds=5)
+    print("Starting MQTT")
+    mqtt_topic = "TrainControll/#"
+
+    client = mqtt.Client()
+    client.on_connect = mqtt_on_connect
+    client.on_disconnect = mqtt_on_disconnect
+    client.on_message = mqtt_on_message
+    client.connect("85.209.49.65", 1883, 60)
+    client.loop_start()
+    
+    print("Scheduling Jobs")
+    scheduler.add_job(id = 'Scheduled Task', 
+                        func=scheduleTask, 
+                        trigger="interval", seconds=5
+                        )
     scheduler.start()
+
+    print("Start SocketIO")
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
-    #socketio.run(app)
+
+    print("MQTT Loop")

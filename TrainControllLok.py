@@ -36,13 +36,13 @@ class Lok:
     
     @staticmethod
     def setNewData(data):
-        id = data["id"]
-        speed = data["speed"]
-        dir = data["dir"]
+        id = int(data["id"])
+        speed = int(data["speed"])
+        dir = int(data["dir"])
 
         x = Lok.find_ById(id)
         if (x):
-            print("found")
+            print("Locomotion found in LocList")
             if ( x.speed != speed ):
                 Lok.setSpeed(id, speed)
                 print ("Speed was changed", id, speed)

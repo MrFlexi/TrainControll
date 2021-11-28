@@ -15,12 +15,10 @@
 				</layoutData>
 			</Switch>
 			</Toolbar>
-
-			
-
-
-	<Panel>    		
-        <html:canvas id="canvas" width="1000" height="500"></html:canvas>
+	<Panel>    
+		<html:div class="fabric-canvas-wrapper">		
+        	<html:canvas id="canvas"></html:canvas>
+		</html:div>
     </Panel>
 	
 	<Button
