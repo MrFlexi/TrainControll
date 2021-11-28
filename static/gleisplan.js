@@ -218,13 +218,12 @@ function setFabricMode(state) {
 
 function resizeCanvas() {
     const outerCanvasContainer = $('.fabric-canvas-wrapper')[0];
-    
     const ratio = gl_canvas.getWidth() / gl_canvas.getHeight();
     const containerWidth   = outerCanvasContainer.clientWidth;
     const containerHeight  = outerCanvasContainer.clientHeight;
-
     const scale = containerWidth / gl_canvas.getWidth();
     const zoom  = gl_canvas.getZoom() * scale;
+    
     gl_canvas.setDimensions({width: containerWidth, height: containerWidth / ratio});
     gl_canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
 }
@@ -342,8 +341,6 @@ function renderGleisplan(viewId) {
     var w1 = track_g(gv_tid, 1, 5);
     canvas.add(w1);
     gv_tid++;
-
-    //resizeCanvas();
 
 }
 
