@@ -414,7 +414,7 @@ if __name__ == '__main__':
     client.on_connect = mqtt_on_connect
     client.on_message = mqtt_on_message
     client.connect("85.209.49.65", 1883, 60)
-    client.loop_forever()
+    #client.loop_forever()
     
     print("Scheduling Jobs")
     scheduler.add_job(id = 'Scheduled Task', 
