@@ -31,10 +31,22 @@ from TrainControllCtrl import CTRL
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
+from flask_cors import CORS
 from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from pathlib import Path
 from time import ctime
+
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+    # different async modes, or leave it set to None for the application to choose
+    # the best option based on installed packages.
+async_mode = None
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+CORS(app)
+socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
+socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -165,20 +177,7 @@ def scheduleTask():
     if sys.platform.startswith('linux'):
         page_0()
 
-# Set this variable to "threading", "eventlet" or "gevent" to test the
-# different async modes, or leave it set to None for the application to choose
-# the best option based on installed packages.
-async_mode = None
 
-app = Flask(__name__)
-#Tasks
-logging.info('scheduling tasks....')
-scheduler = APScheduler()
-
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, async_mode=async_mode)
-thread = None
-thread_lock = Lock()
 
 
 # ---------------------  SETUP  ------------------------------------
@@ -419,10 +418,19 @@ def mqtt_on_message(client, userdata, msg):
 #-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+    
+    
+    #Tasks
+    logging.info('scheduling tasks....')
+    scheduler = APScheduler()
+    
+   
+    thread = None
+    thread_lock = Lock()
     logging.info('__main__')
+
     print("Starting MQTT")
     mqtt_topic = "TrainControll/#"
-
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
@@ -437,7 +445,6 @@ if __name__ == '__main__':
                         )
     scheduler.start()
 
-    print("Start SocketIO")
-    socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+    
 
     print("MQTT Loop")
