@@ -36,6 +36,7 @@ class Lok:
     
     @staticmethod
     def setNewData(data):
+        print ("setNewData", data)
         id = int(data["id"])
         speed = int(data["speed"])
         dir = int(data["dir"])

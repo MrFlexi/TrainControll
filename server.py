@@ -45,8 +45,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 CORS(app)
 socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
-socketio.run(app, host='0.0.0.0', port=3033, debug=True)
-
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -263,27 +261,35 @@ def track_create():
     return render_template('trackcreate.html', async_mode=socketio.async_mode)
 
 
-
-
-
 # ---------------------  SocketIO Event Handling ------------------------------------
 # React on slide change on clients
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
     client_id = request.sid
-    print ("Value change of Session ID" + str(request.sid))
+    print ("Value change of Session ID " + str(request.sid))
     print ("Client" + str( client_id ))
+    print ( message )
     
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
 
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
-                         'user': User.getDataJSON()})
+                        'user': User.getDataJSON()})
 
     emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
+
+@socketio.on('LokListDataChanged', namespace='')
+def LokListDataChanged(message):
+    client_id = request.sid
+    print ("Value change of Session ID" + str(request.sid))
+    print ("Client" + str( client_id ))
+    for a in message:
+        Lok.setNewData(a)
+ 
+    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 @socketio.on('connect', namespace='')
 def onConnect():
@@ -444,7 +450,5 @@ if __name__ == '__main__':
                         trigger="interval", seconds=5
                         )
     scheduler.start()
+    socketio.run(app, host='0.0.0.0', port=3033, debug=True)
 
-    
-
-    print("MQTT Loop")
