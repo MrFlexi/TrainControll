@@ -444,7 +444,7 @@ if __name__ == '__main__':
     logging.info('__main__')
 
     print("Starting MQTT")
-    mqtt_topic = "TrainControll/#"
+    mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
