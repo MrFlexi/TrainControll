@@ -81,11 +81,21 @@ class Lok:
             jd.append(x.__dict__)
         return (json.dumps(jd))
 
-    def getDataJSONforClient(client_id):
-        print ("get")
+    def getDataJSONforClient(client_id):        
         x = Lok.find_ByClient(client_id)
+        print ("Lok by client id", x)
         if (x):
+            print(json.dumps(x.__dict__))
             return (json.dumps(x.__dict__))
+
+    def getDataJSONforID(id):        
+        x = Lok.find_ById(id)
+        print ("Lok by id", x)
+        if (x):
+            print(json.dumps(x.__dict__))
+            return (json.dumps(x.__dict__))
+
+
 
     @staticmethod
     def bindLokID(client_id, lok_new, user_name):

@@ -266,17 +266,23 @@ def track_create():
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
-    client_id = request.sid
-    print ("Value change of Session ID " + str(request.sid))
-    print ("Client" + str( client_id ))
     print ( message )
+    data = message["data"]
+    print ( data )
+    id = int(data["id"])
+    client_id = request.sid
+    print ("Value change of Lok ID ", id)
+    print ("Client" + str( client_id ))    
     
     # Write new data into class, handle data changes
     CTRL.setClientData(client_id, message)
 
     # Push new data to single client
-    emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
+    emit('config_data', {'MyLok': Lok.getDataJSONforID(id),
                         'user': User.getDataJSON()})
+
+    #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
+    #                    'user': User.getDataJSON()})
 
     emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
