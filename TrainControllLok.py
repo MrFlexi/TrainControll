@@ -20,7 +20,6 @@ class Lok:
         self.f1 = 1
         self.f2 = 0
         self.f3 = 0
-
         Lok.LokList.append(self)
 
 
@@ -36,21 +35,21 @@ class Lok:
     
     @staticmethod
     def setNewData(data):
-        print ("setNewData", data)
+        print ("Lok setNewData", data)
         id = int(data["id"])
         speed = int(data["speed"])
         dir = int(data["dir"])
 
         x = Lok.find_ById(id)
         if (x):
-            print("Locomotion found in LocList")
+            print("Locomotion ID" + str(id) + " found in LokList. Speed old " + str(x.speed) )
             if ( x.speed != speed ):
                 Lok.setSpeed(id, speed)
-                print ("Speed was changed", id, speed)
+                print ("Speed was changed to: ", speed)
 
             if ( x.dir != dir ):
                 Lok.setDir(id, dir)
-                print ("Direction changed", id, dir)
+                print ("Direction changed to: ", dir)
 
         Lok.printLokList()
 
@@ -68,12 +67,10 @@ class Lok:
 
     @staticmethod
     def printLokList():
-        print("-------------------------")
+        print()
         print("Lokliste")
-        
         for x in Lok.LokList:
-            print( x.id, x.client_id, x.name, x.user_name, x.speed)
-        print("-------------------------")
+            print( x.id,  x.name, x.user_name, x.speed, x.client_id)
 
     def getDataJSON():
         jd = []
@@ -85,14 +82,14 @@ class Lok:
         x = Lok.find_ByClient(client_id)
         print ("Lok by client id", x)
         if (x):
-            print(json.dumps(x.__dict__))
+            #print(json.dumps(x.__dict__))
             return (json.dumps(x.__dict__))
 
     def getDataJSONforID(id):        
         x = Lok.find_ById(id)
-        print ("Lok by id", x)
+        #print ("Lok by id", x)
         if (x):
-            print(json.dumps(x.__dict__))
+            #print(json.dumps(x.__dict__))
             return (json.dumps(x.__dict__))
 
 
