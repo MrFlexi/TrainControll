@@ -351,8 +351,8 @@ sap.ui.define([
 			},
 
 			onFabricSave: function (event) {
-				FabricGetAllElements();
-				//socket.emit('onFabricSave', { data: json });
+				var json = FabricGleisplantoJson();
+				socket.emit('onFabricSave', { data: json });
 			},
 
 			onFabricPlay: function (oEvent) {

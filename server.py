@@ -31,10 +31,20 @@ from TrainControllCtrl import CTRL
 from collections import namedtuple
 from threading import Lock
 from flask import Flask, render_template, request, session
+from flask_cors import CORS
 from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from pathlib import Path
 from time import ctime
+
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+    # different async modes, or leave it set to None for the application to choose
+    # the best option based on installed packages.
+async_mode = None
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+CORS(app)
+socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -165,20 +175,7 @@ def scheduleTask():
     if sys.platform.startswith('linux'):
         page_0()
 
-# Set this variable to "threading", "eventlet" or "gevent" to test the
-# different async modes, or leave it set to None for the application to choose
-# the best option based on installed packages.
-async_mode = None
 
-app = Flask(__name__)
-#Tasks
-logging.info('scheduling tasks....')
-scheduler = APScheduler()
-
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, async_mode=async_mode)
-thread = None
-thread_lock = Lock()
 
 
 # ---------------------  SETUP  ------------------------------------
@@ -205,9 +202,9 @@ Lok.printLokList()
 # Load Gleisplan
 with open('config/gleisplan.json') as data_file:
     gleisplan_json = json.load(data_file)
-for item in gleisplan_json:
-    # Create Instances for each lok
-    Gleisplan( id=item["id"], addr=item["addr"],x1=item["x1"],x2=item["x2"],y1=item["y1"],y2=item["y2"],dir=item["dir"], type="DCC",aus=item["aus"]  )
+    for item in gleisplan_json['switches']:
+        # Create Instances for each switch
+        Gleisplan( id=item["id"], addr=item["addr"],x=item["x"],y=item["y"],dir=item["dir"], type="DCC",aus=item["aus"], element='switch' )
 
 Gleisplan.printGleisplan()
 
@@ -264,27 +261,43 @@ def track_create():
     return render_template('trackcreate.html', async_mode=socketio.async_mode)
 
 
-
-
-
 # ---------------------  SocketIO Event Handling ------------------------------------
 # React on slide change on clients
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
+    #print ( message )
+    data = message["data"]
+    #print ( data )
+    id = int(data["id"])
+    client_id = request.sid
+    print()
+    print("-------------------------------------------------")
+    print ("Main_controller_value_changed LokId:", id, "SocketIO Client:" ,str( client_id ))
+    
+    # Write new data 
+    Lok.setNewData(message["data"])
+
+    # Push new data to single client
+    emit('config_data', {'MyLok': Lok.getDataJSONforID(id),
+                        'user': User.getDataJSON()})
+
+    #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
+    #                    'user': User.getDataJSON()})
+
+    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    print()
+
+
+@socketio.on('LokListDataChanged', namespace='')
+def LokListDataChanged(message):
     client_id = request.sid
     print ("Value change of Session ID" + str(request.sid))
     print ("Client" + str( client_id ))
-    
-    # Write new data into class, handle data changes
-    CTRL.setClientData(client_id, message)
-
-    # Push new data to single client
-    emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
-                         'user': User.getDataJSON()})
-
+    for a in message:
+        Lok.setNewData(a)
+ 
     emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
-
 
 @socketio.on('connect', namespace='')
 def onConnect():
@@ -373,7 +386,7 @@ def weiche_neu(message):
 
 @socketio.on('onFabricSave', namespace='')
 def fabric_save(message):    
-    Gleisplan.fabric_save(message["data"])   
+    Gleisplan.fabric_save(message)   
 
 
 @socketio.on('onFabricLoad', namespace='')
@@ -402,7 +415,7 @@ def mqtt_on_message(client, userdata, msg):
     m_decode=str(msg.payload.decode("utf-8","ignore"))
     message=json.loads(m_decode) #decode json data
     command=message["command"]
-    print("command:",command)
+    print("Mqtt command:",command)
     if sys.platform.startswith('linux'):
         page_mqtt(command)
 
@@ -419,10 +432,19 @@ def mqtt_on_message(client, userdata, msg):
 #-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+    
+    
+    #Tasks
+    logging.info('scheduling tasks....')
+    scheduler = APScheduler()
+    
+   
+    thread = None
+    thread_lock = Lock()
     logging.info('__main__')
-    print("Starting MQTT")
-    mqtt_topic = "TrainControll/#"
 
+    print("Starting MQTT")
+    mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
@@ -436,8 +458,5 @@ if __name__ == '__main__':
                         trigger="interval", seconds=5
                         )
     scheduler.start()
-
-    print("Start SocketIO")
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
 
-    print("MQTT Loop")

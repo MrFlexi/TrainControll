@@ -109,8 +109,8 @@ function makeLineW(coords) {
 
 
 function createW(id, x, y, aus) {
-    position_x = x;
-    position_y = y;
+    pos_x = x;
+    pos_y = y;
     x = x * grid;
     y = y * grid;
     var offset = grid / 2;
@@ -135,9 +135,9 @@ function createW(id, x, y, aus) {
         line1: linew1,
         line2: linew2,
         centeredRotation: true,
-        position_x: position_x,
-        position_y: position_y,
-        type: 'switch'
+        pos_x: pos_x,
+        pos_y: pos_y,
+        element: 'switch'
     });
     return group;
 }
@@ -224,10 +224,24 @@ function setFabricMode(state) {
     }
 }
 
-function FabricGetAllElements() {
+function FabricGleisplantoJson() {
+    var gleisplan = { switches: [] };
+
     gl_canvas.forEachObject(function (o) {
-        console.log(o.position_x + " " + o.position_y + " " + o.type + " " + o.wid)
+        if (o.isType('group') ) {
+            if (o.element == 'switch') {
+                gleisplan.switches.push({
+                    "id": o.id,
+                    "x": o.pos_x,
+                    "y": o.pos_y,
+                    "element": o.element
+                });
+            }
+        }
     });
+
+    console.log(gleisplan);
+    return gleisplan;
 }
 
 
