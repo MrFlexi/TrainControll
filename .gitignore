@@ -10,3 +10,4 @@ lib_oled96
 lib_oled96
 *.h5
 *.pyc
+*.log
