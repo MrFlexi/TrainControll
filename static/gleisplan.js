@@ -126,8 +126,6 @@ function createW(id, x, y, aus) {
         var linew2 = makeLineW([x + m, y + offset, x + offset, y + grid - m]);
     }
 
-    //var c1 = makeCircleW(linew1.get('x1'), linew1.get('y1'), linew1, linew2);
-
     var group = new fabric.Group([makeTile(x, y), linew2, linew1, text], {
         id: id,
         dir: 0,
@@ -146,6 +144,8 @@ function createW(id, x, y, aus) {
 
 
 function ausWl(id, x, y) {
+    position_x = x;
+    position_y = y;
     x = x * grid;
     y = y * grid;
     var offset = grid / 2;
@@ -156,7 +156,10 @@ function ausWl(id, x, y) {
         dir: 0,
         angle: 0,
         left: x,
-        top: y
+        top: y,
+        position_x: position_x,
+        position_y: position_y,
+        type: 'ausW1'
     });
     return group;
 }
@@ -172,7 +175,10 @@ function track_g(id, x, y) {
         dir: 0,
         angle: 0,
         left: x,
-        top: y
+        top: y,
+        position_x: position_x,
+        position_y: position_y,
+        type: 'track_g'
     })
 
     return group;
