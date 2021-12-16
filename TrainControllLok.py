@@ -68,12 +68,10 @@ class Lok:
 
     @staticmethod
     def printLokList():
-        print("-------------------------")
+        print()
         print("Lokliste")
-        
         for x in Lok.LokList:
-            print( x.id, x.client_id, x.name, x.user_name, x.speed)
-        print("-------------------------")
+            print( x.id, x.name, x.speed,x.client_id,)
 
     def getDataJSON():
         jd = []
@@ -90,9 +88,9 @@ class Lok:
 
     def getDataJSONforID(id):        
         x = Lok.find_ById(id)
-        print ("Lok by id", x)
+        #print ("Lok by id", x)
         if (x):
-            print(json.dumps(x.__dict__))
+            #print(json.dumps(x.__dict__))
             return (json.dumps(x.__dict__))
 
 

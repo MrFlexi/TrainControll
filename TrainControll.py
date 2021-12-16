@@ -238,7 +238,7 @@ class Clients:
      
      # Add new entry     
      Clients.mt_clients[sid] =  sid
-     print("Clients: ",len(Clients.mt_clients))
+     print("Connected clients: ",len(Clients.mt_clients))
      print(Clients.mt_clients)
     
 

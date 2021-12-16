@@ -69,13 +69,13 @@ sap.ui.define([
 				//console.log(newArray);
 				//oModelMainController.setData(newArray);
 
-				var UserList_json = jQuery.parseJSON(msg.user);
+				var UserList_json = jQuery.parseJSON(msg.UserList);
 				oModelUserList.setData(UserList_json);
 
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 
-				var TrackList_data = jQuery.parseJSON(msg.Track);
+				var TrackList_data = jQuery.parseJSON(msg.TrackList);
 				oModelTrack.setData(TrackList_data);
 
 			});
@@ -84,7 +84,7 @@ sap.ui.define([
 				var MyLok = jQuery.parseJSON(msg.MyLok)
 				oModelMainController.setData(MyLok);
 
-				var UserList_json = jQuery.parseJSON(msg.user);
+				var UserList_json = jQuery.parseJSON(msg.UserList);
 				oModelUserList.setData(UserList_json);
 
 				//console.log(msg);

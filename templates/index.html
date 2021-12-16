@@ -55,7 +55,7 @@
 
             });
 
-            socket.on('loklist_data', function(msg) {
+            socket.on('LokList_data', function(msg) {
                 LokList_model = jQuery.parseJSON(msg.LokList)
                 oModelLokList.setData(LokList_model);
              });

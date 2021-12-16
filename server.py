@@ -266,16 +266,15 @@ def track_create():
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
-    print ( message )
+    print()
+    print("------------------------------------------------------------------")
     data = message["data"]
-    print ( data )
     id = int(data["id"])
     client_id = request.sid
-    print ("Value change of Lok ID ", id)
-    print ("Client" + str( client_id ))    
+    print ("Value change of Lok ID ", id) 
     
     # Write new data into class, handle data changes
-    CTRL.setClientData(client_id, message)
+    Lok.setNewData(message["data"])
 
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforID(id),
@@ -284,7 +283,7 @@ def main_controller_value_changed(message):
     #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
     #                    'user': User.getDataJSON()})
 
-    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 
 @socketio.on('LokListDataChanged', namespace='')
@@ -295,18 +294,22 @@ def LokListDataChanged(message):
     for a in message:
         Lok.setNewData(a)
  
-    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 @socketio.on('connect', namespace='')
 def onConnect():
+    print()
+    print("------------------------------------------------------------------")
     print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
+    print(Lok.getDataJSON())
+
     # Push data to all connected clients
     emit('initialisation', {'data': "",
-                         'user': User.getDataJSON(),
+                         'UserList': User.getDataJSON(),
                          'LokList': Lok.getDataJSON(),
-                         'Track': Gleisplan.getDataJSON(),
+                         'TrackList': Gleisplan.getDataJSON(),
                          })
 
 
@@ -330,18 +333,17 @@ def User_changed(message):
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
                         'LokList': Lok.getDataJSON(),
-                         'user': User.getDataJSON()
+                         'UserList': User.getDataJSON()
                              }, broadcast=True )
 
 
    # React on locomotion chaged in Picture Carousel
 @socketio.on('Lok_changed', namespace='')
 def value_changed(message):
-
-    client_id = request.sid
-
+    print()
+    print("------------------------------------------------------------------")
     print ("Lok change of Session ID" + str(request.sid))
-    CTRL.change_lok(client_id=client_id, data_in=message )
+    CTRL.change_lok(client_id=request.sid, data_in=message )
 
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
@@ -350,7 +352,7 @@ def value_changed(message):
 
 
     # Push new data to all connected clients
-    emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 
 @socketio.on('toggle_turnout', namespace='')
