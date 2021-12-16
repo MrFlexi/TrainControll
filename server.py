@@ -411,11 +411,15 @@ def mqtt_on_disconnect(client, userdata,rc=0):
 
 # The callback for when a PUBLISH message is received from the server.
 def mqtt_on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    print()
+    print("------------------------------------------------------------------")
+    print("Mqtt inbound:")
+    print("Topic:" + msg.topic)
+    print("Payload:" + str(msg.payload))
     m_decode=str(msg.payload.decode("utf-8","ignore"))
     message=json.loads(m_decode) #decode json data
     command=message["command"]
-    print("Mqtt command:",command)
+    print("processing command:",command)
     if sys.platform.startswith('linux'):
         page_mqtt(command)
 
