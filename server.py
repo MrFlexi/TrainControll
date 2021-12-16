@@ -171,15 +171,11 @@ if sys.platform.startswith('linux'):
                 
 
 def scheduleTask():
-    logging.info('scheduling tasks....')
     if sys.platform.startswith('linux'):
         page_0()
 
-
-
-
 # ---------------------  SETUP  ------------------------------------
-logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s %(message)s')
+logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logging.info('Starting Main....')
 
 if sys.platform.startswith('linux'):
@@ -190,6 +186,7 @@ if sys.platform.startswith('linux'):
 filename = Path('config/loklist.json')
 if not filename.exists():
     print("Oops, file doesn't exist!")
+    logging.error('file doesnt exist!')
 
 data_file = open(filename)
 loklist_json = json.load(data_file)
@@ -216,6 +213,8 @@ for item in userlist_json:
     User( user_id=item["user_id"], user_name=item["user_name"], image_url=item["image_url"], client_id=item["client_id"] )
 
 User.printUserList()
+logging.info('End Main....')
+
 
 
 # ---------------------  ROUTING ------------------------------------
@@ -436,18 +435,17 @@ def mqtt_on_message(client, userdata, msg):
 #-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-    
-    
     #Tasks
-    logging.info('scheduling tasks....')
+    logging.info('creating tasks')
     scheduler = APScheduler()
-    
-   
     thread = None
     thread_lock = Lock()
     logging.info('__main__')
+    
 
     print("Starting MQTT")
+    time.sleep(30)
+    logging.info('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
@@ -456,11 +454,13 @@ if __name__ == '__main__':
     client.connect("85.209.49.65", 1883, 60)
     client.loop_start()
     
-    print("Scheduling Jobs")
+    
+    logging.info('Scheduled Task')
     scheduler.add_job(id = 'Scheduled Task', 
                         func=scheduleTask, 
-                        trigger="interval", seconds=5
+                        trigger="interval", seconds=10
                         )
     scheduler.start()
+    logging.info('Starting SocketIO....')
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
 
