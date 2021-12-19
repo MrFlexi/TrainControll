@@ -195,7 +195,6 @@ User.printUserList()
 logging.info('End Main....')
 
 
-
 # ---------------------  ROUTING ------------------------------------
 
 def background_thread():
@@ -246,9 +245,12 @@ def track_create():
 def main_controller_value_changed(message):
     print()
     print("------------------------------------------------------------------")
+   
     data = message["data"]
     id = int(data["id"])
-    client_id = request.sid
+    speed = int(data["speed"])
+    term.println("Lok: " + str(id) ) 
+    term.println("Speed: " + str(speed) ) 
     print ("Value change of Lok ID ", id) 
     
     # Write new data into class, handle data changes
@@ -281,7 +283,7 @@ def onConnect():
     print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
-    print(Lok.getDataJSON())
+    #print(Lok.getDataJSON())
 
     # Push data to all connected clients
     emit('initialisation', {'data': "",
@@ -427,18 +429,18 @@ if __name__ == '__main__':
     if sys.platform.startswith('linux'):  
         term.println("waiting for network..")   
         time.sleep(10)
-        term.println("done....")   
-        #page_logo()
+        term.println("runmode ")   
+        page_logo()
         time.sleep(2)
 
     logging.info('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
-    client = mqtt.Client()
-    client.on_connect = mqtt_on_connect
-    client.on_disconnect = mqtt_on_disconnect
-    client.on_message = mqtt_on_message
-    client.connect("85.209.49.65", 1883, 60)
-    client.loop_start()
+    #client = mqtt.Client()
+    #client.on_connect = mqtt_on_connect
+    #client.on_disconnect = mqtt_on_disconnect
+    #client.on_message = mqtt_on_message
+    #client.connect("85.209.49.65", 1883, 60)
+    #client.loop_start()
     
     
     logging.info('Scheduled Task')
@@ -448,4 +450,4 @@ if __name__ == '__main__':
                         )
     scheduler.start()
     logging.info('Starting SocketIO....')
-    socketio.run(app, host='0.0.0.0', port=3033, debug=False)
+    socketio.run(app, host='0.0.0.0', port=3033, debug=True)

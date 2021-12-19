@@ -1275,3 +1275,520 @@
 2021-12-19 18:17:54,460 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:18:24 GMT)" executed successfully
 2021-12-19 18:18:24,461 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:18:24 GMT)" (scheduled at 2021-12-19 18:18:24.455666+00:00)
 2021-12-19 18:18:24,463 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:18:24 GMT)" executed successfully
+2021-12-19 18:18:54,464 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:18:54 GMT)" (scheduled at 2021-12-19 18:18:54.455666+00:00)
+2021-12-19 18:18:54,466 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:19:24 GMT)" executed successfully
+2021-12-19 18:19:08,878 - root - INFO - Starting Main....
+2021-12-19 18:19:08,886 - root - INFO - End Main....
+2021-12-19 18:19:08,922 - root - INFO - creating tasks
+2021-12-19 18:19:09,143 - root - INFO - __main__
+2021-12-19 18:19:22,285 - root - INFO - Starting MQTT....
+2021-12-19 18:19:22,305 - root - INFO - Scheduled Task
+2021-12-19 18:19:22,714 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 18:19:22,719 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 18:19:22,720 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 18:19:22,722 - root - INFO - Starting SocketIO....
+2021-12-19 18:19:52,717 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:19:52 GMT)" (scheduled at 2021-12-19 18:19:52.714005+00:00)
+2021-12-19 18:19:52,718 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:19:52 GMT)" executed successfully
+2021-12-19 18:20:22,723 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:20:22 GMT)" (scheduled at 2021-12-19 18:20:22.714005+00:00)
+2021-12-19 18:20:22,726 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:20:52 GMT)" executed successfully
+2021-12-19 18:20:35,700 - root - INFO - Starting Main....
+2021-12-19 18:20:35,728 - root - INFO - End Main....
+2021-12-19 18:20:35,767 - root - INFO - creating tasks
+2021-12-19 18:20:35,988 - root - INFO - __main__
+2021-12-19 18:20:49,164 - root - INFO - Starting MQTT....
+2021-12-19 18:20:49,184 - root - INFO - Scheduled Task
+2021-12-19 18:20:49,607 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 18:20:49,612 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 18:20:49,613 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 18:20:49,615 - root - INFO - Starting SocketIO....
+2021-12-19 18:21:19,609 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:21:19 GMT)" (scheduled at 2021-12-19 18:21:19.606188+00:00)
+2021-12-19 18:21:19,611 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:21:49 GMT)" executed successfully
+2021-12-19 18:21:49,612 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:21:49 GMT)" (scheduled at 2021-12-19 18:21:49.606188+00:00)
+2021-12-19 18:21:49,614 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:21:49 GMT)" executed successfully
+2021-12-19 18:22:19,613 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:22:19 GMT)" (scheduled at 2021-12-19 18:22:19.606188+00:00)
+2021-12-19 18:22:19,615 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:22:49 GMT)" executed successfully
+2021-12-19 18:22:49,612 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:22:49 GMT)" (scheduled at 2021-12-19 18:22:49.606188+00:00)
+2021-12-19 18:22:49,613 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:22:49 GMT)" executed successfully
+2021-12-19 18:23:19,616 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:23:19 GMT)" (scheduled at 2021-12-19 18:23:19.606188+00:00)
+2021-12-19 18:23:19,618 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:23:49 GMT)" executed successfully
+2021-12-19 18:23:49,612 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:23:49 GMT)" (scheduled at 2021-12-19 18:23:49.606188+00:00)
+2021-12-19 18:23:49,614 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:23:49 GMT)" executed successfully
+2021-12-19 18:24:19,619 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:24:19 GMT)" (scheduled at 2021-12-19 18:24:19.606188+00:00)
+2021-12-19 18:24:19,620 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:24:19 GMT)" executed successfully
+2021-12-19 18:24:52,466 - root - INFO - Starting Main....
+2021-12-19 18:24:52,484 - root - INFO - End Main....
+2021-12-19 18:24:52,524 - root - INFO - creating tasks
+2021-12-19 18:24:52,737 - root - INFO - __main__
+2021-12-19 18:25:05,931 - root - INFO - Starting MQTT....
+2021-12-19 18:25:05,951 - root - INFO - Scheduled Task
+2021-12-19 18:25:06,378 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 18:25:06,383 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 18:25:06,384 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 18:25:06,387 - root - INFO - Starting SocketIO....
+2021-12-19 18:25:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:25:36 GMT)" (scheduled at 2021-12-19 18:25:36.377390+00:00)
+2021-12-19 18:25:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:26:06 GMT)" executed successfully
+2021-12-19 18:26:06,383 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:26:06 GMT)" (scheduled at 2021-12-19 18:26:06.377390+00:00)
+2021-12-19 18:26:06,384 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:26:06 GMT)" executed successfully
+2021-12-19 18:26:36,384 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:26:36 GMT)" (scheduled at 2021-12-19 18:26:36.377390+00:00)
+2021-12-19 18:26:36,387 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:27:06 GMT)" executed successfully
+2021-12-19 18:27:06,383 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:27:06 GMT)" (scheduled at 2021-12-19 18:27:06.377390+00:00)
+2021-12-19 18:27:06,385 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:27:36 GMT)" executed successfully
+2021-12-19 18:27:36,383 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:27:36 GMT)" (scheduled at 2021-12-19 18:27:36.377390+00:00)
+2021-12-19 18:27:36,385 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:28:06 GMT)" executed successfully
+2021-12-19 18:28:06,383 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:28:06 GMT)" (scheduled at 2021-12-19 18:28:06.377390+00:00)
+2021-12-19 18:28:06,385 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:28:36 GMT)" executed successfully
+2021-12-19 18:28:36,404 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:28:36 GMT)" (scheduled at 2021-12-19 18:28:36.377390+00:00)
+2021-12-19 18:28:36,406 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:28:36 GMT)" executed successfully
+2021-12-19 18:29:06,408 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:29:06 GMT)" (scheduled at 2021-12-19 18:29:06.377390+00:00)
+2021-12-19 18:29:06,414 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:29:36 GMT)" executed successfully
+2021-12-19 18:29:36,383 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:29:36 GMT)" (scheduled at 2021-12-19 18:29:36.377390+00:00)
+2021-12-19 18:29:36,385 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:29:36 GMT)" executed successfully
+2021-12-19 18:30:06,386 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:30:06 GMT)" (scheduled at 2021-12-19 18:30:06.377390+00:00)
+2021-12-19 18:30:06,388 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:30:06 GMT)" executed successfully
+2021-12-19 18:30:36,385 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:31:06 GMT)" (scheduled at 2021-12-19 18:30:36.377390+00:00)
+2021-12-19 18:30:36,386 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:31:06 GMT)" executed successfully
+2021-12-19 18:31:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:31:36 GMT)" (scheduled at 2021-12-19 18:31:06.377390+00:00)
+2021-12-19 18:31:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:31:36 GMT)" executed successfully
+2021-12-19 18:31:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:32:06 GMT)" (scheduled at 2021-12-19 18:31:36.377390+00:00)
+2021-12-19 18:31:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:32:06 GMT)" executed successfully
+2021-12-19 18:32:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:32:36 GMT)" (scheduled at 2021-12-19 18:32:06.377390+00:00)
+2021-12-19 18:32:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:32:36 GMT)" executed successfully
+2021-12-19 18:32:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:33:06 GMT)" (scheduled at 2021-12-19 18:32:36.377390+00:00)
+2021-12-19 18:32:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:33:06 GMT)" executed successfully
+2021-12-19 18:33:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:33:36 GMT)" (scheduled at 2021-12-19 18:33:06.377390+00:00)
+2021-12-19 18:33:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:33:36 GMT)" executed successfully
+2021-12-19 18:33:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:34:06 GMT)" (scheduled at 2021-12-19 18:33:36.377390+00:00)
+2021-12-19 18:33:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:34:06 GMT)" executed successfully
+2021-12-19 18:34:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:34:36 GMT)" (scheduled at 2021-12-19 18:34:06.377390+00:00)
+2021-12-19 18:34:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:34:36 GMT)" executed successfully
+2021-12-19 18:34:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:35:06 GMT)" (scheduled at 2021-12-19 18:34:36.377390+00:00)
+2021-12-19 18:34:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:35:06 GMT)" executed successfully
+2021-12-19 18:35:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:35:36 GMT)" (scheduled at 2021-12-19 18:35:06.377390+00:00)
+2021-12-19 18:35:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:35:36 GMT)" executed successfully
+2021-12-19 18:35:36,384 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:36:06 GMT)" (scheduled at 2021-12-19 18:35:36.377390+00:00)
+2021-12-19 18:35:36,386 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:36:06 GMT)" executed successfully
+2021-12-19 18:36:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:36:36 GMT)" (scheduled at 2021-12-19 18:36:06.377390+00:00)
+2021-12-19 18:36:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:36:36 GMT)" executed successfully
+2021-12-19 18:36:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:37:06 GMT)" (scheduled at 2021-12-19 18:36:36.377390+00:00)
+2021-12-19 18:36:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:37:06 GMT)" executed successfully
+2021-12-19 18:37:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:37:36 GMT)" (scheduled at 2021-12-19 18:37:06.377390+00:00)
+2021-12-19 18:37:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:37:36 GMT)" executed successfully
+2021-12-19 18:37:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:38:06 GMT)" (scheduled at 2021-12-19 18:37:36.377390+00:00)
+2021-12-19 18:37:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:38:06 GMT)" executed successfully
+2021-12-19 18:38:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:38:36 GMT)" (scheduled at 2021-12-19 18:38:06.377390+00:00)
+2021-12-19 18:38:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:38:36 GMT)" executed successfully
+2021-12-19 18:38:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:39:06 GMT)" (scheduled at 2021-12-19 18:38:36.377390+00:00)
+2021-12-19 18:38:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:39:06 GMT)" executed successfully
+2021-12-19 18:39:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:39:36 GMT)" (scheduled at 2021-12-19 18:39:06.377390+00:00)
+2021-12-19 18:39:06,383 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:39:36 GMT)" executed successfully
+2021-12-19 18:39:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:40:06 GMT)" (scheduled at 2021-12-19 18:39:36.377390+00:00)
+2021-12-19 18:39:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:40:06 GMT)" executed successfully
+2021-12-19 18:40:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:40:36 GMT)" (scheduled at 2021-12-19 18:40:06.377390+00:00)
+2021-12-19 18:40:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:40:36 GMT)" executed successfully
+2021-12-19 18:40:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:41:06 GMT)" (scheduled at 2021-12-19 18:40:36.377390+00:00)
+2021-12-19 18:40:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:41:06 GMT)" executed successfully
+2021-12-19 18:41:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:41:36 GMT)" (scheduled at 2021-12-19 18:41:06.377390+00:00)
+2021-12-19 18:41:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:41:36 GMT)" executed successfully
+2021-12-19 18:41:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:42:06 GMT)" (scheduled at 2021-12-19 18:41:36.377390+00:00)
+2021-12-19 18:41:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:42:06 GMT)" executed successfully
+2021-12-19 18:42:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:42:36 GMT)" (scheduled at 2021-12-19 18:42:06.377390+00:00)
+2021-12-19 18:42:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:42:36 GMT)" executed successfully
+2021-12-19 18:42:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:43:06 GMT)" (scheduled at 2021-12-19 18:42:36.377390+00:00)
+2021-12-19 18:42:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:43:06 GMT)" executed successfully
+2021-12-19 18:43:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:43:36 GMT)" (scheduled at 2021-12-19 18:43:06.377390+00:00)
+2021-12-19 18:43:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:43:36 GMT)" executed successfully
+2021-12-19 18:43:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:44:06 GMT)" (scheduled at 2021-12-19 18:43:36.377390+00:00)
+2021-12-19 18:43:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:44:06 GMT)" executed successfully
+2021-12-19 18:44:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:44:36 GMT)" (scheduled at 2021-12-19 18:44:06.377390+00:00)
+2021-12-19 18:44:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:44:36 GMT)" executed successfully
+2021-12-19 18:44:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:45:06 GMT)" (scheduled at 2021-12-19 18:44:36.377390+00:00)
+2021-12-19 18:44:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:45:06 GMT)" executed successfully
+2021-12-19 18:45:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:45:36 GMT)" (scheduled at 2021-12-19 18:45:06.377390+00:00)
+2021-12-19 18:45:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:45:36 GMT)" executed successfully
+2021-12-19 18:45:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:46:06 GMT)" (scheduled at 2021-12-19 18:45:36.377390+00:00)
+2021-12-19 18:45:36,383 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:46:06 GMT)" executed successfully
+2021-12-19 18:46:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:46:36 GMT)" (scheduled at 2021-12-19 18:46:06.377390+00:00)
+2021-12-19 18:46:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:46:36 GMT)" executed successfully
+2021-12-19 18:46:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:47:06 GMT)" (scheduled at 2021-12-19 18:46:36.377390+00:00)
+2021-12-19 18:46:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:47:06 GMT)" executed successfully
+2021-12-19 18:47:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:47:36 GMT)" (scheduled at 2021-12-19 18:47:06.377390+00:00)
+2021-12-19 18:47:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:47:36 GMT)" executed successfully
+2021-12-19 18:47:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:48:06 GMT)" (scheduled at 2021-12-19 18:47:36.377390+00:00)
+2021-12-19 18:47:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:48:06 GMT)" executed successfully
+2021-12-19 18:48:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:48:36 GMT)" (scheduled at 2021-12-19 18:48:06.377390+00:00)
+2021-12-19 18:48:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:48:36 GMT)" executed successfully
+2021-12-19 18:48:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:49:06 GMT)" (scheduled at 2021-12-19 18:48:36.377390+00:00)
+2021-12-19 18:48:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:49:06 GMT)" executed successfully
+2021-12-19 18:49:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:49:36 GMT)" (scheduled at 2021-12-19 18:49:06.377390+00:00)
+2021-12-19 18:49:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:49:36 GMT)" executed successfully
+2021-12-19 18:49:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:50:06 GMT)" (scheduled at 2021-12-19 18:49:36.377390+00:00)
+2021-12-19 18:49:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:50:06 GMT)" executed successfully
+2021-12-19 18:50:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:50:36 GMT)" (scheduled at 2021-12-19 18:50:06.377390+00:00)
+2021-12-19 18:50:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:50:36 GMT)" executed successfully
+2021-12-19 18:50:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:51:06 GMT)" (scheduled at 2021-12-19 18:50:36.377390+00:00)
+2021-12-19 18:50:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:51:06 GMT)" executed successfully
+2021-12-19 18:51:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:51:36 GMT)" (scheduled at 2021-12-19 18:51:06.377390+00:00)
+2021-12-19 18:51:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:51:36 GMT)" executed successfully
+2021-12-19 18:51:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:52:06 GMT)" (scheduled at 2021-12-19 18:51:36.377390+00:00)
+2021-12-19 18:51:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:52:06 GMT)" executed successfully
+2021-12-19 18:52:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:52:36 GMT)" (scheduled at 2021-12-19 18:52:06.377390+00:00)
+2021-12-19 18:52:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:52:36 GMT)" executed successfully
+2021-12-19 18:52:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:53:06 GMT)" (scheduled at 2021-12-19 18:52:36.377390+00:00)
+2021-12-19 18:52:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:53:06 GMT)" executed successfully
+2021-12-19 18:53:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:53:36 GMT)" (scheduled at 2021-12-19 18:53:06.377390+00:00)
+2021-12-19 18:53:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:53:36 GMT)" executed successfully
+2021-12-19 18:53:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:54:06 GMT)" (scheduled at 2021-12-19 18:53:36.377390+00:00)
+2021-12-19 18:53:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:54:06 GMT)" executed successfully
+2021-12-19 18:54:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:54:36 GMT)" (scheduled at 2021-12-19 18:54:06.377390+00:00)
+2021-12-19 18:54:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:54:36 GMT)" executed successfully
+2021-12-19 18:54:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:55:06 GMT)" (scheduled at 2021-12-19 18:54:36.377390+00:00)
+2021-12-19 18:54:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:55:06 GMT)" executed successfully
+2021-12-19 18:55:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:55:36 GMT)" (scheduled at 2021-12-19 18:55:06.377390+00:00)
+2021-12-19 18:55:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:55:36 GMT)" executed successfully
+2021-12-19 18:55:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:56:06 GMT)" (scheduled at 2021-12-19 18:55:36.377390+00:00)
+2021-12-19 18:55:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:56:06 GMT)" executed successfully
+2021-12-19 18:56:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:56:36 GMT)" (scheduled at 2021-12-19 18:56:06.377390+00:00)
+2021-12-19 18:56:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:56:36 GMT)" executed successfully
+2021-12-19 18:56:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:57:06 GMT)" (scheduled at 2021-12-19 18:56:36.377390+00:00)
+2021-12-19 18:56:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:57:06 GMT)" executed successfully
+2021-12-19 18:57:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:57:36 GMT)" (scheduled at 2021-12-19 18:57:06.377390+00:00)
+2021-12-19 18:57:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:57:36 GMT)" executed successfully
+2021-12-19 18:57:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:58:06 GMT)" (scheduled at 2021-12-19 18:57:36.377390+00:00)
+2021-12-19 18:57:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:58:06 GMT)" executed successfully
+2021-12-19 18:58:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:58:36 GMT)" (scheduled at 2021-12-19 18:58:06.377390+00:00)
+2021-12-19 18:58:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:58:36 GMT)" executed successfully
+2021-12-19 18:58:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:59:06 GMT)" (scheduled at 2021-12-19 18:58:36.377390+00:00)
+2021-12-19 18:58:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:59:06 GMT)" executed successfully
+2021-12-19 18:59:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:59:36 GMT)" (scheduled at 2021-12-19 18:59:06.377390+00:00)
+2021-12-19 18:59:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 18:59:36 GMT)" executed successfully
+2021-12-19 18:59:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:00:06 GMT)" (scheduled at 2021-12-19 18:59:36.377390+00:00)
+2021-12-19 18:59:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:00:06 GMT)" executed successfully
+2021-12-19 19:00:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:00:36 GMT)" (scheduled at 2021-12-19 19:00:06.377390+00:00)
+2021-12-19 19:00:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:00:36 GMT)" executed successfully
+2021-12-19 19:00:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:01:06 GMT)" (scheduled at 2021-12-19 19:00:36.377390+00:00)
+2021-12-19 19:00:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:01:06 GMT)" executed successfully
+2021-12-19 19:01:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:01:36 GMT)" (scheduled at 2021-12-19 19:01:06.377390+00:00)
+2021-12-19 19:01:09,245 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:01:36 GMT)" executed successfully
+2021-12-19 19:01:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:02:06 GMT)" (scheduled at 2021-12-19 19:01:36.377390+00:00)
+2021-12-19 19:01:36,797 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:02:06 GMT)" executed successfully
+2021-12-19 19:02:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:02:36 GMT)" (scheduled at 2021-12-19 19:02:06.377390+00:00)
+2021-12-19 19:02:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:02:36 GMT)" executed successfully
+2021-12-19 19:02:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:03:06 GMT)" (scheduled at 2021-12-19 19:02:36.377390+00:00)
+2021-12-19 19:02:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:03:06 GMT)" executed successfully
+2021-12-19 19:03:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:03:36 GMT)" (scheduled at 2021-12-19 19:03:06.377390+00:00)
+2021-12-19 19:03:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:03:36 GMT)" executed successfully
+2021-12-19 19:03:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:04:06 GMT)" (scheduled at 2021-12-19 19:03:36.377390+00:00)
+2021-12-19 19:03:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:04:06 GMT)" executed successfully
+2021-12-19 19:04:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:04:36 GMT)" (scheduled at 2021-12-19 19:04:06.377390+00:00)
+2021-12-19 19:04:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:04:36 GMT)" executed successfully
+2021-12-19 19:04:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:05:06 GMT)" (scheduled at 2021-12-19 19:04:36.377390+00:00)
+2021-12-19 19:04:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:05:06 GMT)" executed successfully
+2021-12-19 19:05:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:05:36 GMT)" (scheduled at 2021-12-19 19:05:06.377390+00:00)
+2021-12-19 19:05:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:05:36 GMT)" executed successfully
+2021-12-19 19:05:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:06:06 GMT)" (scheduled at 2021-12-19 19:05:36.377390+00:00)
+2021-12-19 19:05:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:06:06 GMT)" executed successfully
+2021-12-19 19:06:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:06:36 GMT)" (scheduled at 2021-12-19 19:06:06.377390+00:00)
+2021-12-19 19:06:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:06:36 GMT)" executed successfully
+2021-12-19 19:06:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:07:06 GMT)" (scheduled at 2021-12-19 19:06:36.377390+00:00)
+2021-12-19 19:06:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:07:06 GMT)" executed successfully
+2021-12-19 19:07:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:07:36 GMT)" (scheduled at 2021-12-19 19:07:06.377390+00:00)
+2021-12-19 19:07:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:07:36 GMT)" executed successfully
+2021-12-19 19:07:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:08:06 GMT)" (scheduled at 2021-12-19 19:07:36.377390+00:00)
+2021-12-19 19:07:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:08:06 GMT)" executed successfully
+2021-12-19 19:08:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:08:36 GMT)" (scheduled at 2021-12-19 19:08:06.377390+00:00)
+2021-12-19 19:08:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:08:36 GMT)" executed successfully
+2021-12-19 19:08:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:09:06 GMT)" (scheduled at 2021-12-19 19:08:36.377390+00:00)
+2021-12-19 19:08:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:09:06 GMT)" executed successfully
+2021-12-19 19:09:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:09:36 GMT)" (scheduled at 2021-12-19 19:09:06.377390+00:00)
+2021-12-19 19:09:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:09:36 GMT)" executed successfully
+2021-12-19 19:09:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:10:06 GMT)" (scheduled at 2021-12-19 19:09:36.377390+00:00)
+2021-12-19 19:09:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:10:06 GMT)" executed successfully
+2021-12-19 19:10:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:10:36 GMT)" (scheduled at 2021-12-19 19:10:06.377390+00:00)
+2021-12-19 19:10:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:10:36 GMT)" executed successfully
+2021-12-19 19:10:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:11:06 GMT)" (scheduled at 2021-12-19 19:10:36.377390+00:00)
+2021-12-19 19:10:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:11:06 GMT)" executed successfully
+2021-12-19 19:11:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:11:36 GMT)" (scheduled at 2021-12-19 19:11:06.377390+00:00)
+2021-12-19 19:11:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:11:36 GMT)" executed successfully
+2021-12-19 19:11:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:12:06 GMT)" (scheduled at 2021-12-19 19:11:36.377390+00:00)
+2021-12-19 19:11:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:12:06 GMT)" executed successfully
+2021-12-19 19:12:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:12:36 GMT)" (scheduled at 2021-12-19 19:12:06.377390+00:00)
+2021-12-19 19:12:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:12:36 GMT)" executed successfully
+2021-12-19 19:12:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:13:06 GMT)" (scheduled at 2021-12-19 19:12:36.377390+00:00)
+2021-12-19 19:12:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:13:06 GMT)" executed successfully
+2021-12-19 19:13:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:13:36 GMT)" (scheduled at 2021-12-19 19:13:06.377390+00:00)
+2021-12-19 19:13:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:13:36 GMT)" executed successfully
+2021-12-19 19:13:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:14:06 GMT)" (scheduled at 2021-12-19 19:13:36.377390+00:00)
+2021-12-19 19:13:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:14:06 GMT)" executed successfully
+2021-12-19 19:14:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:14:36 GMT)" (scheduled at 2021-12-19 19:14:06.377390+00:00)
+2021-12-19 19:14:08,830 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:14:36 GMT)" executed successfully
+2021-12-19 19:14:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:15:06 GMT)" (scheduled at 2021-12-19 19:14:36.377390+00:00)
+2021-12-19 19:14:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:15:06 GMT)" executed successfully
+2021-12-19 19:15:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:15:36 GMT)" (scheduled at 2021-12-19 19:15:06.377390+00:00)
+2021-12-19 19:15:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:15:36 GMT)" executed successfully
+2021-12-19 19:15:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:16:06 GMT)" (scheduled at 2021-12-19 19:15:36.377390+00:00)
+2021-12-19 19:15:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:16:06 GMT)" executed successfully
+2021-12-19 19:16:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:16:36 GMT)" (scheduled at 2021-12-19 19:16:06.377390+00:00)
+2021-12-19 19:16:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:16:36 GMT)" executed successfully
+2021-12-19 19:16:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:17:06 GMT)" (scheduled at 2021-12-19 19:16:36.377390+00:00)
+2021-12-19 19:16:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:17:06 GMT)" executed successfully
+2021-12-19 19:17:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:17:36 GMT)" (scheduled at 2021-12-19 19:17:06.377390+00:00)
+2021-12-19 19:17:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:17:36 GMT)" executed successfully
+2021-12-19 19:17:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:18:06 GMT)" (scheduled at 2021-12-19 19:17:36.377390+00:00)
+2021-12-19 19:17:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:18:06 GMT)" executed successfully
+2021-12-19 19:18:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:18:36 GMT)" (scheduled at 2021-12-19 19:18:06.377390+00:00)
+2021-12-19 19:18:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:18:36 GMT)" executed successfully
+2021-12-19 19:18:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:19:06 GMT)" (scheduled at 2021-12-19 19:18:36.377390+00:00)
+2021-12-19 19:18:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:19:06 GMT)" executed successfully
+2021-12-19 19:19:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:19:36 GMT)" (scheduled at 2021-12-19 19:19:06.377390+00:00)
+2021-12-19 19:19:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:19:36 GMT)" executed successfully
+2021-12-19 19:19:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:20:06 GMT)" (scheduled at 2021-12-19 19:19:36.377390+00:00)
+2021-12-19 19:19:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:20:06 GMT)" executed successfully
+2021-12-19 19:20:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:20:36 GMT)" (scheduled at 2021-12-19 19:20:06.377390+00:00)
+2021-12-19 19:20:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:20:36 GMT)" executed successfully
+2021-12-19 19:20:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:21:06 GMT)" (scheduled at 2021-12-19 19:20:36.377390+00:00)
+2021-12-19 19:20:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:21:06 GMT)" executed successfully
+2021-12-19 19:21:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:21:36 GMT)" (scheduled at 2021-12-19 19:21:06.377390+00:00)
+2021-12-19 19:21:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:21:36 GMT)" executed successfully
+2021-12-19 19:21:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:22:06 GMT)" (scheduled at 2021-12-19 19:21:36.377390+00:00)
+2021-12-19 19:21:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:22:06 GMT)" executed successfully
+2021-12-19 19:22:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:22:36 GMT)" (scheduled at 2021-12-19 19:22:06.377390+00:00)
+2021-12-19 19:22:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:22:36 GMT)" executed successfully
+2021-12-19 19:22:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:23:06 GMT)" (scheduled at 2021-12-19 19:22:36.377390+00:00)
+2021-12-19 19:22:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:23:06 GMT)" executed successfully
+2021-12-19 19:23:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:23:36 GMT)" (scheduled at 2021-12-19 19:23:06.377390+00:00)
+2021-12-19 19:23:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:23:36 GMT)" executed successfully
+2021-12-19 19:23:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:24:06 GMT)" (scheduled at 2021-12-19 19:23:36.377390+00:00)
+2021-12-19 19:23:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:24:06 GMT)" executed successfully
+2021-12-19 19:24:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:24:36 GMT)" (scheduled at 2021-12-19 19:24:06.377390+00:00)
+2021-12-19 19:24:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:24:36 GMT)" executed successfully
+2021-12-19 19:24:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:25:06 GMT)" (scheduled at 2021-12-19 19:24:36.377390+00:00)
+2021-12-19 19:24:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:25:06 GMT)" executed successfully
+2021-12-19 19:25:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:25:36 GMT)" (scheduled at 2021-12-19 19:25:06.377390+00:00)
+2021-12-19 19:25:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:25:36 GMT)" executed successfully
+2021-12-19 19:25:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:26:06 GMT)" (scheduled at 2021-12-19 19:25:36.377390+00:00)
+2021-12-19 19:25:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:26:06 GMT)" executed successfully
+2021-12-19 19:26:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:26:36 GMT)" (scheduled at 2021-12-19 19:26:06.377390+00:00)
+2021-12-19 19:26:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:26:36 GMT)" executed successfully
+2021-12-19 19:26:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:27:06 GMT)" (scheduled at 2021-12-19 19:26:36.377390+00:00)
+2021-12-19 19:26:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:27:06 GMT)" executed successfully
+2021-12-19 19:27:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:27:36 GMT)" (scheduled at 2021-12-19 19:27:06.377390+00:00)
+2021-12-19 19:27:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:27:36 GMT)" executed successfully
+2021-12-19 19:27:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:28:06 GMT)" (scheduled at 2021-12-19 19:27:36.377390+00:00)
+2021-12-19 19:27:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:28:06 GMT)" executed successfully
+2021-12-19 19:28:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:28:36 GMT)" (scheduled at 2021-12-19 19:28:06.377390+00:00)
+2021-12-19 19:28:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:28:36 GMT)" executed successfully
+2021-12-19 19:28:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:29:06 GMT)" (scheduled at 2021-12-19 19:28:36.377390+00:00)
+2021-12-19 19:28:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:29:06 GMT)" executed successfully
+2021-12-19 19:29:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:29:36 GMT)" (scheduled at 2021-12-19 19:29:06.377390+00:00)
+2021-12-19 19:29:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:29:36 GMT)" executed successfully
+2021-12-19 19:29:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:30:06 GMT)" (scheduled at 2021-12-19 19:29:36.377390+00:00)
+2021-12-19 19:29:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:30:06 GMT)" executed successfully
+2021-12-19 19:30:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:30:36 GMT)" (scheduled at 2021-12-19 19:30:06.377390+00:00)
+2021-12-19 19:30:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:30:36 GMT)" executed successfully
+2021-12-19 19:30:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:31:06 GMT)" (scheduled at 2021-12-19 19:30:36.377390+00:00)
+2021-12-19 19:30:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:31:06 GMT)" executed successfully
+2021-12-19 19:31:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:31:36 GMT)" (scheduled at 2021-12-19 19:31:06.377390+00:00)
+2021-12-19 19:31:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:31:36 GMT)" executed successfully
+2021-12-19 19:31:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:32:06 GMT)" (scheduled at 2021-12-19 19:31:36.377390+00:00)
+2021-12-19 19:31:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:32:06 GMT)" executed successfully
+2021-12-19 19:32:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:32:36 GMT)" (scheduled at 2021-12-19 19:32:06.377390+00:00)
+2021-12-19 19:32:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:32:36 GMT)" executed successfully
+2021-12-19 19:32:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:33:06 GMT)" (scheduled at 2021-12-19 19:32:36.377390+00:00)
+2021-12-19 19:32:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:33:06 GMT)" executed successfully
+2021-12-19 19:33:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:33:36 GMT)" (scheduled at 2021-12-19 19:33:06.377390+00:00)
+2021-12-19 19:33:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:33:36 GMT)" executed successfully
+2021-12-19 19:33:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:34:06 GMT)" (scheduled at 2021-12-19 19:33:36.377390+00:00)
+2021-12-19 19:33:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:34:06 GMT)" executed successfully
+2021-12-19 19:34:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:34:36 GMT)" (scheduled at 2021-12-19 19:34:06.377390+00:00)
+2021-12-19 19:34:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:34:36 GMT)" executed successfully
+2021-12-19 19:34:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:35:06 GMT)" (scheduled at 2021-12-19 19:34:36.377390+00:00)
+2021-12-19 19:34:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:35:06 GMT)" executed successfully
+2021-12-19 19:35:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:35:36 GMT)" (scheduled at 2021-12-19 19:35:06.377390+00:00)
+2021-12-19 19:35:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:35:36 GMT)" executed successfully
+2021-12-19 19:35:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:36:06 GMT)" (scheduled at 2021-12-19 19:35:36.377390+00:00)
+2021-12-19 19:35:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:36:06 GMT)" executed successfully
+2021-12-19 19:36:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:36:36 GMT)" (scheduled at 2021-12-19 19:36:06.377390+00:00)
+2021-12-19 19:36:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:36:36 GMT)" executed successfully
+2021-12-19 19:36:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:37:06 GMT)" (scheduled at 2021-12-19 19:36:36.377390+00:00)
+2021-12-19 19:36:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:37:06 GMT)" executed successfully
+2021-12-19 19:37:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:37:36 GMT)" (scheduled at 2021-12-19 19:37:06.377390+00:00)
+2021-12-19 19:37:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:37:36 GMT)" executed successfully
+2021-12-19 19:37:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:38:06 GMT)" (scheduled at 2021-12-19 19:37:36.377390+00:00)
+2021-12-19 19:37:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:38:06 GMT)" executed successfully
+2021-12-19 19:38:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:38:36 GMT)" (scheduled at 2021-12-19 19:38:06.377390+00:00)
+2021-12-19 19:38:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:38:36 GMT)" executed successfully
+2021-12-19 19:38:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:39:06 GMT)" (scheduled at 2021-12-19 19:38:36.377390+00:00)
+2021-12-19 19:38:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:39:06 GMT)" executed successfully
+2021-12-19 19:39:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:39:36 GMT)" (scheduled at 2021-12-19 19:39:06.377390+00:00)
+2021-12-19 19:39:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:39:36 GMT)" executed successfully
+2021-12-19 19:39:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:40:06 GMT)" (scheduled at 2021-12-19 19:39:36.377390+00:00)
+2021-12-19 19:39:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:40:06 GMT)" executed successfully
+2021-12-19 19:40:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:40:36 GMT)" (scheduled at 2021-12-19 19:40:06.377390+00:00)
+2021-12-19 19:40:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:40:36 GMT)" executed successfully
+2021-12-19 19:40:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:41:06 GMT)" (scheduled at 2021-12-19 19:40:36.377390+00:00)
+2021-12-19 19:40:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:41:06 GMT)" executed successfully
+2021-12-19 19:41:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:41:36 GMT)" (scheduled at 2021-12-19 19:41:06.377390+00:00)
+2021-12-19 19:41:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:41:36 GMT)" executed successfully
+2021-12-19 19:41:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:42:06 GMT)" (scheduled at 2021-12-19 19:41:36.377390+00:00)
+2021-12-19 19:41:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:42:06 GMT)" executed successfully
+2021-12-19 19:42:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:42:36 GMT)" (scheduled at 2021-12-19 19:42:06.377390+00:00)
+2021-12-19 19:42:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:42:36 GMT)" executed successfully
+2021-12-19 19:42:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:43:06 GMT)" (scheduled at 2021-12-19 19:42:36.377390+00:00)
+2021-12-19 19:42:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:43:06 GMT)" executed successfully
+2021-12-19 19:43:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:43:36 GMT)" (scheduled at 2021-12-19 19:43:06.377390+00:00)
+2021-12-19 19:43:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:43:36 GMT)" executed successfully
+2021-12-19 19:43:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:44:06 GMT)" (scheduled at 2021-12-19 19:43:36.377390+00:00)
+2021-12-19 19:43:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:44:06 GMT)" executed successfully
+2021-12-19 19:44:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:44:36 GMT)" (scheduled at 2021-12-19 19:44:06.377390+00:00)
+2021-12-19 19:44:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:44:36 GMT)" executed successfully
+2021-12-19 19:44:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:45:06 GMT)" (scheduled at 2021-12-19 19:44:36.377390+00:00)
+2021-12-19 19:44:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:45:06 GMT)" executed successfully
+2021-12-19 19:45:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:45:36 GMT)" (scheduled at 2021-12-19 19:45:06.377390+00:00)
+2021-12-19 19:45:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:45:36 GMT)" executed successfully
+2021-12-19 19:45:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:46:06 GMT)" (scheduled at 2021-12-19 19:45:36.377390+00:00)
+2021-12-19 19:45:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:46:06 GMT)" executed successfully
+2021-12-19 19:46:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:46:36 GMT)" (scheduled at 2021-12-19 19:46:06.377390+00:00)
+2021-12-19 19:46:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:46:36 GMT)" executed successfully
+2021-12-19 19:46:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:47:06 GMT)" (scheduled at 2021-12-19 19:46:36.377390+00:00)
+2021-12-19 19:46:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:47:06 GMT)" executed successfully
+2021-12-19 19:47:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:47:36 GMT)" (scheduled at 2021-12-19 19:47:06.377390+00:00)
+2021-12-19 19:47:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:47:36 GMT)" executed successfully
+2021-12-19 19:47:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:48:06 GMT)" (scheduled at 2021-12-19 19:47:36.377390+00:00)
+2021-12-19 19:47:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:48:06 GMT)" executed successfully
+2021-12-19 19:48:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:48:36 GMT)" (scheduled at 2021-12-19 19:48:06.377390+00:00)
+2021-12-19 19:48:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:48:36 GMT)" executed successfully
+2021-12-19 19:48:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:49:06 GMT)" (scheduled at 2021-12-19 19:48:36.377390+00:00)
+2021-12-19 19:48:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:49:06 GMT)" executed successfully
+2021-12-19 19:49:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:49:36 GMT)" (scheduled at 2021-12-19 19:49:06.377390+00:00)
+2021-12-19 19:49:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:49:36 GMT)" executed successfully
+2021-12-19 19:49:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:50:06 GMT)" (scheduled at 2021-12-19 19:49:36.377390+00:00)
+2021-12-19 19:49:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:50:06 GMT)" executed successfully
+2021-12-19 19:50:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:50:36 GMT)" (scheduled at 2021-12-19 19:50:06.377390+00:00)
+2021-12-19 19:50:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:50:36 GMT)" executed successfully
+2021-12-19 19:50:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:51:06 GMT)" (scheduled at 2021-12-19 19:50:36.377390+00:00)
+2021-12-19 19:50:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:51:06 GMT)" executed successfully
+2021-12-19 19:51:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:51:36 GMT)" (scheduled at 2021-12-19 19:51:06.377390+00:00)
+2021-12-19 19:51:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:51:36 GMT)" executed successfully
+2021-12-19 19:51:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:52:06 GMT)" (scheduled at 2021-12-19 19:51:36.377390+00:00)
+2021-12-19 19:51:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:52:06 GMT)" executed successfully
+2021-12-19 19:52:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:52:36 GMT)" (scheduled at 2021-12-19 19:52:06.377390+00:00)
+2021-12-19 19:52:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:52:36 GMT)" executed successfully
+2021-12-19 19:52:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:53:06 GMT)" (scheduled at 2021-12-19 19:52:36.377390+00:00)
+2021-12-19 19:52:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:53:06 GMT)" executed successfully
+2021-12-19 19:53:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:53:36 GMT)" (scheduled at 2021-12-19 19:53:06.377390+00:00)
+2021-12-19 19:53:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:53:36 GMT)" executed successfully
+2021-12-19 19:53:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:54:06 GMT)" (scheduled at 2021-12-19 19:53:36.377390+00:00)
+2021-12-19 19:53:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:54:06 GMT)" executed successfully
+2021-12-19 19:54:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:54:36 GMT)" (scheduled at 2021-12-19 19:54:06.377390+00:00)
+2021-12-19 19:54:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:54:36 GMT)" executed successfully
+2021-12-19 19:54:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:55:06 GMT)" (scheduled at 2021-12-19 19:54:36.377390+00:00)
+2021-12-19 19:54:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:55:06 GMT)" executed successfully
+2021-12-19 19:55:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:55:36 GMT)" (scheduled at 2021-12-19 19:55:06.377390+00:00)
+2021-12-19 19:55:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:55:36 GMT)" executed successfully
+2021-12-19 19:55:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:56:06 GMT)" (scheduled at 2021-12-19 19:55:36.377390+00:00)
+2021-12-19 19:55:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:56:06 GMT)" executed successfully
+2021-12-19 19:56:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:56:36 GMT)" (scheduled at 2021-12-19 19:56:06.377390+00:00)
+2021-12-19 19:56:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:56:36 GMT)" executed successfully
+2021-12-19 19:56:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:57:06 GMT)" (scheduled at 2021-12-19 19:56:36.377390+00:00)
+2021-12-19 19:56:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:57:06 GMT)" executed successfully
+2021-12-19 19:57:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:57:36 GMT)" (scheduled at 2021-12-19 19:57:06.377390+00:00)
+2021-12-19 19:57:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:57:36 GMT)" executed successfully
+2021-12-19 19:57:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:58:06 GMT)" (scheduled at 2021-12-19 19:57:36.377390+00:00)
+2021-12-19 19:57:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:58:06 GMT)" executed successfully
+2021-12-19 19:58:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:58:36 GMT)" (scheduled at 2021-12-19 19:58:06.377390+00:00)
+2021-12-19 19:58:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:58:36 GMT)" executed successfully
+2021-12-19 19:58:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:59:06 GMT)" (scheduled at 2021-12-19 19:58:36.377390+00:00)
+2021-12-19 19:58:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:59:06 GMT)" executed successfully
+2021-12-19 19:59:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:59:36 GMT)" (scheduled at 2021-12-19 19:59:06.377390+00:00)
+2021-12-19 19:59:08,145 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 19:59:36 GMT)" executed successfully
+2021-12-19 19:59:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:00:06 GMT)" (scheduled at 2021-12-19 19:59:36.377390+00:00)
+2021-12-19 19:59:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:00:06 GMT)" executed successfully
+2021-12-19 20:00:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:00:36 GMT)" (scheduled at 2021-12-19 20:00:06.377390+00:00)
+2021-12-19 20:00:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:00:36 GMT)" executed successfully
+2021-12-19 20:00:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:01:06 GMT)" (scheduled at 2021-12-19 20:00:36.377390+00:00)
+2021-12-19 20:00:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:01:06 GMT)" executed successfully
+2021-12-19 20:01:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:01:36 GMT)" (scheduled at 2021-12-19 20:01:06.377390+00:00)
+2021-12-19 20:01:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:01:36 GMT)" executed successfully
+2021-12-19 20:01:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:02:06 GMT)" (scheduled at 2021-12-19 20:01:36.377390+00:00)
+2021-12-19 20:01:36,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:02:06 GMT)" executed successfully
+2021-12-19 20:02:06,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:02:36 GMT)" (scheduled at 2021-12-19 20:02:06.377390+00:00)
+2021-12-19 20:02:06,381 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:02:36 GMT)" executed successfully
+2021-12-19 20:02:36,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:03:06 GMT)" (scheduled at 2021-12-19 20:02:36.377390+00:00)
+2021-12-19 20:02:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:03:06 GMT)" executed successfully
+2021-12-19 20:03:06,381 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:03:36 GMT)" (scheduled at 2021-12-19 20:03:06.377390+00:00)
+2021-12-19 20:03:06,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:03:36 GMT)" executed successfully
+2021-12-19 20:03:36,380 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:04:06 GMT)" (scheduled at 2021-12-19 20:03:36.377390+00:00)
+2021-12-19 20:03:36,382 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:04:06 GMT)" executed successfully
+2021-12-19 20:07:02,281 - root - INFO - Starting Main....
+2021-12-19 20:07:02,319 - root - INFO - End Main....
+2021-12-19 20:07:02,384 - root - INFO - creating tasks
+2021-12-19 20:07:02,634 - root - INFO - __main__
+2021-12-19 20:07:16,127 - root - INFO - Starting MQTT....
+2021-12-19 20:07:16,128 - root - INFO - Scheduled Task
+2021-12-19 20:07:16,645 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 20:07:16,655 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 20:07:16,656 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 20:07:16,659 - root - INFO - Starting SocketIO....
+2021-12-19 20:07:16,685 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 20:07:25,431 - root - INFO - Starting Main....
+2021-12-19 20:07:25,468 - root - INFO - End Main....
+2021-12-19 20:07:25,573 - root - INFO - creating tasks
+2021-12-19 20:07:26,255 - root - INFO - __main__
+2021-12-19 20:07:39,846 - root - INFO - Starting MQTT....
+2021-12-19 20:07:39,846 - root - INFO - Scheduled Task
+2021-12-19 20:07:40,251 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 20:07:40,255 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 20:07:40,256 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 20:07:40,258 - root - INFO - Starting SocketIO....
+2021-12-19 20:07:40,267 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 20:07:40,269 - werkzeug - INFO -  * Debugger PIN: 191-546-981
+2021-12-19 20:07:46,649 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:07:46 GMT)" (scheduled at 2021-12-19 20:07:46.644510+00:00)
+2021-12-19 20:07:46,652 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:16 GMT)" executed successfully
+2021-12-19 20:08:10,253 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:10 GMT)" (scheduled at 2021-12-19 20:08:10.250146+00:00)
+2021-12-19 20:08:10,255 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:40 GMT)" executed successfully
+2021-12-19 20:08:16,652 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:16 GMT)" (scheduled at 2021-12-19 20:08:16.644510+00:00)
+2021-12-19 20:08:16,654 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:46 GMT)" executed successfully
+2021-12-19 20:08:40,256 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:40 GMT)" (scheduled at 2021-12-19 20:08:40.250146+00:00)
+2021-12-19 20:08:40,262 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:10 GMT)" executed successfully
+2021-12-19 20:08:46,650 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:46 GMT)" (scheduled at 2021-12-19 20:08:46.644510+00:00)
+2021-12-19 20:08:46,651 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:08:46 GMT)" executed successfully
+2021-12-19 20:09:10,256 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:10 GMT)" (scheduled at 2021-12-19 20:09:10.250146+00:00)
+2021-12-19 20:09:10,258 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:40 GMT)" executed successfully
+2021-12-19 20:09:16,652 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:16 GMT)" (scheduled at 2021-12-19 20:09:16.644510+00:00)
+2021-12-19 20:09:16,657 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:46 GMT)" executed successfully
+2021-12-19 20:09:40,256 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:40 GMT)" (scheduled at 2021-12-19 20:09:40.250146+00:00)
+2021-12-19 20:09:40,258 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:10 GMT)" executed successfully
+2021-12-19 20:09:46,649 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:09:46 GMT)" (scheduled at 2021-12-19 20:09:46.644510+00:00)
+2021-12-19 20:09:46,653 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:16 GMT)" executed successfully
+2021-12-19 20:10:10,256 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:10 GMT)" (scheduled at 2021-12-19 20:10:10.250146+00:00)
+2021-12-19 20:10:10,257 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:10 GMT)" executed successfully
+2021-12-19 20:10:16,651 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:16 GMT)" (scheduled at 2021-12-19 20:10:16.644510+00:00)
+2021-12-19 20:10:16,653 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:16 GMT)" executed successfully
+2021-12-19 20:10:40,259 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:40 GMT)" (scheduled at 2021-12-19 20:10:40.250146+00:00)
+2021-12-19 20:10:40,260 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:40 GMT)" executed successfully
+2021-12-19 20:10:46,651 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:10:46 GMT)" (scheduled at 2021-12-19 20:10:46.644510+00:00)
+2021-12-19 20:10:46,654 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:11:16 GMT)" executed successfully
+2021-12-19 20:10:55,799 - werkzeug - INFO -  * Detected change in '/home/pi/projects/TrainControll/server.py', reloading
+2021-12-19 20:10:56,324 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 20:11:06,043 - root - INFO - Starting Main....
+2021-12-19 20:11:06,054 - root - INFO - End Main....
+2021-12-19 20:11:06,107 - root - INFO - creating tasks
+2021-12-19 20:11:06,335 - root - INFO - __main__
+2021-12-19 20:11:16,651 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:11:16 GMT)" (scheduled at 2021-12-19 20:11:16.644510+00:00)
+2021-12-19 20:11:16,654 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:11:46 GMT)" executed successfully
+2021-12-19 20:11:19,518 - root - INFO - Starting MQTT....
+2021-12-19 20:11:19,518 - root - INFO - Scheduled Task
+2021-12-19 20:11:20,007 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 20:11:20,016 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 20:11:20,016 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 20:11:20,019 - root - INFO - Starting SocketIO....
+2021-12-19 20:11:20,031 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 20:11:20,034 - werkzeug - INFO -  * Debugger PIN: 191-546-981
+2021-12-19 20:11:46,651 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:11:46 GMT)" (scheduled at 2021-12-19 20:11:46.644510+00:00)
+2021-12-19 20:11:46,654 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:16 GMT)" executed successfully
+2021-12-19 20:11:50,008 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:11:50 GMT)" (scheduled at 2021-12-19 20:11:50.005658+00:00)
+2021-12-19 20:11:50,010 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:20 GMT)" executed successfully
+2021-12-19 20:12:16,650 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:16 GMT)" (scheduled at 2021-12-19 20:12:16.644510+00:00)
+2021-12-19 20:12:16,653 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:46 GMT)" executed successfully
+2021-12-19 20:12:20,022 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:20 GMT)" (scheduled at 2021-12-19 20:12:20.005658+00:00)
+2021-12-19 20:12:20,023 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 20:12:20 GMT)" executed successfully
