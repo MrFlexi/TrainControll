@@ -22,7 +22,7 @@ import struct
 import json
 import base64
 import binascii
-import paho.mqtt.client as mqtt
+#import paho.mqtt.client as mqtt
 
 
 from TrainControll import Clients, UDP, Gleisplan, User
@@ -43,8 +43,9 @@ from time import ctime
 async_mode = None
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-CORS(app)
-socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
+#CORS(app)
+socketio = SocketIO(app, async_mode=async_mode)
+#socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -194,6 +195,8 @@ for item in userlist_json:
 User.printUserList()
 logging.info('End Main....')
 
+def ack():
+    print("message was received")
 
 # ---------------------  ROUTING ------------------------------------
 
@@ -283,14 +286,15 @@ def onConnect():
     print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
 
-    #print(Lok.getDataJSON())
+    #print(Lok.getDataJSON()) 
 
-    # Push data to all connected clients
+    # Push data to all connected clients 
+    time.sleep(2)  #braucht man da Fiori langsam ist und sonst das event verschluckt....
     emit('initialisation', {'data': "",
                          'UserList': User.getDataJSON(),
                          'LokList': Lok.getDataJSON(),
                          'TrackList': Gleisplan.getDataJSON(),
-                         })
+                         }, callback=ack)
 
 
 
