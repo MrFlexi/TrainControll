@@ -64,6 +64,13 @@ if sys.platform.startswith('linux'):
 
     serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=26,  gpio_CS=18)
     device = sh1106(serial, rotate=0)
+    term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
+    term.clear()
+    term.println("Traincontrol 2021")
+    term.println("------------------")
+    term.println("MQTT....")
+    term.println("SocketIO..")
+    term.println()
     today_last_time = "unknown"
 
     def get_interface_ipaddress(ifname):
@@ -80,39 +87,9 @@ if sys.platform.startswith('linux'):
         return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
 
     def init_spi_display():
-        with canvas(device) as draw:
-            draw.rectangle(device.bounding_box, outline="white", fill="black")
-            
-    def init_display():
-        # Display einrichten
-        
-        i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
-        oled = ssd1306(i2cbus)
-
-        # Ein paar Abkrzungen, um den Code zu entschlacken
-        draw = oled.canvas
-
-        # Display zum Start loeschen
-        oled.cls()
-        oled.display()
-
-        # Hallo Welt
-        draw.text((1, 1), "TrainControll", fill=1)
-        draw.text((1, 10), "01-01-2021 ?", fill=1)
-
-        # Ausgaben auf Display schreiben
-        oled.display()
-        
-        term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
-        term.println("Terminal mode demo")
-        term.println("------------------")
-        term.println("Uses any font to output text using a number of different print methods.")
-        term.println()
-        term.println()
-        time.sleep(2)
-        term.println("An animation effect is defaulted to give the appearance of spooling to a teletype device.")
-        term.println()
-        time.sleep(2)
+        print()
+        #with canvas(device) as draw:
+        #draw.rectangle(device.bounding_box, outline="white", fill="black")   
 
     def posn(angle, arm_length):
         dx = int(math.cos(math.radians(angle)) * arm_length)
@@ -122,6 +99,7 @@ if sys.platform.startswith('linux'):
 
     def page_logo():
         img_path = str(Path(__file__).resolve().parent.joinpath('images', 'pi_logo.png'))
+        #img_path = str(Path(__file__).resolve().parent.joinpath('images', 'train logo.jpg'))
         logo = Image.open(img_path).convert("RGBA")
         posn = ((device.width - logo.width) // 2, 0)
         background.paste(logo, posn)
@@ -135,20 +113,11 @@ if sys.platform.startswith('linux'):
         n = Clients.getClientsCount()
 
         with canvas(device) as draw:
-            draw.text((1, 1), "  TrainControll 2021  ", fill=1)
-            
+            draw.text((1, 1), "TrainControll 2021  ", fill=1)
             s = f"Clients:  {n}"
             draw.text((1,40), s, fill = 1)
             ip_s = ip_s +":3033"
             draw.text((1, 50), ip_s, fill=1)
-
-    def page_mqtt(s1):
-        with canvas(device) as draw:
-            draw.text((1, 1), "  TrainControll 2021  ", fill=1)
-            s = "MQTT Command"
-            draw.text((1, 40), s, fill=1)
-            draw.text((1, 50), s1, fill=1)
-
 
 
     def show_clock():
@@ -185,16 +154,13 @@ if sys.platform.startswith('linux'):
 
 def scheduleTask():
     if sys.platform.startswith('linux'):
-        page_0()
+        print()
+        #page_0()
 
 # ---------------------  SETUP  ------------------------------------
+print("SETUP")
 logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logging.info('Starting Main....')
-
-if sys.platform.startswith('linux'):
-    #init_display()     #I2C
-    init_spi_display()  #SPI
-    page_logo()
 
 filename = Path('config/loklist.json')
 if not filename.exists():
@@ -433,7 +399,8 @@ def mqtt_on_message(client, userdata, msg):
     command=message["command"]
     print("processing command:",command)
     if sys.platform.startswith('linux'):
-        page_mqtt(command)
+        term.println("MQTT Command: "+command)
+
 
     if command== "Lok":
         Lok.setNewData(message)
@@ -448,6 +415,7 @@ def mqtt_on_message(client, userdata, msg):
 #-----------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+    print("MAIN")
     #Tasks
     logging.info('creating tasks')
     scheduler = APScheduler()
@@ -455,13 +423,14 @@ if __name__ == '__main__':
     thread_lock = Lock()
     logging.info('__main__')
     
-
     print("Starting MQTT")
-    if sys.platform.startswith('linux'):
-        term = terminal(device, font)
-        term.println("Terminal mode demo")
-        
-        time.sleep(30)
+    if sys.platform.startswith('linux'):  
+        term.println("waiting for network..")   
+        time.sleep(10)
+        term.println("done....")   
+        #page_logo()
+        time.sleep(2)
+
     logging.info('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
@@ -479,5 +448,4 @@ if __name__ == '__main__':
                         )
     scheduler.start()
     logging.info('Starting SocketIO....')
-    socketio.run(app, host='0.0.0.0', port=3033, debug=True)
-
+    socketio.run(app, host='0.0.0.0', port=3033, debug=False)
