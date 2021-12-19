@@ -60,6 +60,7 @@ if sys.platform.startswith('linux'):
     from luma.core.interface.serial import spi
     from luma.core.render import canvas
     from luma.oled.device import sh1106
+    from luma.core.virtual import terminal
 
     serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=26,  gpio_CS=18)
     device = sh1106(serial, rotate=0)
@@ -84,6 +85,7 @@ if sys.platform.startswith('linux'):
             
     def init_display():
         # Display einrichten
+        
         i2cbus = SMBus(1)            # 0 = Raspberry Pi 1, 1 = Raspberry Pi > 1
         oled = ssd1306(i2cbus)
 
@@ -100,6 +102,17 @@ if sys.platform.startswith('linux'):
 
         # Ausgaben auf Display schreiben
         oled.display()
+        
+        term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
+        term.println("Terminal mode demo")
+        term.println("------------------")
+        term.println("Uses any font to output text using a number of different print methods.")
+        term.println()
+        term.println()
+        time.sleep(2)
+        term.println("An animation effect is defaulted to give the appearance of spooling to a teletype device.")
+        term.println()
+        time.sleep(2)
 
     def posn(angle, arm_length):
         dx = int(math.cos(math.radians(angle)) * arm_length)
@@ -444,7 +457,11 @@ if __name__ == '__main__':
     
 
     print("Starting MQTT")
-    time.sleep(30)
+    if sys.platform.startswith('linux'):
+        term = terminal(device, font)
+        term.println("Terminal mode demo")
+        
+        time.sleep(30)
     logging.info('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
@@ -458,7 +475,7 @@ if __name__ == '__main__':
     logging.info('Scheduled Task')
     scheduler.add_job(id = 'Scheduled Task', 
                         func=scheduleTask, 
-                        trigger="interval", seconds=10
+                        trigger="interval", seconds=30
                         )
     scheduler.start()
     logging.info('Starting SocketIO....')
