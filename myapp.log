@@ -2329,3 +2329,456 @@
 2021-12-19 21:55:23,563 - werkzeug - INFO -  * Debugger PIN: 284-581-084
 2021-12-19 21:55:28,577 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
 2021-12-19 21:55:28,886 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:56:44,496 - root - INFO - Starting Main....
+2021-12-19 21:56:44,535 - root - INFO - End Main....
+2021-12-19 21:56:44,561 - root - INFO - creating tasks
+2021-12-19 21:56:44,936 - root - INFO - __main__
+2021-12-19 21:56:44,937 - root - INFO - Starting MQTT....
+2021-12-19 21:56:44,938 - root - INFO - Scheduled Task
+2021-12-19 21:56:45,355 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:56:45,357 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:56:45,359 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:56:45,372 - root - INFO - Starting SocketIO....
+2021-12-19 21:56:45,394 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:56:52,161 - root - INFO - Starting Main....
+2021-12-19 21:56:52,193 - root - INFO - End Main....
+2021-12-19 21:56:52,220 - root - INFO - creating tasks
+2021-12-19 21:56:52,607 - root - INFO - __main__
+2021-12-19 21:56:52,608 - root - INFO - Starting MQTT....
+2021-12-19 21:56:52,609 - root - INFO - Scheduled Task
+2021-12-19 21:56:52,803 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:56:52,804 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:56:52,805 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:56:52,807 - root - INFO - Starting SocketIO....
+2021-12-19 21:56:52,814 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:56:52,840 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 21:57:15,360 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:57:15 CET)" (scheduled at 2021-12-19 21:57:15.354794+01:00)
+2021-12-19 21:57:15,361 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:57:45 CET)" executed successfully
+2021-12-19 21:57:22,817 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:57:22 CET)" (scheduled at 2021-12-19 21:57:22.803425+01:00)
+2021-12-19 21:57:22,818 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:57:52 CET)" executed successfully
+2021-12-19 21:57:45,366 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:15 CET)" (scheduled at 2021-12-19 21:57:45.354794+01:00)
+2021-12-19 21:57:45,366 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:15 CET)" executed successfully
+2021-12-19 21:57:52,818 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:22 CET)" (scheduled at 2021-12-19 21:57:52.803425+01:00)
+2021-12-19 21:57:52,819 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:22 CET)" executed successfully
+2021-12-19 21:58:15,368 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:45 CET)" (scheduled at 2021-12-19 21:58:15.354794+01:00)
+2021-12-19 21:58:15,368 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:45 CET)" executed successfully
+2021-12-19 21:58:22,813 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:52 CET)" (scheduled at 2021-12-19 21:58:22.803425+01:00)
+2021-12-19 21:58:22,814 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:58:52 CET)" executed successfully
+2021-12-19 21:58:45,371 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:59:15 CET)" (scheduled at 2021-12-19 21:58:45.354794+01:00)
+2021-12-19 21:58:45,372 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:59:15 CET)" executed successfully
+2021-12-19 21:58:50,838 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 21:58:51,186 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:58:56,956 - root - INFO - Starting Main....
+2021-12-19 21:58:56,971 - root - INFO - End Main....
+2021-12-19 21:58:56,984 - root - INFO - creating tasks
+2021-12-19 21:58:57,275 - root - INFO - __main__
+2021-12-19 21:58:57,279 - root - INFO - Starting MQTT....
+2021-12-19 21:58:57,280 - root - INFO - Scheduled Task
+2021-12-19 21:58:57,512 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:58:57,513 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:58:57,513 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:58:57,515 - root - INFO - Starting SocketIO....
+2021-12-19 21:58:57,521 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:58:57,542 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 21:59:01,496 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 21:59:02,110 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:59:06,888 - root - INFO - Starting Main....
+2021-12-19 21:59:06,923 - root - INFO - End Main....
+2021-12-19 21:59:06,938 - root - INFO - creating tasks
+2021-12-19 21:59:07,117 - root - INFO - __main__
+2021-12-19 21:59:07,117 - root - INFO - Starting MQTT....
+2021-12-19 21:59:07,118 - root - INFO - Scheduled Task
+2021-12-19 21:59:07,198 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:59:07,199 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:59:07,199 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:59:07,199 - root - INFO - Starting SocketIO....
+2021-12-19 21:59:07,202 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:59:07,212 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 21:59:15,359 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:59:45 CET)" (scheduled at 2021-12-19 21:59:15.354794+01:00)
+2021-12-19 21:59:15,360 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 21:59:45 CET)" executed successfully
+2021-12-19 21:59:17,774 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 21:59:18,117 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:59:24,405 - root - INFO - Starting Main....
+2021-12-19 21:59:24,464 - root - INFO - End Main....
+2021-12-19 21:59:24,498 - root - INFO - creating tasks
+2021-12-19 21:59:25,182 - root - INFO - __main__
+2021-12-19 21:59:25,183 - root - INFO - Starting MQTT....
+2021-12-19 21:59:25,184 - root - INFO - Scheduled Task
+2021-12-19 21:59:25,376 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:59:25,377 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:59:25,377 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:59:25,379 - root - INFO - Starting SocketIO....
+2021-12-19 21:59:25,385 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:59:25,406 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 21:59:30,197 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 21:59:30,570 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:59:39,835 - root - INFO - Starting Main....
+2021-12-19 21:59:39,881 - root - INFO - End Main....
+2021-12-19 21:59:39,904 - root - INFO - creating tasks
+2021-12-19 21:59:40,194 - root - INFO - __main__
+2021-12-19 21:59:40,195 - root - INFO - Starting MQTT....
+2021-12-19 21:59:40,195 - root - INFO - Scheduled Task
+2021-12-19 21:59:40,289 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:59:40,289 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:59:40,289 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:59:40,290 - root - INFO - Starting SocketIO....
+2021-12-19 21:59:40,293 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:59:40,305 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 21:59:45,373 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:00:15 CET)" (scheduled at 2021-12-19 21:59:45.354794+01:00)
+2021-12-19 21:59:45,375 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:00:15 CET)" executed successfully
+2021-12-19 21:59:51,242 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 21:59:51,501 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 21:59:57,840 - root - INFO - Starting Main....
+2021-12-19 21:59:57,881 - root - INFO - End Main....
+2021-12-19 21:59:57,909 - root - INFO - creating tasks
+2021-12-19 21:59:58,267 - root - INFO - __main__
+2021-12-19 21:59:58,268 - root - INFO - Starting MQTT....
+2021-12-19 21:59:58,269 - root - INFO - Scheduled Task
+2021-12-19 21:59:58,475 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 21:59:58,476 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 21:59:58,477 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 21:59:58,479 - root - INFO - Starting SocketIO....
+2021-12-19 21:59:58,491 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 21:59:58,527 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:00:00,833 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:00:01,037 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:00:06,334 - root - INFO - Starting Main....
+2021-12-19 22:00:06,462 - root - INFO - End Main....
+2021-12-19 22:00:06,544 - root - INFO - creating tasks
+2021-12-19 22:00:07,356 - root - INFO - __main__
+2021-12-19 22:00:07,358 - root - INFO - Starting MQTT....
+2021-12-19 22:00:07,359 - root - INFO - Scheduled Task
+2021-12-19 22:00:07,638 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:00:07,640 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:00:07,640 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:00:07,643 - root - INFO - Starting SocketIO....
+2021-12-19 22:00:07,650 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:00:07,676 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:00:07,737 - engineio.server - ERROR - Invalid session JwH0Rz3MxNqgqY97AAAA (further occurrences of this error will be logged with level INFO)
+2021-12-19 22:00:15,364 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:00:45 CET)" (scheduled at 2021-12-19 22:00:15.354794+01:00)
+2021-12-19 22:00:15,365 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:00:45 CET)" executed successfully
+2021-12-19 22:00:29,784 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:00:30,143 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:00:36,219 - root - INFO - Starting Main....
+2021-12-19 22:00:36,257 - root - INFO - End Main....
+2021-12-19 22:00:36,279 - root - INFO - creating tasks
+2021-12-19 22:00:36,740 - root - INFO - __main__
+2021-12-19 22:00:36,742 - root - INFO - Starting MQTT....
+2021-12-19 22:00:36,743 - root - INFO - Scheduled Task
+2021-12-19 22:00:36,912 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:00:36,913 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:00:36,914 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:00:36,916 - root - INFO - Starting SocketIO....
+2021-12-19 22:00:36,922 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:00:36,943 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:00:45,368 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:01:15 CET)" (scheduled at 2021-12-19 22:00:45.354794+01:00)
+2021-12-19 22:00:45,368 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:01:15 CET)" executed successfully
+2021-12-19 22:00:51,075 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:00:51,858 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:00:57,557 - root - INFO - Starting Main....
+2021-12-19 22:00:57,583 - root - INFO - End Main....
+2021-12-19 22:00:57,614 - root - INFO - creating tasks
+2021-12-19 22:00:58,193 - root - INFO - __main__
+2021-12-19 22:00:58,194 - root - INFO - Starting MQTT....
+2021-12-19 22:00:58,198 - root - INFO - Scheduled Task
+2021-12-19 22:00:58,410 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:00:58,411 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:00:58,411 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:00:58,413 - root - INFO - Starting SocketIO....
+2021-12-19 22:00:58,420 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:00:58,441 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:14:28,498 - root - INFO - Starting Main....
+2021-12-19 22:14:28,535 - root - INFO - End Main....
+2021-12-19 22:14:28,556 - root - INFO - creating tasks
+2021-12-19 22:14:28,905 - root - INFO - __main__
+2021-12-19 22:14:28,906 - root - INFO - Scheduled Task
+2021-12-19 22:14:29,078 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:14:29,079 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:14:29,080 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:14:29,082 - root - INFO - Starting SocketIO....
+2021-12-19 22:14:29,094 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:14:34,353 - root - INFO - Starting Main....
+2021-12-19 22:14:34,389 - root - INFO - End Main....
+2021-12-19 22:14:34,413 - root - INFO - creating tasks
+2021-12-19 22:14:34,758 - root - INFO - __main__
+2021-12-19 22:14:34,759 - root - INFO - Scheduled Task
+2021-12-19 22:14:34,933 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:14:34,934 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:14:34,934 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:14:34,936 - root - INFO - Starting SocketIO....
+2021-12-19 22:14:34,942 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:14:34,963 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:14:59,084 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:14:59 CET)" (scheduled at 2021-12-19 22:14:59.078692+01:00)
+2021-12-19 22:14:59,085 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:15:29 CET)" executed successfully
+2021-12-19 22:15:04,948 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:15:04 CET)" (scheduled at 2021-12-19 22:15:04.932505+01:00)
+2021-12-19 22:15:04,950 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:15:34 CET)" executed successfully
+2021-12-19 22:15:29,098 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:15:59 CET)" (scheduled at 2021-12-19 22:15:29.078692+01:00)
+2021-12-19 22:15:29,098 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:15:59 CET)" executed successfully
+2021-12-19 22:15:34,943 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:04 CET)" (scheduled at 2021-12-19 22:15:34.932505+01:00)
+2021-12-19 22:15:34,944 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:04 CET)" executed successfully
+2021-12-19 22:15:59,092 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:29 CET)" (scheduled at 2021-12-19 22:15:59.078692+01:00)
+2021-12-19 22:15:59,092 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:29 CET)" executed successfully
+2021-12-19 22:16:04,942 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:34 CET)" (scheduled at 2021-12-19 22:16:04.932505+01:00)
+2021-12-19 22:16:04,943 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:34 CET)" executed successfully
+2021-12-19 22:16:29,098 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:59 CET)" (scheduled at 2021-12-19 22:16:29.078692+01:00)
+2021-12-19 22:16:29,099 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:16:59 CET)" executed successfully
+2021-12-19 22:16:34,946 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:04 CET)" (scheduled at 2021-12-19 22:16:34.932505+01:00)
+2021-12-19 22:16:34,947 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:04 CET)" executed successfully
+2021-12-19 22:16:59,088 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:29 CET)" (scheduled at 2021-12-19 22:16:59.078692+01:00)
+2021-12-19 22:16:59,088 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:29 CET)" executed successfully
+2021-12-19 22:17:04,944 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:34 CET)" (scheduled at 2021-12-19 22:17:04.932505+01:00)
+2021-12-19 22:17:04,944 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:34 CET)" executed successfully
+2021-12-19 22:17:29,092 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:59 CET)" (scheduled at 2021-12-19 22:17:29.078692+01:00)
+2021-12-19 22:17:29,092 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:17:59 CET)" executed successfully
+2021-12-19 22:17:34,941 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:04 CET)" (scheduled at 2021-12-19 22:17:34.932505+01:00)
+2021-12-19 22:17:34,943 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:04 CET)" executed successfully
+2021-12-19 22:17:59,088 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:29 CET)" (scheduled at 2021-12-19 22:17:59.078692+01:00)
+2021-12-19 22:17:59,088 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:29 CET)" executed successfully
+2021-12-19 22:18:04,944 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:34 CET)" (scheduled at 2021-12-19 22:18:04.932505+01:00)
+2021-12-19 22:18:04,944 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:34 CET)" executed successfully
+2021-12-19 22:18:29,087 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:59 CET)" (scheduled at 2021-12-19 22:18:29.078692+01:00)
+2021-12-19 22:18:29,087 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:18:59 CET)" executed successfully
+2021-12-19 22:18:34,947 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:04 CET)" (scheduled at 2021-12-19 22:18:34.932505+01:00)
+2021-12-19 22:18:34,947 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:04 CET)" executed successfully
+2021-12-19 22:18:59,084 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:29 CET)" (scheduled at 2021-12-19 22:18:59.078692+01:00)
+2021-12-19 22:18:59,084 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:29 CET)" executed successfully
+2021-12-19 22:19:04,936 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:34 CET)" (scheduled at 2021-12-19 22:19:04.932505+01:00)
+2021-12-19 22:19:04,937 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:34 CET)" executed successfully
+2021-12-19 22:19:29,088 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:59 CET)" (scheduled at 2021-12-19 22:19:29.078692+01:00)
+2021-12-19 22:19:29,088 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:19:59 CET)" executed successfully
+2021-12-19 22:19:34,950 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:04 CET)" (scheduled at 2021-12-19 22:19:34.932505+01:00)
+2021-12-19 22:19:34,950 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:04 CET)" executed successfully
+2021-12-19 22:19:59,087 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:29 CET)" (scheduled at 2021-12-19 22:19:59.078692+01:00)
+2021-12-19 22:19:59,088 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:29 CET)" executed successfully
+2021-12-19 22:20:04,946 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:34 CET)" (scheduled at 2021-12-19 22:20:04.932505+01:00)
+2021-12-19 22:20:04,946 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:34 CET)" executed successfully
+2021-12-19 22:20:29,093 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:59 CET)" (scheduled at 2021-12-19 22:20:29.078692+01:00)
+2021-12-19 22:20:29,093 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:20:59 CET)" executed successfully
+2021-12-19 22:20:34,949 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:04 CET)" (scheduled at 2021-12-19 22:20:34.932505+01:00)
+2021-12-19 22:20:34,950 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:04 CET)" executed successfully
+2021-12-19 22:20:59,101 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:29 CET)" (scheduled at 2021-12-19 22:20:59.078692+01:00)
+2021-12-19 22:20:59,101 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:29 CET)" executed successfully
+2021-12-19 22:21:04,938 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:34 CET)" (scheduled at 2021-12-19 22:21:04.932505+01:00)
+2021-12-19 22:21:04,939 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:34 CET)" executed successfully
+2021-12-19 22:21:29,093 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:59 CET)" (scheduled at 2021-12-19 22:21:29.078692+01:00)
+2021-12-19 22:21:29,094 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:21:59 CET)" executed successfully
+2021-12-19 22:21:33,460 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:21:34,494 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:21:41,206 - root - INFO - Starting Main....
+2021-12-19 22:21:41,351 - root - INFO - End Main....
+2021-12-19 22:21:41,373 - root - INFO - creating tasks
+2021-12-19 22:21:41,615 - root - INFO - __main__
+2021-12-19 22:21:41,616 - root - INFO - Scheduled Task
+2021-12-19 22:21:41,760 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:21:41,761 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:21:41,761 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:21:41,762 - root - INFO - Starting SocketIO....
+2021-12-19 22:21:41,766 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:21:41,785 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:21:43,113 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:21:43,307 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:21:45,931 - root - INFO - Starting Main....
+2021-12-19 22:21:45,940 - root - INFO - End Main....
+2021-12-19 22:21:45,948 - root - INFO - creating tasks
+2021-12-19 22:21:46,190 - root - INFO - __main__
+2021-12-19 22:21:46,191 - root - INFO - Scheduled Task
+2021-12-19 22:21:46,375 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:21:46,376 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:21:46,376 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:21:46,378 - root - INFO - Starting SocketIO....
+2021-12-19 22:21:46,384 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:21:46,405 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:21:48,361 - engineio.server - ERROR - Invalid session eC6WKgSFB3RLKWyIAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-19 22:21:59,096 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:29 CET)" (scheduled at 2021-12-19 22:21:59.078692+01:00)
+2021-12-19 22:21:59,096 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:29 CET)" executed successfully
+2021-12-19 22:22:16,378 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:16 CET)" (scheduled at 2021-12-19 22:22:16.374309+01:00)
+2021-12-19 22:22:16,379 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:46 CET)" executed successfully
+2021-12-19 22:22:29,090 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:59 CET)" (scheduled at 2021-12-19 22:22:29.078692+01:00)
+2021-12-19 22:22:29,091 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:22:59 CET)" executed successfully
+2021-12-19 22:22:46,390 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:16 CET)" (scheduled at 2021-12-19 22:22:46.374309+01:00)
+2021-12-19 22:22:46,391 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:16 CET)" executed successfully
+2021-12-19 22:22:59,090 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:29 CET)" (scheduled at 2021-12-19 22:22:59.078692+01:00)
+2021-12-19 22:22:59,090 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:29 CET)" executed successfully
+2021-12-19 22:23:16,403 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:46 CET)" (scheduled at 2021-12-19 22:23:16.374309+01:00)
+2021-12-19 22:23:16,403 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:46 CET)" executed successfully
+2021-12-19 22:23:29,094 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:59 CET)" (scheduled at 2021-12-19 22:23:29.078692+01:00)
+2021-12-19 22:23:29,095 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:23:59 CET)" executed successfully
+2021-12-19 22:23:33,510 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:23:33,999 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:23:40,123 - root - INFO - Starting Main....
+2021-12-19 22:23:40,149 - root - INFO - End Main....
+2021-12-19 22:23:40,169 - root - INFO - creating tasks
+2021-12-19 22:23:40,500 - root - INFO - __main__
+2021-12-19 22:23:40,502 - root - INFO - Scheduled Task
+2021-12-19 22:23:40,666 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:23:40,667 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:23:40,667 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:23:40,669 - root - INFO - Starting SocketIO....
+2021-12-19 22:23:40,675 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:23:40,695 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:23:59,102 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:29 CET)" (scheduled at 2021-12-19 22:23:59.078692+01:00)
+2021-12-19 22:23:59,104 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:29 CET)" executed successfully
+2021-12-19 22:24:10,682 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:10 CET)" (scheduled at 2021-12-19 22:24:10.666209+01:00)
+2021-12-19 22:24:10,684 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:40 CET)" executed successfully
+2021-12-19 22:24:18,676 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:24:19,031 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:24:25,454 - root - INFO - Starting Main....
+2021-12-19 22:24:25,573 - root - INFO - End Main....
+2021-12-19 22:24:25,609 - root - INFO - creating tasks
+2021-12-19 22:24:26,310 - root - INFO - __main__
+2021-12-19 22:24:26,318 - root - INFO - Scheduled Task
+2021-12-19 22:24:26,582 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:24:26,583 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:24:26,583 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:24:26,587 - root - INFO - Starting SocketIO....
+2021-12-19 22:24:26,595 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:24:26,620 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:24:28,372 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:24:28,624 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:24:29,086 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:59 CET)" (scheduled at 2021-12-19 22:24:29.078692+01:00)
+2021-12-19 22:24:29,087 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:24:59 CET)" executed successfully
+2021-12-19 22:24:34,908 - root - INFO - Starting Main....
+2021-12-19 22:24:34,932 - root - INFO - End Main....
+2021-12-19 22:24:34,950 - root - INFO - creating tasks
+2021-12-19 22:24:35,433 - root - INFO - __main__
+2021-12-19 22:24:35,437 - root - INFO - Scheduled Task
+2021-12-19 22:24:35,643 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:24:35,644 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:24:35,644 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:24:35,646 - root - INFO - Starting SocketIO....
+2021-12-19 22:24:35,651 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:24:35,669 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:24:35,824 - engineio.server - ERROR - Invalid session B4IqYZyUlAkMNBiJAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-19 22:24:41,659 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:24:41,865 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:24:48,314 - root - INFO - Starting Main....
+2021-12-19 22:24:48,346 - root - INFO - End Main....
+2021-12-19 22:24:48,368 - root - INFO - creating tasks
+2021-12-19 22:24:48,739 - root - INFO - __main__
+2021-12-19 22:24:48,741 - root - INFO - Scheduled Task
+2021-12-19 22:24:48,986 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:24:48,987 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:24:48,987 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:24:48,988 - root - INFO - Starting SocketIO....
+2021-12-19 22:24:48,995 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:24:49,017 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:24:59,081 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:29 CET)" (scheduled at 2021-12-19 22:24:59.078692+01:00)
+2021-12-19 22:24:59,082 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:29 CET)" executed successfully
+2021-12-19 22:25:18,990 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:18 CET)" (scheduled at 2021-12-19 22:25:18.985388+01:00)
+2021-12-19 22:25:18,992 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:48 CET)" executed successfully
+2021-12-19 22:25:29,085 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:59 CET)" (scheduled at 2021-12-19 22:25:29.078692+01:00)
+2021-12-19 22:25:29,086 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:25:59 CET)" executed successfully
+2021-12-19 22:25:48,991 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:18 CET)" (scheduled at 2021-12-19 22:25:48.985388+01:00)
+2021-12-19 22:25:48,991 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:18 CET)" executed successfully
+2021-12-19 22:25:59,081 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:29 CET)" (scheduled at 2021-12-19 22:25:59.078692+01:00)
+2021-12-19 22:25:59,082 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:29 CET)" executed successfully
+2021-12-19 22:26:18,998 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:48 CET)" (scheduled at 2021-12-19 22:26:18.985388+01:00)
+2021-12-19 22:26:18,999 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:26:48 CET)" executed successfully
+2021-12-19 22:26:23,409 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-19 22:26:23,823 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:31:26,667 - root - INFO - Starting Main....
+2021-12-19 22:31:26,703 - root - INFO - End Main....
+2021-12-19 22:31:26,726 - root - INFO - creating tasks
+2021-12-19 22:31:27,068 - root - INFO - __main__
+2021-12-19 22:31:27,069 - root - INFO - Scheduled Task
+2021-12-19 22:31:27,247 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:31:27,248 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:31:27,249 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:31:27,251 - root - INFO - Starting SocketIO....
+2021-12-19 22:31:27,263 - werkzeug - INFO -  * Restarting with stat
+2021-12-19 22:31:32,453 - root - INFO - Starting Main....
+2021-12-19 22:31:32,489 - root - INFO - End Main....
+2021-12-19 22:31:32,513 - root - INFO - creating tasks
+2021-12-19 22:31:32,893 - root - INFO - __main__
+2021-12-19 22:31:32,895 - root - INFO - Scheduled Task
+2021-12-19 22:31:33,111 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-19 22:31:33,112 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-19 22:31:33,112 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-19 22:31:33,114 - root - INFO - Starting SocketIO....
+2021-12-19 22:31:33,120 - werkzeug - WARNING -  * Debugger is active!
+2021-12-19 22:31:33,140 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-19 22:31:57,250 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:31:57 CET)" (scheduled at 2021-12-19 22:31:57.247530+01:00)
+2021-12-19 22:31:57,252 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:32:27 CET)" executed successfully
+2021-12-19 22:32:03,120 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:32:03 CET)" (scheduled at 2021-12-19 22:32:03.110742+01:00)
+2021-12-19 22:32:03,121 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-19 22:32:33 CET)" executed successfully
+2021-12-20 08:04:54,074 - root - INFO - Starting Main....
+2021-12-20 08:04:54,357 - root - INFO - End Main....
+2021-12-20 08:04:54,392 - root - INFO - creating tasks
+2021-12-20 08:05:02,551 - root - INFO - __main__
+2021-12-20 08:05:02,556 - root - INFO - Starting MQTT....
+2021-12-20 08:05:02,556 - root - INFO - Scheduled Task
+2021-12-20 08:05:02,911 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-20 08:05:02,912 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-20 08:05:02,912 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-20 08:05:02,913 - root - INFO - Starting SocketIO....
+2021-12-20 08:05:02,922 - werkzeug - INFO -  * Restarting with stat
+2021-12-20 08:05:07,943 - root - INFO - Starting Main....
+2021-12-20 08:05:07,954 - root - INFO - End Main....
+2021-12-20 08:05:07,963 - root - INFO - creating tasks
+2021-12-20 08:05:08,106 - root - INFO - __main__
+2021-12-20 08:05:08,106 - root - INFO - Starting MQTT....
+2021-12-20 08:05:08,107 - root - INFO - Scheduled Task
+2021-12-20 08:05:08,182 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-20 08:05:08,183 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-20 08:05:08,183 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-20 08:05:08,184 - root - INFO - Starting SocketIO....
+2021-12-20 08:05:08,186 - werkzeug - WARNING -  * Debugger is active!
+2021-12-20 08:05:08,197 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-20 08:05:32,927 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:05:32 CET)" (scheduled at 2021-12-20 08:05:32.910238+01:00)
+2021-12-20 08:05:32,928 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:02 CET)" executed successfully
+2021-12-20 08:05:38,198 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:05:38 CET)" (scheduled at 2021-12-20 08:05:38.182991+01:00)
+2021-12-20 08:05:38,199 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:08 CET)" executed successfully
+2021-12-20 08:06:02,925 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:32 CET)" (scheduled at 2021-12-20 08:06:02.910238+01:00)
+2021-12-20 08:06:02,926 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:32 CET)" executed successfully
+2021-12-20 08:06:08,202 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:38 CET)" (scheduled at 2021-12-20 08:06:08.182991+01:00)
+2021-12-20 08:06:08,203 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:06:38 CET)" executed successfully
+2021-12-20 08:06:32,926 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:02 CET)" (scheduled at 2021-12-20 08:06:32.910238+01:00)
+2021-12-20 08:06:32,927 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:02 CET)" executed successfully
+2021-12-20 08:06:38,200 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:08 CET)" (scheduled at 2021-12-20 08:06:38.182991+01:00)
+2021-12-20 08:06:38,201 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:08 CET)" executed successfully
+2021-12-20 08:07:02,924 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:32 CET)" (scheduled at 2021-12-20 08:07:02.910238+01:00)
+2021-12-20 08:07:02,925 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:32 CET)" executed successfully
+2021-12-20 08:07:08,191 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:38 CET)" (scheduled at 2021-12-20 08:07:08.182991+01:00)
+2021-12-20 08:07:08,192 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:07:38 CET)" executed successfully
+2021-12-20 08:07:32,921 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:02 CET)" (scheduled at 2021-12-20 08:07:32.910238+01:00)
+2021-12-20 08:07:32,921 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:02 CET)" executed successfully
+2021-12-20 08:07:38,191 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:08 CET)" (scheduled at 2021-12-20 08:07:38.182991+01:00)
+2021-12-20 08:07:38,192 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:08 CET)" executed successfully
+2021-12-20 08:07:55,298 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-20 08:07:56,073 - werkzeug - INFO -  * Restarting with stat
+2021-12-20 08:08:02,927 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:32 CET)" (scheduled at 2021-12-20 08:08:02.910238+01:00)
+2021-12-20 08:08:02,928 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:08:32 CET)" executed successfully
+2021-12-20 08:08:03,076 - root - INFO - Starting Main....
+2021-12-20 08:08:03,120 - root - INFO - End Main....
+2021-12-20 08:08:03,143 - root - INFO - creating tasks
+2021-12-20 08:08:03,652 - root - INFO - __main__
+2021-12-20 08:08:03,657 - root - INFO - Starting MQTT....
+2021-12-20 08:08:30,938 - root - INFO - Starting Main....
+2021-12-20 08:08:30,979 - root - INFO - End Main....
+2021-12-20 08:08:31,018 - root - INFO - creating tasks
+2021-12-20 08:08:31,501 - root - INFO - __main__
+2021-12-20 08:08:31,502 - root - INFO - Starting MQTT....
+2021-12-20 08:08:31,576 - root - INFO - Scheduled Task
+2021-12-20 08:08:31,792 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-20 08:08:31,793 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-20 08:08:31,794 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-20 08:08:31,795 - root - INFO - Starting SocketIO....
+2021-12-20 08:08:31,808 - werkzeug - INFO -  * Restarting with stat
+2021-12-20 08:08:37,832 - root - INFO - Starting Main....
+2021-12-20 08:08:37,878 - root - INFO - End Main....
+2021-12-20 08:08:37,909 - root - INFO - creating tasks
+2021-12-20 08:08:38,314 - root - INFO - __main__
+2021-12-20 08:08:38,316 - root - INFO - Starting MQTT....
+2021-12-20 08:08:38,337 - root - INFO - Scheduled Task
+2021-12-20 08:08:38,550 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-20 08:08:38,551 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-20 08:08:38,552 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-20 08:08:38,554 - root - INFO - Starting SocketIO....
+2021-12-20 08:08:38,560 - werkzeug - WARNING -  * Debugger is active!
+2021-12-20 08:08:38,593 - werkzeug - INFO -  * Debugger PIN: 284-581-084
+2021-12-20 08:09:01,802 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:09:01 CET)" (scheduled at 2021-12-20 08:09:01.792668+01:00)
+2021-12-20 08:09:01,803 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:09:31 CET)" executed successfully
+2021-12-20 08:09:08,572 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:09:08 CET)" (scheduled at 2021-12-20 08:09:08.550487+01:00)
+2021-12-20 08:09:08,575 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-20 08:09:38 CET)" executed successfully
+2021-12-20 08:09:09,059 - werkzeug - INFO -  * Detected change in 'D:\\Jochen\\Projekte\\Modellbahn\\TrainControllGitClone\\TrainControll\\server.py', reloading
+2021-12-20 08:09:09,275 - werkzeug - INFO -  * Restarting with stat

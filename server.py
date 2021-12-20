@@ -22,7 +22,7 @@ import struct
 import json
 import base64
 import binascii
-#import paho.mqtt.client as mqtt
+import paho.mqtt.client as mqtt
 
 
 from TrainControll import Clients, UDP, Gleisplan, User
@@ -43,9 +43,9 @@ from time import ctime
 async_mode = None
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-#CORS(app)
-socketio = SocketIO(app, async_mode=async_mode)
-#socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
+
+CORS(app)
+socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -81,7 +81,6 @@ if sys.platform.startswith('linux'):
         0x8915,  # SIOCGIFADDR
         struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
 
-
     def get_ip():
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
@@ -97,7 +96,6 @@ if sys.platform.startswith('linux'):
         dy = int(math.sin(math.radians(angle)) * arm_length)
         return (dx, dy)
 
-
     def page_logo():
         img_path = str(Path(__file__).resolve().parent.joinpath('images', 'pi_logo.png'))
         #img_path = str(Path(__file__).resolve().parent.joinpath('images', 'train logo.jpg'))
@@ -105,8 +103,6 @@ if sys.platform.startswith('linux'):
         posn = ((device.width - logo.width) // 2, 0)
         background.paste(logo, posn)
         device.display(background.convert(device.mode))
-     
-
     
     def page_0():
         ip_s = get_interface_ipaddress('wlan0')
@@ -119,8 +115,7 @@ if sys.platform.startswith('linux'):
             draw.text((1,40), s, fill = 1)
             ip_s = ip_s +":3033"
             draw.text((1, 50), ip_s, fill=1)
-
-
+            
     def show_clock():
         logging.info('Show clock....')
         now = datetime.datetime.now()
@@ -147,11 +142,9 @@ if sys.platform.startswith('linux'):
             draw.ellipse((cx - 2, cy - 2, cx + 2, cy + 2), fill="white", outline="white")
             draw.text((2 * (cx + margin), cy - 8), today_date, fill="yellow")
             draw.text((2 * (cx + margin), cy), today_time, fill="yellow")  
-            draw.text((64, 10), "TrainControll", fill="white")   
+            draw.text((64, 10), "TrainControll", fill="white"   
     
-    background = Image.new("RGBA", device.size, "white") 
-                
-                
+    background = Image.new("RGBA", device.size, "white")
 
 def scheduleTask():
     if sys.platform.startswith('linux'):
@@ -199,7 +192,6 @@ def ack():
     print("message was received")
 
 # ---------------------  ROUTING ------------------------------------
-
 def background_thread():
     """Example of how to send server generated events to clients."""
     count = 0
@@ -217,8 +209,7 @@ def before_request():
 @app.route('/Old')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode, **values )
-
-
+    
 @app.route('/Upload')
 def Upload():
     return render_template('Upload.html', async_mode=socketio.async_mode)
@@ -231,7 +222,6 @@ def UI5():
 def track():
     return render_template('track.html', async_mode=socketio.async_mode)
 
-
 @app.route('/TrackShow')
 def track_show():
     return render_template('trackshow.html', async_mode=socketio.async_mode)
@@ -240,22 +230,19 @@ def track_show():
 def track_create():
     return render_template('trackcreate.html', async_mode=socketio.async_mode)
 
-
 # ---------------------  SocketIO Event Handling ------------------------------------
 # React on slide change on clients
 # broadcast slider values to all clients
 @socketio.on('main_controller_value_changed', namespace='')
 def main_controller_value_changed(message):
     print()
-    print("------------------------------------------------------------------")
-   
+    print("------------------------------------------------------------------")   
     data = message["data"]
     id = int(data["id"])
     speed = int(data["speed"])
     term.println("Lok: " + str(id) ) 
     term.println("Speed: " + str(speed) ) 
-    print ("Value change of Lok ID ", id) 
-    
+    print ("Value change of Lok ID ", id)     
     # Write new data into class, handle data changes
     Lok.setNewData(message["data"])
 
@@ -265,9 +252,7 @@ def main_controller_value_changed(message):
 
     #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
     #                    'user': User.getDataJSON()})
-
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
-
 
 @socketio.on('LokListDataChanged', namespace='')
 def LokListDataChanged(message):
@@ -275,8 +260,7 @@ def LokListDataChanged(message):
     print ("Value change of Session ID" + str(request.sid))
     print ("Client" + str( client_id ))
     for a in message:
-        Lok.setNewData(a)
- 
+        Lok.setNewData(a) 
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
 @socketio.on('connect', namespace='')
@@ -285,9 +269,7 @@ def onConnect():
     print("------------------------------------------------------------------")
     print ("New Client connected :Session ID: " + str( request.sid ))
     Clients.newClient(request.sid)
-
     #print(Lok.getDataJSON()) 
-
     # Push data to all connected clients 
     time.sleep(2)  #braucht man da Fiori langsam ist und sonst das event verschluckt....
     emit('initialisation', {'data': "",
@@ -296,30 +278,23 @@ def onConnect():
                          'TrackList': Gleisplan.getDataJSON(),
                          }, callback=ack)
 
-
-
 @socketio.on('disconnect', namespace='')
 def onDiscconnect():
     print ("Client disconnected: " + str( request.sid ))
-    Clients.deleteClient(request.sid)
-    
+    Clients.deleteClient(request.sid)    
 
 # React on User has logged on
 @socketio.on('User_changed', namespace='')
 def User_changed(message):
     client_id = Clients.getClientIDfromSID(request.sid)
     user_name = message["user_name"]
-
     print ("User Changed on Client " + str(client_id) + " to " + user_name)
-
     CTRL.setUserName(client_id, user_name)
-
     # Push new data to single client
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
                         'LokList': Lok.getDataJSON(),
                          'UserList': User.getDataJSON()
                              }, broadcast=True )
-
 
    # React on locomotion chaged in Picture Carousel
 @socketio.on('Lok_changed', namespace='')
@@ -333,25 +308,20 @@ def value_changed(message):
     emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
                          'user': User.getDataJSON()
                         })
-
-
     # Push new data to all connected clients
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
-
 
 @socketio.on('toggle_turnout', namespace='')
 def toggle_turnout(message):
     Gleisplan.toggle_turnout(message);
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
-
 @socketio.on('track_changed', namespace='')
 def track_changed(message):
     print("")
     print(message)
     Gleisplan.set_turnout(message["id"], message["dir"]);
-    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
-    
+    emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
 
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
@@ -360,18 +330,15 @@ def gleisplan_save(message):
     # Push new data to all connected clients
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
-
 @socketio.on('Weiche_neu', namespace='')
 def weiche_neu(message):
     Gleisplan.new(message)
     # Push new data to all connected clients
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
 
-
 @socketio.on('onFabricSave', namespace='')
 def fabric_save(message):    
-    Gleisplan.fabric_save(message)   
-
+    Gleisplan.fabric_save(message)
 
 @socketio.on('onFabricLoad', namespace='')
 def fabric_load():    
@@ -381,7 +348,6 @@ def fabric_load():
 #-----------------------------------------------------------------------------------------------
 #   MQTT
 #-----------------------------------------------------------------------------------------------
-
 # The callback for when the client receives a CONNACK response from the server.
 def mqtt_on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -406,8 +372,7 @@ def mqtt_on_message(client, userdata, msg):
     print("processing command:",command)
     if sys.platform.startswith('linux'):
         term.println("MQTT Command: "+command)
-
-
+        
     if command== "Lok":
         Lok.setNewData(message)
         socketio.emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
@@ -419,7 +384,6 @@ def mqtt_on_message(client, userdata, msg):
 #-----------------------------------------------------------------------------------------------
 #   MAIN
 #-----------------------------------------------------------------------------------------------
-
 if __name__ == '__main__':
     print("MAIN")
     #Tasks
@@ -439,13 +403,12 @@ if __name__ == '__main__':
 
     logging.info('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
-    #client = mqtt.Client()
-    #client.on_connect = mqtt_on_connect
-    #client.on_disconnect = mqtt_on_disconnect
-    #client.on_message = mqtt_on_message
-    #client.connect("85.209.49.65", 1883, 60)
-    #client.loop_start()
-    
+    client = mqtt.Client()
+    client.on_connect = mqtt_on_connect
+    client.on_disconnect = mqtt_on_disconnect
+    client.on_message = mqtt_on_message
+    client.connect("85.209.49.65", 1883, 60)
+    client.loop_start()    
     
     logging.info('Scheduled Task')
     scheduler.add_job(id = 'Scheduled Task', 
