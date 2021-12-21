@@ -1,234 +1,142 @@
-2021-12-21 17:15:42,108 - root - INFO - Logging created...
-2021-12-21 17:15:42,108 - root - INFO - Setup....
-2021-12-21 17:15:42,125 - root - INFO - End Main....
-2021-12-21 17:15:42,128 - root - INFO - creating tasks
-2021-12-21 17:15:42,231 - root - INFO - __main__
-2021-12-21 17:15:42,241 - root - INFO - Starting MQTT....
-2021-12-21 17:15:42,266 - root - INFO - Scheduled Task
-2021-12-21 17:15:42,305 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:15:42,306 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:15:42,306 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:15:42,307 - root - INFO - Starting SocketIO....
-2021-12-21 17:15:42,308 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:15:42,308 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:15:42,317 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:15:42,334 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:15:42,357 - engineio.server - ERROR - Invalid session 8SXXuaehxxCNXWMdAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:15:42,358 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:15:42] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTnktY&sid=8SXXuaehxxCNXWMdAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:15:42,827 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:15:42] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTnlBj HTTP/1.1[0m" 200 -
-2021-12-21 17:15:45,165 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:15:45] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTnlBo&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:15:45,165 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:15:45] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTnlBp&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:07,843 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:07] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTnlmS&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:08,164 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:08] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTnrIh&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:12,310 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:16:12 CET)" (scheduled at 2021-12-21 17:16:12.304129+01:00)
-2021-12-21 17:16:12,310 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:16:42 CET)" executed successfully
-2021-12-21 17:16:33,170 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:33] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTnrIh.0&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:33,170 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:33] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTnxUK&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:42,318 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:17:12 CET)" (scheduled at 2021-12-21 17:16:42.304129+01:00)
-2021-12-21 17:16:42,318 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:17:12 CET)" executed successfully
-2021-12-21 17:16:58,188 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:58] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTnxUL&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:16:58,500 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:16:58] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTo1bC&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:17:12,311 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:17:42 CET)" (scheduled at 2021-12-21 17:17:12.304129+01:00)
-2021-12-21 17:17:12,311 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:17:42 CET)" executed successfully
-2021-12-21 17:17:23,511 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:23] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTo1bD&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:17:23,523 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:23] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTo7mt&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:17:34,865 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:17:35,559 - root - INFO - Setup....
-2021-12-21 17:17:35,576 - root - INFO - End Main....
-2021-12-21 17:17:35,581 - root - INFO - creating tasks
-2021-12-21 17:17:35,699 - root - INFO - __main__
-2021-12-21 17:17:35,699 - root - INFO - Starting MQTT....
-2021-12-21 17:17:35,732 - root - INFO - Scheduled Task
-2021-12-21 17:17:35,768 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:17:35,768 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:17:35,768 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:17:35,768 - root - INFO - Starting SocketIO....
-2021-12-21 17:17:35,768 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:17:35,768 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:17:35,799 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:17:35,815 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:17:35,980 - engineio.server - ERROR - Invalid session tY50VYivsdaMFnjsAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:17:35,986 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:35] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToAZC&sid=tY50VYivsdaMFnjsAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:17:36,823 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:36] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToB0t HTTP/1.1[0m" 200 -
-2021-12-21 17:17:39,164 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:39] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtToB0z&sid=fuzoHGFCGQBTrl6wAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:17:39,164 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:17:39] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToB0z.0&sid=fuzoHGFCGQBTrl6wAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:17:59,265 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:00,037 - root - INFO - Setup....
-2021-12-21 17:18:00,062 - root - INFO - End Main....
-2021-12-21 17:18:00,063 - root - INFO - creating tasks
-2021-12-21 17:18:00,186 - root - INFO - __main__
-2021-12-21 17:18:00,186 - root - INFO - Starting MQTT....
-2021-12-21 17:18:00,234 - root - INFO - Scheduled Task
-2021-12-21 17:18:00,283 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:00,284 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:00,284 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:00,284 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:00,286 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:00,286 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:00,320 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:00,336 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:00,382 - engineio.server - ERROR - Invalid session fuzoHGFCGQBTrl6wAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:00,388 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:00] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToBbX&sid=fuzoHGFCGQBTrl6wAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:00,637 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:00] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToGn7&sid=fuzoHGFCGQBTrl6wAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:01,413 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:02,092 - root - INFO - Setup....
-2021-12-21 17:18:02,116 - root - INFO - End Main....
-2021-12-21 17:18:02,119 - root - INFO - creating tasks
-2021-12-21 17:18:02,247 - root - INFO - __main__
-2021-12-21 17:18:02,247 - root - INFO - Starting MQTT....
-2021-12-21 17:18:02,263 - root - INFO - Scheduled Task
-2021-12-21 17:18:02,316 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:02,317 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:02,317 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:02,318 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:02,319 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:02,320 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:02,331 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:02,351 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:02,398 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:02] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToH7T HTTP/1.1[0m" 200 -
-2021-12-21 17:18:04,658 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:04] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtToHGV&sid=whJxM521xW7rntYqAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:04,659 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:04] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToHGV.0&sid=whJxM521xW7rntYqAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:05,591 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:06,336 - root - INFO - Setup....
-2021-12-21 17:18:06,357 - root - INFO - End Main....
-2021-12-21 17:18:06,364 - root - INFO - creating tasks
-2021-12-21 17:18:06,476 - root - INFO - __main__
-2021-12-21 17:18:06,480 - root - INFO - Starting MQTT....
-2021-12-21 17:18:06,516 - root - INFO - Scheduled Task
-2021-12-21 17:18:06,542 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:06,542 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:06,542 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:06,558 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:06,558 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:06,558 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:06,589 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:06,604 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:06,725 - engineio.server - ERROR - Invalid session whJxM521xW7rntYqAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:06,728 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:06] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToHpv&sid=whJxM521xW7rntYqAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:06,973 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:06] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToIKB&sid=whJxM521xW7rntYqAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:07,829 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:07] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToIbH HTTP/1.1[0m" 200 -
-2021-12-21 17:18:09,839 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:10,495 - root - INFO - Setup....
-2021-12-21 17:18:10,522 - root - INFO - End Main....
-2021-12-21 17:18:10,525 - root - INFO - creating tasks
-2021-12-21 17:18:10,670 - root - INFO - __main__
-2021-12-21 17:18:10,671 - root - INFO - Starting MQTT....
-2021-12-21 17:18:10,686 - root - INFO - Scheduled Task
-2021-12-21 17:18:10,744 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:10,746 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:10,747 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:10,748 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:10,749 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:10,749 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:10,758 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:10,775 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:10,951 - engineio.server - ERROR - Invalid session Q_PpJ0htm7Ku8pYLAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:10,953 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:10] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToJ5J&sid=Q_PpJ0htm7Ku8pYLAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:11,822 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:11] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToJZe HTTP/1.1[0m" 200 -
-2021-12-21 17:18:14,150 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:14] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtToJZn&sid=PNFNsMmFq2gZS9UjAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:14,151 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:14] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToJZp&sid=PNFNsMmFq2gZS9UjAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:24,741 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:25,394 - root - INFO - Setup....
-2021-12-21 17:18:25,402 - root - INFO - End Main....
-2021-12-21 17:18:25,405 - root - INFO - creating tasks
-2021-12-21 17:18:25,519 - root - INFO - __main__
-2021-12-21 17:18:25,520 - root - INFO - Starting MQTT....
-2021-12-21 17:18:25,548 - root - INFO - Scheduled Task
-2021-12-21 17:18:25,595 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:25,596 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:25,596 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:25,596 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:25,598 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:25,598 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:25,622 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:25,653 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:25,872 - engineio.server - ERROR - Invalid session PNFNsMmFq2gZS9UjAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:25,874 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:25] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToK8B&sid=PNFNsMmFq2gZS9UjAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:26,110 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:26] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToM_P&sid=PNFNsMmFq2gZS9UjAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:27,846 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:27] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToNTo HTTP/1.1[0m" 200 -
-2021-12-21 17:18:28,875 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:29,581 - root - INFO - Setup....
-2021-12-21 17:18:29,604 - root - INFO - End Main....
-2021-12-21 17:18:29,608 - root - INFO - creating tasks
-2021-12-21 17:18:29,728 - root - INFO - __main__
-2021-12-21 17:18:29,729 - root - INFO - Starting MQTT....
-2021-12-21 17:18:29,744 - root - INFO - Scheduled Task
-2021-12-21 17:18:29,802 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:29,803 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:29,803 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:29,804 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:29,805 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:29,805 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:29,811 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:29,832 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:30,003 - engineio.server - ERROR - Invalid session GuhAF12yLNmOegcyAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:30,004 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:30] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToNk_&sid=GuhAF12yLNmOegcyAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:30,827 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:30] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToOCh HTTP/1.1[0m" 200 -
-2021-12-21 17:18:30,905 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:31,559 - root - INFO - Setup....
-2021-12-21 17:18:31,587 - root - INFO - End Main....
-2021-12-21 17:18:31,590 - root - INFO - creating tasks
-2021-12-21 17:18:31,705 - root - INFO - __main__
-2021-12-21 17:18:31,706 - root - INFO - Starting MQTT....
-2021-12-21 17:18:31,734 - root - INFO - Scheduled Task
-2021-12-21 17:18:31,781 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:31,783 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:31,783 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:31,784 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:31,785 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:31,785 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:31,915 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:31,934 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:32,154 - engineio.server - ERROR - Invalid session DTKOQy8GjYhzVjioAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:32,155 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:32] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToOCm&sid=DTKOQy8GjYhzVjioAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:32,169 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:32] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToOCm.0&sid=DTKOQy8GjYhzVjioAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:32,420 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:32] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToOXV&sid=DTKOQy8GjYhzVjioAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:33,831 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:33] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToOxU HTTP/1.1[0m" 200 -
-2021-12-21 17:18:34,079 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:34,775 - root - INFO - Setup....
-2021-12-21 17:18:34,795 - root - INFO - End Main....
-2021-12-21 17:18:34,802 - root - INFO - creating tasks
-2021-12-21 17:18:34,927 - root - INFO - __main__
-2021-12-21 17:18:34,928 - root - INFO - Starting MQTT....
-2021-12-21 17:18:35,046 - root - INFO - Scheduled Task
-2021-12-21 17:18:35,092 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:35,092 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:35,092 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:35,092 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:35,092 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:35,092 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:35,108 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:35,124 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:35,184 - engineio.server - ERROR - Invalid session xJKr51PJCBiJksA0AAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:35,185 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:35] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToOxg&sid=xJKr51PJCBiJksA0AAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:35,185 - engineio.server - ERROR - Invalid session xJKr51PJCBiJksA0AAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:35,186 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:35] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToOxh&sid=xJKr51PJCBiJksA0AAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:35,437 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:35] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToPGr&sid=xJKr51PJCBiJksA0AAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:36,825 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:36] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToPgN HTTP/1.1[0m" 200 -
-2021-12-21 17:18:39,161 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:39] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtToPgS&sid=egH5cDds-eXO_gXzAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:39,161 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:39] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToPgS.0&sid=egH5cDds-eXO_gXzAAAA HTTP/1.1[0m" 200 -
-2021-12-21 17:18:39,410 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:40,077 - root - INFO - Setup....
-2021-12-21 17:18:40,096 - root - INFO - End Main....
-2021-12-21 17:18:40,099 - root - INFO - creating tasks
-2021-12-21 17:18:40,214 - root - INFO - __main__
-2021-12-21 17:18:40,214 - root - INFO - Starting MQTT....
-2021-12-21 17:18:40,255 - root - INFO - Scheduled Task
-2021-12-21 17:18:40,300 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
-2021-12-21 17:18:40,301 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
-2021-12-21 17:18:40,301 - apscheduler.scheduler - INFO - Scheduler started
-2021-12-21 17:18:40,302 - root - INFO - Starting SocketIO....
-2021-12-21 17:18:40,302 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-2021-12-21 17:18:40,302 - werkzeug - WARNING -  * Debugger is active!
-2021-12-21 17:18:40,334 - werkzeug - INFO -  * Debugger PIN: 261-257-177
-2021-12-21 17:18:40,352 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
-2021-12-21 17:18:40,530 - engineio.server - ERROR - Invalid session egH5cDds-eXO_gXzAAAA (further occurrences of this error will be logged with level INFO)
-2021-12-21 17:18:40,532 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:40] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtToQF4&sid=egH5cDds-eXO_gXzAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:40,775 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:40] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtToQaO&sid=egH5cDds-eXO_gXzAAAA HTTP/1.1[0m" 400 -
-2021-12-21 17:18:41,832 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:18:41] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtToQub HTTP/1.1[0m" 200 -
-2021-12-21 17:18:42,499 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
-2021-12-21 17:18:43,224 - root - INFO - Setup....
-2021-12-21 17:18:43,231 - root - INFO - End Main....
-2021-12-21 17:18:43,236 - root - INFO - creating tasks
-2021-12-21 17:18:43,358 - root - INFO - __main__
-2021-12-21 17:18:43,360 - root - INFO - Starting MQTT....
+2021-12-21 17:44:45,002 - TrainControll - INFO - Setup....
+2021-12-21 17:44:45,016 - root - INFO - End Main....
+2021-12-21 17:44:45,021 - root - INFO - creating tasks
+2021-12-21 17:44:45,129 - root - INFO - __main__
+2021-12-21 17:44:45,129 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:44:45,179 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:44:45,225 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:44:45,226 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:44:45,226 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:44:45,227 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:44:45,261 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:44:45,262 - werkzeug - WARNING -  * Debugger is active!
+2021-12-21 17:44:45,301 - werkzeug - INFO -  * Debugger PIN: 261-257-177
+2021-12-21 17:44:45,322 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
+2021-12-21 17:44:45,384 - engineio.server - ERROR - Invalid session U2zLBqoyfz7KauQzAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-21 17:44:45,385 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:45] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTuOMI&sid=U2zLBqoyfz7KauQzAAAA HTTP/1.1[0m" 400 -
+2021-12-21 17:44:46,006 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:46] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuOmo HTTP/1.1[0m" 200 -
+2021-12-21 17:44:48,334 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:48] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuOmt&sid=FRAQup4NuNMEQfrjAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:44:48,334 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:48] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuOmu&sid=FRAQup4NuNMEQfrjAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:44:57,106 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
+2021-12-21 17:44:57,800 - TrainControll - INFO - Setup....
+2021-12-21 17:44:57,816 - root - INFO - End Main....
+2021-12-21 17:44:57,847 - root - INFO - creating tasks
+2021-12-21 17:44:57,984 - root - INFO - __main__
+2021-12-21 17:44:57,985 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:44:58,000 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:44:58,066 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:44:58,067 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:44:58,068 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:44:58,068 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:44:58,111 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:44:58,112 - werkzeug - WARNING -  * Debugger is active!
+2021-12-21 17:44:58,148 - werkzeug - INFO -  * Debugger PIN: 261-257-177
+2021-12-21 17:44:58,175 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
+2021-12-21 17:44:58,220 - engineio.server - ERROR - Invalid session FRAQup4NuNMEQfrjAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-21 17:44:58,222 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:58] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtTuPLM&sid=FRAQup4NuNMEQfrjAAAA HTTP/1.1[0m" 400 -
+2021-12-21 17:44:58,475 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:58] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTuRlo&sid=FRAQup4NuNMEQfrjAAAA HTTP/1.1[0m" 400 -
+2021-12-21 17:44:59,005 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:44:59] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuRxu HTTP/1.1[0m" 200 -
+2021-12-21 17:45:00,357 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\TrainControll.py', reloading
+2021-12-21 17:45:01,043 - TrainControll - INFO - Setup....
+2021-12-21 17:45:01,056 - root - INFO - End Main....
+2021-12-21 17:45:01,061 - root - INFO - creating tasks
+2021-12-21 17:45:01,176 - root - INFO - __main__
+2021-12-21 17:45:01,176 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:45:01,200 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:45:01,249 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:45:01,250 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:45:01,250 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:45:01,251 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:45:01,253 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:45:01,253 - werkzeug - WARNING -  * Debugger is active!
+2021-12-21 17:45:01,264 - werkzeug - INFO -  * Debugger PIN: 261-257-177
+2021-12-21 17:45:01,281 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
+2021-12-21 17:45:01,498 - engineio.server - ERROR - Invalid session zx_YsGoNhKuThfUKAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-21 17:45:01,499 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:01] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTuSI2&sid=zx_YsGoNhKuThfUKAAAA HTTP/1.1[0m" 400 -
+2021-12-21 17:45:02,012 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:02] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuSgt HTTP/1.1[0m" 200 -
+2021-12-21 17:45:04,343 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:04] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuSgz&sid=XgCTivn4M6p2HUVWAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:04,344 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:04] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuSg-&sid=XgCTivn4M6p2HUVWAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:27,025 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:27] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuTFT&sid=XgCTivn4M6p2HUVWAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:27,338 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:27] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuYnn&sid=XgCTivn4M6p2HUVWAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:31,916 - TrainControll - INFO - Setup....
+2021-12-21 17:45:31,939 - root - INFO - End Main....
+2021-12-21 17:45:31,943 - root - INFO - creating tasks
+2021-12-21 17:45:32,048 - root - INFO - __main__
+2021-12-21 17:45:32,048 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:45:32,097 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:45:32,138 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:45:32,138 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:45:32,139 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:45:32,139 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:45:32,141 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:45:32,147 - werkzeug - INFO -  * Restarting with stat
+2021-12-21 17:45:32,689 - TrainControll - INFO - Setup....
+2021-12-21 17:45:32,716 - root - INFO - End Main....
+2021-12-21 17:45:32,717 - root - INFO - creating tasks
+2021-12-21 17:45:32,817 - root - INFO - __main__
+2021-12-21 17:45:32,833 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:45:32,867 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:45:32,908 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:45:32,908 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:45:32,909 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:45:32,910 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:45:32,912 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:45:32,912 - werkzeug - WARNING -  * Debugger is active!
+2021-12-21 17:45:32,939 - werkzeug - INFO -  * Debugger PIN: 261-257-177
+2021-12-21 17:45:32,955 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
+2021-12-21 17:45:33,049 - engineio.server - ERROR - Invalid session XgCTivn4M6p2HUVWAAAA (further occurrences of this error will be logged with level INFO)
+2021-12-21 17:45:33,052 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:33] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTuZKQ&sid=XgCTivn4M6p2HUVWAAAA HTTP/1.1[0m" 400 -
+2021-12-21 17:45:33,055 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:33] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuZm4 HTTP/1.1[0m" 200 -
+2021-12-21 17:45:35,325 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:35] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuaF_&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:35,325 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:35] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuaF_.0&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:58,070 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:58] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuapY&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:45:58,384 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:45:58] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTugMt&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:02,146 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:46:02 CET)" (scheduled at 2021-12-21 17:46:02.137626+01:00)
+2021-12-21 17:46:02,146 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:46:32 CET)" executed successfully
+2021-12-21 17:46:02,920 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:46:02 CET)" (scheduled at 2021-12-21 17:46:02.907666+01:00)
+2021-12-21 17:46:02,920 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:46:32 CET)" executed successfully
+2021-12-21 17:46:03,456 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:03] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuhgo&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:03,454 - TrainControll - INFO - Weiche: 8 1
+2021-12-21 17:46:03,464 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:03] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTugMu&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:04,041 - TrainControll - INFO - Weiche: 8 0
+2021-12-21 17:46:04,041 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:04] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuhmz&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:04,047 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:04] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuhhC&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:18,104 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:18] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTulFn&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:18,116 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:18] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuhqF&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:19,556 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:19] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTulXc&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:19,557 - TrainControll - INFO - Lok: 8
+2021-12-21 17:46:19,558 - TrainControll - INFO - Speed: 49
+2021-12-21 17:46:29,017 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:29] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTunwG&sid=zgqNVFJnvGU7ORknAAAA HTTP/1.1[0m" 200 -
+2021-12-21 17:46:31,312 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:31] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuoPT HTTP/1.1[0m" 200 -
+2021-12-21 17:46:32,146 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:47:02 CET)" (scheduled at 2021-12-21 17:46:32.137626+01:00)
+2021-12-21 17:46:32,146 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:47:02 CET)" executed successfully
+2021-12-21 17:46:32,929 - apscheduler.executors.default - INFO - Running job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:47:02 CET)" (scheduled at 2021-12-21 17:46:32.907666+01:00)
+2021-12-21 17:46:32,929 - apscheduler.executors.default - INFO - Job "Scheduled Task (trigger: interval[0:00:30], next run at: 2021-12-21 17:47:02 CET)" executed successfully
+2021-12-21 17:46:33,604 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:33] "[37mPOST /socket.io/?EIO=4&transport=polling&t=NtTuoUM&sid=8WhhecQQ8qJJofeQAAAC HTTP/1.1[0m" 200 -
+2021-12-21 17:46:33,604 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:33] "[37mGET /socket.io/?EIO=4&transport=polling&t=NtTuoUN&sid=8WhhecQQ8qJJofeQAAAC HTTP/1.1[0m" 200 -
+2021-12-21 17:46:35,159 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\server.py', reloading
+2021-12-21 17:46:35,206 - werkzeug - INFO -  * Restarting with stat
+2021-12-21 17:46:35,823 - TrainControll - INFO - Setup....
+2021-12-21 17:46:35,846 - root - INFO - End Main....
+2021-12-21 17:46:35,862 - root - INFO - creating tasks
+2021-12-21 17:46:36,012 - root - INFO - __main__
+2021-12-21 17:46:36,013 - TrainControll - INFO - Starting MQTT....
+2021-12-21 17:46:36,047 - TrainControll - INFO - Scheduled Task
+2021-12-21 17:46:36,093 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2021-12-21 17:46:36,094 - apscheduler.scheduler - INFO - Added job "Scheduled Task" to job store "default"
+2021-12-21 17:46:36,094 - apscheduler.scheduler - INFO - Scheduler started
+2021-12-21 17:46:36,094 - TrainControll - INFO - Starting SocketIO....
+2021-12-21 17:46:36,096 - werkzeug - WARNING - WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+2021-12-21 17:46:36,097 - werkzeug - WARNING -  * Debugger is active!
+2021-12-21 17:46:36,128 - werkzeug - INFO -  * Debugger PIN: 261-257-177
+2021-12-21 17:46:36,148 - werkzeug - INFO -  * Running on http://0.0.0.0:3033/ (Press CTRL+C to quit)
+2021-12-21 17:46:36,266 - engineio.server - ERROR - Invalid session 8WhhecQQ8qJJofeQAAAC (further occurrences of this error will be logged with level INFO)
+2021-12-21 17:46:36,272 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:36] "[31m[1mGET /socket.io/?EIO=4&transport=polling&t=NtTup2W&sid=8WhhecQQ8qJJofeQAAAC HTTP/1.1[0m" 400 -
+2021-12-21 17:46:36,528 - werkzeug - INFO - 127.0.0.1 - - [21/Dec/2021 17:46:36] "[31m[1mPOST /socket.io/?EIO=4&transport=polling&t=NtTuphq&sid=8WhhecQQ8qJJofeQAAAC HTTP/1.1[0m" 400 -
+2021-12-21 17:46:37,202 - werkzeug - INFO -  * Detected change in 'C:\\Users\\TTv060\\Desktop\\Projects\\TrainControll\\server.py', reloading
+2021-12-21 17:46:37,272 - werkzeug - INFO -  * Restarting with stat
+2021-12-21 17:47:26,263 - TrainControll - INFO - Setup....
+2021-12-21 17:47:26,282 - root - INFO - End Main....
+2021-12-21 17:47:26,286 - root - INFO - creating tasks
+2021-12-21 17:47:26,388 - root - INFO - __main__
+2021-12-21 17:47:26,400 - TrainControll - INFO - Starting MQTT....

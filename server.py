@@ -136,15 +136,14 @@ def track_create():
 def LokChanged():
     print()
     print("------------------------------------------------------------------")   
-    print("API Lok Changed")
+    log4j.write("HTTP API Call")
     payload = request.get_json()
     print(payload) 
     if payload:
         data = payload
         id = int(data["id"])
         speed = int(data["speed"])
-        #term.println("Lok: " + str(id))
-        #term.println("Speed: " + str(speed))
+        log4j.write("Lok: " + str(id) + " "+"Speed: " + str(speed))        
         print("Value change of Lok ID ", id)
         # Write new data into class, handle data changes
         Lok.setNewData(data)
@@ -162,8 +161,7 @@ def main_controller_value_changed(message):
     data = message["data"]
     id = int(data["id"])
     speed = int(data["speed"])
-    #term.println("Lok: " + str(id) ) 
-    #term.println("Speed: " + str(speed) ) 
+    log4j.write("Lok: " + str(id) + " "+"Speed: " + str(speed))   
     print ("Value change of Lok ID ", id)     
     # Write new data into class, handle data changes
     Lok.setNewData(message["data"])
@@ -240,14 +238,12 @@ def toggle_turnout(message):
 
 @socketio.on('track_changed', namespace='')
 def track_changed(message):
-    print("")
-    print(message)
+    log4j.write("Weiche: " + str(message["id"]) + " " + str(message["dir"])) 
     Gleisplan.set_turnout(message["id"], message["dir"]);
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
 
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
-
     Gleisplan.save(message)
     # Push new data to all connected clients
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
@@ -272,20 +268,20 @@ def fabric_load():
 #-----------------------------------------------------------------------------------------------
 # The callback for when the client receives a CONNACK response from the server.
 def mqtt_on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
+    log4j.write("MQTT connected "+str(rc))
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
     client.subscribe(mqtt_topic)
 
 def mqtt_on_disconnect(client, userdata,rc=0):
-    logging.debug("DisConnected result code "+str(rc))
+    logging.debug("Mqtt disconnected "+str(rc))
     client.loop_stop
 
 # The callback for when a PUBLISH message is received from the server.
 def mqtt_on_message(client, userdata, msg):
     print()
     print("------------------------------------------------------------------")
-    print("Mqtt inbound:")
+    log4j.write("Mqtt inbound:")
     print("Topic:" + msg.topic)
     print("Payload:" + str(msg.payload))
     m_decode=str(msg.payload.decode("utf-8","ignore"))
@@ -293,7 +289,7 @@ def mqtt_on_message(client, userdata, msg):
     command=message["command"]
     print("processing command:",command)
     if sys.platform.startswith('linux'):
-        term.println("MQTT Command: "+command)
+        log4j.write("MQTT Command: "+command)
         
     if command== "Lok":
         Lok.setNewData(message)
@@ -317,13 +313,13 @@ if __name__ == '__main__':
     
     print("Starting MQTT")
     if sys.platform.startswith('linux'):  
-        term.println("waiting for network..")   
+        log4j.write("waiting for network..")   
         time.sleep(10)
-        term.println("runmode ")   
+        log4j.write("runmode ")   
         page_logo()
         time.sleep(2)
 
-    logging.info('Starting MQTT....')
+    log4j.write('Starting MQTT....')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
@@ -332,11 +328,11 @@ if __name__ == '__main__':
     client.connect("85.209.49.65", 1883, 60)
     client.loop_start()    
     
-    logging.info('Scheduled Task')
+    log4j.write('Scheduled Task')
     scheduler.add_job(id = 'Scheduled Task', 
                         func=scheduleTask, 
                         trigger="interval", seconds=30
                         )
     scheduler.start()
-    logging.info('Starting SocketIO....')
+    log4j.write('Starting SocketIO....')
     socketio.run(app, host='0.0.0.0', port=3033, debug=True)
