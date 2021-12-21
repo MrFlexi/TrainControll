@@ -2,13 +2,122 @@
 import json
 import socket
 import io
+import sys
+import logging
 
 from time import sleep
+
+if sys.platform.startswith('linux'):
+    # Linux-specific code here...
+    import fcntl
+    from PIL import Image
+
+    from smbus import SMBus
+    from lib_oled96.lib_oled96 import ssd1306
+
+    #LUMA
+    from luma.core.render import canvas
+    from luma.core.interface.serial import spi
+    from luma.core.render import canvas
+    from luma.oled.device import sh1106
+    from luma.core.virtual import terminal
+
+    serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=26,  gpio_CS=18)
+    device = sh1106(serial, rotate=0)
+    term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
+    term.clear()
+    term.println("Traincontrol 2021")
+    term.println("------------------")
+    term.println("MQTT....")
+    term.println("SocketIO..")
+    term.println()
+    today_last_time = "unknown"
+
+    def get_interface_ipaddress(ifname):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+
+    def get_ip():
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname[:15], 'utf-8')))
+        return ''.join(['%02x:' % b for b in info[18:24]])[:-1]
+
+    def init_spi_display():
+        print()
+        #with canvas(device) as draw:
+        #draw.rectangle(device.bounding_box, outline="white", fill="black")   
+
+    def posn(angle, arm_length):
+        dx = int(math.cos(math.radians(angle)) * arm_length)
+        dy = int(math.sin(math.radians(angle)) * arm_length)
+        return (dx, dy)
+
+    def page_logo():
+        img_path = str(Path(__file__).resolve().parent.joinpath('images', 'pi_logo.png'))
+        #img_path = str(Path(__file__).resolve().parent.joinpath('images', 'train logo.jpg'))
+        logo = Image.open(img_path).convert("RGBA")
+        posn = ((device.width - logo.width) // 2, 0)
+        background.paste(logo, posn)
+        device.display(background.convert(device.mode))
+    
+    def page_0():
+        ip_s = get_interface_ipaddress('wlan0')
+        logging.info('IP:%s',ip_s)
+        n = Clients.getClientsCount()
+
+        with canvas(device) as draw:
+            draw.text((1, 1), "TrainControll 2021  ", fill=1)
+            s = f"Clients:  {n}"
+            draw.text((1,40), s, fill = 1)
+            ip_s = ip_s +":3033"
+            draw.text((1, 50), ip_s, fill=1)
+            
+    def show_clock():
+        logging.info('Show clock....')
+        now = datetime.datetime.now()
+        today_date = now.strftime("%d %b %y")
+        today_time = now.strftime("%H:%M:%S")
+        with canvas(device) as draw:
+            now = datetime.datetime.now()
+            today_date = now.strftime("%d %b %y")
+            margin = 4
+            cx = 30
+            cy = min(device.height, 64) / 2
+            left = cx - cy
+            right = cx + cy
+            hrs_angle = 270 + (30 * (now.hour + (now.minute / 60.0)))
+            hrs = posn(hrs_angle, cy - margin - 7)
+            min_angle = 270 + (6 * now.minute)
+            mins = posn(min_angle, cy - margin - 2)
+            sec_angle = 270 + (6 * now.second)
+            secs = posn(sec_angle, cy - margin - 2)
+            draw.ellipse((left + margin, margin, right - margin, min(device.height, 64) - margin), outline="white")
+            draw.line((cx, cy, cx + hrs[0], cy + hrs[1]), fill="white")
+            draw.line((cx, cy, cx + mins[0], cy + mins[1]), fill="white")
+            draw.line((cx, cy, cx + secs[0], cy + secs[1]), fill="red")
+            draw.ellipse((cx - 2, cy - 2, cx + 2, cy + 2), fill="white", outline="white")
+            draw.text((2 * (cx + margin), cy - 8), today_date, fill="yellow")
+            draw.text((2 * (cx + margin), cy), today_time, fill="yellow")  
+            draw.text((64, 10), "TrainControll", fill="white") 
+            background = Image.new("RGBA", device.size, "white")
+
+class log4j:
+
+    def __init__(self):
+        logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')        
+
+    @staticmethod
+    def write(value):
+        if sys.platform.startswith('linux'):
+            term.println(value)
+        logging.info(value)
 
 
 # Define Class CPU
 class UDP:
-
     UDP_IP = "192.168.178.100"
     UDP_PORT = 15731
 
@@ -18,7 +127,6 @@ class UDP:
         hex_data2 = "010000"
 
         iv_id = iv_id - 1
-
         print ("UDPSetFunction:" + str(iv_id) + " Value:" + str(value) + " UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)       
 
         message = bytes.fromhex(hex_data1)  + iv_id.to_bytes(1, byteorder='big')  + value.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
@@ -62,18 +170,14 @@ class UDP:
 
     @staticmethod
     def setDir(lv_addr, iv_dir):
-
         # Message muss immer 13 Byte lang sein.
         # hex_data1 = "000A4711050000c00301000000"
         hex_data1 = "000A4711050000c0"
         hex_data2 = "000000"
-    
-        #print ("Set Direction:")
 
         message = bytes.fromhex(hex_data1) + lv_addr.to_bytes(1, byteorder='big') + iv_dir.to_bytes(1, byteorder='big') + bytes.fromhex(hex_data2)
 
         print ("UDP IP:", UDP.UDP_IP + " Port:", UDP.UDP_PORT)
-
         sock = socket.socket(socket.AF_INET,  # Internet
                              socket.SOCK_DGRAM)  # UDP
         sock.sendto(message, (UDP.UDP_IP, UDP.UDP_PORT))
@@ -92,7 +196,6 @@ class Gleisplan:
         self.position = "left"
         self.pos = 0
         self.element = element
-
         Gleisplan.Liste.append(self)
     
     @staticmethod
@@ -105,29 +208,22 @@ class Gleisplan:
     def new(message):
         jsonData = json.dumps(message, indent=1, separators=(',', ': '))
         print(jsonData)
-
         count = len(Gleisplan.Liste)
         new_id = count + 1
-
         Gleisplan(id=new_id, addr=0, x1=message["x1"], x2=message["x2"], y1=message["y1"], y2=message["y2"], dir=0, type="DCC", aus="right")
-
         Gleisplan.printGleisplan()
 
     @staticmethod
     def toggle_turnout(message):
         print ("Toggle Turnout")
         print (message)
-
         lv_id = int(message)
-
         gr_instance = Gleisplan.find_ById(lv_id)
         gr_instance.printGP()
-
         if gr_instance.dir == 0:
             gr_instance.dir = 1
         else:
             gr_instance.dir = 0
-
         UDP.setFunction( gr_instance.addr,  gr_instance.dir )
 
 
@@ -136,7 +232,6 @@ class Gleisplan:
         for x in Gleisplan.Liste:
             x.setDir(dir)
             sleep(0.2)          #Man muss ein bisschen auf die Weichen warten
-         
 
     def setDir(self,dir):
             self.dir = dir
@@ -172,12 +267,10 @@ class Gleisplan:
             gr_instance.printGP()
 
             #Compare old and new values. if different set new value
-
             if gr_instance.addr != item["addr"]:
                 print ("Address was changed from " +  str(gr_instance.addr) + " to: " + str(item["addr"]))
                 # Update values in instance
                 gr_instance.addr = item["addr"]
-
 
         jsonData = Gleisplan.getDataJSON()
         #print(jsonData)
@@ -245,18 +338,15 @@ class Clients:
     @staticmethod
     def setUserName(client_ID, user_name):
         print ("Link Client to User")
-
         if client_ID in Clients.mt_clients:
             Clients.mt_clients[client_ID].user_name = user_name
-
         print (" Class - Clients")
         print (Clients.mt_clients)
         print ("Anzahl:", len(Clients.mt_clients))
 
     @staticmethod
     def getClientIDfromSID(sid):
-        return sid
-    
+        return sid    
 
     @staticmethod
     def deleteClient(client_ID):
@@ -271,7 +361,6 @@ class Clients:
         #print("Clients:", n)
         #print(Clients.mt_clients)
         return n
-
 
 # Define Class User
 class User:
@@ -295,7 +384,6 @@ class User:
     for x in i:
          jd.append(x.__dict__)
     return (json.dumps(jd))
-
 
  @staticmethod
  def printUserList():
