@@ -58,6 +58,17 @@ sap.ui.define(function() {
 			return ev;
 		},
 
+		DirIndicator :  function (dir) {
+			var ev = "None";
+			if (dir === 1 ) { 
+				ev = "Down";
+			}
+			if (dir === 2 ) { 
+				ev = "Up";
+			}
+			return ev;
+		},
+
 		trackicon :  function (sStatus) {
 				if (sStatus === "left") {
 					return "sap-icon://forward";

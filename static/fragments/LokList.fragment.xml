@@ -11,14 +11,18 @@
                                 allowWrapping="true"
                                 content="{path: 'LokListModel>/'}">
                                     <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
-                                        header="{LokListModel>name}" press="onTileSelect">  										                                
-                                            <TileContent>
-                                                <content>                                                    
-														<NumericContent value="{LokListModel>speed}"																		
-																		icon="{LokListModel>image_url}" class="sapUiSmallMargin"
-																		press="press" />																	
-                                                </content>											
-                                            </TileContent>
+b                                        header="{LokListModel>name}" 
+										headerImage = ""
+										press="onTileSelect">
+									<TileContent footer="{LokListModel>status}">
+											<NumericContent 
+															value="{LokListModel>speed}" 
+															indicator="{	path: 'LokListModel>dir',
+																			formatter: 'view.Formatter.DirIndicator'	}"
+															icon="{LokListModel>image_url}"
+															withMargin="true" />
+									</TileContent>									                                
+                                            
 									</GenericTile>
                             </l:HorizontalLayout>
                         </content>
