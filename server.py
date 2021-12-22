@@ -293,7 +293,7 @@ def mqtt_on_message(client, userdata, msg):
         
     if command== "Lok":
         Lok.setNewData(message)
-        socketio.emit('loklist_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+        socketio.emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
     if command== "Switch":
         Gleisplan.set_turnout(message["id"], message["dir"]);
@@ -330,5 +330,10 @@ if __name__ == '__main__':
     scheduler.start()
     log4j.clear()
     log4j.write('Ready...')
-    socketio.run(app, host='0.0.0.0', port=3033, debug=False)
+
+    debug = True
+    if sys.platform.startswith('linux'):
+         debug = False
+    
+    socketio.run(app, host='0.0.0.0', port=3033, debug=debug)
     

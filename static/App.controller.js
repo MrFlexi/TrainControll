@@ -97,7 +97,7 @@ sap.ui.define([
 				oModelTrack.setData(TrackList_data);
 			});
 
-			socket.on('loklist_data', function (msg) {
+			socket.on('LokList_data', function (msg) {
 				var LokList_data = jQuery.parseJSON(msg.LokList);
 				oModelLokList.setData(LokList_data);
 			});

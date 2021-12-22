@@ -14,7 +14,7 @@ from time import sleep
 # import moduleget named logger
 logger = logging.getLogger(__name__)
 # create handler
-handler = TimedRotatingFileHandler(filename='TrainControll.log', when='D', interval=1, backupCount=2, encoding='utf-8', delay=False)
+handler = TimedRotatingFileHandler(filename='/log/TrainControll.log', when='D', interval=1, backupCount=2, encoding='utf-8', delay=False)
 
 # create formatter and add to handler
 formatter = Formatter(fmt='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -24,7 +24,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 # set the logging level
 logger.setLevel(logging.INFO)
-logging.basicConfig(filename='myapp.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')    
+logging.basicConfig(filename='/log/myapp.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')    
 
 if sys.platform.startswith('linux'):
     # Linux-specific code here...
@@ -141,7 +141,8 @@ class log4j:
 
     @staticmethod
     def clear():
-        term.reset()
+        if sys.platform.startswith('linux'):
+            term.reset()
 
 
 # Define Class CPU
