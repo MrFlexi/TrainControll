@@ -24,7 +24,7 @@ import base64
 import binascii
 import paho.mqtt.client as mqtt
 
-from TrainControll import Clients, UDP, Gleisplan, User, log4j
+from TrainControll import Clients, UDP, Gleisplan, User, lcd, log4j
 from TrainControllLok import Lok
 from TrainControllCtrl import CTRL
 from collections import namedtuple
@@ -303,23 +303,17 @@ def mqtt_on_message(client, userdata, msg):
 #   MAIN
 #-----------------------------------------------------------------------------------------------
 if __name__ == '__main__':
-    print("MAIN")
+    logging.info('__main__')
     #Tasks
-    logging.info('creating tasks')
     scheduler = APScheduler()
     thread = None
     thread_lock = Lock()
-    logging.info('__main__')
     
-    print("Starting MQTT")
     if sys.platform.startswith('linux'):  
         log4j.write("waiting for network..")   
-        time.sleep(10)
-        log4j.write("runmode ")   
-        page_logo()
-        time.sleep(2)
+        lcd.show_logo()   
 
-    log4j.write('Starting MQTT....')
+    log4j.write('Starting MQTT')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
     client.on_connect = mqtt_on_connect
@@ -328,11 +322,13 @@ if __name__ == '__main__':
     client.connect("85.209.49.65", 1883, 60)
     client.loop_start()    
     
-    log4j.write('Scheduled Task')
+    log4j.write('Scheduling Tasks')
     scheduler.add_job(id = 'Scheduled Task', 
                         func=scheduleTask, 
                         trigger="interval", seconds=30
                         )
     scheduler.start()
-    log4j.write('Starting SocketIO....')
-    socketio.run(app, host='0.0.0.0', port=3033, debug=True)
+    log4j.clear()
+    log4j.write('Ready...')
+    socketio.run(app, host='0.0.0.0', port=3033, debug=False)
+    
