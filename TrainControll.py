@@ -7,6 +7,7 @@ import logging
 
 from logging.handlers import TimedRotatingFileHandler
 from logging import Formatter
+from pathlib import Path
 
 from time import sleep
 
@@ -44,11 +45,6 @@ if sys.platform.startswith('linux'):
     device = sh1106(serial, rotate=0)
     term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
     term.clear()
-    term.println("Traincontrol 2021")
-    term.println("------------------")
-    term.println("MQTT....")
-    term.println("SocketIO..")
-    term.println()
     today_last_time = "unknown"
 
     def get_interface_ipaddress(ifname):
@@ -75,12 +71,17 @@ if sys.platform.startswith('linux'):
 
     def page_logo():
         img_path = str(Path(__file__).resolve().parent.joinpath('images', 'pi_logo.png'))
-        #img_path = str(Path(__file__).resolve().parent.joinpath('images', 'train logo.jpg'))
         logo = Image.open(img_path).convert("RGBA")
+        fff = Image.new(logo.mode, logo.size, (255,) * 4)
+        background = Image.new("RGBA", device.size, "white")
         posn = ((device.width - logo.width) // 2, 0)
-        background.paste(logo, posn)
-        device.display(background.convert(device.mode))
-    
+
+        for angle in range(0, 360, 4):
+            rot = logo.rotate(angle, resample=Image.BILINEAR)
+            img = Image.composite(rot, fff, rot)
+            background.paste(img, posn)
+            device.display(background.convert(device.mode))
+        
     def page_0():
         ip_s = get_interface_ipaddress('wlan0')
         logging.info('IP:%s',ip_s)
@@ -122,14 +123,25 @@ if sys.platform.startswith('linux'):
             draw.text((64, 10), "TrainControll", fill="white") 
             background = Image.new("RGBA", device.size, "white")
 
-class log4j:
 
+class lcd:
+    @staticmethod
+    def show_logo():
+        if sys.platform.startswith('linux'):
+            page_logo()
+
+
+class log4j:
     @staticmethod
     def write(value):
         if sys.platform.startswith('linux'):
             term.println(value)
         logger.info(value)
         print(value)
+
+    @staticmethod
+    def clear():
+        term.reset()
 
 
 # Define Class CPU
