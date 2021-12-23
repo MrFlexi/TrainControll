@@ -5,46 +5,44 @@
 	<l:VerticalLayout class="sapUiContentPadding" width="100%">
     <ObjectHeader
 		title="{oModelMainController>/name}"
+		number="{oModelMainController>/speed}"
+		responsive="true"
 		showTitleSelector="true"
 		titleSelectorPress="handleTableSelectDialogPress"
+		numberState="Success"
+		backgroundDesign="Translucent"
+		class="sapUiResponsivePadding--header"
 	    icon="{oModelMainController>/image_url}">
 			<attributes>
 		    	<ObjectAttribute title = "Speed" text="{oModelMainController>/speed}" />
                 <ObjectAttribute title = "Client" text="{oModelMainController>/client_id}" />
                 <ObjectAttribute title = "User" text="{oModelMainController>/user_name}" />
-                <ObjectAttribute title = "F1 " text="{oModelMainController>/lok_f1}" />
-            </attributes>		
+            </attributes>	
     </ObjectHeader>
    	</l:VerticalLayout>
 
     <l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<l:HorizontalLayout class="sapUiContentPadding" width="100%">
+			<ToggleButton  icon="sap-icon://lightbulb" 
+					   pressed="{	path: 'oModelMainController>/f1',
+									formatter: 'view.Formatter.onoff'	}"
+					 	press="F1onPress" />
+			<CheckBox text="Light" selected="{	path: 'oModelMainController>/f1',
+												formatter: 'view.Formatter.onoff'	}"/>
+			<CheckBox text="F2" />
+			<CheckBox text="F3" selected="{	path: 'oModelMainController>/f3',
+												formatter: 'view.Formatter.onoff'	}"/>
+		</l:HorizontalLayout>
 
     <Slider min="0" max="100" enableTickmarks="true" class="sapUiSmallMarginBottom" width="50%"
                 change="onSliderliveChange"
 				value = "{oModelMainController>/speed}">
-            <ResponsiveScale tickmarksBetweenLabels="25"/>
+            <ResponsiveScale tickmarksBetweenLabels="5"/>
     </Slider>
-
-    <Button
-            class="sapUiSmallMarginBottom"
-			text="Select Locomotion"
-            icon="sap-icon://arrow-down"
-			press="handleTableSelectDialogPress">
-    </Button>
-
-   	</l:VerticalLayout>
-    <l:VerticalLayout class="sapUiContentPadding" width="100%">
-		<CheckBox text="Light" selected="{	path: 'oModelMainController>/f1',
-											formatter: 'view.Formatter.onoff'	}"/>
-		<CheckBox text="F2" />
-		<CheckBox text="F3" selected="{	path: 'oModelMainController>/f3',
-											formatter: 'view.Formatter.onoff'	}"/>
-		<ToggleButton  icon="sap-icon://lightbulb" 
-					   pressed="{	path: 'oModelMainController>/f1',
-									formatter: 'view.Formatter.onoff'	}"
-					 	press="F1onPress" />		
-
-			<VBox width="100%">			
+	</l:VerticalLayout>
+	
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+	<VBox width="100%">			
 			<SegmentedButton id="b_direction" selectedKey="Lok_Forward" class="sapUiSmallMarginBottom" selectionChange="handleLocomotionDirection">
 				<items>
 					<SegmentedButtonItem text = "Back" id = "backward" icon="sap-icon://arrow-left"  />
@@ -52,7 +50,15 @@
 					<SegmentedButtonItem text = "Forward" id = "forward" key="Lok_Forward" icon="sap-icon://arrow-right"   />
 				</items>
 			</SegmentedButton>
+
 			
-		</VBox>      
+	</VBox>
+
+	<Button
+            class="sapUiSmallMarginBottom"
+			text="Select Locomotion"
+            icon="sap-icon://arrow-down"
+			press="handleTableSelectDialogPress">
+    </Button>
 	</l:VerticalLayout>
 </core:FragmentDefinition>
