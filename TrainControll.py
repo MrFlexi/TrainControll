@@ -8,6 +8,7 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from logging import Formatter
 from pathlib import Path
+from PIL import ImageFont
 
 from time import sleep
 
@@ -43,7 +44,13 @@ if sys.platform.startswith('linux'):
 
     serial = spi(port=0, device=1, gpio_DC=27, gpio_RST=26,  gpio_CS=18)
     device = sh1106(serial, rotate=0)
-    term = terminal(device, font=None, color='white', bgcolor='black', tabstop=4, line_height=None, animate=True, word_wrap=False)
+
+    def make_font(name, size):
+        font_path = str(Path(__file__).resolve().parent.joinpath('luma.examples', 'examples','fonts', name))
+        return ImageFont.truetype(font_path, size)
+
+    font = make_font("creep.bdf", 16)
+    term = terminal(device, font=font, color='white', bgcolor='black', tabstop=4, line_height=None, animate=False, word_wrap=True)
     term.clear()
     today_last_time = "unknown"
 

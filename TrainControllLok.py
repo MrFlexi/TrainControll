@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-from TrainControll import UDP
+from TrainControll import UDP, log4j
 
 class Lok:
     
@@ -51,6 +51,7 @@ class Lok:
             #    Lok.setDir(id, dir)
             #    print ("Direction changed to: ", dir)
 
+        log4j.write("Lok: "+str(id)+" Speed "+str(speed)+" / "+str(dir))
         Lok.setSpeed(id, speed)
         print ("Speed was changed to: ", speed)
         Lok.setDir(id, dir)
@@ -63,12 +64,12 @@ class Lok:
         x = Lok.find_ById(id)
         if (x):
             x.client_id = client_id
+
     @staticmethod
     def setDataByClient(client_id, name):
         for x in Lok.LokList:
             if ( x.client_id == client_id):
                 x.name = name
-
 
     @staticmethod
     def printLokList():
@@ -96,8 +97,6 @@ class Lok:
         if (x):
             #print(json.dumps(x.__dict__))
             return (json.dumps(x.__dict__))
-
-
 
     @staticmethod
     def bindLokID(client_id, lok_new, user_name):
