@@ -136,17 +136,17 @@ def track_create():
 def LokChanged():
     print()
     print("------------------------------------------------------------------")   
-    log4j.write("HTTP API Call")
+    log4j.write("HTTP API")  
     payload = request.get_json()
     print(payload) 
     if payload:
         data = payload
         id = int(data["id"])
-        speed = int(data["speed"])
-        log4j.write("Lok: " + str(id) + " "+"Speed: " + str(speed))        
+        speed = int(data["speed"])       
         print("Value change of Lok ID ", id)
         # Write new data into class, handle data changes
         Lok.setNewData(data)
+        emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
         return "[SUCCESS] Message send", 200
     else:
         return "[FAILED] no Json payload found", 204
@@ -161,7 +161,7 @@ def main_controller_value_changed(message):
     data = message["data"]
     id = int(data["id"])
     speed = int(data["speed"])
-    log4j.write("Lok: " + str(id) + " "+"Speed: " + str(speed))   
+    log4j.write("Socket IO")   
     print ("Value change of Lok ID ", id)     
     # Write new data into class, handle data changes
     Lok.setNewData(message["data"])
@@ -281,15 +281,13 @@ def mqtt_on_disconnect(client, userdata,rc=0):
 def mqtt_on_message(client, userdata, msg):
     print()
     print("------------------------------------------------------------------")
-    log4j.write("Mqtt inbound:")
+    log4j.write("Mqtt in")
     print("Topic:" + msg.topic)
     print("Payload:" + str(msg.payload))
     m_decode=str(msg.payload.decode("utf-8","ignore"))
     message=json.loads(m_decode) #decode json data
     command=message["command"]
     print("processing command:",command)
-    if sys.platform.startswith('linux'):
-        log4j.write("MQTT Command: "+command)
         
     if command== "Lok":
         Lok.setNewData(message)
