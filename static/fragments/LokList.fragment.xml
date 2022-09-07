@@ -45,6 +45,7 @@
 										<ObjectAttribute title="Direction" text="{LokListModel>dir}" id="__attribute7">
 										</ObjectAttribute>
 									</attributes>
+									
 									<firstStatus>
 										<ObjectStatus
 															text="{LokListModel>status}"
