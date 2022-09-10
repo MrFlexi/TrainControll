@@ -41,3 +41,89 @@ Traceback (most recent call last):
   File "/usr/lib/python3.7/socket.py", line 716, in create_connection
     sock.connect(sa)
 OSError: [Errno 101] Network is unreachable
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-218  0 
+4 BR-212  0 
+5 BR-218 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Traceback (most recent call last):
+  File "server.py", line 320, in <module>
+    client.connect("85.209.49.65", 1883, 60)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 914, in connect
+    return self.reconnect()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1044, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3685, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-218  0 
+4 BR-212  0 
+5 BR-218 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Traceback (most recent call last):
+  File "server.py", line 320, in <module>
+    client.connect("85.209.49.65", 1883, 60)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 914, in connect
+    return self.reconnect()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1044, in reconnect
+    sock = self._create_socket_connection()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3685, in _create_socket_connection
+    return socket.create_connection(addr, timeout=self._connect_timeout, source_address=source)
+  File "/usr/lib/python3.7/socket.py", line 727, in create_connection
+    raise err
+  File "/usr/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
