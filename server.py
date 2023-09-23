@@ -318,7 +318,7 @@ if __name__ == '__main__':
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
     client.on_message = mqtt_on_message
-    client.connect("85.209.49.65", 1883, 60)
+    client.connect("85.209.49.65", 1883, 300)
     client.loop_start()    
     
     log4j.write('Scheduling Tasks')
@@ -329,6 +329,7 @@ if __name__ == '__main__':
     scheduler.start()
     log4j.clear()
     log4j.write('Ready...')
+    lcd.show_page_0()
 
    
     if sys.platform.startswith('linux'):

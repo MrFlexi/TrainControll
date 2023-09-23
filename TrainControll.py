@@ -95,7 +95,7 @@ if sys.platform.startswith('linux'):
         n = Clients.getClientsCount()
 
         with canvas(device) as draw:
-            draw.text((1, 1), "TrainControll 2021  ", fill=1)
+            draw.text((1, 1), "TrainControll 2023  ", fill=1)
             s = f"Clients:  {n}"
             draw.text((1,40), s, fill = 1)
             ip_s = ip_s +":3033"
@@ -136,6 +136,9 @@ class lcd:
     def show_logo():
         if sys.platform.startswith('linux'):
             page_logo()
+    def show_page_0():
+        if sys.platform.startswith('linux'):
+            page_0()
 
 
 class log4j:
