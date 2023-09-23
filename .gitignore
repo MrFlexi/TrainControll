@@ -12,3 +12,4 @@ lib_oled96
 *.pyc
 *.log
 /log/*.log
+luma.examples
