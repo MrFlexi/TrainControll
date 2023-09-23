@@ -310,6 +310,7 @@ if __name__ == '__main__':
     if sys.platform.startswith('linux'):  
         log4j.write("waiting for network..")   
         lcd.show_logo()   
+        time.sleep(5)
 
     log4j.write('Starting MQTT')
     mqtt_topic = "TrainControll/toGleisbox/"
