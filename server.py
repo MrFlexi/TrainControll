@@ -330,9 +330,13 @@ if __name__ == '__main__':
     log4j.clear()
     log4j.write('Ready...')
 
-    debug = True
+   
     if sys.platform.startswith('linux'):
          debug = False
+         socketio.run(app, host='0.0.0.0', port=3033, debug=debug)
+    else:
+         debug = True
+         socketio.run(app, host='0.0.0.0', port=3030, debug=debug)
     
-    socketio.run(app, host='0.0.0.0', port=3033, debug=debug)
+    
     
