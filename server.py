@@ -23,6 +23,8 @@ import json
 import base64
 import binascii
 import paho.mqtt.client as mqtt
+import RPi.GPIO as GPIO
+
 
 from TrainControll import Clients, UDP, Gleisplan, User, lcd, log4j
 from TrainControllLok import Lok
@@ -46,12 +48,35 @@ app.config['SECRET_KEY'] = 'secret!'
 CORS(app)
 socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
-def scheduleTask():
+led_alive = 18
+led_mqtt = 17
+led_can = 16
+
+def toggle_led( led ) :
     if sys.platform.startswith('linux'):
-        print()
-        #page_0()
+            GPIO.output(led,not GPIO.input(led))
+
+# ------------------- scheduled tasks ------------------------------ 
+
+def task_blinkLed1s():
+       if sys.platform.startswith('linux'):
+           toggle_led(led_alive)
+
 
 # ---------------------  SETUP  ------------------------------------
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led_alive,GPIO.OUT)
+GPIO.output(led_alive,True)
+GPIO.setup(led_mqtt,GPIO.OUT)
+GPIO.output(led_mqtt,True)
+GPIO.setup(led_can,GPIO.OUT)
+GPIO.output(led_can,True)
+
+
+
+
+
 log4j()
 log4j.write(('Setup....'))
 
@@ -173,6 +198,7 @@ def main_controller_value_changed(message):
     #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
     #                    'user': User.getDataJSON()})
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    toggle_led(led_can)
 
 @socketio.on('LokListDataChanged', namespace='')
 def LokListDataChanged(message):
@@ -230,11 +256,13 @@ def value_changed(message):
                         })
     # Push new data to all connected clients
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    toggle_led(led_can)
 
 @socketio.on('toggle_turnout', namespace='')
 def toggle_turnout(message):
     Gleisplan.toggle_turnout(message);
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
+    toggle_led(led_can)
 
 @socketio.on('track_changed', namespace='')
 def track_changed(message):
@@ -288,6 +316,7 @@ def mqtt_on_message(client, userdata, msg):
     message=json.loads(m_decode) #decode json data
     command=message["command"]
     print("processing command:",command)
+    toggle_led(led_mqtt)
         
     if command== "Lok":
         Lok.setNewData(message)
@@ -322,18 +351,20 @@ if __name__ == '__main__':
     client.loop_start()    
     
     log4j.write('Scheduling Tasks')
-    scheduler.add_job(id = 'Scheduled Task', 
-                        func=scheduleTask, 
-                        trigger="interval", seconds=30
+ 
+    scheduler.add_job(id = 'BlinkLed1s', 
+                        func=task_blinkLed1s, 
+                        trigger="interval", seconds=2
                         )
+
     scheduler.start()
     log4j.clear()
     log4j.write('Ready...')
-    lcd.show_page_0()
+    #lcd.show_page_0()
 
    
     if sys.platform.startswith('linux'):
-         debug = False
+         debug = True
          socketio.run(app, host='0.0.0.0', port=3033, debug=debug)
     else:
          debug = True
