@@ -8817,3 +8817,573 @@ Traceback (most recent call last):
   File "/home/pi/projects/TrainControll/TrainControll.py", line 62, in get_interface_ipaddress
     struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
 NameError: name 'struct' is not defined
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(737) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9293) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9336) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9369) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9399) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10040) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10696) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10856) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(11400) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(11546) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12097) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12195) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12649) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12848) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(739) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(5161) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+Traceback (most recent call last):
+  File "/home/pi/projects/TrainControll/server.py", line 34, in <module>
+    from flask import Flask, render_template, request, session
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/flask/__init__.py", line 14, in <module>
+    from jinja2 import escape
+ImportError: cannot import name 'escape' from 'jinja2' (/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/jinja2/__init__.py)
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
