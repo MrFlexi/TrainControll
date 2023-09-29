@@ -27,21 +27,21 @@
         "key": "Home"
       },
       {
-        "title": "Drive",
+        "title": "Fahren",
         "icon": "sap-icon://cargo-train",
         "key": "Drive",
         "expanded": true
         },
         {
-          "title": "Block",
-          "icon": "sap-icon://cargo-train",
+          "title": "Gleisplan",
+          "icon": "sap-icon://map-2",
           "key": "Gleisplan",
           "expanded": true
           
         },
       {
-        "title": "Track",
-        "icon": "sap-icon://cargo-train",
+        "title": "Weichen",
+        "icon": "sap-icon://combine",
         "key": "Track",
         "expanded": true
         
@@ -57,50 +57,15 @@
         "icon": "sap-icon://account",
         "expanded": true,
         "key": "user_list"
-      },
-      {
-        "icon": "sap-icon://action",
-        "expanded": false,
-        "items": [
-          {
-            "title": "Show connected"
-          },
-          {
-            "title": "Child Item 2"
-          },
-          {
-            "title": "Child Item 3"
-          }
-        ]
       }
     ],
     "fixedNavigation": [
       {
-        "title": "Fixed Item 1",
+        "title": "About",
         "icon": "sap-icon://employee"
-      },
-      {
-        "title": "Fixed Item 2",
-        "icon": "sap-icon://building"
-      },
-      {
-        "title": "Fixed Item 3",
-        "icon": "sap-icon://card"
       }
     ],
     "headerItems": [
-      {
-        "text": "File"
-      },
-      {
-        "text": "Edit"
-      },
-      {
-        "text": "View"
-      },
-      {
-        "text": "Settings"
-      },
       {
         "text": "Help"
       }

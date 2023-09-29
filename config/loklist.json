@@ -1,9 +1,9 @@
 [{"count": 0, "protocol": "DCC", "addr": 5, "image_url": "/static/images/S-Bahn.jpg", "client_id": null, "id": 1, "name": "S-BAHN"},
 {"count": 0, "protocol": "DCC", "addr": 1, "image_url": "/static/images/ETA515.jpg", "client_id": null, "id": 2, "name": "ETA-515"},
-{"count": 0, "protocol": "DCC", "addr": 3, "image_url": "/static/images/BR218.jpg", "client_id": null, "id": 3, "name": "BR-218"},
+{"count": 0, "protocol": "DCC", "addr": 3, "image_url": "/static/images/BR218.jpg", "client_id": null, "id": 3, "name": "BR-216 Beige"},
 {"count": 0, "protocol": "DCC", "addr": 6, "image_url": "/static/images/BR212.jpg", "client_id": null, "id": 4, "name": "BR-212"},
-{"count": 0, "protocol": "MFX", "addr": 4, "image_url": "/static/images/BR218_ROT.jpg", "client_id": null, "id": 5, "name": "BR-218 Rot"},
-{"count": 0, "protocol": "DCC", "addr": 5, "image_url": "/static/images/SBB_CARGO.jpg", "client_id": null, "id": 6, "name": "SBB Cargo"},
+{"count": 0, "protocol": "MFX", "addr": 4, "image_url": "/static/images/BR218_ROT.jpg", "client_id": null, "id": 5, "name": "BR-216 Rot"},
+{"count": 0, "protocol": "DCC", "addr": 10, "image_url": "/static/images/SBB_CARGO.jpg", "client_id": null, "id": 6, "name": "SBB Cargo"},
 {"count": 0, "protocol": "MFX", "addr": 65, "image_url": "/static/images/Portfeeder.jpg", "client_id": null, "id": 7, "name": "Portfeeder"},
 {"count": 0, "protocol": "DCC", "addr": 7, "image_url": "/static/images/BR50.jpg", "client_id": null, "id": 8, "name": "BR-50"},
 {"count": 0, "protocol": "DCC", "addr": 8, "image_url": "/static/images/BR151.jpg", "client_id": null, "id": 9, "name": "BR-151"}
