@@ -336,6 +336,7 @@ def mqtt_on_message(client, userdata, msg):
         socketio.emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
     if command== "Switch":
+        log4j.write("Weiche: " + str(message["id"]) + " " + str(message["dir"])) 
         Gleisplan.set_turnout(message["id"], message["dir"]);
         socketio.emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
 
