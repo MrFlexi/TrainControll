@@ -56,7 +56,6 @@ class Lok:
         print ("Speed was changed to: ", speed)
         Lok.setDir(id, dir)
         print ("Direction changed to: ", dir)
-
         Lok.printLokList()
 
     @staticmethod
@@ -76,7 +75,7 @@ class Lok:
         print()
         print("Lokliste")
         for x in Lok.LokList:
-            print( x.id,  x.name, x.speed )
+            print( x.id,  x.name, x.user_name, x.speed, x.client_id)
 
     def getDataJSON():
         jd = []
