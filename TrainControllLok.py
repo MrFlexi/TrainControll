@@ -76,7 +76,7 @@ class Lok:
         print()
         print("Lokliste")
         for x in Lok.LokList:
-            print( x.id,  x.name, x.user_name, x.speed, x.client_id)
+            print( x.id,  x.name, x.speed )
 
     def getDataJSON():
         jd = []
