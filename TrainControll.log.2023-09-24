@@ -1,0 +1,643 @@
+2023-09-23 20:00:37,159 - TrainControll - INFO - Socket IO
+2023-09-23 20:00:37,234 - TrainControll - INFO - Lok: 5 Speed 58 / 0
+2023-09-23 20:00:38,478 - TrainControll - INFO - Socket IO
+2023-09-23 20:00:38,528 - TrainControll - INFO - Lok: 5 Speed 97 / 0
+2023-09-23 20:00:40,125 - TrainControll - INFO - Socket IO
+2023-09-23 20:00:40,183 - TrainControll - INFO - Lok: 5 Speed 39 / 0
+2023-09-23 20:00:41,045 - TrainControll - INFO - Socket IO
+2023-09-23 20:00:41,099 - TrainControll - INFO - Lok: 5 Speed 39 / 0
+2023-09-23 20:00:48,209 - TrainControll - INFO - Socket IO
+2023-09-23 20:00:48,254 - TrainControll - INFO - Lok: 7 Speed 41 / 0
+2023-09-23 20:01:16,032 - TrainControll - INFO - Weiche: 5 1
+2023-09-23 20:01:16,572 - TrainControll - INFO - Weiche: 5 0
+2023-09-23 20:01:17,240 - TrainControll - INFO - Weiche: 5 1
+2023-09-23 20:01:17,808 - TrainControll - INFO - Weiche: 5 0
+2023-09-23 20:01:18,228 - TrainControll - INFO - Weiche: 5 1
+2023-09-23 20:01:18,699 - TrainControll - INFO - Weiche: 5 0
+2023-09-23 20:01:19,674 - TrainControll - INFO - Weiche: 5 1
+2023-09-23 20:01:22,546 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:01:31,715 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:01:33,890 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:01:34,380 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:01:34,792 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:01:35,152 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:01:35,565 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:01:35,957 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:02:12,363 - TrainControll - INFO - Weiche: 2 1
+2023-09-23 20:02:24,705 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:02:25,123 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:02:25,564 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:02:26,012 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:02:26,499 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:02:26,904 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:02:29,521 - TrainControll - INFO - Weiche: 6 1
+2023-09-23 20:02:29,861 - TrainControll - INFO - Weiche: 6 0
+2023-09-23 20:03:01,242 - TrainControll - INFO - Weiche: 1 straight
+2023-09-23 20:03:10,641 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 20:03:11,499 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 20:03:11,965 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 20:03:12,382 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 20:03:16,858 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 21:13:55,633 - TrainControll - INFO - Weiche: 1 straight
+2023-09-23 21:13:59,410 - TrainControll - INFO - Weiche: 1 right
+2023-09-23 21:14:07,668 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 21:14:08,289 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 21:14:08,801 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 21:14:09,298 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 21:14:09,849 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 21:14:10,374 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 21:14:10,866 - TrainControll - INFO - Weiche: 1 1
+2023-09-23 21:14:11,204 - TrainControll - INFO - Weiche: 1 0
+2023-09-23 21:14:23,678 - TrainControll - INFO - Socket IO
+2023-09-23 21:14:23,724 - TrainControll - INFO - Lok: 4 Speed 45 / 0
+2023-09-23 21:33:34,309 - TrainControll - INFO - Setup....
+2023-09-23 21:33:34,527 - TrainControll - INFO - waiting for network..
+2023-09-23 21:33:40,943 - TrainControll - INFO - Starting MQTT
+2023-09-23 21:33:41,000 - TrainControll - INFO - Scheduling Tasks
+2023-09-23 21:33:41,026 - TrainControll - INFO - MQTT connected 0
+2023-09-23 21:33:41,325 - TrainControll - INFO - Ready...
+2023-09-23 21:34:48,696 - TrainControll - INFO - Setup....
+2023-09-23 21:34:48,922 - TrainControll - INFO - waiting for network..
+2023-09-23 21:34:55,332 - TrainControll - INFO - Starting MQTT
+2023-09-23 21:34:55,383 - TrainControll - INFO - Scheduling Tasks
+2023-09-23 21:34:55,423 - TrainControll - INFO - MQTT connected 0
+2023-09-23 21:34:55,764 - TrainControll - INFO - Ready...
+2023-09-23 21:40:17,060 - TrainControll - INFO - Setup....
+2023-09-23 21:40:17,276 - TrainControll - INFO - waiting for network..
+2023-09-23 21:40:23,684 - TrainControll - INFO - Starting MQTT
+2023-09-23 21:40:23,741 - TrainControll - INFO - Scheduling Tasks
+2023-09-23 21:40:23,766 - TrainControll - INFO - MQTT connected 0
+2023-09-23 21:40:24,112 - TrainControll - INFO - Ready...
+2023-09-23 21:42:20,499 - TrainControll - INFO - Socket IO
+2023-09-23 21:42:20,528 - TrainControll - INFO - Lok: 7 Speed 28 / 0
+2023-09-23 21:42:22,632 - TrainControll - INFO - Socket IO
+2023-09-23 21:42:22,659 - TrainControll - INFO - Lok: 7 Speed 77 / 0
+2023-09-23 21:42:27,615 - TrainControll - INFO - Socket IO
+2023-09-23 21:42:27,668 - TrainControll - INFO - Lok: 7 Speed 19 / 0
+2023-09-23 21:42:35,549 - TrainControll - INFO - Setup....
+2023-09-23 21:42:35,782 - TrainControll - INFO - waiting for network..
+2023-09-23 21:42:42,244 - TrainControll - INFO - Starting MQTT
+2023-09-23 21:42:42,300 - TrainControll - INFO - Scheduling Tasks
+2023-09-23 21:42:42,313 - TrainControll - INFO - MQTT connected 0
+2023-09-23 21:42:42,604 - TrainControll - INFO - Ready...
+2023-09-24 12:45:09,460 - TrainControll - INFO - Setup....
+2023-09-24 12:45:09,683 - TrainControll - INFO - waiting for network..
+2023-09-24 12:45:16,164 - TrainControll - INFO - Starting MQTT
+2023-09-24 12:45:16,231 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 12:45:16,248 - TrainControll - INFO - MQTT connected 0
+2023-09-24 12:45:16,515 - TrainControll - INFO - Ready...
+2023-09-24 12:59:11,121 - TrainControll - INFO - Setup....
+2023-09-24 12:59:11,281 - TrainControll - INFO - waiting for network..
+2023-09-24 12:59:17,692 - TrainControll - INFO - Starting MQTT
+2023-09-24 12:59:17,730 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 12:59:17,747 - TrainControll - INFO - MQTT connected 0
+2023-09-24 12:59:18,030 - TrainControll - INFO - Ready...
+2023-09-24 12:59:20,364 - TrainControll - INFO - Setup....
+2023-09-24 12:59:20,521 - TrainControll - INFO - waiting for network..
+2023-09-24 12:59:26,876 - TrainControll - INFO - Starting MQTT
+2023-09-24 12:59:26,915 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 12:59:26,934 - TrainControll - INFO - MQTT connected 0
+2023-09-24 12:59:27,179 - TrainControll - INFO - Ready...
+2023-09-24 12:59:59,943 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 13:00:05,372 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 13:00:06,333 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 13:00:06,857 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 13:00:07,533 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 13:00:08,052 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 13:00:09,227 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 13:00:21,043 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:21,087 - TrainControll - INFO - Lok: 4 Speed 39 / 0
+2023-09-24 13:00:24,443 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:24,471 - TrainControll - INFO - Lok: 4 Speed 50 / 0
+2023-09-24 13:00:26,746 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:26,795 - TrainControll - INFO - Lok: 4 Speed 18 / 0
+2023-09-24 13:00:28,388 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:28,416 - TrainControll - INFO - Lok: 4 Speed 70 / 0
+2023-09-24 13:00:29,415 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:29,442 - TrainControll - INFO - Lok: 4 Speed 66 / 0
+2023-09-24 13:00:30,428 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:30,470 - TrainControll - INFO - Lok: 4 Speed 44 / 0
+2023-09-24 13:00:33,775 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:33,809 - TrainControll - INFO - Lok: 4 Speed 85 / 0
+2023-09-24 13:00:36,809 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:36,838 - TrainControll - INFO - Lok: 4 Speed 69 / 0
+2023-09-24 13:00:48,063 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:48,117 - TrainControll - INFO - Lok: 4 Speed 69 / 1
+2023-09-24 13:00:50,709 - TrainControll - INFO - Socket IO
+2023-09-24 13:00:50,762 - TrainControll - INFO - Lok: 4 Speed 69 / 0
+2023-09-24 13:01:26,111 - TrainControll - INFO - Setup....
+2023-09-24 13:01:26,385 - TrainControll - INFO - waiting for network..
+2023-09-24 13:01:33,085 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:01:33,135 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:01:33,195 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:01:33,412 - TrainControll - INFO - Ready...
+2023-09-24 13:02:07,623 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:07,655 - TrainControll - INFO - Lok: 4 Speed 24 / 0
+2023-09-24 13:02:10,874 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:10,902 - TrainControll - INFO - Lok: 4 Speed 58 / 0
+2023-09-24 13:02:13,249 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:13,276 - TrainControll - INFO - Lok: 4 Speed 71 / 0
+2023-09-24 13:02:15,111 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:15,152 - TrainControll - INFO - Lok: 4 Speed 71 / 2
+2023-09-24 13:02:19,548 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:19,576 - TrainControll - INFO - Lok: 4 Speed 42 / 2
+2023-09-24 13:02:22,767 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:22,795 - TrainControll - INFO - Lok: 4 Speed 42 / 0
+2023-09-24 13:02:28,758 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:28,791 - TrainControll - INFO - Lok: 4 Speed 12 / 0
+2023-09-24 13:02:30,237 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:30,264 - TrainControll - INFO - Lok: 4 Speed 0 / 0
+2023-09-24 13:02:40,688 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:40,717 - TrainControll - INFO - Lok: 4 Speed 56 / 0
+2023-09-24 13:02:43,244 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:43,272 - TrainControll - INFO - Lok: 4 Speed 67 / 0
+2023-09-24 13:02:46,422 - TrainControll - INFO - Socket IO
+2023-09-24 13:02:46,452 - TrainControll - INFO - Lok: 4 Speed 92 / 0
+2023-09-24 13:03:58,079 - TrainControll - INFO - Setup....
+2023-09-24 13:03:58,235 - TrainControll - INFO - waiting for network..
+2023-09-24 13:04:04,612 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:04:04,678 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:04:04,707 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:04:04,926 - TrainControll - INFO - Ready...
+2023-09-24 13:04:07,242 - TrainControll - INFO - Setup....
+2023-09-24 13:04:07,400 - TrainControll - INFO - waiting for network..
+2023-09-24 13:04:13,744 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:04:13,782 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:04:13,802 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:04:14,041 - TrainControll - INFO - Ready...
+2023-09-24 13:04:31,438 - TrainControll - INFO - Socket IO
+2023-09-24 13:04:31,494 - TrainControll - INFO - Lok: 4 Speed 92 / 2
+2023-09-24 13:04:33,517 - TrainControll - INFO - Socket IO
+2023-09-24 13:04:33,566 - TrainControll - INFO - Lok: 4 Speed 45 / 2
+2023-09-24 13:09:41,292 - TrainControll - INFO - Setup....
+2023-09-24 13:09:41,508 - TrainControll - INFO - waiting for network..
+2023-09-24 13:09:47,881 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:09:47,936 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:09:47,964 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:09:48,276 - TrainControll - INFO - Ready...
+2023-09-24 13:09:50,755 - TrainControll - INFO - Setup....
+2023-09-24 13:09:50,908 - TrainControll - INFO - waiting for network..
+2023-09-24 13:09:57,526 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:09:58,131 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:09:58,149 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:09:58,428 - TrainControll - INFO - Ready...
+2023-09-24 13:10:23,367 - TrainControll - INFO - Setup....
+2023-09-24 13:10:23,594 - TrainControll - INFO - waiting for network..
+2023-09-24 13:10:30,003 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:10:30,041 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:10:30,058 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:10:32,780 - TrainControll - INFO - Ready...
+2023-09-24 13:10:35,276 - TrainControll - INFO - Setup....
+2023-09-24 13:10:35,430 - TrainControll - INFO - waiting for network..
+2023-09-24 13:10:41,927 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:10:41,991 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:10:42,062 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:10:42,320 - TrainControll - INFO - Ready...
+2023-09-24 13:17:55,174 - TrainControll - INFO - Setup....
+2023-09-24 13:17:55,448 - TrainControll - INFO - waiting for network..
+2023-09-24 13:18:02,036 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:18:02,074 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:18:02,092 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:18:02,376 - TrainControll - INFO - Ready...
+2023-09-24 13:18:09,854 - TrainControll - INFO - Setup....
+2023-09-24 13:18:10,135 - TrainControll - INFO - waiting for network..
+2023-09-24 13:18:16,694 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:18:16,730 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:18:16,749 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:18:17,064 - TrainControll - INFO - Ready...
+2023-09-24 13:18:23,820 - TrainControll - INFO - Setup....
+2023-09-24 13:18:24,017 - TrainControll - INFO - waiting for network..
+2023-09-24 13:18:30,670 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:18:30,708 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:18:30,763 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:18:31,051 - TrainControll - INFO - Ready...
+2023-09-24 13:18:35,431 - TrainControll - INFO - Setup....
+2023-09-24 13:18:35,616 - TrainControll - INFO - waiting for network..
+2023-09-24 13:18:42,807 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:18:50,098 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:18:50,132 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:18:50,409 - TrainControll - INFO - Ready...
+2023-09-24 13:19:33,331 - TrainControll - INFO - Setup....
+2023-09-24 13:19:33,512 - TrainControll - INFO - waiting for network..
+2023-09-24 13:19:39,880 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:19:39,915 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:19:39,931 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:19:40,162 - TrainControll - INFO - Ready...
+2023-09-24 13:19:59,791 - TrainControll - INFO - Setup....
+2023-09-24 13:20:00,187 - TrainControll - INFO - waiting for network..
+2023-09-24 13:20:06,689 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:20:06,749 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:20:06,767 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:20:07,065 - TrainControll - INFO - Ready...
+2023-09-24 13:20:16,012 - TrainControll - INFO - Setup....
+2023-09-24 13:20:16,223 - TrainControll - INFO - waiting for network..
+2023-09-24 13:20:22,868 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:20:22,906 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:20:22,972 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:20:23,221 - TrainControll - INFO - Ready...
+2023-09-24 13:20:42,271 - TrainControll - INFO - Setup....
+2023-09-24 13:20:42,487 - TrainControll - INFO - waiting for network..
+2023-09-24 13:20:48,941 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:20:48,978 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:20:48,998 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:20:49,431 - TrainControll - INFO - Ready...
+2023-09-24 13:20:58,888 - TrainControll - INFO - Setup....
+2023-09-24 13:20:59,159 - TrainControll - INFO - waiting for network..
+2023-09-24 13:21:05,792 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:21:07,634 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:21:07,663 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:21:07,985 - TrainControll - INFO - Ready...
+2023-09-24 13:21:17,613 - TrainControll - INFO - Setup....
+2023-09-24 13:21:19,952 - TrainControll - INFO - waiting for network..
+2023-09-24 13:21:26,323 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:21:26,799 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:21:26,819 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:21:27,142 - TrainControll - INFO - Ready...
+2023-09-24 13:21:39,466 - TrainControll - INFO - Setup....
+2023-09-24 13:21:39,655 - TrainControll - INFO - waiting for network..
+2023-09-24 13:21:46,269 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:21:46,323 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:21:46,355 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:21:46,627 - TrainControll - INFO - Ready...
+2023-09-24 13:21:53,132 - TrainControll - INFO - Setup....
+2023-09-24 13:21:53,319 - TrainControll - INFO - waiting for network..
+2023-09-24 13:21:59,970 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:22:00,027 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:22:00,036 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:22:02,477 - TrainControll - INFO - Ready...
+2023-09-24 13:22:12,040 - TrainControll - INFO - Setup....
+2023-09-24 13:22:12,240 - TrainControll - INFO - waiting for network..
+2023-09-24 13:22:18,763 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:22:18,807 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:22:18,833 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:22:19,093 - TrainControll - INFO - Ready...
+2023-09-24 13:22:37,493 - TrainControll - INFO - Setup....
+2023-09-24 13:22:37,666 - TrainControll - INFO - waiting for network..
+2023-09-24 13:22:44,120 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:22:44,168 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:22:44,200 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:22:44,483 - TrainControll - INFO - Ready...
+2023-09-24 13:19:34,338 - TrainControll - INFO - Setup....
+2023-09-24 13:19:34,560 - TrainControll - INFO - waiting for network..
+2023-09-24 13:19:40,965 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:19:41,021 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:19:41,042 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:19:41,339 - TrainControll - INFO - Ready...
+2023-09-24 13:19:43,751 - TrainControll - INFO - Setup....
+2023-09-24 13:19:43,905 - TrainControll - INFO - waiting for network..
+2023-09-24 13:19:50,434 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:19:50,476 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:19:50,491 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:19:50,808 - TrainControll - INFO - Ready...
+2023-09-24 13:26:47,783 - TrainControll - INFO - Setup....
+2023-09-24 13:26:48,012 - TrainControll - INFO - waiting for network..
+2023-09-24 13:26:54,426 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:26:54,484 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:26:54,508 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:26:54,789 - TrainControll - INFO - Ready...
+2023-09-24 13:26:57,219 - TrainControll - INFO - Setup....
+2023-09-24 13:26:57,373 - TrainControll - INFO - waiting for network..
+2023-09-24 13:27:03,866 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:27:03,904 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:27:03,936 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:27:04,197 - TrainControll - INFO - Ready...
+2023-09-24 13:27:48,780 - TrainControll - INFO - Setup....
+2023-09-24 13:27:49,002 - TrainControll - INFO - waiting for network..
+2023-09-24 13:27:55,392 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:27:55,443 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:27:55,464 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:27:55,882 - TrainControll - INFO - Ready...
+2023-09-24 13:27:58,474 - TrainControll - INFO - Setup....
+2023-09-24 13:27:58,709 - TrainControll - INFO - waiting for network..
+2023-09-24 13:28:05,123 - TrainControll - INFO - Starting MQTT
+2023-09-24 13:28:05,163 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 13:28:05,189 - TrainControll - INFO - MQTT connected 0
+2023-09-24 13:28:05,524 - TrainControll - INFO - Ready...
+2023-09-24 19:02:02,812 - TrainControll - INFO - Setup....
+2023-09-24 19:02:03,049 - TrainControll - INFO - waiting for network..
+2023-09-24 19:02:09,607 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:02:09,672 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:02:09,693 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:02:09,966 - TrainControll - INFO - Ready...
+2023-09-24 19:25:54,877 - TrainControll - INFO - Setup....
+2023-09-24 19:25:55,107 - TrainControll - INFO - waiting for network..
+2023-09-24 19:26:01,543 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:26:01,594 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:26:01,633 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:26:01,866 - TrainControll - INFO - Ready...
+2023-09-24 19:26:04,356 - TrainControll - INFO - Setup....
+2023-09-24 19:26:04,522 - TrainControll - INFO - waiting for network..
+2023-09-24 19:26:10,921 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:26:10,953 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:26:10,970 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:26:11,214 - TrainControll - INFO - Ready...
+2023-09-24 19:40:26,931 - TrainControll - INFO - Setup....
+2023-09-24 19:40:27,166 - TrainControll - INFO - waiting for network..
+2023-09-24 19:40:33,716 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:40:33,771 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:40:33,798 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:40:34,048 - TrainControll - INFO - Ready...
+2023-09-24 19:40:36,485 - TrainControll - INFO - Setup....
+2023-09-24 19:40:36,647 - TrainControll - INFO - waiting for network..
+2023-09-24 19:40:43,078 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:40:43,114 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:40:43,140 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:40:43,415 - TrainControll - INFO - Ready...
+2023-09-24 19:46:29,506 - TrainControll - INFO - Setup....
+2023-09-24 19:46:29,667 - TrainControll - INFO - waiting for network..
+2023-09-24 19:46:36,107 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:46:36,158 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:46:36,176 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:46:36,429 - TrainControll - INFO - Ready...
+2023-09-24 19:46:38,923 - TrainControll - INFO - Setup....
+2023-09-24 19:46:39,083 - TrainControll - INFO - waiting for network..
+2023-09-24 19:46:45,470 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:46:45,509 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:46:45,528 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:46:45,775 - TrainControll - INFO - Ready...
+2023-09-24 19:47:22,279 - TrainControll - INFO - Setup....
+2023-09-24 19:47:22,452 - TrainControll - INFO - waiting for network..
+2023-09-24 19:47:29,134 - TrainControll - INFO - Starting MQTT
+2023-09-24 19:47:29,189 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 19:47:29,203 - TrainControll - INFO - MQTT connected 0
+2023-09-24 19:47:29,446 - TrainControll - INFO - Ready...
+2023-09-24 20:26:30,756 - TrainControll - INFO - Setup....
+2023-09-24 20:26:31,051 - TrainControll - INFO - waiting for network..
+2023-09-24 20:26:37,564 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:26:37,611 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:26:37,632 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:26:37,927 - TrainControll - INFO - Ready...
+2023-09-24 20:26:40,617 - TrainControll - INFO - Setup....
+2023-09-24 20:26:40,771 - TrainControll - INFO - waiting for network..
+2023-09-24 20:26:47,192 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:26:47,247 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:26:47,270 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:26:47,516 - TrainControll - INFO - Ready...
+2023-09-24 20:30:39,463 - TrainControll - INFO - Setup....
+2023-09-24 20:30:39,710 - TrainControll - INFO - waiting for network..
+2023-09-24 20:30:46,137 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:30:46,196 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:30:46,221 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:30:46,490 - TrainControll - INFO - Ready...
+2023-09-24 20:30:49,051 - TrainControll - INFO - Setup....
+2023-09-24 20:30:49,209 - TrainControll - INFO - waiting for network..
+2023-09-24 20:30:55,688 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:30:55,764 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:30:55,768 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:30:56,080 - TrainControll - INFO - Ready...
+2023-09-24 20:33:49,944 - TrainControll - INFO - Setup....
+2023-09-24 20:33:50,107 - TrainControll - INFO - waiting for network..
+2023-09-24 20:33:56,633 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:33:56,680 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:33:56,706 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:33:56,948 - TrainControll - INFO - Ready...
+2023-09-24 20:33:59,560 - TrainControll - INFO - Setup....
+2023-09-24 20:33:59,717 - TrainControll - INFO - waiting for network..
+2023-09-24 20:34:06,297 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:34:06,339 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:34:06,366 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:34:06,622 - TrainControll - INFO - Ready...
+2023-09-24 20:34:36,067 - TrainControll - INFO - Setup....
+2023-09-24 20:34:36,299 - TrainControll - INFO - waiting for network..
+2023-09-24 20:34:42,679 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:34:42,716 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:34:42,736 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:34:43,116 - TrainControll - INFO - Ready...
+2023-09-24 20:36:30,283 - TrainControll - INFO - Setup....
+2023-09-24 20:36:30,548 - TrainControll - INFO - waiting for network..
+2023-09-24 20:36:37,134 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:36:37,176 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:36:37,200 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:36:37,534 - TrainControll - INFO - Ready...
+2023-09-24 20:36:45,447 - TrainControll - INFO - Setup....
+2023-09-24 20:36:45,671 - TrainControll - INFO - waiting for network..
+2023-09-24 20:36:52,257 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:36:52,330 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:36:52,344 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:36:52,604 - TrainControll - INFO - Ready...
+2023-09-24 20:37:22,678 - TrainControll - INFO - Setup....
+2023-09-24 20:37:22,988 - TrainControll - INFO - waiting for network..
+2023-09-24 20:37:29,484 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:37:29,551 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:37:29,609 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:37:29,863 - TrainControll - INFO - Ready...
+2023-09-24 20:37:36,692 - TrainControll - INFO - Setup....
+2023-09-24 20:37:36,857 - TrainControll - INFO - waiting for network..
+2023-09-24 20:37:43,373 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:37:43,420 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:37:43,445 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:37:43,691 - TrainControll - INFO - Ready...
+2023-09-24 20:37:50,687 - TrainControll - INFO - Setup....
+2023-09-24 20:37:50,894 - TrainControll - INFO - waiting for network..
+2023-09-24 20:37:57,409 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:37:57,460 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:37:57,530 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:37:57,795 - TrainControll - INFO - Ready...
+2023-09-24 20:38:03,814 - TrainControll - INFO - Setup....
+2023-09-24 20:38:04,020 - TrainControll - INFO - waiting for network..
+2023-09-24 20:38:10,576 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:38:10,630 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:38:10,656 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:38:10,988 - TrainControll - INFO - Ready...
+2023-09-24 20:38:41,219 - TrainControll - INFO - Setup....
+2023-09-24 20:38:41,463 - TrainControll - INFO - waiting for network..
+2023-09-24 20:38:47,936 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:38:47,984 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:38:48,014 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:38:48,373 - TrainControll - INFO - Ready...
+2023-09-24 20:38:51,896 - TrainControll - INFO - Setup....
+2023-09-24 20:38:52,073 - TrainControll - INFO - waiting for network..
+2023-09-24 20:38:58,620 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:38:58,655 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:38:58,716 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:38:58,980 - TrainControll - INFO - Ready...
+2023-09-24 20:39:10,346 - TrainControll - INFO - Setup....
+2023-09-24 20:39:10,575 - TrainControll - INFO - waiting for network..
+2023-09-24 20:39:17,104 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:39:17,153 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:39:17,177 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:39:17,518 - TrainControll - INFO - Ready...
+2023-09-24 20:39:22,594 - TrainControll - INFO - Setup....
+2023-09-24 20:39:22,805 - TrainControll - INFO - waiting for network..
+2023-09-24 20:39:29,420 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:39:29,463 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:39:29,483 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:39:29,841 - TrainControll - INFO - Ready...
+2023-09-24 20:40:13,255 - TrainControll - INFO - Setup....
+2023-09-24 20:40:13,566 - TrainControll - INFO - waiting for network..
+2023-09-24 20:40:20,203 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:40:20,293 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:40:20,325 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:40:20,619 - TrainControll - INFO - Ready...
+2023-09-24 20:40:47,341 - TrainControll - INFO - Setup....
+2023-09-24 20:40:47,761 - TrainControll - INFO - waiting for network..
+2023-09-24 20:40:54,377 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:40:54,422 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:40:54,442 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:40:54,811 - TrainControll - INFO - Ready...
+2023-09-24 20:41:09,258 - TrainControll - INFO - Setup....
+2023-09-24 20:41:09,642 - TrainControll - INFO - waiting for network..
+2023-09-24 20:41:16,303 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:41:16,340 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:41:16,360 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:41:16,680 - TrainControll - INFO - Ready...
+2023-09-24 20:42:34,872 - TrainControll - INFO - Setup....
+2023-09-24 20:42:35,162 - TrainControll - INFO - waiting for network..
+2023-09-24 20:42:41,793 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:42:41,832 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:42:41,855 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:42:42,130 - TrainControll - INFO - Ready...
+2023-09-24 20:47:57,108 - TrainControll - INFO - Setup....
+2023-09-24 20:47:57,346 - TrainControll - INFO - waiting for network..
+2023-09-24 20:48:03,794 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:48:03,845 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:48:03,878 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:48:04,150 - TrainControll - INFO - Ready...
+2023-09-24 20:48:06,746 - TrainControll - INFO - Setup....
+2023-09-24 20:48:06,900 - TrainControll - INFO - waiting for network..
+2023-09-24 20:48:13,293 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:48:13,399 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:48:13,417 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:48:13,790 - TrainControll - INFO - Ready...
+2023-09-24 20:49:00,467 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:00,494 - TrainControll - INFO - Lok: 9 Speed 0 / 0
+2023-09-24 20:49:03,622 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:03,639 - TrainControll - INFO - Lok: 9 Speed 0 / 2
+2023-09-24 20:49:08,892 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:08,915 - TrainControll - INFO - Lok: 9 Speed 0 / 1
+2023-09-24 20:49:12,206 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:12,227 - TrainControll - INFO - Lok: 9 Speed 0 / 0
+2023-09-24 20:49:16,723 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:16,748 - TrainControll - INFO - Lok: 9 Speed 0 / 2
+2023-09-24 20:49:19,899 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:19,931 - TrainControll - INFO - Lok: 9 Speed 0 / 0
+2023-09-24 20:49:44,190 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:44,222 - TrainControll - INFO - Lok: 9 Speed 0 / 2
+2023-09-24 20:49:46,465 - TrainControll - INFO - Socket IO
+2023-09-24 20:49:46,482 - TrainControll - INFO - Lok: 9 Speed 0 / 1
+2023-09-24 20:49:52,850 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 20:49:56,855 - TrainControll - INFO - Weiche: 1 0
+2023-09-24 20:49:57,666 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 20:49:58,511 - TrainControll - INFO - Weiche: 1 0
+2023-09-24 20:49:58,937 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 20:49:59,914 - TrainControll - INFO - Weiche: 1 0
+2023-09-24 20:50:00,848 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 20:50:01,605 - TrainControll - INFO - Weiche: 1 0
+2023-09-24 20:50:01,957 - TrainControll - INFO - Weiche: 1 1
+2023-09-24 20:50:02,850 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:50:03,690 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:50:04,272 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:50:04,789 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:50:05,140 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:50:05,511 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:51:30,605 - TrainControll - INFO - Setup....
+2023-09-24 20:51:30,832 - TrainControll - INFO - waiting for network..
+2023-09-24 20:51:37,227 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:51:37,282 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:51:37,303 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:51:37,570 - TrainControll - INFO - Ready...
+2023-09-24 20:52:17,135 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:17,167 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:17,194 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:17,219 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:17,242 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:17,270 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:17,294 - TrainControll - INFO - Weiche: 5 1
+2023-09-24 20:52:17,317 - TrainControll - INFO - Weiche: 5 0
+2023-09-24 20:52:17,339 - TrainControll - INFO - Weiche: 5 1
+2023-09-24 20:52:17,360 - TrainControll - INFO - Weiche: 5 0
+2023-09-24 20:52:17,383 - TrainControll - INFO - Weiche: 5 1
+2023-09-24 20:52:17,405 - TrainControll - INFO - Weiche: 5 0
+2023-09-24 20:52:17,429 - TrainControll - INFO - Weiche: 5 1
+2023-09-24 20:52:17,454 - TrainControll - INFO - Weiche: 5 0
+2023-09-24 20:52:40,601 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:42,016 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:42,764 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:43,546 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:44,025 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:52:44,361 - TrainControll - INFO - Weiche: 2 0
+2023-09-24 20:52:44,725 - TrainControll - INFO - Weiche: 2 1
+2023-09-24 20:53:42,199 - TrainControll - INFO - Setup....
+2023-09-24 20:53:42,547 - TrainControll - INFO - waiting for network..
+2023-09-24 20:53:50,222 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:53:50,263 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:53:50,300 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:53:50,697 - TrainControll - INFO - Ready...
+2023-09-24 20:56:52,618 - TrainControll - INFO - Setup....
+2023-09-24 20:56:52,870 - TrainControll - INFO - waiting for network..
+2023-09-24 20:56:59,375 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:56:59,441 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:56:59,448 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:56:59,739 - TrainControll - INFO - Ready...
+2023-09-24 20:57:04,034 - TrainControll - INFO - Setup....
+2023-09-24 20:57:04,191 - TrainControll - INFO - waiting for network..
+2023-09-24 20:57:10,560 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:57:10,614 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:57:10,640 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:57:10,893 - TrainControll - INFO - Ready...
+2023-09-24 20:57:54,893 - TrainControll - INFO - Setup....
+2023-09-24 20:57:55,426 - TrainControll - INFO - waiting for network..
+2023-09-24 20:58:02,247 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:58:02,328 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:58:02,334 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:58:02,701 - TrainControll - INFO - Ready...
+2023-09-24 20:58:10,414 - TrainControll - INFO - Setup....
+2023-09-24 20:58:10,780 - TrainControll - INFO - waiting for network..
+2023-09-24 20:58:17,488 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:58:17,641 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:58:17,649 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:58:18,177 - TrainControll - INFO - Ready...
+2023-09-24 20:58:43,727 - TrainControll - INFO - Setup....
+2023-09-24 20:58:43,951 - TrainControll - INFO - waiting for network..
+2023-09-24 20:58:50,364 - TrainControll - INFO - Starting MQTT
+2023-09-24 20:58:50,413 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 20:58:50,430 - TrainControll - INFO - MQTT connected 0
+2023-09-24 20:58:50,831 - TrainControll - INFO - Ready...
+2023-09-24 21:00:02,710 - TrainControll - INFO - Setup....
+2023-09-24 21:00:03,063 - TrainControll - INFO - waiting for network..
+2023-09-24 21:00:15,903 - TrainControll - INFO - Setup....
+2023-09-24 21:00:16,083 - TrainControll - INFO - waiting for network..
+2023-09-24 21:00:22,579 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:00:22,644 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:00:22,667 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:00:22,956 - TrainControll - INFO - Ready...
+2023-09-24 21:00:27,296 - TrainControll - INFO - Setup....
+2023-09-24 21:00:27,502 - TrainControll - INFO - waiting for network..
+2023-09-24 21:00:33,943 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:00:33,980 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:00:33,999 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:00:34,303 - TrainControll - INFO - Ready...
+2023-09-24 21:03:38,007 - TrainControll - INFO - Socket IO
+2023-09-24 21:03:38,049 - TrainControll - INFO - Lok: 9 Speed 38 / 0
+2023-09-24 21:03:40,778 - TrainControll - INFO - Socket IO
+2023-09-24 21:03:40,808 - TrainControll - INFO - Lok: 9 Speed 46 / 0
+2023-09-24 21:03:43,567 - TrainControll - INFO - Socket IO
+2023-09-24 21:03:43,614 - TrainControll - INFO - Lok: 9 Speed 74 / 0
+2023-09-24 21:04:17,270 - TrainControll - INFO - Socket IO
+2023-09-24 21:04:17,304 - TrainControll - INFO - Lok: 3 Speed 37 / 0
+2023-09-24 21:04:20,668 - TrainControll - INFO - Socket IO
+2023-09-24 21:04:20,718 - TrainControll - INFO - Lok: 3 Speed 70 / 0
+2023-09-24 21:06:57,207 - TrainControll - INFO - Setup....
+2023-09-24 21:06:57,428 - TrainControll - INFO - waiting for network..
+2023-09-24 21:07:03,792 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:07:03,854 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:07:03,869 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:07:04,244 - TrainControll - INFO - Ready...
+2023-09-24 21:07:06,972 - TrainControll - INFO - Setup....
+2023-09-24 21:07:07,134 - TrainControll - INFO - waiting for network..
+2023-09-24 21:07:13,673 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:07:13,754 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:07:13,772 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:07:14,056 - TrainControll - INFO - Ready...
+2023-09-24 21:11:24,205 - TrainControll - INFO - Setup....
+2023-09-24 21:11:24,425 - TrainControll - INFO - waiting for network..
+2023-09-24 21:11:30,801 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:11:30,855 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:11:30,882 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:11:31,215 - TrainControll - INFO - Ready...
+2023-09-24 21:11:33,980 - TrainControll - INFO - Setup....
+2023-09-24 21:11:34,133 - TrainControll - INFO - waiting for network..
+2023-09-24 21:11:40,567 - TrainControll - INFO - Starting MQTT
+2023-09-24 21:11:40,609 - TrainControll - INFO - Scheduling Tasks
+2023-09-24 21:11:40,629 - TrainControll - INFO - MQTT connected 0
+2023-09-24 21:11:41,028 - TrainControll - INFO - Ready...

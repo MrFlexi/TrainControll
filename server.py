@@ -23,6 +23,9 @@ import json
 import base64
 import binascii
 import paho.mqtt.client as mqtt
+import RPi.GPIO as GPIO
+import asyncio
+
 
 from TrainControll import Clients, UDP, Gleisplan, User, lcd, log4j
 from TrainControllLok import Lok
@@ -35,6 +38,7 @@ from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from pathlib import Path
 from time import ctime
+from gpiozero import LED, PWMLED
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
     # different async modes, or leave it set to None for the application to choose
@@ -42,16 +46,49 @@ from time import ctime
 async_mode = None
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-
 CORS(app)
 socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
 
-def scheduleTask():
+# ------------------------------------------------------------ 
+#                       GPIO PINs 
+# ------------------------------------------------------------ 
+#    13  LED  alive indicator
+#    16  LED  Can bus data indicator
+#    17  LED  MQtt data received
+#    18  LCD Screen
+#    26  LCD Screen
+#    27  LCD Screen
+# ------------------------------------------------------------ 
+
+led_alive_pin= 4
+led_mqtt_pin = 17
+led_can_pin = 16
+
+
+def short_flash_led_can():
     if sys.platform.startswith('linux'):
-        print()
-        #page_0()
+        ledCanBus.blink(on_time=0.1, off_time=0.1, n=5, background=True)
+
+def short_flash_led_mqtt():
+    if sys.platform.startswith('linux'):
+        ledMqtt.blink(on_time=0.1, off_time=0.1, n=5, background=True)
+        
+        
+# ------------------- scheduled tasks ------------------------------ 
+
+def task_blinkLed1s():
+    print()
+      
 
 # ---------------------  SETUP  ------------------------------------
+ledAlive = LED(led_alive_pin)
+ledCanBus = PWMLED(led_can_pin)
+ledMqtt = PWMLED(led_mqtt_pin)
+
+if sys.platform.startswith('linux'):
+           ledAlive.blink(on_time=2, off_time=2, background=True)
+
+
 log4j()
 log4j.write(('Setup....'))
 
@@ -173,6 +210,7 @@ def main_controller_value_changed(message):
     #emit('config_data', {'MyLok': Lok.getDataJSONforClient(request.sid),
     #                    'user': User.getDataJSON()})
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    short_flash_led_can()
 
 @socketio.on('LokListDataChanged', namespace='')
 def LokListDataChanged(message):
@@ -230,17 +268,20 @@ def value_changed(message):
                         })
     # Push new data to all connected clients
     emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
+    short_flash_led_can()
 
 @socketio.on('toggle_turnout', namespace='')
 def toggle_turnout(message):
     Gleisplan.toggle_turnout(message);
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)
+    short_flash_led_can()
 
 @socketio.on('track_changed', namespace='')
 def track_changed(message):
     log4j.write("Weiche: " + str(message["id"]) + " " + str(message["dir"])) 
     Gleisplan.set_turnout(message["id"], message["dir"]);
     emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
+    short_flash_led_can()
 
 @socketio.on('gleisplan_save', namespace='')
 def gleisplan_save(message):
@@ -288,12 +329,14 @@ def mqtt_on_message(client, userdata, msg):
     message=json.loads(m_decode) #decode json data
     command=message["command"]
     print("processing command:",command)
+    short_flash_led_mqtt()
         
     if command== "Lok":
         Lok.setNewData(message)
         socketio.emit('LokList_data', {'LokList': Lok.getDataJSON()}, broadcast=True)  # List of available locomotions
 
     if command== "Switch":
+        log4j.write("Weiche: " + str(message["id"]) + " " + str(message["dir"])) 
         Gleisplan.set_turnout(message["id"], message["dir"]);
         socketio.emit('gleisplan_data', {'Track': Gleisplan.getDataJSON()}, broadcast=True)    
 
@@ -323,18 +366,18 @@ if __name__ == '__main__':
     client.loop_start()    
     
     log4j.write('Scheduling Tasks')
-    scheduler.add_job(id = 'Scheduled Task', 
-                        func=scheduleTask, 
-                        trigger="interval", seconds=30
+ 
+    scheduler.add_job(id = 'BlinkLed1s', 
+                        func=task_blinkLed1s, 
+                        trigger="interval", seconds=5
                         )
+
     scheduler.start()
     log4j.clear()
     log4j.write('Ready...')
-    lcd.show_page_0()
-
-   
+  
     if sys.platform.startswith('linux'):
-         debug = False
+         debug = True
          socketio.run(app, host='0.0.0.0', port=3033, debug=debug)
     else:
          debug = True

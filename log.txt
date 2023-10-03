@@ -8733,4 +8733,3943 @@ Connected clients:  2
 Weiche: 1 straight
 UDPSetFunction:0 Value:0 UDP IP: 192.168.178.100 Port: 15731
 Weiche: 1 1
-UDPSetFunction:0 Value:1 UDP IP:
+UDPSetFunction:0 Value:1 UDP IP:Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+Traceback (most recent call last):
+  File "server.py", line 332, in <module>
+    lcd.show_page_0()
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 141, in show_page_0
+    page_0()
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 93, in page_0
+    ip_s = get_interface_ipaddress('wlan0')
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 62, in get_interface_ipaddress
+    struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+NameError: name 'struct' is not defined
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+Traceback (most recent call last):
+  File "server.py", line 332, in <module>
+    lcd.show_page_0()
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 141, in show_page_0
+    page_0()
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 93, in page_0
+    ip_s = get_interface_ipaddress('wlan0')
+  File "/home/pi/projects/TrainControll/TrainControll.py", line 62, in get_interface_ipaddress
+    struct.pack('256s', bytes(ifname[:15], 'utf-8')))[20:24])
+NameError: name 'struct' is not defined
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(737) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9293) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9336) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9369) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(9399) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10040) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10696) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(10856) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(11400) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(11546) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12097) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12195) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12649) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(12848) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(739) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+(5161) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+Traceback (most recent call last):
+  File "/home/pi/projects/TrainControll/server.py", line 34, in <module>
+    from flask import Flask, render_template, request, session
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/flask/__init__.py", line 14, in <module>
+    from jinja2 import escape
+ImportError: cannot import name 'escape' from 'jinja2' (/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/jinja2/__init__.py)
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+New Client connected :Session ID: NRTqf1tpr4cf5a6yAAAB
+Connected clients:  1
+{'NRTqf1tpr4cf5a6yAAAB': 'NRTqf1tpr4cf5a6yAAAB'}
+
+
+
+
+------------------------------------------------------------------
+Lok change of Session IDNRTqf1tpr4cf5a6yAAAB
+{
+ "who": "Dialog",
+ "newLok": "1",
+ "oldLok": 1
+}
+Changed by Dialog
+Lok change requested. New Locomotion:  S-BAHN
+Lok by client id <TrainControllLok.Lok object at 0x72894bf0>
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 59, 'dir': 0, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 0
+Lok: 1 Speed 59 / 0
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x02N\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  59
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  0
+
+Lokliste
+1 S-BAHN Hallo 59 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 59, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 59
+Lok: 1 Speed 59 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x02N\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  59
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 59 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 19, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 59
+Lok: 1 Speed 19 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00\xbe\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  19
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 19 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 79, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 19
+Lok: 1 Speed 79 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\x16\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  79
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 79 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 99, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 79
+Lok: 1 Speed 99 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\xde\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  99
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 99 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 99, 'dir': 0, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 99
+Lok: 1 Speed 99 / 0
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\xde\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  99
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  0
+
+Lokliste
+1 S-BAHN Hallo 99 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 99, 'dir': 2, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 99
+Lok: 1 Speed 99 / 2
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\xde\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  99
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  2
+
+Lokliste
+1 S-BAHN Hallo 99 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 99, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 99
+Lok: 1 Speed 99 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\xde\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  99
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 99 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 6, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 99
+Lok: 1 Speed 6 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00<\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  6
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 6 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 46, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 6
+Lok: 1 Speed 46 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x01\xcc\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  46
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 46 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 26, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 46
+Lok: 1 Speed 26 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x01\x04\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  26
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 26 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 59, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 26
+Lok: 1 Speed 59 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x02N\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  59
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 59 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 73, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 59
+Lok: 1 Speed 73 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x02\xda\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  73
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 73 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 82, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 73
+Lok: 1 Speed 82 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x034\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  82
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 82 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 90, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 82
+Lok: 1 Speed 90 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x03\x84\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  90
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 90 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  1
+Lok setNewData {'id': 1, 'speed': 12, 'dir': 1, 'name': 'S-BAHN', 'image_url': '/static/images/S-Bahn.jpg', 'addr': 5, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID1 found in LokList. Speed old 90
+Lok: 1 Speed 12 / 1
+DCC Address:5
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\x05\x00x\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  12
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  1
+
+Lokliste
+1 S-BAHN Hallo 12 NRTqf1tpr4cf5a6yAAAB
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+
+
+
+------------------------------------------------------------------
+Lok change of Session IDNRTqf1tpr4cf5a6yAAAB
+{
+ "who": "Dialog",
+ "newLok": "6",
+ "oldLok": 1
+}
+Changed by Dialog
+Lok change requested. New Locomotion:  SBB Cargo
+Lok by client id <TrainControllLok.Lok object at 0x72894cb0>
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  6
+Lok setNewData {'id': 6, 'speed': 39, 'dir': 0, 'name': 'SBB Cargo', 'image_url': '/static/images/SBB_CARGO.jpg', 'addr': 10, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID6 found in LokList. Speed old 0
+Lok: 6 Speed 39 / 0
+DCC Address:10
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\n\x01\x86\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+
+Speed was changed to:  39
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  0
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo Hallo 39 NRTqf1tpr4cf5a6yAAAB
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  6
+Lok setNewData {'id': 6, 'speed': 66, 'dir': 0, 'name': 'SBB Cargo', 'image_url': '/static/images/SBB_CARGO.jpg', 'addr': 10, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID6 found in LokList. Speed old 39
+Lok: 6 Speed 66 / 0
+DCC Address:10
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\n\x02\x94\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  66
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  0
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo Hallo 66 NRTqf1tpr4cf5a6yAAAB
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+
+------------------------------------------------------------------
+Socket IO
+Value change of Lok ID  6
+Lok setNewData {'id': 6, 'speed': 74, 'dir': 0, 'name': 'SBB Cargo', 'image_url': '/static/images/SBB_CARGO.jpg', 'addr': 10, 'protocol': 'DCC', 'client_id': 'NRTqf1tpr4cf5a6yAAAB', 'status': 'blocked', 'user_name': 'Hallo', 'f1': 1, 'f2': 0, 'f3': 0}
+Locomotion ID6 found in LokList. Speed old 66
+Lok: 6 Speed 74 / 0
+DCC Address:10
+UDP Message b'\x00\x08\x13\x14\x06\x00\x00\xc0\n\x02\xe4\x00\x00'
+UDP IP: 192.168.178.100 Port: 15731
+Speed was changed to:  74
+UDP IP: 192.168.178.100 Port: 15731
+Direction changed to:  0
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo Hallo 74 NRTqf1tpr4cf5a6yAAAB
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(754) wsgi starting up on http://0.0.0.0:3033
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/threading.py", line 917, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.7/threading.py", line 865, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3591, in _thread_main
+    self.loop_forever(retry_first_connection=True)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1756, in loop_forever
+    rc = self._loop(timeout)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1164, in _loop
+    rc = self.loop_read()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1556, in loop_read
+    rc = self._packet_read()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 2439, in _packet_read
+    rc = self._packet_handle()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3033, in _packet_handle
+    return self._handle_publish()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3327, in _handle_publish
+    self._handle_on_message(message)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3570, in _handle_on_message
+    on_message(self, self._userdata, message)
+  File "/home/pi/projects/TrainControll/server.py", line 329, in mqtt_on_message
+    message=json.loads(m_decode) #decode json data
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+(754) accepted ('192.168.178.49', 50455)
+192.168.178.49 - - [30/Sep/2023 17:11:03] "GET / HTTP/1.1" 200 1563 0.125431
+192.168.178.49 - - [30/Sep/2023 17:11:04] "GET /static/gleisplan.js HTTP/1.1" 200 9389 0.415365
+192.168.178.49 - - [30/Sep/2023 17:11:04] "GET /socket.io/?EIO=4&transport=polling&t=OhcsvMQ HTTP/1.1" 200 277 0.003959
+192.168.178.49 - - [30/Sep/2023 17:11:06] "POST /socket.io/?EIO=4&transport=polling&t=OhcsvNY&sid=fnhrayL4ZAO-jUscAAAA HTTP/1.1" 200 225 2.011827
+(754) accepted ('192.168.178.49', 50459)
+(754) accepted ('192.168.178.49', 50460)
+(754) accepted ('192.168.178.49', 50462)
+192.168.178.49 - - [30/Sep/2023 17:11:06] "GET /socket.io/?EIO=4&transport=polling&t=OhcsvNc&sid=fnhrayL4ZAO-jUscAAAA HTTP/1.1" 200 181 0.001241
+192.168.178.49 - - [30/Sep/2023 17:11:07] "GET /static/App.view.xml HTTP/1.1" 200 4460 0.943239
+192.168.178.49 - - [30/Sep/2023 17:11:07] "GET /static/App.controller.js HTTP/1.1" 200 12870 0.091350
+192.168.178.49 - - [30/Sep/2023 17:11:07] "GET /static/Formatter.js HTTP/1.1" 200 1850 0.016445
+192.168.178.49 - - [30/Sep/2023 17:11:08] "GET /static/fragments/Tiles.fragment.xml HTTP/1.1" 200 1732 0.244807
+192.168.178.49 - - [30/Sep/2023 17:11:08] "GET /static/fragments/Fabric.fragment.xml HTTP/1.1" 200 1468 0.018372
+192.168.178.49 - - [30/Sep/2023 17:11:08] "GET /static/fragments/ActionSheet.fragment.xml HTTP/1.1" 200 1428 0.201267
+192.168.178.49 - - [30/Sep/2023 17:11:08] "GET /static/fragments/Drive.fragment.xml HTTP/1.1" 200 3023 0.099653
+192.168.178.49 - - [30/Sep/2023 17:11:08] "GET /static/fragments/LokList.fragment.xml HTTP/1.1" 200 2842 0.038021
+192.168.178.49 - - [30/Sep/2023 17:11:09] "GET /static/fragments/UserList.fragment.xml HTTP/1.1" 200 1465 0.074787
+192.168.178.49 - - [30/Sep/2023 17:11:09] "GET /static/fragments/Switches.fragment.xml HTTP/1.1" 200 2324 0.202733
+192.168.178.49 - - [30/Sep/2023 17:11:09] "GET /static/fragments/Track.fragment.xml HTTP/1.1" 200 1462 0.357845
+192.168.178.49 - - [30/Sep/2023 17:11:10] "GET /static/config/menu.json HTTP/1.1" 200 1948 0.671221
+192.168.178.49 - - [30/Sep/2023 17:11:10] "GET /static/config/gleisplan.json HTTP/1.1" 200 2019 0.108712
+192.168.178.49 - - [30/Sep/2023 17:11:10] "GET /socket.io/?EIO=4&transport=polling&t=OhcswjF&sid=fnhrayL4ZAO-jUscAAAA HTTP/1.1" 200 181 0.000770
+(754) accepted ('192.168.178.49', 50463)
+(754) accepted ('192.168.178.49', 50464)
+192.168.178.49 - - [30/Sep/2023 17:11:10] "GET /favicon.ico HTTP/1.1" 404 522 0.006976
+192.168.178.49 - - [30/Sep/2023 17:11:11] "GET /static/images/blockbild.jpg HTTP/1.1" 200 6739 0.431361
+192.168.178.49 - - [30/Sep/2023 17:11:11] "GET /static/images/trackyard.png HTTP/1.1" 200 65438 0.114922
+192.168.178.49 - - [30/Sep/2023 17:11:23] "GET /static/Gleisplan.png HTTP/1.1" 200 13071 0.018545
+192.168.178.49 - - [30/Sep/2023 17:14:25] "GET /socket.io/?EIO=4&transport=websocket&sid=fnhrayL4ZAO-jUscAAAA HTTP/1.1" 200 0 199.098500
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+Mqtt in
+Topic:TrainControll/toGleisbox/
+Payload:b'Hallo'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+New Client connected :Session ID: -cIB38rBwVlYKvqvAAAB
+Connected clients:  1
+{'-cIB38rBwVlYKvqvAAAB': '-cIB38rBwVlYKvqvAAAB'}
+
+
+
+
+
+Weiche: 8 right
+UDPSetFunction:7 Value:1 UDP IP: 192.168.178.100 Port: 15731
+
+Weiche: 8 straight
+UDPSetFunction:7 Value:0 UDP IP: 192.168.178.100 Port: 15731
+Weiche: 8 right
+UDPSetFunction:7 Value:1 UDP IP: 192.168.178.100 Port: 15731
+
+Weiche: 8 straight
+UDPSetFunction:7 Value:0 UDP IP: 192.168.178.100 Port: 15731
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Client disconnected: -cIB38rBwVlYKvqvAAAB
+Delete Client -cIB38rBwVlYKvqvAAAB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(31316) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/threading.py", line 917, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.7/threading.py", line 865, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3591, in _thread_main
+    self.loop_forever(retry_first_connection=True)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1756, in loop_forever
+    rc = self._loop(timeout)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1164, in _loop
+    rc = self.loop_read()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 1556, in loop_read
+    rc = self._packet_read()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 2439, in _packet_read
+    rc = self._packet_handle()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3033, in _packet_handle
+    return self._handle_publish()
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3327, in _handle_publish
+    self._handle_on_message(message)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/paho/mqtt/client.py", line 3570, in _handle_on_message
+    on_message(self, self._userdata, message)
+  File "server.py", line 329, in mqtt_on_message
+    message=json.loads(m_decode) #decode json data
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+Mqtt in
+Topic:TrainControll/toGleisbox/
+Payload:b'Hallo'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/subprocess.py", line 325, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.7/subprocess.py", line 990, in wait
+    return self._wait(timeout=timeout)
+  File "/usr/lib/python3.7/subprocess.py", line 1624, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 427, in <lambda>
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "server.py", line 379, in <module>
+    debug = True
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/flask_socketio/__init__.py", line 682, in run
+    run_with_reloader(run_server, **reloader_options)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 444, in run_with_reloader
+    sys.exit(reloader.restart_with_reloader())
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 266, in restart_with_reloader
+    exit_code = subprocess.call(args, env=new_environ, close_fds=False)
+  File "/usr/lib/python3.7/subprocess.py", line 327, in call
+    p.kill()
+  File "/usr/lib/python3.7/subprocess.py", line 1756, in kill
+    self.send_signal(signal.SIGKILL)
+  File "/usr/lib/python3.7/subprocess.py", line 1746, in send_signal
+    os.kill(self.pid, sig)
+ProcessLookupError: [Errno 3] No such process

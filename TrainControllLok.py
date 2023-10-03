@@ -56,7 +56,6 @@ class Lok:
         print ("Speed was changed to: ", speed)
         Lok.setDir(id, dir)
         print ("Direction changed to: ", dir)
-
         Lok.printLokList()
 
     @staticmethod
