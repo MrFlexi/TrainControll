@@ -1,0 +1,429 @@
+2023-09-30 17:05:03,459 - TrainControll - INFO - Mqtt in
+2023-09-30 18:45:32,111 - TrainControll - INFO - Setup....
+2023-09-30 18:45:32,326 - TrainControll - INFO - waiting for network..
+2023-09-30 18:45:39,012 - TrainControll - INFO - Starting MQTT
+2023-09-30 18:45:39,064 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 18:45:39,089 - TrainControll - INFO - MQTT connected 0
+2023-09-30 18:45:39,400 - TrainControll - INFO - Ready...
+2023-09-30 18:48:24,035 - TrainControll - INFO - Setup....
+2023-09-30 18:48:24,422 - TrainControll - INFO - waiting for network..
+2023-09-30 18:48:31,553 - TrainControll - INFO - Starting MQTT
+2023-09-30 18:48:31,589 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 18:48:31,607 - TrainControll - INFO - MQTT connected 0
+2023-09-30 18:48:41,504 - TrainControll - INFO - Ready...
+2023-09-30 18:48:45,611 - TrainControll - INFO - Setup....
+2023-09-30 18:48:45,799 - TrainControll - INFO - waiting for network..
+2023-09-30 18:48:52,917 - TrainControll - INFO - Starting MQTT
+2023-09-30 18:48:53,008 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 18:48:53,028 - TrainControll - INFO - MQTT connected 0
+2023-09-30 18:48:53,391 - TrainControll - INFO - Ready...
+2023-09-30 18:49:01,044 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:01,044 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:01,071 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 18:49:01,078 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 18:49:12,721 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:12,721 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:12,756 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 18:49:12,756 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 18:49:27,162 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:27,163 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:27,193 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:27,208 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:30,025 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:30,027 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:30,058 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:30,063 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:38,592 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:38,595 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:38,627 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:38,634 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:53,365 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:53,368 - TrainControll - INFO - Mqtt in
+2023-09-30 18:49:53,393 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:49:53,403 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 18:50:07,846 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:07,864 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:07,918 - TrainControll - INFO - Lok: 8 Speed 31 / 1
+2023-09-30 18:50:07,965 - TrainControll - INFO - Lok: 8 Speed 31 / 1
+2023-09-30 18:50:32,086 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:32,087 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:32,145 - TrainControll - INFO - Lok: 5 Speed 64 / 1
+2023-09-30 18:50:32,162 - TrainControll - INFO - Lok: 5 Speed 64 / 1
+2023-09-30 18:50:48,661 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:48,663 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:48,696 - TrainControll - INFO - Lok: 6 Speed 44 / 1
+2023-09-30 18:50:48,697 - TrainControll - INFO - Lok: 6 Speed 44 / 1
+2023-09-30 18:50:49,391 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:49,391 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:49,444 - TrainControll - INFO - Lok: 6 Speed 73 / 1
+2023-09-30 18:50:49,456 - TrainControll - INFO - Lok: 6 Speed 73 / 1
+2023-09-30 18:50:51,429 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:51,432 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:51,466 - TrainControll - INFO - Lok: 6 Speed 29 / 1
+2023-09-30 18:50:51,481 - TrainControll - INFO - Lok: 6 Speed 29 / 1
+2023-09-30 18:50:53,578 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:53,591 - TrainControll - INFO - Mqtt in
+2023-09-30 18:50:53,610 - TrainControll - INFO - Lok: 6 Speed 69 / 1
+2023-09-30 18:50:53,625 - TrainControll - INFO - Lok: 6 Speed 69 / 1
+2023-09-30 18:51:47,977 - TrainControll - INFO - Socket IO
+2023-09-30 18:51:48,005 - TrainControll - INFO - Lok: 1 Speed 39 / 0
+2023-09-30 18:52:10,596 - TrainControll - INFO - Mqtt in
+2023-09-30 18:52:10,599 - TrainControll - INFO - Mqtt in
+2023-09-30 18:52:10,658 - TrainControll - INFO - Lok: 5 Speed 33 / 1
+2023-09-30 18:52:10,665 - TrainControll - INFO - Lok: 5 Speed 33 / 1
+2023-09-30 18:52:31,986 - TrainControll - INFO - Mqtt in
+2023-09-30 18:52:31,992 - TrainControll - INFO - Mqtt in
+2023-09-30 18:52:32,026 - TrainControll - INFO - Lok: 1 Speed 63 / 1
+2023-09-30 18:52:32,042 - TrainControll - INFO - Lok: 1 Speed 63 / 1
+2023-09-30 18:56:20,130 - TrainControll - INFO - Setup....
+2023-09-30 18:56:20,291 - TrainControll - INFO - waiting for network..
+2023-09-30 18:56:26,682 - TrainControll - INFO - Starting MQTT
+2023-09-30 18:56:26,720 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 18:56:26,742 - TrainControll - INFO - MQTT connected 0
+2023-09-30 18:56:26,977 - TrainControll - INFO - Ready...
+2023-09-30 18:56:29,532 - TrainControll - INFO - Setup....
+2023-09-30 18:56:29,691 - TrainControll - INFO - waiting for network..
+2023-09-30 18:56:36,102 - TrainControll - INFO - Starting MQTT
+2023-09-30 18:56:36,146 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 18:56:36,172 - TrainControll - INFO - MQTT connected 0
+2023-09-30 18:56:36,413 - TrainControll - INFO - Ready...
+2023-09-30 18:56:44,709 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:44,709 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:44,754 - TrainControll - INFO - Lok: 1 Speed 62 / 1
+2023-09-30 18:56:44,754 - TrainControll - INFO - Lok: 1 Speed 62 / 1
+2023-09-30 18:56:51,589 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:51,594 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:51,645 - TrainControll - INFO - Lok: 1 Speed 22 / 1
+2023-09-30 18:56:51,665 - TrainControll - INFO - Lok: 1 Speed 22 / 1
+2023-09-30 18:56:57,111 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:57,114 - TrainControll - INFO - Mqtt in
+2023-09-30 18:56:57,173 - TrainControll - INFO - Lok: 1 Speed 59 / 1
+2023-09-30 18:56:57,193 - TrainControll - INFO - Lok: 1 Speed 59 / 1
+2023-09-30 18:57:56,915 - TrainControll - INFO - Mqtt in
+2023-09-30 18:57:56,917 - TrainControll - INFO - Mqtt in
+2023-09-30 19:01:33,837 - TrainControll - INFO - Setup....
+2023-09-30 19:01:34,000 - TrainControll - INFO - waiting for network..
+2023-09-30 19:01:40,383 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:01:40,432 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:01:40,452 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:01:40,730 - TrainControll - INFO - Ready...
+2023-09-30 19:01:43,337 - TrainControll - INFO - Setup....
+2023-09-30 19:01:43,534 - TrainControll - INFO - waiting for network..
+2023-09-30 19:01:49,912 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:01:49,944 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:01:49,963 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:01:50,225 - TrainControll - INFO - Ready...
+2023-09-30 19:04:17,432 - TrainControll - INFO - Mqtt in
+2023-09-30 19:04:17,433 - TrainControll - INFO - Mqtt in
+2023-09-30 19:05:04,547 - TrainControll - INFO - Setup....
+2023-09-30 19:05:04,728 - TrainControll - INFO - waiting for network..
+2023-09-30 19:05:11,387 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:05:11,423 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:05:11,443 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:05:11,745 - TrainControll - INFO - Ready...
+2023-09-30 19:06:16,623 - TrainControll - INFO - Setup....
+2023-09-30 19:06:16,831 - TrainControll - INFO - waiting for network..
+2023-09-30 19:06:23,510 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:06:24,368 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:06:24,388 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:06:24,661 - TrainControll - INFO - Ready...
+2023-09-30 19:06:34,860 - TrainControll - INFO - Mqtt in
+2023-09-30 19:06:34,884 - TrainControll - INFO - Weiche: 8 straigh
+2023-09-30 19:08:49,225 - TrainControll - INFO - Setup....
+2023-09-30 19:08:49,377 - TrainControll - INFO - waiting for network..
+2023-09-30 19:08:55,733 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:08:55,777 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:08:55,806 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:08:56,055 - TrainControll - INFO - Ready...
+2023-09-30 19:08:58,589 - TrainControll - INFO - Setup....
+2023-09-30 19:08:58,747 - TrainControll - INFO - waiting for network..
+2023-09-30 19:09:05,132 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:09:05,184 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:09:05,208 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:09:05,449 - TrainControll - INFO - Ready...
+2023-09-30 19:09:21,372 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:21,372 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:21,391 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:09:21,393 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:09:26,068 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:26,070 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:26,086 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:09:26,089 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:09:38,880 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:38,882 - TrainControll - INFO - Mqtt in
+2023-09-30 19:09:38,920 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:09:38,922 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:10:35,201 - TrainControll - INFO - Mqtt in
+2023-09-30 19:10:35,202 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:20,665 - TrainControll - INFO - Setup....
+2023-09-30 19:12:20,840 - TrainControll - INFO - waiting for network..
+2023-09-30 19:12:27,230 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:12:27,265 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:12:27,284 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:12:27,509 - TrainControll - INFO - Ready...
+2023-09-30 19:12:30,055 - TrainControll - INFO - Setup....
+2023-09-30 19:12:30,230 - TrainControll - INFO - waiting for network..
+2023-09-30 19:12:36,607 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:12:36,644 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:12:36,662 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:12:36,939 - TrainControll - INFO - Ready...
+2023-09-30 19:12:47,900 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:47,900 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:47,924 - TrainControll - INFO - Weiche: 1 straight
+2023-09-30 19:12:47,929 - TrainControll - INFO - Weiche: 1 straight
+2023-09-30 19:12:57,215 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:57,216 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:57,235 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:12:57,235 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:12:59,879 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:59,880 - TrainControll - INFO - Mqtt in
+2023-09-30 19:12:59,898 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:12:59,898 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:13:02,025 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:02,027 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:02,045 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:02,048 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:07,262 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:07,267 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:07,288 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:13:07,297 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:13:08,890 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:08,891 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:08,909 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:08,909 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:21,791 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:21,795 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:21,816 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:21,820 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:13:24,969 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:24,969 - TrainControll - INFO - Mqtt in
+2023-09-30 19:13:24,985 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:13:24,987 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:15:59,197 - TrainControll - INFO - Mqtt in
+2023-09-30 19:15:59,200 - TrainControll - INFO - Mqtt in
+2023-09-30 19:15:59,229 - TrainControll - INFO - Lok: 1 Speed 12 / 1
+2023-09-30 19:15:59,237 - TrainControll - INFO - Lok: 1 Speed 12 / 1
+2023-09-30 19:16:00,323 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,325 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,375 - TrainControll - INFO - Lok: 1 Speed 13 / 1
+2023-09-30 19:16:00,375 - TrainControll - INFO - Lok: 1 Speed 13 / 1
+2023-09-30 19:16:00,732 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,737 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,779 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:16:00,788 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:16:00,814 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,814 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,854 - TrainControll - INFO - Lok: 1 Speed 20 / 1
+2023-09-30 19:16:00,858 - TrainControll - INFO - Lok: 1 Speed 20 / 1
+2023-09-30 19:16:00,874 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,885 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:00,905 - TrainControll - INFO - Lok: 1 Speed 25 / 1
+2023-09-30 19:16:00,919 - TrainControll - INFO - Lok: 1 Speed 25 / 1
+2023-09-30 19:16:01,025 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,026 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,054 - TrainControll - INFO - Lok: 1 Speed 30 / 1
+2023-09-30 19:16:01,063 - TrainControll - INFO - Lok: 1 Speed 30 / 1
+2023-09-30 19:16:01,075 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,084 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,115 - TrainControll - INFO - Lok: 1 Speed 35 / 1
+2023-09-30 19:16:01,122 - TrainControll - INFO - Lok: 1 Speed 35 / 1
+2023-09-30 19:16:01,139 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,163 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,178 - TrainControll - INFO - Lok: 1 Speed 41 / 1
+2023-09-30 19:16:01,198 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,209 - TrainControll - INFO - Lok: 1 Speed 41 / 1
+2023-09-30 19:16:01,230 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,231 - TrainControll - INFO - Lok: 1 Speed 48 / 1
+2023-09-30 19:16:01,251 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,271 - TrainControll - INFO - Lok: 1 Speed 48 / 1
+2023-09-30 19:16:01,286 - TrainControll - INFO - Lok: 1 Speed 55 / 1
+2023-09-30 19:16:01,291 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,309 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,352 - TrainControll - INFO - Lok: 1 Speed 61 / 1
+2023-09-30 19:16:01,355 - TrainControll - INFO - Lok: 1 Speed 55 / 1
+2023-09-30 19:16:01,372 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,377 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,407 - TrainControll - INFO - Lok: 1 Speed 66 / 1
+2023-09-30 19:16:01,410 - TrainControll - INFO - Lok: 1 Speed 61 / 1
+2023-09-30 19:16:01,426 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,430 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,462 - TrainControll - INFO - Lok: 1 Speed 70 / 1
+2023-09-30 19:16:01,462 - TrainControll - INFO - Lok: 1 Speed 66 / 1
+2023-09-30 19:16:01,481 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,484 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,536 - TrainControll - INFO - Lok: 1 Speed 75 / 1
+2023-09-30 19:16:01,540 - TrainControll - INFO - Lok: 1 Speed 70 / 1
+2023-09-30 19:16:01,558 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,562 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,590 - TrainControll - INFO - Lok: 1 Speed 79 / 1
+2023-09-30 19:16:01,597 - TrainControll - INFO - Lok: 1 Speed 75 / 1
+2023-09-30 19:16:01,614 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,621 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,654 - TrainControll - INFO - Lok: 1 Speed 79 / 1
+2023-09-30 19:16:01,655 - TrainControll - INFO - Lok: 1 Speed 81 / 1
+2023-09-30 19:16:01,675 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,677 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,712 - TrainControll - INFO - Lok: 1 Speed 81 / 1
+2023-09-30 19:16:01,714 - TrainControll - INFO - Lok: 1 Speed 83 / 1
+2023-09-30 19:16:01,735 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,747 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,771 - TrainControll - INFO - Lok: 1 Speed 83 / 1
+2023-09-30 19:16:01,786 - TrainControll - INFO - Lok: 1 Speed 81 / 1
+2023-09-30 19:16:01,792 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,806 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,827 - TrainControll - INFO - Lok: 1 Speed 81 / 1
+2023-09-30 19:16:01,849 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,849 - TrainControll - INFO - Lok: 1 Speed 75 / 1
+2023-09-30 19:16:01,871 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,891 - TrainControll - INFO - Lok: 1 Speed 75 / 1
+2023-09-30 19:16:01,911 - TrainControll - INFO - Lok: 1 Speed 66 / 1
+2023-09-30 19:16:01,913 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,947 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:01,949 - TrainControll - INFO - Lok: 1 Speed 66 / 1
+2023-09-30 19:16:01,983 - TrainControll - INFO - Lok: 1 Speed 58 / 1
+2023-09-30 19:16:01,991 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,004 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,030 - TrainControll - INFO - Lok: 1 Speed 58 / 1
+2023-09-30 19:16:02,037 - TrainControll - INFO - Lok: 1 Speed 54 / 1
+2023-09-30 19:16:02,056 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,058 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,091 - TrainControll - INFO - Lok: 1 Speed 51 / 1
+2023-09-30 19:16:02,093 - TrainControll - INFO - Lok: 1 Speed 54 / 1
+2023-09-30 19:16:02,121 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,174 - TrainControll - INFO - Lok: 1 Speed 51 / 1
+2023-09-30 19:16:02,381 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,383 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,417 - TrainControll - INFO - Lok: 1 Speed 50 / 1
+2023-09-30 19:16:02,420 - TrainControll - INFO - Lok: 1 Speed 50 / 1
+2023-09-30 19:16:02,562 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,563 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,593 - TrainControll - INFO - Lok: 1 Speed 49 / 1
+2023-09-30 19:16:02,604 - TrainControll - INFO - Lok: 1 Speed 49 / 1
+2023-09-30 19:16:02,612 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,625 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,642 - TrainControll - INFO - Lok: 1 Speed 51 / 1
+2023-09-30 19:16:02,658 - TrainControll - INFO - Lok: 1 Speed 51 / 1
+2023-09-30 19:16:02,659 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,680 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,691 - TrainControll - INFO - Lok: 1 Speed 44 / 1
+2023-09-30 19:16:02,715 - TrainControll - INFO - Lok: 1 Speed 44 / 1
+2023-09-30 19:16:02,770 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,772 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,806 - TrainControll - INFO - Lok: 1 Speed 34 / 1
+2023-09-30 19:16:02,809 - TrainControll - INFO - Lok: 1 Speed 34 / 1
+2023-09-30 19:16:02,829 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,830 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,863 - TrainControll - INFO - Lok: 1 Speed 21 / 1
+2023-09-30 19:16:02,870 - TrainControll - INFO - Lok: 1 Speed 21 / 1
+2023-09-30 19:16:02,882 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,891 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:02,915 - TrainControll - INFO - Lok: 1 Speed 4 / 1
+2023-09-30 19:16:02,917 - TrainControll - INFO - Lok: 1 Speed 4 / 1
+2023-09-30 19:16:03,488 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,496 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,520 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:16:03,538 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:16:03,538 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,570 - TrainControll - INFO - Lok: 1 Speed 20 / 1
+2023-09-30 19:16:03,575 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,589 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,609 - TrainControll - INFO - Lok: 1 Speed 20 / 1
+2023-09-30 19:16:03,620 - TrainControll - INFO - Lok: 1 Speed 29 / 1
+2023-09-30 19:16:03,632 - TrainControll - INFO - Mqtt in
+2023-09-30 19:16:03,662 - TrainControll - INFO - Lok: 1 Speed 29 / 1
+2023-09-30 19:18:09,346 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,347 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,379 - TrainControll - INFO - Lok: 1 Speed 19 / 1
+2023-09-30 19:18:09,379 - TrainControll - INFO - Lok: 1 Speed 19 / 1
+2023-09-30 19:18:09,398 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,399 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,431 - TrainControll - INFO - Lok: 1 Speed 23 / 1
+2023-09-30 19:18:09,434 - TrainControll - INFO - Lok: 1 Speed 23 / 1
+2023-09-30 19:18:09,452 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,456 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,485 - TrainControll - INFO - Lok: 1 Speed 32 / 1
+2023-09-30 19:18:09,489 - TrainControll - INFO - Lok: 1 Speed 32 / 1
+2023-09-30 19:18:09,507 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,510 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,551 - TrainControll - INFO - Lok: 1 Speed 44 / 1
+2023-09-30 19:18:09,556 - TrainControll - INFO - Lok: 1 Speed 44 / 1
+2023-09-30 19:18:09,573 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,578 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:09,608 - TrainControll - INFO - Lok: 1 Speed 50 / 1
+2023-09-30 19:18:09,611 - TrainControll - INFO - Lok: 1 Speed 50 / 1
+2023-09-30 19:18:17,646 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:17,646 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:17,680 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:18:17,685 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:18:18,467 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:18,468 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:18,505 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:18:18,509 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:18:19,168 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:19,172 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:19,187 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:18:19,195 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:18:41,198 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:41,199 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:41,230 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:18:41,232 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:18:42,416 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:42,416 - TrainControll - INFO - Mqtt in
+2023-09-30 19:18:42,441 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:18:42,444 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:20:34,148 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:34,149 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:34,208 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:20:34,208 - TrainControll - INFO - Lok: 1 Speed 17 / 1
+2023-09-30 19:20:34,959 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:34,961 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:35,011 - TrainControll - INFO - Lok: 1 Speed 57 / 1
+2023-09-30 19:20:35,016 - TrainControll - INFO - Lok: 1 Speed 57 / 1
+2023-09-30 19:20:38,741 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:38,742 - TrainControll - INFO - Mqtt in
+2023-09-30 19:20:38,771 - TrainControll - INFO - Lok: 1 Speed 26 / 1
+2023-09-30 19:20:38,777 - TrainControll - INFO - Lok: 1 Speed 26 / 1
+2023-09-30 19:25:48,317 - TrainControll - INFO - Setup....
+2023-09-30 19:25:48,526 - TrainControll - INFO - waiting for network..
+2023-09-30 19:25:54,894 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:25:54,948 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:25:54,962 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:25:55,324 - TrainControll - INFO - Ready...
+2023-09-30 19:25:58,203 - TrainControll - INFO - Setup....
+2023-09-30 19:25:58,362 - TrainControll - INFO - waiting for network..
+2023-09-30 19:26:04,956 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:26:05,017 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:26:05,042 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:26:05,506 - TrainControll - INFO - Ready...
+2023-09-30 19:28:03,863 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:03,863 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:03,880 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 19:28:03,881 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 19:28:04,713 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:04,716 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:04,741 - TrainControll - INFO - Weiche: 1 straight
+2023-09-30 19:28:04,751 - TrainControll - INFO - Weiche: 1 straight
+2023-09-30 19:28:05,736 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:05,736 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:05,768 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 19:28:05,769 - TrainControll - INFO - Weiche: 1 left
+2023-09-30 19:28:12,882 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:12,888 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:12,901 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:28:12,910 - TrainControll - INFO - Weiche: 8 straight
+2023-09-30 19:28:14,022 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:14,024 - TrainControll - INFO - Mqtt in
+2023-09-30 19:28:14,049 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:28:14,050 - TrainControll - INFO - Weiche: 8 left
+2023-09-30 19:28:06,955 - TrainControll - INFO - Setup....
+2023-09-30 19:28:07,164 - TrainControll - INFO - waiting for network..
+2023-09-30 19:28:13,572 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:28:13,614 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:28:13,638 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:28:13,958 - TrainControll - INFO - Ready...
+2023-09-30 19:28:16,755 - TrainControll - INFO - Setup....
+2023-09-30 19:28:16,916 - TrainControll - INFO - waiting for network..
+2023-09-30 19:28:23,322 - TrainControll - INFO - Starting MQTT
+2023-09-30 19:28:23,372 - TrainControll - INFO - Scheduling Tasks
+2023-09-30 19:28:23,416 - TrainControll - INFO - MQTT connected 0
+2023-09-30 19:28:23,756 - TrainControll - INFO - Ready...

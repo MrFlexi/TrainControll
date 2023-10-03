@@ -12673,3 +12673,1028 @@ Traceback (most recent call last):
   File "/usr/lib/python3.7/subprocess.py", line 1746, in send_signal
     os.kill(self.pid, sig)
 ProcessLookupError: [Errno 3] No such process
+/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/luma/core/interface/serial.py:200: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  self._gpio.setup(pin, self._gpio.OUT)
+(749) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(19053) wsgi starting up on http://0.0.0.0:3033
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected Connection Accepted.
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Setup....
+
+Lokliste
+1 S-BAHN  0 
+2 ETA-515  0 
+3 BR-216 Beige  0 
+4 BR-212  0 
+5 BR-216 Rot  0 
+6 SBB Cargo  0 
+7 Portfeeder  0 
+8 BR-50  0 
+9 BR-151  0 
+1 1 DCC right 0 1
+2 2 DCC left 0 1
+3 3 DCC left 0 0
+4 4 DCC left 0 1
+5 5 DCC right 0 0
+6 6 DCC right 0 0
+7 7 DCC right 0 0
+8 8 DCC right 0 0
+9 9 DCC right 0 0
+-------------------------
+Userliste
+User:0 Admin /static/images/S-Bahn.jpg
+User:1 Jochen /static/images/S-Bahn.jpg
+User:2 Valentina /static/images/S-Bahn.jpg
+-------------------------
+waiting for network..
+Starting MQTT
+Scheduling Tasks
+MQTT connected 0
+Ready...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/subprocess.py", line 325, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.7/subprocess.py", line 990, in wait
+    return self._wait(timeout=timeout)
+  File "/usr/lib/python3.7/subprocess.py", line 1624, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.7/subprocess.py", line 1582, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 427, in <lambda>
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "server.py", line 380, in <module>
+    debug = True
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/flask_socketio/__init__.py", line 682, in run
+    run_with_reloader(run_server, **reloader_options)
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 444, in run_with_reloader
+    sys.exit(reloader.restart_with_reloader())
+  File "/home/pi/projects/TrainControll/venv/lib/python3.7/site-packages/werkzeug/_reloader.py", line 266, in restart_with_reloader
+    exit_code = subprocess.call(args, env=new_environ, close_fds=False)
+  File "/usr/lib/python3.7/subprocess.py", line 327, in call
+    p.kill()
+  File "/usr/lib/python3.7/subprocess.py", line 1756, in kill
+    self.send_signal(signal.SIGKILL)
+  File "/usr/lib/python3.7/subprocess.py", line 1746, in send_signal
+    os.kill(self.pid, sig)
+ProcessLookupError: [Errno 3] No such process
