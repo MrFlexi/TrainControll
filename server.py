@@ -268,13 +268,13 @@ def fabric_load():
 #-----------------------------------------------------------------------------------------------
 # The callback for when the client receives a CONNACK response from the server.
 def mqtt_on_connect(client, userdata, flags, rc):
-    log4j.write("MQTT connected "+str(rc))
+    log4j.write("MQTT connected "+mqtt.connack_string(rc))
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
     client.subscribe(mqtt_topic)
 
 def mqtt_on_disconnect(client, userdata,rc=0):
-    logging.debug("Mqtt disconnected "+str(rc))
+    log4j.write("MQTT disconnected "+mqtt.connack_string(rc))
     client.loop_stop
 
 # The callback for when a PUBLISH message is received from the server.
@@ -315,10 +315,11 @@ if __name__ == '__main__':
     log4j.write('Starting MQTT')
     mqtt_topic = "TrainControll/toGleisbox/"
     client = mqtt.Client()
+    client.will_set("TrainControll/lastWill", "GLEISBOX_LOST_CONNECTION", 0, False)
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
     client.on_message = mqtt_on_message
-    client.connect("85.209.49.65", 1883, 300)
+    client.connect("85.209.49.65", port=1883, keepalive=60)
     client.loop_start()    
     
     log4j.write('Scheduling Tasks')
