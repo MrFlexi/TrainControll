@@ -81,7 +81,7 @@ class Lok:
         jd = []
         for x in Lok.LokList:
             jd.append(x.__dict__)
-        return (json.dumps(jd))
+        return (json.dumps(jd, indent=4))
 
     def getDataJSONforClient(client_id):        
         x = Lok.find_ByClient(client_id)

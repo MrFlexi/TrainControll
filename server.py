@@ -12,6 +12,7 @@
 #           activate                 
 #                                   ./venv/Scripts/activate
 import sys
+import platform
 import math
 import time
 import datetime
@@ -23,9 +24,14 @@ import json
 import base64
 import binascii
 import paho.mqtt.client as mqtt
-import RPi.GPIO as GPIO
 import asyncio
 
+if platform.system() == "Linux" and "raspberrypi" in platform.uname().machine.lower():
+    print("Raspberry Pi detected")
+    import RPi.GPIO as GPIO
+    from gpiozero import LED, PWMLED    
+else:
+    print("Not running on Raspberry Pi, skipping import.")
 
 from TrainControll import Clients, UDP, Gleisplan, User, lcd, log4j
 from TrainControllLok import Lok
@@ -38,7 +44,7 @@ from flask_apscheduler import APScheduler
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
 from pathlib import Path
 from time import ctime
-from gpiozero import LED, PWMLED
+
 
 # Set this variable to "threading", "eventlet" or "gevent" to test the
     # different async modes, or leave it set to None for the application to choose
@@ -48,6 +54,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 CORS(app)
 socketio = SocketIO(app, async_mode=async_mode, cors_allowed_origins="*")
+
+
+# mqttServer = "85.209.49.65"
+mqttServer = "127.0.0.1"
 
 # ------------------------------------------------------------ 
 #                       GPIO PINs 
@@ -81,12 +91,11 @@ def task_blinkLed1s():
       
 
 # ---------------------  SETUP  ------------------------------------
-ledAlive = LED(led_alive_pin)
-ledCanBus = PWMLED(led_can_pin)
-ledMqtt = PWMLED(led_mqtt_pin)
-
 if sys.platform.startswith('linux'):
            ledAlive.blink(on_time=2, off_time=2, background=True)
+           ledAlive = LED(led_alive_pin)
+           ledCanBus = PWMLED(led_can_pin)
+           ledMqtt = PWMLED(led_mqtt_pin)
 
 
 log4j()
@@ -169,6 +178,11 @@ def track_create():
 # ---------------------  HTTP API ------------------------------------
 # React on Locomotion changes
 # --------------------------------------------------------------------
+@app.route('/GetLokList', methods=['GET'])
+def GetLokList():
+    return Lok.getDataJSON()
+
+
 @app.route('/LokChanged', methods=['POST'])
 def LokChanged():
     print()
@@ -187,6 +201,10 @@ def LokChanged():
         return "[SUCCESS] Message send", 200
     else:
         return "[FAILED] no Json payload found", 204
+    
+    
+    
+    
 
 # ---------------------  SocketIO Event Handling ------------------------------------
 # React on slide change on clients
@@ -362,7 +380,7 @@ if __name__ == '__main__':
     client.on_connect = mqtt_on_connect
     client.on_disconnect = mqtt_on_disconnect
     client.on_message = mqtt_on_message
-    client.connect("85.209.49.65", port=1883, keepalive=60)
+    client.connect(mqttServer, port=1883, keepalive=60)
     client.loop_start()    
     
     log4j.write('Scheduling Tasks')
